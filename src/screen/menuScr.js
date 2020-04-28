@@ -5,11 +5,7 @@ import {stateToLocalStorage} from "../api/localStorage";
 
 export default function menuScr(props) {
     const {state, dispatch} = useContext(ContextApp);
-    useEffect(() => {
-            // dispatch({type: 'LAST_STATE', payload: "menu"});
-        stateToLocalStorage(dispatch, {type: 'LAST_STATE'}, {payload: "menu"}, state)
-            console.log("dispatch({type: 'LAST_STATE', payload: \"menu\"");
-    }, []);
+
 
     return (
         <View style={styles.container}>
