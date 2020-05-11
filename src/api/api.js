@@ -1,32 +1,44 @@
-import { URL_GET_CATEGORY } from './../constants/index';
+import { PROXY_URL_PC, URL_GET_AUTH, USER_AUT } from './../constants/index';
+import fetch from 'node-fetch';
 
-export const API_key = "7408fbfbded5974d9b625d05237f6a6f";
-const log = "dzhmaylo@gmail.com";
-const pas = "b4a62dea0279a07036a87e355af638b4";
-
-let user = 'login='+ log + '&password=' + pas;
-
-const URL_GET_AUTH = 'https://api.brain.com.ua/auth';
-//for PC Chrome
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-//for smart/anbdroid
-// const proxyurl = "";
-
-export async function fetchData() {
-    const requestInit = {
+export const getSid = async (dispatch = null) => {
+    let requestInit = {
         method: 'POST',
         headers: {
-            'Content-Type':'application/x-www-form-urlencoded'
-        }, 
-        body: user
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: USER_AUT
     };
-    console.log('requestInit',requestInit);
-    return (await fetch(proxyurl + URL_GET_AUTH, requestInit)
-        .then(response => response.text(),
-            error => console.log('An error occurred.', error))
-        .then(text => {
-            console.log("URL_GET_AUTH", text)
-            return text;
-        }))
+    try {
+        const json = await fetchData(URL_GET_AUTH, requestInit);
+        if (json.status == 1) {
+            console.log("getSid=>", json);
+            if (dispatch !== null)
+                dispatch({ type: 'SESSION_SID', payload: json });
+                return json.status;
+        }
+    }
+    catch (error) {
+        error = console.log('An error occurred.', error);
+        return error;
+    }
+    
+}
+
+async function fetchData(url_Connect = URL_GET_AUTH, requestInit) {
+    // console.log('fetchData requestInit', requestInit);
+    let json = "";
+    try {
+        const response = await fetch(PROXY_URL_PC + url_Connect, requestInit);
+        json = await response.json();
+        // console.log(url_Connect, json)
+        return json;
+    }
+    catch (error) {
+        error = console.log('An error occurred.', error);
+        return error;
+    }
+
+
 }
 

@@ -1,25 +1,20 @@
 import React, { useContext, useEffect } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
-import { fetchData } from './../api/api';
-
-
-// Если мы хотим выполнить действие, мы можем получить dispatch из контекста.
-
+import { getSid } from './../api/api';
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
 
     useEffect(() => {
-        fetchData().then((json) => {
-            // dispatch({ type: 'DATA_JSON', payload: json });
-            // dispatch({ type: "LOADING_END", payload: true });
-        });
-    }, [!state.loadingState.loading]);
+        getSid(dispatch).then((data) => {
+            console.log("mainScr.getSid(data)", data);
+        })
+    }, [!state.isAppInitRdc.loading]);
 
 
 
-return (
+    return (
         <View style={styles.container}>
             <Text>mainScreen!</Text>
             {/* <Button

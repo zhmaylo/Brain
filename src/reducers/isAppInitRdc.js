@@ -1,9 +1,9 @@
-import { LOADING_END } from '../constants';
+import { IS_APP_INIT } from '../constants';
 
 
-const loadingRdc = (state = false, action) => {
+const isAppInitRdc = (state = false, action) => {
     switch(action.type) {
-        case LOADING_END:
+        case IS_APP_INIT:
             return {
                 ...state,
                 loading:action.payload
@@ -12,4 +12,4 @@ const loadingRdc = (state = false, action) => {
             return state;
     }
 }
-export default loadingRdc;
+export default isAppInitRdc;

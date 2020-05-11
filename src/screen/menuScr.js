@@ -1,11 +1,10 @@
 import React, {useContext, useEffect} from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import {ContextApp} from "../reducers/unionRdc";
-import {stateToLocalStorage} from "../api/localStorage";
+
 
 export default function menuScr(props) {
     const {state, dispatch} = useContext(ContextApp);
-
 
     return (
         <View style={styles.container}>
