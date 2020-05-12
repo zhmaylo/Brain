@@ -8,10 +8,12 @@ import { URL_GET_AUTH, USER_AUT } from '../constants';
 import { PROXY_URL_PC } from './../constants/index';
 
 test('Is return SID? Ok (1) => ', async () => {
-  fetch.mockReturnValue(Promise.resolve(new Response()));
+  fetch.mockReturnValue(Promise.resolve(new Response('1')));
 
-   const data = await getSid(); 
-
+    const data = await getSid();
+    //await console.log("SID test.data 1 =>", data); 
+    // console.log("<<<<SID test.data ttttt =>", data);
+ 
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_AUTH, {
       method: 'POST',
@@ -20,39 +22,11 @@ test('Is return SID? Ok (1) => ', async () => {
       },
       body: USER_AUT
     });
-    console.log("SID test.data =>", data);
-    expect(data).toBe(512);
-
- 
+    expect(data).toBe(1);
+    
+    // console.log("SID test.data 2 =>", data);
+    // expect(data).toEqual(512);
 })
-
-
-
-
-// it('works with async/await', () => {
-//   expect.assertions(1);
-//   getSid().then (data =>{
-//   console.log("getSid()=>", data);
-//   expect(getSid()).toEqual("tprue");})
-// });
-
-
-
-
-
-// describe("Get SID function", () => {
-//   // console.log("getSid()=>",getSid())
-//   const output = "true";
-
-//   test("Is return SID? Ok (true) ", () => {
-//     // expect.assertions(1);
-//     return getSid().catch(data => {
-//       console.log("SID test=>", data);
-//       expect(data).toEqual(output);
-//     });
-//   })
-// });
-
 
 
 // tasca - testAsyncCallback Creates Async Callback test

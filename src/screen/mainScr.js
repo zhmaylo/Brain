@@ -17,6 +17,7 @@ export default function mainScr(props) {
     return (
         <View style={styles.container}>
             <Text>mainScreen!</Text>
+            
             {/* <Button
                 onPress={() => props.navigation.navigate('MenuScreen')}
                 title="MenuScreen" color="#841584"  accessibilityLabel="Learn more about this purple button"

@@ -9,29 +9,31 @@ export const getSid = async (dispatch = null) => {
         },
         body: USER_AUT
     };
+    let json = 0;
     try {
-        const json = await fetchData(URL_GET_AUTH, requestInit);
-        if (json.status == 1) {
-            console.log("getSid=>", json);
-            if (dispatch !== null)
-                dispatch({ type: 'SESSION_SID', payload: json });
-                return json.status;
+        json = await fetchData(URL_GET_AUTH, requestInit);
+        console.log("getSid=>", json);
+        if ((json.status == 1) && (dispatch !== null)) {
+             
+             dispatch({ type: 'SESSION_SID', payload: json });
+        // return json;
         }
     }
     catch (error) {
         error = console.log('An error occurred.', error);
         return error;
     }
-    
+ return json;
 }
 
-async function fetchData(url_Connect = URL_GET_AUTH, requestInit) {
-    // console.log('fetchData requestInit', requestInit);
+export async function fetchData(url_Connect = URL_GET_AUTH, requestInit) {
+    // console.log("fetchData url_Connect, requestInit", PROXY_URL_PC+url_Connect, requestInit)
     let json = "";
     try {
         const response = await fetch(PROXY_URL_PC + url_Connect, requestInit);
+        // console.log("fetchData.response", response)
         json = await response.json();
-        // console.log(url_Connect, json)
+        console.log("fetchData json =>", json);
         return json;
     }
     catch (error) {
