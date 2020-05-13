@@ -1,17 +1,23 @@
 import React, { useContext, useEffect } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
-import { getSid } from './../api/api';
+import { getSid } from '../api/sid';
+import { getCategoryList } from './../api/category';
+import { sessionSid } from './../actions/sessionSid';
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-
-    useEffect(() => {
-        getSid(dispatch).then((data) => {
-            console.log("mainScr.getSid(data)", data);
+    
+    useEffect((SID) => {
+        getSid(dispatch).then ((json) =>{
+            const sid = json.result;
+            console.log("state.sessionSidRdc.result", sid);        
+        getCategoryList(sid, dispatch).then((data) => {
+                console.log("mainScr.getCategoryList(data)", data);
+            })
         })
-    }, [!state.isAppInitRdc.loading]);
 
+    }, [!state.isAppInitRdc.loading]);
 
 
     return (

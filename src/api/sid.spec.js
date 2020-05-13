@@ -3,13 +3,13 @@ jest.mock('node-fetch');
 import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
-import { getSid } from './api';
+import { getSid } from './sid';
 import { PROXY_URL_PC, URL_GET_AUTH } from '../constants/url';
-import { USER_AUTH } from './../constants/authoriz';
+import { USER_AUTH } from '../constants/authoriz';
 
 
   test('"getSid" receiving data from the server. => ', async () => {
-    fetch.mockReturnValue(Promise.resolve(new Response('123456789')));
+    fetch.mockReturnValue(Promise.resolve(new Response('123')));
 
   const data = await getSid();
   
@@ -21,7 +21,7 @@ import { USER_AUTH } from './../constants/authoriz';
     },
     body: USER_AUTH
   });
-  expect(data).toBe(123456789);
+  expect(data).toBe(123);
 })
 
 // tasca - testAsyncCallback Creates Async Callback test
