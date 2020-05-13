@@ -1,4 +1,4 @@
-import { SESSION_SID } from '../constants';
+import { SESSION_SID } from '../constants/dar';
 
 
 const sessionSidRdc = (state = false, action) => {
@@ -6,7 +6,7 @@ const sessionSidRdc = (state = false, action) => {
         case SESSION_SID:
             return {
                 ...state,
-                sid:action.payload
+                sessionSid:action.payload
             };
         default:
             return state;

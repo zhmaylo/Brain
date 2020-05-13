@@ -1,9 +1,9 @@
-import { LOAD_DATA_JSON } from '../constants';
+import { CATEGORY_LIST } from '../constants/dar';
 
 //actions
 export function loadData(data) {
     return {
-        type: LOAD_DATA_JSON,
+        type: CATEGORY_LIST,
         payload: data
     }
 }

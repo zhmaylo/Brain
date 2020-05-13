@@ -1,16 +1,16 @@
-import { LOAD_DATA_JSON } from '../constants';
+import { CATEGORY_LIST } from '../constants/dar';
 
 
 //загружает в State данные о товаре из сервера
-const dataJsonRdc = (state = false, action) => {
+const categoryListRdc = (state = false, action) => {
     switch(action.type) {
-        case LOAD_DATA_JSON:
+        case CATEGORY_LIST:
             return {
                 ...state,
-                dataJson:action.payload
+                categoryList:action.payload
             };
         default:
             return state;
     }
 }
-export default dataJsonRdc;
+export default categoryListRdc;

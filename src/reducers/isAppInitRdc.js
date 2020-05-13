@@ -1,4 +1,4 @@
-import { IS_APP_INIT } from '../constants';
+import { IS_APP_INIT } from '../constants/dar';
 
 
 const isAppInitRdc = (state = false, action) => {
@@ -6,7 +6,7 @@ const isAppInitRdc = (state = false, action) => {
         case IS_APP_INIT:
             return {
                 ...state,
-                loading:action.payload
+                isAppInit:action.payload
             };
         default:
             return state;

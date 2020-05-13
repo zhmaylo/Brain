@@ -1,6 +1,6 @@
 import React from 'react';
 import {combineReducers} from "redux";
-import dataJsonRdc from "./dataJsonRdc";
+import categoryListRdc from "./categoryListRdc";
 import isAppInitRdc from './isAppInitRdc';
 import sessionSidRdc from './sessionSidRdc';
 
@@ -10,15 +10,15 @@ export const ContextApp = React.createContext(null);
 
 export const initialState = {
     isAppInitRdc: {
-        loading: false
+        isAppInit: false
     },
 
-    dataJsonRdc: {
-        data: Array ()
+    categoryListRdc: {
+        categoryList: Array ()
     }, 
     
     sessionSidRdc: {
-        sid: ""
+        sessionSid: ""
     }, 
     
     
@@ -28,7 +28,7 @@ export const initialState = {
 export const unionRdc = combineReducers(
 
     {
-        dataJsonRdc: dataJsonRdc,
+        categoryListRdc: categoryListRdc,
         isAppInitRdc: isAppInitRdc,
         sessionSidRdc: sessionSidRdc 
     }

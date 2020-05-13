@@ -1,4 +1,4 @@
-import { SESSION_SID } from '../constants';
+import { SESSION_SID } from '../constants/dar';
 
 //actions
 export function sessionSid(sid) {
