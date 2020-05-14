@@ -9,6 +9,7 @@ import { getCategoryList } from './category';
 test('"getCategoryList" receiving data from the server. => ', async () => {
   fetch.mockReturnValue(Promise.resolve(new Response('12345')));
   const arg="11helsfokhm2d475ennf4em1p1";
+  
   const data = await getCategoryList(arg);
   
   // console.log("Test getCategoryList", data)
@@ -16,6 +17,7 @@ test('"getCategoryList" receiving data from the server. => ', async () => {
   expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY+arg);
   expect(data).toBe(12345);
 })
+
 
 // tasca - testAsyncCallback Creates Async Callback test
 // taspr - testAsyncPromise Creates Aysnc Promise test

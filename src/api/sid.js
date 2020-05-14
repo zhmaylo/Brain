@@ -16,19 +16,19 @@ export const getSid = async (dispatch = null) => {
         body: USER_AUTH
     };
     let json = 0;
-    try {
-        json = await fetchData(URL_GET_AUTH, requestHeader);
-        // console.log("getSid=>", json);
-        if ( (dispatch !== null) && (json.status == 1)) {
-
-            dispatch({ type: 'SESSION_SID', payload: json });
-        }
+    json = await fetchData(URL_GET_AUTH, requestHeader);
+    // console.log("getSid=>", json);
+    if ( (dispatch !== null) && (json.status == 1)) {
+        dispatch({ type: 'SESSION_SID', payload: json });
     }
-    catch (error) {
-        error = console.log('An error occurred.', error);
-        return error;
-    }
-    return json;
+    return json;    
 }
+
+
+// // addTimeStampToSid - add time stamp to sid
+// // sid - sid of session
+// const addTimeStampToSid = (sid) => {
+
+// }
 
 

@@ -1,30 +1,27 @@
 
 import fetch from 'node-fetch';
-import { PROXY_URL_PC, URL_GET_CATEGORY } from '../constants/url';
+import { PROXY_URL_PC } from '../constants/url';
 
 
-// fetchData - processing errors/statuses from the server
-// requestUrl - request address
-// requestHeader - request header
-export function fetchData(requestUrl = URL_GET_CATEGORY, requestHeader = null) {
-    const json = getJSON(requestUrl, requestHeader).then(json => {
-        console.log("Status of response in fetchData");
-        console.log("fetchData.json", json)
-        if (json.error_code > 0) {
-            console.log("Error N", json.error_code, " - ", json.error_message);
-            console.log("fetchData.json", json)
-        }
-        else console.log("Status 'Ok'. No error. :) = ", json.status);
-        return json;
-    })
-    return json;
+// getStatusResponse - processing errors/status from the server
+// json - response of the server
+export function getStatusResponse(json) {
+    // console.log("Status of response in fetchData");
+    let statusResponse = -1; //status = Ok.
+    if ((json.status == 0) && (json.error_code > 0)) {
+        console.log("Error N", json.error_code, " - ", json.error_message);
+        // console.log("fetchData.json", json);
+        statusResponse = json.error_code;
+        return statusResponse; //return error code. Error value > 0
+    }
+    else console.log("Status 'Ok'. No error. :) = ", json.status);
+    return statusResponse;
 }
 
-// getJSON - receiving data from the server
+// fetchData - receiving data from the server
 // requestUrl - request address
 // requestHeader - request header
-async function getJSON(requestUrl, requestHeader) {
-    // console.log("fetchData url_Connect, requestInit", PROXY_URL_PC+url_Connect, requestInit)
+export async function fetchData(requestUrl, requestHeader) {
     let json = "";
     try {
 
@@ -34,14 +31,13 @@ async function getJSON(requestUrl, requestHeader) {
         //"if requestHeader == null" GET request, else - POST request
         if (requestHeader == null) response = await fetch(PROXY_URL_PC + requestUrl)
         else response = await fetch(PROXY_URL_PC + requestUrl, requestHeader);
-
-        // console.log("fetchData.response", response)
+        // console.log("getJSON. response =>", response );
         json = await response.json();
-        console.log("getJSON. json =>", json);
+        // console.log("getJSON. json =>", json);
         return json;
     }
     catch (error) {
-        error = console.log('An error occurred.', error);
+        console.log('fetchData => An error occurred.', error);
         return error;
     }
 }
