@@ -1,34 +1,25 @@
 
 import { URL_GET_AUTH } from '../constants/url';
-import { USER_AUTH } from '../constants/authoriz';
 import { fetchData } from './fetchData';
-
+import { setTimeStampToSid } from './timeStamp';
+import { REQUEST_HEADER_AUTH } from './../constants/authoriz';
 
 // getSid - returns session SID
 // dispatch - this is callback 
-// dispatch = null - default value for test
-export const getSid = async (dispatch = null) => {
-    let requestHeader = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: USER_AUTH
+export const getSid = async (dispatch) => {
+    let json = await fetchData(URL_GET_AUTH, REQUEST_HEADER_AUTH);
+    let sidAndTime = {sid: json.result, timeStamp: null };
+   
+    // console.log("getSid=> json ", json);
+    // console.log("getSid=> dispatch ", dispatch);
+    // console.log("getSid. sidAndTime (before IF) =>", sidAndTime.sid);
+    if ((dispatch !== null) && (json.status == 1)) {
+        
+        sidAndTime = setTimeStampToSid (sidAndTime);
+        dispatch({ type: 'SESSION_SID', payload: sidAndTime});
+        console.log("getSid. sidAndTime 2 (into IF) =>", sidAndTime.sid);    
     };
-    let json = 0;
-    json = await fetchData(URL_GET_AUTH, requestHeader);
-    // console.log("getSid=>", json);
-    if ( (dispatch !== null) && (json.status == 1)) {
-        dispatch({ type: 'SESSION_SID', payload: json });
-    }
-    return json;    
+    return sidAndTime;
 }
 
-
-// // addTimeStampToSid - add time stamp to sid
-// // sid - sid of session
-// const addTimeStampToSid = (sid) => {
-
-// }
-
-
+//state.sessionSidRdc.sessionSid - 

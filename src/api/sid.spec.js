@@ -5,56 +5,37 @@ const { Response } = jest.requireActual('node-fetch');
 
 import { getSid } from './sid';
 import { PROXY_URL_PC, URL_GET_AUTH } from '../constants/url';
-import { USER_AUTH } from '../constants/authoriz';
+import { REQUEST_HEADER_AUTH } from './../constants/authoriz';
 
-const requestHeader = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  },
-  body: USER_AUTH
-};
 const requestUrl = PROXY_URL_PC + URL_GET_AUTH;
 
-test('"getSid" receiving SID complete  => ', async () => {
-  //\u0065\u0065 = ee
-  const json = '{"status":1,"result":2}';
-
-  fetch.mockReturnValue(Promise.resolve(new Response(json)));
-
-  const data = await getSid();
-  
-  expect(fetch).toHaveBeenCalledTimes(1);
-  expect(fetch).toHaveBeenCalledWith(requestUrl, requestHeader);
-  expect(data.status).toBe(1);
-
-});
-
-
 test('"getSid" receiving SID error  => ', async () => {
-  //\u0065\u0065 = ee
-  const json = '{"status:1,"result":2}';
-
+ 
+  const json = '{"status":0,"result":2}';
   fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
-  const e = await getSid();
-  
-  expect(fetch).toHaveBeenCalledTimes(2);
-  expect(fetch).toHaveBeenCalledWith(requestUrl, requestHeader);
-  expect(e.message).toMatch('invalid');
-  
+  const data = await getSid(null);
+  // console.log("Test getSid. data", data);
+  expect(fetch).toHaveBeenCalledTimes(1);
+  expect(fetch).toHaveBeenCalledWith(requestUrl, REQUEST_HEADER_AUTH);
+  expect(data.timeStamp).toBe(null);
+
 });
 
-test('"getSid" callback "dispatch" testing => ', async (done) => {
+test('"getSid" callback "dispatch" testing. Reciving SID complete => ', 
+  async (done) => {
 
-  const payload = '{"status":1,"result":2}';
+  const payload = '{"status":1,"result":2345}';
     fetch.mockReturnValue(Promise.resolve(new Response(payload)));
   
   function dispatch (data){
-    // console.log("Test getSid callback. data", data)
+    console.log("Test getSid callback. data", data)
+    //testing callback dispatch
     expect(data.type ).toBe('SESSION_SID');
-    expect(data.payload.status ).toBe(1);
-    expect(data.payload.result ).toBe(2);
+    //testing get from the server session SID 
+    expect(data.payload.sid).toBe(2345);
+    //testing timeStamp
+    expect(data.payload.timeStamp).toBeGreaterThan (1589544323784);
     done();
   }
    await getSid (dispatch);
