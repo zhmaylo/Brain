@@ -11,9 +11,9 @@ export default function mainScr(props) {
     useEffect(() => {
         getSid(dispatch).then ((sid) =>{
             console.log("mainScr. sid=>", sid);//.sessionSid.sid);
-        getCategoryList(sid, dispatch).then((data) => {
-                console.log("mainScr.getCategoryList(data)", data);
-            })
+        // getCategoryList(sid, dispatch).then((data) => {
+        //         console.log("mainScr.getCategoryList(data)", data);
+        //     })
         })
 
     }, [!state.isAppInitRdc.loading]);

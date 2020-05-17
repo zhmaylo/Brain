@@ -20,20 +20,29 @@ import { getSid } from './sid';
 //     return statusResponse;
 // }
 
-//clone response
-let response2;
 
-export const middleWareFetch =
-    async (requestUrl, requestHeader = null, sidAndTime, dispatch) => {
-        //if time stamp out, then get new Sid
-        console.log("middleWareFetch. sidAndTime => ", sidAndTime);
-        //'updateTimeStampToSid' return 'false' - time expired
-        //'updateTimeStampToSid' return 'true' - time update
-        if (!updateTimeStampToSid(sidAndTime, dispatch)) (sidAndTime = await getSid(dispatch))
-        
-        console.log("middleWareFetch. sidAndTime 2 => ", sidAndTime);
-        return fetchData(requestUrl + sidAndTime.sid, requestHeader);
-    }
+// middleWareFetch - middle function for control over 'sid' and 'internet connection'
+// requestUrl - request address
+// requestHeader - request header (null for not Get request)
+// sidAndTime - object: sid and timeStamp 
+// dispatch - dispatch
+export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dispatch) => {
+    //if time stamp out, then get new Sid
+    // console.log("middleWareFetch. sidAndTime => ", sidAndTime);
+    
+    //'updateTimeStampToSid' return 'false' - time expired, required update sid
+    //'updateTimeStampToSid' return 'true' - time update
+   
+    sidAndTime = updateTimeStampToSid(sidAndTime, dispatch);
+    (!sidAndTime) && (sidAndTime = await getSid(dispatch))
+    
+    // console.log("middleWareFetch. sidAndTime 2 => ", sidAndTime);
+    
+    let json = await fetchData(requestUrl + sidAndTime.sid, requestHeader);
+    // console.log ("middleWareFetch. json", json.status)
+    return json;
+}
+
 
 // fetchData - receiving data from the server
 // requestUrl - request address
@@ -42,27 +51,18 @@ export async function fetchData(requestUrl, requestHeader) {
     let json = "";
     try {
         let response = null;
-        console.log("requestUrl", requestUrl);
-        console.log("requestHeader", requestHeader);
-        
+        // console.log("requestUrl", requestUrl);
+        // console.log("requestHeader", requestHeader);
+
         //"if requestHeader == null" GET request, else - POST request
         if (requestHeader == null) response = await fetch(PROXY_URL_PC + requestUrl)
         else response = await fetch(PROXY_URL_PC + requestUrl, requestHeader);
-        
-        // console.log("getJSON. response before =>", response.bodyUsed);
-        
-        /////////////////
-        // Stub for Jest- Clone response
-        //bodyUsed = false - clone response
-        if (!response.bodyUsed) response2 = response.clone();
-        //bodyUsed = true - return previous response
-        else response = response2.clone();
-        // End. Stub for Jest
-        /////////////////
 
+        // console.log("getJSON. response before =>", response.bodyUsed);
+        response = cloneResponse(response);
         json = await response.json();
-        
-        // console.log("getJSON. json =>", json);
+
+        console.log("fetchData. json =>", json);
         return json;
     }
     catch (error) {
@@ -71,3 +71,14 @@ export async function fetchData(requestUrl, requestHeader) {
     }
 }
 
+// Stub for Jest
+// cloneResponse - return clone response
+// response - response, which will cloned
+let response2;//clone response
+const cloneResponse = (response) => {
+        //bodyUsed = false - clone response
+        if (!response.bodyUsed) response2 = response.clone();
+        //bodyUsed = true - return previous response
+        else response = response2.clone();
+    return response;
+}

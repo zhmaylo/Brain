@@ -5,28 +5,43 @@ const { Response } = jest.requireActual('node-fetch');
 import { fetchData, middleWareFetch } from './fetchData';
 import { URL_GET_AUTH, PROXY_URL_PC, URL_GET_CATEGORY } from './../constants/url';
 import { USER_AUTH } from '../constants/authoriz';
+import { REQUEST_HEADER_AUTH } from './../constants/authoriz';
 
 
+const dispatch = (data) => {
+  console.log("Test middleWareFetch. dispatch data ", data);
+  return;
+}
+const sidValue = "11helsfokhm2d475ennf4em1p1"
 
-
-test('"middleWareFetch" response POST/GET, update timeStamp, complete => ', async () => {
-
-  const sidValue = "11helsfokhm2d475ennf4em1p1"
+test('"middleWareFetch" response GET, update timeStamp, complete => ', async () => {
+ 
   const sidAndTime = { sid: sidValue, timeStamp: 13456789};//SID - imitation
   const json = '{"status":1,"result":"' + sidValue + '"}';
 
   fetch.mockReturnValue(Promise.resolve(new Response(json)));
-
-  const dispatch = (data) => {
-    console.log("Test middleWareFetch. dispatch data ", data);
-    return;
-  }
-
+ 
   const data = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
   console.log("Test middleWareFetch. data", data);
 
   expect(fetch).toHaveBeenCalledTimes(2);
   expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY + sidAndTime.sid);
+  expect(data.status).toBe(1);
+});
+
+
+test('"middleWareFetch" response POST, update timeStamp, complete => ', async () => {
+
+
+  const sidAndTime = { sid: sidValue, timeStamp: 13456789};//SID - imitation
+  const json = '{"status":1,"result":2}';
+  fetch.mockReturnValue(Promise.resolve(new Response(json)));
+
+  const data = await middleWareFetch(URL_GET_AUTH, REQUEST_HEADER_AUTH, sidAndTime, dispatch);
+  console.log("Test middleWareFetch. data", data);
+
+  expect(fetch).toHaveBeenCalledTimes(4);
+  expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_AUTH, REQUEST_HEADER_AUTH);
   expect(data.status).toBe(1);
 });
 
@@ -42,7 +57,7 @@ test('"fetchData" response POST complete => ', async () => {
 
   const data = await fetchData(URL_GET_AUTH, requestHeader);
 
-  expect(fetch).toHaveBeenCalledTimes(3);
+  expect(fetch).toHaveBeenCalledTimes(5);
   expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_AUTH, requestHeader );
   expect(data.status).toBe(1);
 });
@@ -55,7 +70,7 @@ test('"fetchData" response GET complete => ', async () => {
 
   const data = await fetchData(URL_GET_CATEGORY);
 
-  expect(fetch).toHaveBeenCalledTimes(4);
+  expect(fetch).toHaveBeenCalledTimes(6);
   expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY);
   expect(data.status).toBe(1);
 });
@@ -68,7 +83,7 @@ test('"fetchData" response GET error => ', async () => {
 
   const e = await fetchData(URL_GET_CATEGORY);
 
-  expect(fetch).toHaveBeenCalledTimes(5);
+  expect(fetch).toHaveBeenCalledTimes(7);
   expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY);
   console.log("Test fetchData. e.message", e.message);
   expect(e.message).toMatch('invalid');
