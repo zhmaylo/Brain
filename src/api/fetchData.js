@@ -1,24 +1,28 @@
 
 import fetch from 'node-fetch';
 import { PROXY_URL_PC } from '../constants/url';
-import { updateTimeStampToSid } from './timeStamp';
+import { updateTimeStampToSid, isTimeExpired } from './timeStamp';
 import { getSid } from './sid';
 
 
 // getStatusResponse - processing errors/status from the server
 // json - response of the server
-// export function getStatusResponse(json) {
-//     // console.log("Status of response in fetchData");
-//     let statusResponse = -1; //status = Ok.
-//     if ((json.status == 0) && (json.error_code > 0)) {
-//         console.log("Error N", json.error_code, " - ", json.error_message);
-//         // console.log("fetchData.json", json);
-//         statusResponse = json.error_code;
-//         return statusResponse; //return error code. Error value > 0
-//     }
-//     else console.log("Status 'Ok'. No error. :) = ", json.status);
-//     return statusResponse;
-// }
+export function getStatusResponse(json) {
+    // console.log("Status of response in fetchData");
+    let statusResponse = 1; //status = Ok.
+    if ((json.status == 0) && (json.error_code > 0)) {
+        let errMesage = "Response Error N" + json.error_code + " - " + json.error_message;
+        console.log(errMesage);
+        
+        // console.log("fetchData.json", json);
+        statusResponse = json.error_code;
+        alert(errMesage);
+        return statusResponse; //return error code. Error value > 0
+      
+    }
+    else console.log("Response Status 'Ok'. No error. :) = ", json.status);
+    return statusResponse; //return "1" - no error
+}
 
 
 // middleWareFetch - middle function for control over 'sid' and 'internet connection'
@@ -27,18 +31,16 @@ import { getSid } from './sid';
 // sidAndTime - object: sid and timeStamp 
 // dispatch - dispatch
 export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dispatch) => {
-    //if time stamp out, then get new Sid
+
     // console.log("middleWareFetch. sidAndTime => ", sidAndTime);
     
-    //'updateTimeStampToSid' return 'false' - time expired, required update sid
-    //'updateTimeStampToSid' return 'true' - time update
-   
-    sidAndTime = updateTimeStampToSid(sidAndTime, dispatch);
-    (!sidAndTime) && (sidAndTime = await getSid(dispatch))
+    //if time stamp expired, then get new Sid
+    (isTimeExpired(sidAndTime)) && (sidAndTime = await getSid(dispatch))
     
     // console.log("middleWareFetch. sidAndTime 2 => ", sidAndTime);
-    
     let json = await fetchData(requestUrl + sidAndTime.sid, requestHeader);
+
+    sidAndTime = updateTimeStampToSid(sidAndTime, dispatch);
     // console.log ("middleWareFetch. json", json.status)
     return json;
 }
@@ -63,10 +65,13 @@ export async function fetchData(requestUrl, requestHeader) {
         json = await response.json();
 
         console.log("fetchData. json =>", json);
+        //find error in response. return '1' - no error
+        getStatusResponse(json);
         return json;
     }
     catch (error) {
         console.log('fetchData => An error occurred.', error);
+        // alert('fetchData => An error occurred: ' + error);
         return error;
     }
 }

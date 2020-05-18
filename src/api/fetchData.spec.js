@@ -2,11 +2,23 @@ jest.mock('node-fetch');
 import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
-import { fetchData, middleWareFetch } from './fetchData';
+import { fetchData, middleWareFetch, getStatusResponse } from './fetchData';
 import { URL_GET_AUTH, PROXY_URL_PC, URL_GET_CATEGORY } from './../constants/url';
 import { USER_AUTH } from '../constants/authoriz';
 import { REQUEST_HEADER_AUTH } from './../constants/authoriz';
 
+
+test ('"getStatusResponse - return error', () => {
+  json = {"status":0,"error_code":5,"error_message":"Session identifier is outdate"}
+  outdata = getStatusResponse(json);
+  expect(outdata).toBe(5);
+});
+
+test ('"getStatusResponse - return No error', () => {
+  json = {"status":1,"error_code":5,"error_message":"Session identifier is outdate"}
+  outdata = getStatusResponse(json);
+  expect(outdata).toBe(1);
+});
 
 const dispatch = (data) => {
   console.log("Test middleWareFetch. dispatch data ", data);

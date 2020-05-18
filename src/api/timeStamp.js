@@ -33,7 +33,7 @@ const getCurrTime = () => {
 
 // isTimeExpired - control time expired
 // sid - sid of session
-const isTimeExpired = (sidAndTime) => {
+export const isTimeExpired = (sidAndTime) => {
     if (Math.abs(getCurrTime() - sidAndTime.timeStamp) < SID_TIME_LIFE)  
         return false;//false - time not expired 
     else return true;//true - time expired
