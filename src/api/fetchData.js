@@ -1,27 +1,27 @@
 
 import fetch from 'node-fetch';
 import { PROXY_URL_PC } from '../constants/url';
-import { updateTimeStampToSid, isTimeExpired } from './timeStamp';
 import { getSid } from './sid';
+import { NO_ERRORS } from './../constants/error';
 
 
 // getStatusResponse - processing errors/status from the server
 // json - response of the server
 export function getStatusResponse(json) {
-    // console.log("Status of response in fetchData");
-    let statusResponse = 1; //status = Ok.
+    // console.log("Status of response in getStatusResponse");
+
+    // NO_ERRORS = {code: -1, message: "Response Status 'Ok'. No error. :)"}
+    let statusResponse = NO_ERRORS; //status = Ok.
+
     if ((json.status == 0) && (json.error_code > 0)) {
-        let errMesage = "Response Error N" + json.error_code + " - " + json.error_message;
-        console.log(errMesage);
-        
-        // console.log("fetchData.json", json);
-        statusResponse = json.error_code;
-        alert(errMesage);
-        return statusResponse; //return error code. Error value > 0
-      
+        let errMessage = "Response Error N" + json.error_code + " - " + json.error_message;
+        // console.log("getStatusResponse. errMessage", errMessage);
+        // console.log("getStatusResponse.json", json);
+        statusResponse = { code: json.error_code, message: json.error_message };
+        // alert(errMessage);
     }
-    else console.log("Response Status 'Ok'. No error. :) = ", json.status);
-    return statusResponse; //return "1" - no error
+    // console.log("getStatusResponse. statusResponse", statusResponse);
+    return statusResponse; //return - no error
 }
 
 
@@ -33,14 +33,20 @@ export function getStatusResponse(json) {
 export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dispatch) => {
 
     // console.log("middleWareFetch. sidAndTime => ", sidAndTime);
-    
-    //if time stamp expired, then get new Sid
-    (isTimeExpired(sidAndTime)) && (sidAndTime = await getSid(dispatch))
-    
-    // console.log("middleWareFetch. sidAndTime 2 => ", sidAndTime);
-    let json = await fetchData(requestUrl + sidAndTime.sid, requestHeader);
 
-    sidAndTime = updateTimeStampToSid(sidAndTime, dispatch);
+    let json, statusResponse;
+    for (let index = 0; index < 2; index++) {
+        json = await fetchData(requestUrl + sidAndTime.sid, requestHeader);
+        statusResponse = getStatusResponse(json);
+        // console.log("middleWareFetch. json", json);
+
+        // statusResponse = 5 = Error: Session identifier is outdate)
+        if (statusResponse.code !== 5) (index++);
+        else (sidAndTime = await getSid(dispatch));
+        
+    }
+    dispatch({ type: 'STATUS_RESPONSE', payload: statusResponse });
+    console.log("middleWareFetch. statusResponse => ", statusResponse);
     // console.log ("middleWareFetch. json", json.status)
     return json;
 }
@@ -64,9 +70,8 @@ export async function fetchData(requestUrl, requestHeader) {
         response = cloneResponse(response);
         json = await response.json();
 
-        console.log("fetchData. json =>", json);
-        //find error in response. return '1' - no error
-        getStatusResponse(json);
+        // console.log("fetchData. json =>", json);
+
         return json;
     }
     catch (error) {
@@ -79,11 +84,11 @@ export async function fetchData(requestUrl, requestHeader) {
 // Stub for Jest
 // cloneResponse - return clone response
 // response - response, which will cloned
-let response2;//clone response
+let response2;//cloned response
 const cloneResponse = (response) => {
-        //bodyUsed = false - clone response
-        if (!response.bodyUsed) response2 = response.clone();
-        //bodyUsed = true - return previous response
-        else response = response2.clone();
+    //bodyUsed = false - response will cloned
+    if (!response.bodyUsed) response2 = response.clone();
+    //bodyUsed = true - return cloned response
+    else response = response2.clone();
     return response;
 }

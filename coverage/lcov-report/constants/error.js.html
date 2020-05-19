@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for constants/authoriz.js</title>
+    <title>Code coverage report for constants/error.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">constants</a> authoriz.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">constants</a> error.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -81,24 +81,14 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -117,34 +107,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 /////////////////////////////
-// Start. Section 'User authorization data'
+// Start. Section 'Error response from server'
 //
-// API_KEY
-export const API_KEY = "7408fbfbded5974d9b625d05237f6a6f";
+export const NO_ERRORS = {code: -1, message: "Response Status 'Ok'. No error. :)"};
+// errors response
+export const ERRORS_RESPONSE = [
+    {code: 0, message: "Error 0 - rezerv / Резерв"},
+    {code: 1, message: "Login is required parameter / Не указан логин"},
+    {code: 2, message: "Password is required parameter /	Не указан пароль"},
+    {code: 3, message: "Session identifier is required parameter / Не указан идентификатор сессии (SID)"},
+    {code: 4, message: "Session identifier is fault / Неправильный идентификатор сессии (SID)"},
+    {code: 5, message: "Session identifier is outdate / Окончилось время жизни сессии"},
+&nbsp;
+    {code: 6, message: "Incorrect login or password /	Неправильный логин или пароль"},
+    {code: 7, message: "User was blocked / Пользователь заблокирован"},
+    {code: 8, message: "Incorrect categoryID / Неправильный идентификатор категории (categoryID)"},
+    {code: 9, message: "Incorrect filterID / Неправильный идентификатор фильтра (filterID)"},
+    {code: 10, message: "Incorrect limit / Неправильное значение параметра limit"}];
 //
-// user login/password
-export const LOGIN = "dzhmaylo@gmail.com";
-export const PASSMD5 = "b4a62dea0279a07036a87e355af638b4";
-export const USER_AUTH = 'login=' + LOGIN + '&amp;password=' + PASSMD5;
-//request header for authorization
-export const REQUEST_HEADER_AUTH = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: USER_AUTH
-};
-//
-// End. Section 'User authorization data'
+// End. Section 'Error response from server'
 /////////////////////////////
 &nbsp;
 &nbsp;
-/////////////////////////////
-// Start. Section 'Time Stamp'
-//
-// time life session - 5 min = 300000 ms
-// export const SID_TIME_LIFE = 300000;
-//
-// Start. Section 'Time Stamp'
-/////////////////////////////</pre></td></tr></table></pre>
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
