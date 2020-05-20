@@ -6,7 +6,7 @@
 
 export const setTimeStampToSid = (sidAndTime) => {
     // console.log("setTimeStampToSid. sidAndTime=>", sidAndTime);
-    sidAndTime.timeStamp = getCurrTime ();
+    sidAndTime.timeStamp = getCurrTime();
     return sidAndTime;
 }
 

@@ -1,38 +1,38 @@
 import React from 'react';
-import { View, StyleSheet, Button, Alert } from "react-native";
+import { View, StyleSheet, Button, Alert, Text } from "react-native";
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export const ErrorAlert = () => {
 
-  const errorAlert = () => { console.log("Into errorAlert");
-
-    // alert(title, message?, buttons?, options?);
-    Alert.alert(
-      "Alert Title",
-      "My Alert Msg",
-      [
-        {
-          text: "Cancel",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ],
-      { cancelable: false }
+   const showAlert = () =>{
+       Alert.alert(
+          'You need to...'
+       )
+    }
+    return (
+       <TouchableOpacity onPress = {showAlert} style = {styles.button}>
+          <Text>Alert</Text>
+       </TouchableOpacity>
     )
-    console.log("Finish errorAlert");
-  };
+ }
 
-  return (
-    <View style={styles.container}>
-      <Button title={"Error message"} onPress={errorAlert} />
-    </View>
-  );
-}
+  
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "space-around",
-    alignItems: "center"
+
+const styles = StyleSheet.create ({
+  button: {
+     backgroundColor: '#4ba37b',
+     width: 100,
+     borderRadius: 50,
+     alignItems: 'center',
+     marginTop: 100
   }
-});
+})
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: "space-around",
+//     alignItems: "center"
+//   }
+// });

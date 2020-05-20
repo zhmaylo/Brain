@@ -3,7 +3,6 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 import { getSid } from '../api/sid';
 import { getCategoryList } from './../api/category';
-import { sessionSid } from './../actions/sessionSid';
 import { ErrorAlert } from './../components/ErrorAlertCmp';
 
 export default function mainScr(props) {

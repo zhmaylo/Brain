@@ -1,7 +1,7 @@
 import { setTimeStampToSid } from './timeStamp';
 
 test('"setTimeStampToSid" set current time in ms. => ', () => {
-    let sidAndTime = {sid: "11helsfokhm2d475ennf4em1p1", timeStamp: null };
+    let sidAndTime = { sid: "11helsfokhm2d475ennf4em1p1", timeStamp: null };
     const data = setTimeStampToSid(sidAndTime);
     // console.log("Test getCategoryList. dipatch data", data);
     expect(data.timeStamp).toBeGreaterThan(1234567890123);
