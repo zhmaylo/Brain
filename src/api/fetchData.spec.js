@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
 import { fetchData } from './fetchData';
-import { URL_GET_AUTH, PROXY_URL_PC, URL_GET_CATEGORY } from './../constants/url';
+import { URL_POST_AUTH, PROXY_URL_PC, URL_GET_CATEGORY } from './../constants/url';
 import { USER_AUTH } from '../constants/authoriz';
 import { getStatusResponse } from './middleWareFetch';
 
@@ -25,14 +25,6 @@ test('"getStatusResponse - return No error', () => {
   expect(outdata.code).toBe(-1);
 });
 
-
-const dispatch = (data) => {
-  // console.log("Test middleWareFetch. dispatch data ", data);
-  expect(data.type).toMatch('_');
-  return;
-}
-
-
 test('"fetchData" request POST complete => ', async () => {
 
   const json = '{"status":1,"result":2}';
@@ -43,10 +35,8 @@ test('"fetchData" request POST complete => ', async () => {
   };
   fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
-  const data = await fetchData(URL_GET_AUTH, requestHeader);
-
-  // expect(fetch).toHaveBeenCalledTimes(7);
-  expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_AUTH, requestHeader);
+  const data = await fetchData(URL_POST_AUTH, requestHeader);
+  expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_POST_AUTH, requestHeader);
   expect(data.status).toBe(1);
 });
 
@@ -57,8 +47,6 @@ test('"fetchData" request GET complete => ', async () => {
   fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
   const data = await fetchData(URL_GET_CATEGORY);
-
-  // expect(fetch).toHaveBeenCalledTimes(8);
   expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY);
   expect(data.status).toBe(1);
 });
@@ -70,8 +58,6 @@ test('"fetchData" request GET error => ', async () => {
   fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
   const e = await fetchData(URL_GET_CATEGORY);
-
-  // expect(fetch).toHaveBeenCalledTimes(9);
   expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY);
   // console.log("Test fetchData. e.message", e.message);
   expect(e.message).toMatch('invalid');

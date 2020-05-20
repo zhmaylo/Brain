@@ -5,25 +5,26 @@ import { getSid } from '../api/sid';
 import { getCategoryList } from './../api/category';
 import { ErrorAlert } from './../components/ErrorAlertCmp';
 
+
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
 
     useEffect(() => {
-        getSid(dispatch).then((sid) => {
-            console.log("mainScr. sid=>", sid);//.sessionSid.sid);
-            // getCategoryList(sid, dispatch).then((data) => {
-            //         console.log("mainScr.getCategoryList(data)", data);
-            // })
-        })
+        // getSid(dispatch).then((sid) => {
+            console.log("mainScr. sid=>");//.sessionSid.sid);
+            getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
+                    console.log("mainScr.getCategoryList(data)", data);
+            })
+        // })
 
     }, [!state.isAppInitRdc.loading]);
-
-
-    return (
-
-        <View >
-            <ErrorAlert />
-            {/* <Text>mainScreen!</Text> */}
+    console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code)
+    if (state.statusResponseRdc.statusResponse.code !==-1) return <ErrorAlert />
+    else return (
+   
+        <View style={styles.container}>
+          
+            <Text>mainScreen!</Text>
 
             {/* <Button
                 onPress={() => props.navigation.navigate('MenuScreen')}
@@ -42,6 +43,7 @@ export default function mainScr(props) {
                 title="BasketScreen" color="#841584"  accessibilityLabel="Learn more about this purple button"
             /> */}
         </View>
+        
     );
 }
 

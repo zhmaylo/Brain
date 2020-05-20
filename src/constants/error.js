@@ -2,6 +2,9 @@
 /////////////////////////////
 // Start. Section 'Error response from server'
 //
+// array list of errors for automatic processing
+export const ERRORS_SID = [3,4,5];
+
 export const NO_ERRORS = {code: -1, message: "Response Status 'Ok'. No error. :)"};
 // errors response
 export const ERRORS_RESPONSE = [

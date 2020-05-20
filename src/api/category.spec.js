@@ -26,7 +26,6 @@ test('"getCategoryList" receiving data from the server. => ', async () => {
     const data = await getCategoryList(sidAndTime, dispatch);
 
     // console.log("Test getCategoryList. data", data);
-    expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY + sidAndTime.sid);
     expect(data.categoryID).toBe(8013);
     expect(data.name).toBe('ee');

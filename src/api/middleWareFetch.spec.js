@@ -2,7 +2,7 @@ jest.mock('node-fetch');
 import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
-import { URL_GET_AUTH, PROXY_URL_PC, URL_GET_CATEGORY } from './../constants/url';
+import { URL_POST_AUTH, PROXY_URL_PC, URL_GET_CATEGORY } from './../constants/url';
 import { REQUEST_HEADER_AUTH } from './../constants/authoriz';
 import { middleWareFetch } from './middleWareFetch';
 
@@ -24,24 +24,23 @@ test('"middleWareFetch" request GET, complete => ', async () => {
     const data = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
     // console.log("Test middleWareFetch. data", data);
 
-    expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY + sidAndTime.sid);
     expect(data.status).toBe(1);
 });
 
 
-test('"middleWareFetch" request POST, complete => ', async () => {
+test ('"middleWareFetch" request POST, complete => ', async () => {
 
 
     const sidAndTime = { sid: sidValue, timeStamp: new Date().getTime() };//SID - imitation
-    const json = '{"status":1,"result":2}';
+    const json = '{"status":1,"result": "' + sidAndTime.sid + '"}';
     fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
-    const data = await middleWareFetch(URL_GET_AUTH, REQUEST_HEADER_AUTH, sidAndTime, dispatch);
+    const data = await middleWareFetch(URL_POST_AUTH, REQUEST_HEADER_AUTH, sidAndTime, dispatch);
     // console.log("Test middleWareFetch. data", data);
 
     // expect(fetch).toHaveBeenCalledTimes(2);
-    expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_AUTH + sidAndTime.sid, REQUEST_HEADER_AUTH);
+    expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_POST_AUTH + sidAndTime.sid, REQUEST_HEADER_AUTH);
     expect(data.status).toBe(1);
 });
 

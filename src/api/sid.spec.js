@@ -4,10 +4,10 @@ import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
 import { getSid } from './sid';
-import { PROXY_URL_PC, URL_GET_AUTH } from '../constants/url';
+import { PROXY_URL_PC, URL_POST_AUTH } from '../constants/url';
 import { REQUEST_HEADER_AUTH } from './../constants/authoriz';
 
-const requestUrl = PROXY_URL_PC + URL_GET_AUTH;
+const requestUrl = PROXY_URL_PC + URL_POST_AUTH;
 
 // test('"getSid" receiving SID error  => ', async () => {
 

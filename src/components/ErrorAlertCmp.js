@@ -4,20 +4,15 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export const ErrorAlert = () => {
 
-   const showAlert = () =>{
-       Alert.alert(
-          'You need to...'
-       )
-    }
+
     return (
-       <TouchableOpacity onPress = {showAlert} style = {styles.button}>
+           
           <Text>Alert</Text>
-       </TouchableOpacity>
+       
     )
  }
 
   
-
 
 const styles = StyleSheet.create ({
   button: {

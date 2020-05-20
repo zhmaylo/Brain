@@ -1,5 +1,5 @@
 
-import { URL_GET_AUTH } from '../constants/url';
+import { URL_POST_AUTH } from '../constants/url';
 import { fetchData } from './fetchData';
 import { setTimeStampToSid } from './timeStamp';
 import { REQUEST_HEADER_AUTH } from './../constants/authoriz';
@@ -7,10 +7,10 @@ import { REQUEST_HEADER_AUTH } from './../constants/authoriz';
 // getSid - returns session SID
 // dispatch - this is callback 
 export const getSid = async (dispatch) => {
-    let json = await fetchData(URL_GET_AUTH, REQUEST_HEADER_AUTH);
+    let json = await fetchData(URL_POST_AUTH, REQUEST_HEADER_AUTH);
     let sidAndTime = { sid: json.result, timeStamp: null };
 
-    // console.log("getSid=> json ", json);
+    console.log("getSid=> json ", json);
     // console.log("getSid=> dispatch ", dispatch);
     // console.log("getSid. sidAndTime (before IF) =>", sidAndTime.sid);
 

@@ -1,5 +1,5 @@
 import { getSid } from './sid';
-import { NO_ERRORS } from './../constants/error';
+import { NO_ERRORS, ERRORS_SID } from './../constants/error';
 import { fetchData } from './fetchData';
 
 // middleWareFetch - middle function for control over 'sid' and 'internet connection'
@@ -9,17 +9,20 @@ import { fetchData } from './fetchData';
 // dispatch - dispatch
 export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dispatch) => {
 
-    // console.log("middleWareFetch. sidAndTime => ", sidAndTime);
-
-    let json, statusResponse;
+    console.log("middleWareFetch. sidAndTime => ", sidAndTime);
+    
+    let json;
+    
+    let statusResponse;
     for (let index = 0; index < 2; index++) {
+        
         json = await fetchData(requestUrl + sidAndTime.sid, requestHeader);
         statusResponse = getStatusResponse(json);
-        // console.log("middleWareFetch. json", json);
+        console.log("middleWareFetch. json", json);
 
-        // statusResponse = 5 = Error: Session identifier is outdate)
-        if (statusResponse.code !== 5) (index++);
-        else (sidAndTime = await getSid(dispatch));
+        // if there is an error, then return the new SID
+        if (ERRORS_SID.includes(statusResponse.code))  (sidAndTime = await getSid(dispatch));
+            else  (index++);
 
     }
     dispatch({ type: 'STATUS_RESPONSE', payload: statusResponse });
@@ -38,9 +41,11 @@ export function getStatusResponse(json) {
 
     if ((json.status == 0) && (json.error_code > 0)) {
         let errMessage = "Response Error N" + json.error_code + " - " + json.error_message;
-        // console.log("getStatusResponse. errMessage", errMessage);
+        console.log("getStatusResponse. errMessage", errMessage);
         // console.log("getStatusResponse.json", json);
-        statusResponse = { code: json.error_code, message: json.error_message };
+        //statusResponse = { code: json.error_code, message: json.error_message };
+        statusResponse = { code: json.error_code, message: errMessage };
+
         // alert(errMessage);
     }
     // console.log("getStatusResponse. statusResponse", statusResponse);
