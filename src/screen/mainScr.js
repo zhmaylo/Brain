@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
-import { getSid } from '../api/sid';
-import { getCategoryList } from './../api/category';
+
+import { getCategoryList } from './../api/category/category';
 import { ErrorAlert } from './../components/ErrorAlertCmp';
 
 
@@ -11,15 +11,20 @@ export default function mainScr(props) {
 
     useEffect(() => {
         // getSid(dispatch).then((sid) => {
-            console.log("mainScr. sid=>");//.sessionSid.sid);
-            getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
-                    console.log("mainScr.getCategoryList(data)", data);
-            })
+            // console.log("mainScr. sid=>");//.sessionSid.sid);
+            // getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
+                    // console.log("mainScr.getCategoryList(data)", data);
+            // })
         // })
 
     }, [!state.isAppInitRdc.loading]);
-    console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code)
-    if (state.statusResponseRdc.statusResponse.code !==-1) return <ErrorAlert />
+
+    console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
+    let statusResponse = state.statusResponseRdc.statusResponse;
+
+    if (state.statusResponseRdc.statusResponse.code ==-1)
+        // return (<ErrorAlert errorResp = "123" />);
+        return (<ErrorAlert errorResp = {statusResponse} />);
     else return (
    
         <View style={styles.container}>

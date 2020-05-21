@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for api/fetchData.js</title>
+    <title>Code coverage report for api/fetch/middleWareFetch.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">api</a> fetchData.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">api/fetch</a> middleWareFetch.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
@@ -102,7 +102,18 @@
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,87 +122,109 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-import fetch from 'node-fetch';
-import { PROXY_URL_PC } from '../constants/url';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { getSid } from './../sid/sid';
+import { NO_ERRORS, ERRORS_SID } from '../../constants/error';
+import { fetchData } from '../fetch/fetchData';
 &nbsp;
-&nbsp;
-// fetchData - receiving data from the server
+// middleWareFetch - middle function for control over 'sid' and 'internet connection'
 // requestUrl - request address
-// requestHeader - request header
-export async function fetchData(requestUrl, requestHeader) {
-    let json = "";
-    try {
-        let response = null;
-        // console.log("requestUrl", requestUrl);
-        // console.log("requestHeader", requestHeader);
+// requestHeader - request header (null for not Get request)
+// sidAndTime - object: sid and timeStamp 
+// dispatch - dispatch
+export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dispatch) =&gt; {
 &nbsp;
-        //"if requestHeader == null" GET request, else - POST request
-        if (requestHeader == null) response = await fetch(PROXY_URL_PC + requestUrl)
-        else response = await fetch(PROXY_URL_PC + requestUrl, requestHeader);
+    console.log("middleWareFetch. sidAndTime =&gt; ", sidAndTime);
+    
+    let json;
+    
+    let statusResponse;
+    for (let index = 0; index &lt; 2; index++) {
+        
+        json = await fetchData(requestUrl + sidAndTime.sid, requestHeader);
+        statusResponse = getStatusResponse(json);
+        console.log("middleWareFetch. json", json);
 &nbsp;
-        // console.log("getJSON. response before =&gt;", response.bodyUsed);
-        response = cloneResponse(response);
-        json = await response.json();
+        // if there is an error, then return the new SID
+        if (ERRORS_SID.includes(statusResponse.code) || sidAndTime.sid == undefined)  
+            (sidAndTime = await getSid(dispatch));
+        else  (index++);
 &nbsp;
-        console.log("fetchData. json =&gt;", json);
-&nbsp;
-        return json;
     }
-    catch (error) {
-        console.log('fetchData =&gt; An error occurred.', error);
-        // alert('fetchData =&gt; An error occurred: ' + error);
-        return error;
-    }
+    dispatch({ type: 'STATUS_RESPONSE', payload: statusResponse });
+    console.log("middleWareFetch. statusResponse =&gt; ", statusResponse);
+    // console.log ("middleWareFetch. json", json.status)
+    return json;
 }
 &nbsp;
-// Stub for Jest
-// cloneResponse - return clone response
-// response - response, which will cloned
-let response2;//cloned response
-const cloneResponse = (response) =&gt; {
-    //bodyUsed = false - response will cloned
-    if (!response.bodyUsed) response2 = response.clone();
-    //bodyUsed = true - return cloned response
-    else response = response2.clone();
-    return response;
+// getStatusResponse - processing errors/status from the server
+// json - response of the server
+export function getStatusResponse(json) {
+    // console.log("Status of response in getStatusResponse");
+&nbsp;
+    // NO_ERRORS = {code: -1, message: "Response Status 'Ok'. No error. :)"}
+    let statusResponse = NO_ERRORS; //status = Ok.
+    const errArr = [0, undefined];
+    if (errArr.includes(json.status) || (json.error_code &gt; 0)) {
+        let errMessage = "Response Error N" + json.error_code + " - " + json.error_message;
+        console.log("getStatusResponse. errMessage", errMessage);
+        // console.log("getStatusResponse.json", json);
+        //statusResponse = { code: json.error_code, message: json.error_message };
+        statusResponse = { code: json.error_code, message: errMessage };
+&nbsp;
+        // alert(errMessage);
+    }
+    
+    // console.log("getStatusResponse. statusResponse", statusResponse);
+    return statusResponse; //return - no error
 }
+&nbsp;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -199,17 +232,17 @@ const cloneResponse = (response) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu May 21 2020 13:34:58 GMT+0300 (Восточная Европа, летнее время)
+                at Thu May 21 2020 14:49:18 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
-        <script src="../prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     

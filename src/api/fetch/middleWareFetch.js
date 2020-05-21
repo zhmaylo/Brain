@@ -1,6 +1,6 @@
-import { getSid } from './sid';
-import { NO_ERRORS, ERRORS_SID } from './../constants/error';
-import { fetchData } from './fetchData';
+import { getSid } from './../sid/sid';
+import { NO_ERRORS, ERRORS_SID } from '../../constants/error';
+import { fetchData } from '../fetch/fetchData';
 
 // middleWareFetch - middle function for control over 'sid' and 'internet connection'
 // requestUrl - request address
@@ -21,8 +21,9 @@ export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dis
         console.log("middleWareFetch. json", json);
 
         // if there is an error, then return the new SID
-        if (ERRORS_SID.includes(statusResponse.code))  (sidAndTime = await getSid(dispatch));
-            else  (index++);
+        if (ERRORS_SID.includes(statusResponse.code) || sidAndTime.sid == undefined)  
+            (sidAndTime = await getSid(dispatch));
+        else  (index++);
 
     }
     dispatch({ type: 'STATUS_RESPONSE', payload: statusResponse });
@@ -38,8 +39,8 @@ export function getStatusResponse(json) {
 
     // NO_ERRORS = {code: -1, message: "Response Status 'Ok'. No error. :)"}
     let statusResponse = NO_ERRORS; //status = Ok.
-
-    if ((json.status == 0) && (json.error_code > 0)) {
+    const errArr = [0, undefined];
+    if (errArr.includes(json.status) || (json.error_code > 0)) {
         let errMessage = "Response Error N" + json.error_code + " - " + json.error_message;
         console.log("getStatusResponse. errMessage", errMessage);
         // console.log("getStatusResponse.json", json);
@@ -48,6 +49,7 @@ export function getStatusResponse(json) {
 
         // alert(errMessage);
     }
+    
     // console.log("getStatusResponse. statusResponse", statusResponse);
     return statusResponse; //return - no error
 }

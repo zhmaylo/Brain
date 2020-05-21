@@ -4,23 +4,7 @@ import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
 import { getSid } from './sid';
-import { PROXY_URL_PC, URL_POST_AUTH } from '../constants/url';
-import { REQUEST_HEADER_AUTH } from './../constants/authoriz';
 
-const requestUrl = PROXY_URL_PC + URL_POST_AUTH;
-
-// test('"getSid" receiving SID error  => ', async () => {
-
-//   const json = '{"status":0,"result":2}';
-//   fetch.mockReturnValue(Promise.resolve(new Response(json)));
-
-//   const data = await getSid(null);
-//   // console.log("Test getSid. data", data);
-//   expect(fetch).toHaveBeenCalledTimes(1);
-//   expect(fetch).toHaveBeenCalledWith(requestUrl, REQUEST_HEADER_AUTH);
-//   expect(data.timeStamp).toBe(null);
-
-// });
 
 test('"getSid" callback "dispatch" testing. Reciving SID complete => ',
   async (done) => {

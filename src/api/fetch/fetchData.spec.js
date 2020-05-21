@@ -3,8 +3,8 @@ import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
 import { fetchData } from './fetchData';
-import { URL_POST_AUTH, PROXY_URL_PC, URL_GET_CATEGORY } from './../constants/url';
-import { USER_AUTH } from '../constants/authoriz';
+import { URL_POST_AUTH, PROXY_URL_PC, URL_GET_CATEGORY } from '../../constants/url';
+import { USER_AUTH } from '../../constants/authoriz';
 import { getStatusResponse } from './middleWareFetch';
 
 test('"getStatusResponse - return error', () => {

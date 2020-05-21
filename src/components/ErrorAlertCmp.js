@@ -2,15 +2,22 @@ import React from 'react';
 import { View, StyleSheet, Button, Alert, Text } from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export const ErrorAlert = () => {
+export const ErrorAlert = (props) => {
 
 
-    return (
-           
-          <Text>Alert</Text>
-       
-    )
- }
+   return (
+      <View style={styles.container}>
+         <Text>Alert</Text>
+         <Text>{props.errorResp.message} </Text>
+         <TouchableOpacity>
+            <Button 
+               onPress={() => props.navigation.navigate('MenuScreen')}
+               title="Return" color="blue" 
+            />
+         </TouchableOpacity>
+      </View>
+   )
+}
 
   
 
@@ -21,13 +28,11 @@ const styles = StyleSheet.create ({
      borderRadius: 50,
      alignItems: 'center',
      marginTop: 100
+  },
+
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
   }
 })
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "space-around",
-//     alignItems: "center"
-//   }
-// });

@@ -1,6 +1,6 @@
 
-import { URL_GET_CATEGORY } from '../constants/url';
-import { middleWareFetch } from './middleWareFetch';
+import { URL_GET_CATEGORY } from '../../constants/url';
+import { middleWareFetch } from './../fetch/middleWareFetch';
 
 
 

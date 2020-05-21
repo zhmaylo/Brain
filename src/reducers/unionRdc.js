@@ -20,7 +20,7 @@ export const initialState = {
     }, 
     
     sessionSidRdc: {
-        sessionSid: { sid: "", timeStamp: 1 }
+        sessionSid: { sid: "1", timeStamp: 1 }
     }, 
 
     statusResponseRdc: {

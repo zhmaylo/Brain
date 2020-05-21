@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>20/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
@@ -111,7 +111,9 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -122,21 +124,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,12 +154,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,7 +170,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { getSid } from './sid';
-import { NO_ERRORS } from './../constants/error';
+import { NO_ERRORS, ERRORS_SID } from './../constants/error';
 import { fetchData } from './fetchData';
 &nbsp;
 // middleWareFetch - middle function for control over 'sid' and 'internet connection'
@@ -176,13 +180,11 @@ import { fetchData } from './fetchData';
 // dispatch - dispatch
 export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dispatch) =&gt; {
 &nbsp;
-    // console.log("middleWareFetch. sidAndTime =&gt; ", sidAndTime);
+    console.log("middleWareFetch. sidAndTime =&gt; ", sidAndTime);
     
-    // array of errors for automatic processing
-    let errArr = [3,4,5];
     let json;
-    // NO_ERRORS = {code: -1, message: "Response Status 'Ok'. No error. :)"}
-    let statusResponse = NO_ERRORS;
+    
+    let statusResponse;
     for (let index = 0; index &lt; 2; index++) {
         
         json = await fetchData(requestUrl + sidAndTime.sid, requestHeader);
@@ -190,8 +192,9 @@ export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dis
         console.log("middleWareFetch. json", json);
 &nbsp;
         // if there is an error, then return the new SID
-        if (errArr.includes(statusResponse.code))  (sidAndTime = await getSid(dispatch));
-            else  (index++);
+        if (ERRORS_SID.includes(statusResponse.code) || sidAndTime.sid == undefined)  
+            (sidAndTime = await getSid(dispatch));
+        else  (index++);
 &nbsp;
     }
     dispatch({ type: 'STATUS_RESPONSE', payload: statusResponse });
@@ -207,14 +210,17 @@ export function getStatusResponse(json) {
 &nbsp;
     // NO_ERRORS = {code: -1, message: "Response Status 'Ok'. No error. :)"}
     let statusResponse = NO_ERRORS; //status = Ok.
-&nbsp;
-    if ((json.status == 0) &amp;&amp; (json.error_code &gt; 0)) {
+    const errArr = [0, undefined];
+    if (errArr.includes(json.status) || (json.error_code &gt; 0)) {
         let errMessage = "Response Error N" + json.error_code + " - " + json.error_message;
-        // console.log("getStatusResponse. errMessage", errMessage);
+        console.log("getStatusResponse. errMessage", errMessage);
         // console.log("getStatusResponse.json", json);
-        statusResponse = { code: json.error_code, message: json.error_message };
+        //statusResponse = { code: json.error_code, message: json.error_message };
+        statusResponse = { code: json.error_code, message: errMessage };
+&nbsp;
         // alert(errMessage);
     }
+    
     // console.log("getStatusResponse. statusResponse", statusResponse);
     return statusResponse; //return - no error
 }
@@ -226,7 +232,7 @@ export function getStatusResponse(json) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed May 20 2020 15:44:25 GMT+0300 (Восточная Европа, летнее время)
+                at Thu May 21 2020 13:34:58 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
         <script src="../prettify.js"></script>
