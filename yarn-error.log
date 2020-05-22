@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @react-native-screens
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js jest errorScr.spec.js
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Users\User\AppData\Local\Yarn\bin
@@ -14,17 +14,12 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@react-native-screens: Request "https://registry.yarnpkg.com/@react-native-screens" returned a 405
-      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66105:18)
-      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140748:22)
-      at Request.emit (events.js:210:5)
-      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141720:10)
-      at Request.emit (events.js:210:5)
-      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141642:12)
-      at Object.onceWrapper (events.js:299:28)
-      at IncomingMessage.emit (events.js:215:7)
-      at endReadableNT (_stream_readable.js:1198:12)
-      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+  SyntaxError: D:\Java\Brain\my-app\package.json: Unexpected token / in JSON at position 1138
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:310:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:321:13
 
 npm manifest: 
   {
@@ -34,12 +29,15 @@ npm manifest:
       "android": "expo start --android",
       "ios": "expo start --ios",
       "web": "expo start --web",
-      "eject": "expo eject"
+      "eject": "expo eject",
+      "test": "jest"
     },
     "dependencies": {
       "@expo/webpack-config": "^0.12.4",
+      "@react-native-community/masked-view": "^0.1.10",
       "@react-navigation/native": "^5.1.6",
       "@react-navigation/stack": "^5.2.11",
+      "chrome-remote-interface": "^0.28.2",
       "eslint-plugin-react-hooks": "^3.0.0",
       "expo": "~37.0.0",
       "expo-cli": "^3.20.9",
@@ -49,7 +47,9 @@ npm manifest:
       "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
       "react-native-gesture-handler": "^1.6.1",
       "react-native-safe-area-context": "^0.7.3",
+      "react-native-screens": "^2.7.0",
       "react-native-web": "~0.11.7",
+      "react-test-renderer": "^16.13.1",
       "redux": "^4.0.5",
       "redux-storage": "^4.1.2"
     },
@@ -57,8 +57,11 @@ npm manifest:
       "@babel/core": "^7.8.6",
       "babel-preset-expo": "~8.1.0",
       "jest": "~26.0.0"
-    },
-    "private": true
+    }
+    // "jest": {
+    //   "preset": "react-native"
+    // },
+    // "private": true
   }
 
 yarn manifest: 
@@ -2667,6 +2670,11 @@ Lockfile:
       wcwidth "^1.0.1"
       ws "^1.1.0"
   
+  "@react-native-community/masked-view@^0.1.10":
+    version "0.1.10"
+    resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.10.tgz#5dda643e19e587793bc2034dd9bf7398ad43d401"
+    integrity sha512-rk4sWFsmtOw8oyx8SD3KSvawwaK7gRBSEIy2TAwURyGt+3TizssXP1r8nx3zY+R7v2vYYHXZ+k2/GULAT/bcaQ==
+  
   "@react-navigation/core@^5.3.4":
     version "5.3.4"
     resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.3.4.tgz#272eb48381c4db251f4dc5cd044db1606a551551"
@@ -4611,6 +4619,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
     integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
   
+  chrome-remote-interface@^0.28.2:
+    version "0.28.2"
+    resolved "https://registry.yarnpkg.com/chrome-remote-interface/-/chrome-remote-interface-0.28.2.tgz#6be3554d2c227ff07eb74baa7e5d4911da12a5a6"
+    integrity sha512-F7mjof7rWvRNsJqhVXuiFU/HWySCxTA9tzpLxUJxVfdLkljwFJ1aMp08AnwXRmmP7r12/doTDOMwaNhFCJsacw==
+    dependencies:
+      commander "2.11.x"
+      ws "^7.2.0"
+  
   chrome-trace-event@^1.0.2:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.2.tgz#234090ee97c7d4ad1a2c4beae27505deffc608a4"
@@ -4842,6 +4858,11 @@ Lockfile:
     version "1.2.9"
     resolved "https://registry.yarnpkg.com/command-exists/-/command-exists-1.2.9.tgz#c50725af3808c8ab0260fd60b01fbfa25b954f69"
     integrity sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w==
+  
+  commander@2.11.x:
+    version "2.11.0"
+    resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
+    integrity sha512-b0553uYA5YAEGgyYIGYROzKQ7X5RAqedkfjiZxwi0kL1g3bOaBNNZfYkzt/CL0umgD5wc9Jec2FbB98CjkMRvQ==
   
   commander@2.17.1, commander@2.17.x:
     version "2.17.1"
@@ -12182,7 +12203,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
     integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
   
-  react-is@^16.12.0, react-is@^16.13.0, react-is@^16.8.1, react-is@^16.8.4:
+  react-is@^16.12.0, react-is@^16.13.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
     version "16.13.1"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -12206,6 +12227,11 @@ Lockfile:
     version "0.7.3"
     resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-0.7.3.tgz#ad6bd4abbabe195332c53810e4ce5851eb21aa2a"
     integrity sha512-9Uqu1vlXPi+2cKW/CW6OnHxA76mWC4kF3wvlqzq4DY8hn37AeiXtLFs2WkxH4yXQRrnJdP6ivc65Lz+MqwRZAA==
+  
+  react-native-screens@^2.7.0:
+    version "2.7.0"
+    resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.7.0.tgz#2d3cf3c39a665e9ca1c774264fccdb90e7944047"
+    integrity sha512-n/23IBOkrTKCfuUd6tFeRkn3lB2QZ3cmvoubRscR0JU/Zl4/ZyKmwnFmUv1/Fr+2GH/H8UTX59kEKDYYg3dMgA==
   
   react-native-view-shot@3.1.2:
     version "3.1.2"
@@ -12266,6 +12292,16 @@ Lockfile:
     version "0.4.2"
     resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.4.2.tgz#54a277a6caaac2803d88f1d6f13c1dcfbd81e334"
     integrity sha512-kv5QlFFSZWo7OlJFNYbxRtY66JImuP2LcrFgyJfQaf85gSP+byzG21UbDQEYjU7f//ny8rwiEkO6py2Y+fEgAQ==
+  
+  react-test-renderer@^16.13.1:
+    version "16.13.1"
+    resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.13.1.tgz#de25ea358d9012606de51e012d9742e7f0deabc1"
+    integrity sha512-Sn2VRyOK2YJJldOqoh8Tn/lWQ+ZiKhyZTPtaO0Q6yNj+QDbmRkVFap6pZPy3YQk8DScRDfyqm/KxKYP9gCMRiQ==
+    dependencies:
+      object-assign "^4.1.1"
+      prop-types "^15.6.2"
+      react-is "^16.8.6"
+      scheduler "^0.19.1"
   
   react-timer-mixin@^0.13.4:
     version "0.13.4"
@@ -12882,6 +12918,14 @@ Lockfile:
     version "0.15.0"
     resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
     integrity sha512-xAefmSfN6jqAa7Kuq7LIJY0bwAPG3xlCj0HMEBQk1lxYiDKZscY2xJ5U/61ZTrYbmNQbXa+gc7czPkVo11tnCg==
+    dependencies:
+      loose-envify "^1.1.0"
+      object-assign "^4.1.1"
+  
+  scheduler@^0.19.1:
+    version "0.19.1"
+    resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.19.1.tgz#4f3e2ed2c1a7d65681f4c854fa8c5a1ccb40f196"
+    integrity sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==
     dependencies:
       loose-envify "^1.1.0"
       object-assign "^4.1.1"
@@ -15227,7 +15271,7 @@ Lockfile:
     dependencies:
       async-limiter "~1.0.0"
   
-  ws@^7.2.3:
+  ws@^7.2.0, ws@^7.2.3:
     version "7.3.0"
     resolved "https://registry.yarnpkg.com/ws/-/ws-7.3.0.tgz#4b2f7f219b3d3737bc1a2fbf145d825b94d38ffd"
     integrity sha512-iFtXzngZVXPGgpTlP1rBqsUK82p9tKqsWRPg5L56egiljujJT3vGAYnHANvFxBieXrTFavhzhxW52jnaWV+w2w==

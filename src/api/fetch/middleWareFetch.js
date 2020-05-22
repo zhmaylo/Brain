@@ -44,7 +44,7 @@ export function getStatusResponse(json) {
         let errMessage = "Response Error N" + json.error_code + " - " + json.error_message;
         console.log("getStatusResponse. errMessage", errMessage);
         // console.log("getStatusResponse.json", json);
-        //statusResponse = { code: json.error_code, message: json.error_message };
+        
         statusResponse = { code: json.error_code, message: errMessage };
 
         // alert(errMessage);

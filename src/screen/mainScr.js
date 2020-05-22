@@ -3,7 +3,6 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
 import { getCategoryList } from './../api/category/category';
-import { ErrorAlert } from './../components/ErrorAlertCmp';
 
 
 export default function mainScr(props) {
@@ -20,18 +19,16 @@ export default function mainScr(props) {
     }, [!state.isAppInitRdc.loading]);
 
     console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
-    let statusResponse = state.statusResponseRdc.statusResponse;
 
     if (state.statusResponseRdc.statusResponse.code ==-1)
-        // return (<ErrorAlert errorResp = "123" />);
-        return (<ErrorAlert errorResp = {statusResponse} />);
-    else return (
-   
+        props.navigation.navigate('ErrorScreen');
+           
+    return (
         <View style={styles.container}>
           
             <Text>mainScreen!</Text>
 
-            {/* <Button
+             <Button
                 onPress={() => props.navigation.navigate('MenuScreen')}
                 title="MenuScreen" color="#841584"  accessibilityLabel="Learn more about this purple button"
             />
@@ -46,7 +43,7 @@ export default function mainScr(props) {
             <Button
                 onPress={() => props.navigation.navigate('BasketScreen')}
                 title="BasketScreen" color="#841584"  accessibilityLabel="Learn more about this purple button"
-            /> */}
+            /> 
         </View>
         
     );
