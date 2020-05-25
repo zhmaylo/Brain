@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js jest errorScr.spec.js
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-test-renderer
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Roaming\npm;C:\Users\User\AppData\Local\Yarn\bin
@@ -14,12 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: D:\Java\Brain\my-app\package.json: Unexpected token / in JSON at position 1138
-      at JSON.parse (<anonymous>)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (C:\Program Files (x86)\Yarn\lib\cli.js:310:30)
-      at C:\Program Files (x86)\Yarn\lib\cli.js:321:13
+  Error: EPERM: operation not permitted, unlink 'D:\Java\Brain\my-app\node_modules\@babel\helper-compilation-targets\node_modules\.bin'
 
 npm manifest: 
   {
@@ -37,19 +32,17 @@ npm manifest:
       "@react-native-community/masked-view": "^0.1.10",
       "@react-navigation/native": "^5.1.6",
       "@react-navigation/stack": "^5.2.11",
-      "chrome-remote-interface": "^0.28.2",
       "eslint-plugin-react-hooks": "^3.0.0",
       "expo": "~37.0.0",
       "expo-cli": "^3.20.9",
       "metro-react-native-babel-preset": "^0.59.0",
       "react": "~16.9.0",
-      "react-dom": "~16.9.0",
+      "react-dom": "^16.13.1",
       "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
       "react-native-gesture-handler": "^1.6.1",
-      "react-native-safe-area-context": "^0.7.3",
+      "react-native-safe-area-context": "^2.0.0",
       "react-native-screens": "^2.7.0",
       "react-native-web": "~0.11.7",
-      "react-test-renderer": "^16.13.1",
       "redux": "^4.0.5",
       "redux-storage": "^4.1.2"
     },
@@ -57,11 +50,11 @@ npm manifest:
       "@babel/core": "^7.8.6",
       "babel-preset-expo": "~8.1.0",
       "jest": "~26.0.0"
-    }
-    // "jest": {
-    //   "preset": "react-native"
-    // },
-    // "private": true
+    },
+    "jest": {
+      "preset": "react-native"
+    },
+    "private": true
   }
 
 yarn manifest: 
@@ -4619,14 +4612,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
     integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
   
-  chrome-remote-interface@^0.28.2:
-    version "0.28.2"
-    resolved "https://registry.yarnpkg.com/chrome-remote-interface/-/chrome-remote-interface-0.28.2.tgz#6be3554d2c227ff07eb74baa7e5d4911da12a5a6"
-    integrity sha512-F7mjof7rWvRNsJqhVXuiFU/HWySCxTA9tzpLxUJxVfdLkljwFJ1aMp08AnwXRmmP7r12/doTDOMwaNhFCJsacw==
-    dependencies:
-      commander "2.11.x"
-      ws "^7.2.0"
-  
   chrome-trace-event@^1.0.2:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.2.tgz#234090ee97c7d4ad1a2c4beae27505deffc608a4"
@@ -4858,11 +4843,6 @@ Lockfile:
     version "1.2.9"
     resolved "https://registry.yarnpkg.com/command-exists/-/command-exists-1.2.9.tgz#c50725af3808c8ab0260fd60b01fbfa25b954f69"
     integrity sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w==
-  
-  commander@2.11.x:
-    version "2.11.0"
-    resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
-    integrity sha512-b0553uYA5YAEGgyYIGYROzKQ7X5RAqedkfjiZxwi0kL1g3bOaBNNZfYkzt/CL0umgD5wc9Jec2FbB98CjkMRvQ==
   
   commander@2.17.1, commander@2.17.x:
     version "2.17.1"
@@ -12188,22 +12168,22 @@ Lockfile:
       shell-quote "^1.6.1"
       ws "^3.3.1"
   
-  react-dom@~16.9.0:
-    version "16.9.0"
-    resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
-    integrity sha512-YFT2rxO9hM70ewk9jq0y6sQk8cL02xm4+IzYBz75CQGlClQQ1Bxq0nhHF6OtSbit+AIahujJgb/CPRibFkMNJQ==
+  react-dom@^16.13.1:
+    version "16.13.1"
+    resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
+    integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
     dependencies:
       loose-envify "^1.1.0"
       object-assign "^4.1.1"
       prop-types "^15.6.2"
-      scheduler "^0.15.0"
+      scheduler "^0.19.1"
   
   react-error-overlay@^6.0.1:
     version "6.0.7"
     resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
     integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
   
-  react-is@^16.12.0, react-is@^16.13.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
+  react-is@^16.12.0, react-is@^16.13.0, react-is@^16.8.1, react-is@^16.8.4:
     version "16.13.1"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -12223,10 +12203,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
     integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
   
-  react-native-safe-area-context@^0.7.3:
-    version "0.7.3"
-    resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-0.7.3.tgz#ad6bd4abbabe195332c53810e4ce5851eb21aa2a"
-    integrity sha512-9Uqu1vlXPi+2cKW/CW6OnHxA76mWC4kF3wvlqzq4DY8hn37AeiXtLFs2WkxH4yXQRrnJdP6ivc65Lz+MqwRZAA==
+  react-native-safe-area-context@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-2.0.0.tgz#7ef48e5a83a1e2f7fe9d5321493822b6765fd1ab"
+    integrity sha512-5VtCI3Nluzm7QfTcB/3j4YeWqt25QO1u5KTA1jEg1ckJzV19qCZFyHIpCCkS5+VEX+2JEHfdczhCdwE5sPgyEw==
   
   react-native-screens@^2.7.0:
     version "2.7.0"
@@ -12292,16 +12272,6 @@ Lockfile:
     version "0.4.2"
     resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.4.2.tgz#54a277a6caaac2803d88f1d6f13c1dcfbd81e334"
     integrity sha512-kv5QlFFSZWo7OlJFNYbxRtY66JImuP2LcrFgyJfQaf85gSP+byzG21UbDQEYjU7f//ny8rwiEkO6py2Y+fEgAQ==
-  
-  react-test-renderer@^16.13.1:
-    version "16.13.1"
-    resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.13.1.tgz#de25ea358d9012606de51e012d9742e7f0deabc1"
-    integrity sha512-Sn2VRyOK2YJJldOqoh8Tn/lWQ+ZiKhyZTPtaO0Q6yNj+QDbmRkVFap6pZPy3YQk8DScRDfyqm/KxKYP9gCMRiQ==
-    dependencies:
-      object-assign "^4.1.1"
-      prop-types "^15.6.2"
-      react-is "^16.8.6"
-      scheduler "^0.19.1"
   
   react-timer-mixin@^0.13.4:
     version "0.13.4"
@@ -12914,7 +12884,7 @@ Lockfile:
     dependencies:
       xmlchars "^2.2.0"
   
-  scheduler@0.15.0, scheduler@^0.15.0:
+  scheduler@0.15.0:
     version "0.15.0"
     resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
     integrity sha512-xAefmSfN6jqAa7Kuq7LIJY0bwAPG3xlCj0HMEBQk1lxYiDKZscY2xJ5U/61ZTrYbmNQbXa+gc7czPkVo11tnCg==
@@ -15271,7 +15241,7 @@ Lockfile:
     dependencies:
       async-limiter "~1.0.0"
   
-  ws@^7.2.0, ws@^7.2.3:
+  ws@^7.2.3:
     version "7.3.0"
     resolved "https://registry.yarnpkg.com/ws/-/ws-7.3.0.tgz#4b2f7f219b3d3737bc1a2fbf145d825b94d38ffd"
     integrity sha512-iFtXzngZVXPGgpTlP1rBqsUK82p9tKqsWRPg5L56egiljujJT3vGAYnHANvFxBieXrTFavhzhxW52jnaWV+w2w==

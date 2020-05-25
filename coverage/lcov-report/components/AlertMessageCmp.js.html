@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for constants/error.js</title>
+    <title>Code coverage report for components/AlertMessageCmp.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">constants</a> error.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> AlertMessageCmp.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -39,7 +39,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -84,18 +84,13 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -105,39 +100,50 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-/////////////////////////////
-// Start. Section 'Error response from server'
-//
-// array list of errors for automatic processing
-export const ERRORS_SID = [3,4,5];
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import { View, StyleSheet, Button, Text } from 'react-native';
 &nbsp;
-export const NO_ERRORS = {code: -1, message: "Response Status 'Ok'. No error. :)"};
-// errors response
-export const ERRORS_RESPONSE = [
-    {code: 0, message: "Error 0 - rezerv / Резерв"},
-    {code: 1, message: "Login is required parameter / Не указан логин"},
-    {code: 2, message: "Password is required parameter /	Не указан пароль"},
-    {code: 3, message: "Session identifier is required parameter / Не указан идентификатор сессии (SID)"},
-    {code: 4, message: "Session identifier is fault / Неправильный идентификатор сессии (SID)"},
-    {code: 5, message: "Session identifier is outdate / Окончилось время жизни сессии"},
-&nbsp;
-    {code: 6, message: "Incorrect login or password /	Неправильный логин или пароль"},
-    {code: 7, message: "User was blocked / Пользователь заблокирован"},
-    {code: 8, message: "Incorrect categoryID / Неправильный идентификатор категории (categoryID)"},
-    {code: 9, message: "Incorrect filterID / Неправильный идентификатор фильтра (filterID)"},
-    {code: 10, message: "Incorrect limit / Неправильное значение параметра limit"}];
-//
-// End. Section 'Error response from server'
-/////////////////////////////
+export const AlertMessageCmp = ({message}) =&gt; {
+    return (
+        &lt;View style={styles.container}&gt;
+            &lt;Text&gt;Alert&lt;/Text&gt;
+            &lt;Text id="errMes"&gt;{message} &lt;/Text&gt;
+        &lt;/View&gt;
+    )
+}
 &nbsp;
 &nbsp;
+&nbsp;
+const styles = StyleSheet.create({
+    button: {
+        backgroundColor: '#4ba37b',
+        width: 100,
+        borderRadius: 50,
+        alignItems: 'center',
+        marginTop: 100
+    },
+&nbsp;
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    }
+})
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

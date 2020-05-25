@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1590145394244" clover="3.2.0">
-  <project timestamp="1590145394244" name="All files">
-    <metrics statements="65" coveredstatements="65" conditionals="14" coveredconditionals="14" methods="8" coveredmethods="8" elements="87" coveredelements="87" complexity="0" loc="65" ncloc="65" packages="4" files="8" classes="8"/>
+<coverage generated="1590385716256" clover="3.2.0">
+  <project timestamp="1590385716256" name="All files">
+    <metrics statements="68" coveredstatements="68" conditionals="14" coveredconditionals="14" methods="9" coveredmethods="9" elements="91" coveredelements="91" complexity="0" loc="68" ncloc="68" packages="5" files="9" classes="9"/>
     <package name="api.category">
       <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="category.js" path="D:\Java\Brain\my-app\src\api\category\category.js">
@@ -76,6 +76,15 @@
         <line num="10" count="4" type="stmt"/>
         <line num="14" count="5" type="stmt"/>
         <line num="16" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="components">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="AlertMessageCmp.js" path="D:\Java\Brain\my-app\src\components\AlertMessageCmp.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
       </file>
     </package>
     <package name="constants">

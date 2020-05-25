@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, ImagePropTypes } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
 import { getCategoryList } from './../api/category/category';
+import { AlertMessageCmp } from '../components/AlertMessageCmp';
 
 
 export default function mainScr(props) {
@@ -10,24 +11,26 @@ export default function mainScr(props) {
 
     useEffect(() => {
         // getSid(dispatch).then((sid) => {
-            // console.log("mainScr. sid=>");//.sessionSid.sid);
-            // getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
-                    // console.log("mainScr.getCategoryList(data)", data);
-            // })
+        console.log("mainScr. sid=>");//.sessionSid.sid);
+        // getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
+        // console.log("mainScr.getCategoryList(data)", data);
+        // })
         // })
 
     }, [!state.isAppInitRdc.loading]);
 
     console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
 
-    if (state.statusResponseRdc.statusResponse.code ==-1)
-        props.navigation.navigate('ErrorScreen');
-           
-    return (
+
+
+    if (state.statusResponseRdc.statusResponse.code !== -1)
+         return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
+    else return (
         <View style={styles.container}>
-          
+
             <Text>mainScreen!</Text>
 
+            {/* 
              <Button
                 onPress={() => props.navigation.navigate('MenuScreen')}
                 title="MenuScreen" color="#841584"  accessibilityLabel="Learn more about this purple button"
@@ -43,10 +46,11 @@ export default function mainScr(props) {
             <Button
                 onPress={() => props.navigation.navigate('BasketScreen')}
                 title="BasketScreen" color="#841584"  accessibilityLabel="Learn more about this purple button"
-            /> 
+            />  */}
         </View>
-        
+
     );
+
 }
 
 const styles = StyleSheet.create({

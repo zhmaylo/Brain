@@ -6,7 +6,6 @@ import menuScr from "../screen/menuScr";
 import findScr from "../screen/findScr";
 import configScr from "../screen/configScr";
 import basketScr from "../screen/basketScr";
-import errorScr from './../screen/errorScr';
 
 const Stack = createStackNavigator();
 
@@ -18,7 +17,6 @@ const AppNavigator = () => (
             <Stack.Screen name="FindScreen" component={findScr}/>
             <Stack.Screen name="ConfigScreen" component={configScr}/>
             <Stack.Screen name="BasketScreen" component={basketScr}/>
-            <Stack.Screen name="ErrorScreen" component={errorScr}/>
             {/*<Stack.Screen options={{ headerShown: false }} name="MenuScreen" component={menuScreen}/>*/}
         </Stack.Navigator>
     </NavigationContainer>
