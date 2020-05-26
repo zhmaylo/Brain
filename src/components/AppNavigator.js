@@ -1,27 +1,51 @@
 import React from 'react';
-import {createStackNavigator} from "@react-navigation/stack";
-import {NavigationContainer} from "@react-navigation/native";
+// import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import {
+    createDrawerNavigator,
+    DrawerContentScrollView,
+    DrawerItemList,
+    DrawerItem,
+  } from '@react-navigation/drawer';
+  
+
 import mainScr from "../screen/mainScr";
 import menuScr from "../screen/menuScr";
 import findScr from "../screen/findScr";
 import configScr from "../screen/configScr";
 import basketScr from "../screen/basketScr";
 
-const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
-const AppNavigator = () => (
+
+function CustomDrawerContent(props) {
+    return (
+      <DrawerContentScrollView {...props}>
+        <DrawerItemList {...props} />
+        <DrawerItem
+          label="MenuScreen"
+          onPress={() => props.navigation.closeDrawer()}
+        />
+        <DrawerItem
+          label="Toggle drawer"
+          onPress={() => props.navigation.toggleDrawer()}
+        />
+      </DrawerContentScrollView>
+    );
+  }
+
+export const AppNavigator = () => (
     <NavigationContainer>
-        <Stack.Navigator mode="modal" >
-            <Stack.Screen name="MainScreen" component={mainScr}/>
-            <Stack.Screen name="MenuScreen" component={menuScr}/>
-            <Stack.Screen name="FindScreen" component={findScr}/>
-            <Stack.Screen name="ConfigScreen" component={configScr}/>
-            <Stack.Screen name="BasketScreen" component={basketScr}/>
-            {/*<Stack.Screen options={{ headerShown: false }} name="MenuScreen" component={menuScreen}/>*/}
-        </Stack.Navigator>
+        {/* <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />} > */}
+        <Drawer.Navigator>
+            <Drawer.Screen name="MainScreen" component={mainScr}/>
+            <Drawer.Screen name="MenuScreen" component={menuScr}/>
+            <Drawer.Screen name="FindScreen" component={findScr}/>
+            <Drawer.Screen name="ConfigScreen" component={configScr}/>
+            <Drawer.Screen name="BasketScreen" component={basketScr}/>
+        </Drawer.Navigator>
     </NavigationContainer>
-);
+);  
 
-
-export default AppNavigator;
+ export default AppNavigator;
 

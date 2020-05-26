@@ -1,8 +1,9 @@
 
 import React, {useReducer} from 'react';
 import {StyleSheet} from 'react-native';
-import AppNavigator from "./src/components/AppNavigator";
+import AppNavigator  from "./src/components/AppNavigator";
 import {ContextApp, initialState, unionRdc} from "./src/reducers/unionRdc";
+
 
 
 
@@ -17,6 +18,7 @@ export default function App(props) {
     return (
         <ContextApp.Provider value={{state, dispatch}}>
             <AppNavigator />
+
         </ContextApp.Provider>
     );
 }

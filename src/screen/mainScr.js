@@ -21,13 +21,15 @@ export default function mainScr(props) {
 
     console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
 
-
+    
 
     if (state.statusResponseRdc.statusResponse.code !== -1)
          return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
+          
     else return (
+        
         <View style={styles.container}>
-
+            
             <Text>mainScreen!</Text>
 
             {/* 
