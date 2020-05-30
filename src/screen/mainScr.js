@@ -6,6 +6,7 @@ import { getCategoryList } from './../api/category/category';
 import { AlertMessageCmp } from '../components/AlertMessageCmp';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HeaderCmp } from './../components/HeaderCmp';
+import { FooterCmp } from '../components/FooterCmp';
 
 
 
@@ -40,7 +41,7 @@ export default function mainScr(props) {
                     onPress={() => props.navigation.toggleDrawer()}
                     title="MenuScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 />
-                <Button
+                {/* <Button
                     onPress={() => props.navigation.navigate('FindScreen')}
                     title="FindScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 />
@@ -51,7 +52,8 @@ export default function mainScr(props) {
                 <Button
                     onPress={() => props.navigation.navigate('BasketScreen')}
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-                />
+                /> */}
+                {FooterCmp (props.navigation.toggleDrawer)}
             </SafeAreaView>
         </View>
 

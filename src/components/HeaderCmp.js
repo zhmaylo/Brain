@@ -13,7 +13,7 @@ export const HeaderCmp = (menuUrl) => {
                 <Image
                     style={styles.menuImage}
                     // style={{ width: 26, height: 26, marginRight: 20 }}
-                    source={require('./../icons/Very-Basic-Menu-icon.png')}
+                    source={require('./../icons/bars-solid.png')}
                 />
             </TouchableOpacity>
 
@@ -25,17 +25,15 @@ export const HeaderCmp = (menuUrl) => {
             </Image>
             <TextInput
                 style={styles.search}
-                // placeholder= "Search"
-                inlineImagePadding='10'
-                inlineImageLeft='./../icons/Search-icon.png'>
+                placeholder= "Search"
+                >
             </TextInput>
             <TouchableOpacity
-                // style={styles.button}
                 onPress={() => { menuUrl() }}
             >
                 <Image
                     style={styles.menuImage}
-                    source={require('./../icons/Data-Empty-Filter-icon.png')}
+                    source={require('./../icons/filter-solid.png')}
                 >
                 </Image>
             </TouchableOpacity>
@@ -52,13 +50,10 @@ const styles = StyleSheet.create({
         height: buttonSize,
     },
     imageFind: {
-        // backgroundColor: 'green',
-      
         width: buttonSize-6,
         height: buttonSize-6,
         marginLeft: buttonSize+9,
         marginTop: 4,
-        // resizeMode: 'stretch',
         position: 'absolute',
         opacity: 0.4,
         zIndex: 1000, 
@@ -67,17 +62,11 @@ const styles = StyleSheet.create({
         width: WINDOW_WIDTH,
         height: buttonSize,
         backgroundColor: "#e8e8e8",
-        borderRadius: 30,
+        // borderRadius: 30,
         paddingLeft: 36,
         marginHorizontal: 5,
 
     },
-    button: {
-        backgroundColor: 'white',
-        width: buttonSize,
-        height: buttonSize
-   },
-
     container: {
         flex: 1,
         flexDirection: "row",
@@ -86,6 +75,5 @@ const styles = StyleSheet.create({
         width: WINDOW_WIDTH,
         paddingVertical: 3,
         paddingHorizontal: 3,
-
     }
 })

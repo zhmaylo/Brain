@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "paddingHorizontal": 3,
+      "paddingVertical": 3,
+      "width": 750,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/icons/bars-solid.png",
+        }
+      }
+      style={
+        Object {
+          "height": 30,
+          "width": 30,
+        }
+      }
+    />
+  </View>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/icons/Search-icon.png",
+      }
+    }
+    style={
+      Object {
+        "height": 24,
+        "marginLeft": 39,
+        "marginTop": 4,
+        "opacity": 0.4,
+        "position": "absolute",
+        "width": 24,
+        "zIndex": 1000,
+      }
+    }
+  />
+  <TextInput
+    allowFontScaling={true}
+    placeholder="Search"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "backgroundColor": "#e8e8e8",
+        "height": 30,
+        "marginHorizontal": 5,
+        "paddingLeft": 36,
+        "width": 750,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/icons/filter-solid.png",
+        }
+      }
+      style={
+        Object {
+          "height": 30,
+          "width": 30,
+        }
+      }
+    />
+  </View>
+</View>
+`;
