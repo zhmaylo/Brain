@@ -1,13 +1,7 @@
 import React from 'react';
 // import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import {
-    createDrawerNavigator,
-    DrawerContentScrollView,
-    DrawerItemList,
-    DrawerItem,
-  } from '@react-navigation/drawer';
-  
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import mainScr from "../screen/mainScr";
 import menuScr from "../screen/menuScr";
@@ -17,35 +11,22 @@ import basketScr from "../screen/basketScr";
 
 const Drawer = createDrawerNavigator();
 
-
-function CustomDrawerContent(props) {
-    return (
-      <DrawerContentScrollView {...props}>
-        <DrawerItemList {...props} />
-        <DrawerItem
-          label="MenuScreen"
-          onPress={() => props.navigation.closeDrawer()}
-        />
-        <DrawerItem
-          label="Toggle drawer"
-          onPress={() => props.navigation.toggleDrawer()}
-        />
-      </DrawerContentScrollView>
-    );
-  }
-
 export const AppNavigator = () => (
     <NavigationContainer>
         {/* <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />} > */}
-        <Drawer.Navigator>
-            <Drawer.Screen name="MainScreen" component={mainScr}/>
-            <Drawer.Screen name="MenuScreen" component={menuScr}/>
-            <Drawer.Screen name="FindScreen" component={findScr}/>
-            <Drawer.Screen name="ConfigScreen" component={configScr}/>
-            <Drawer.Screen name="BasketScreen" component={basketScr}/>
+        <Drawer.Navigator
+            drawerStyle={{
+                // backgroundColor: '#00000',
+                width: 140,
+            }} >
+            <Drawer.Screen name="MainScreen" component={mainScr} />
+            <Drawer.Screen name="MenuScreen" component={menuScr} />
+            <Drawer.Screen name="FindScreen" component={findScr} />
+            <Drawer.Screen name="ConfigScreen" component={configScr} />
+            <Drawer.Screen name="BasketScreen" component={basketScr} />
         </Drawer.Navigator>
     </NavigationContainer>
-);  
+);
 
- export default AppNavigator;
+export default AppNavigator;
 

@@ -4,6 +4,9 @@ import { ContextApp } from "../reducers/unionRdc";
 
 import { getCategoryList } from './../api/category/category';
 import { AlertMessageCmp } from '../components/AlertMessageCmp';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { HeaderCmp } from './../components/HeaderCmp';
+
 
 
 export default function mainScr(props) {
@@ -21,34 +24,35 @@ export default function mainScr(props) {
 
     console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
 
-    
-
+ 
     if (state.statusResponseRdc.statusResponse.code !== -1)
-         return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
-          
-    else return (
-        
-        <View style={styles.container}>
-            
-            <Text>mainScreen!</Text>
+        return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
 
-            {/* 
-             <Button
-                onPress={() => props.navigation.navigate('MenuScreen')}
-                title="MenuScreen" color="#841584"  accessibilityLabel="Learn more about this purple button"
-            />
-            <Button
-                onPress={() => props.navigation.navigate('FindScreen')}
-                title="FindScreen" color="#841584"  accessibilityLabel="Learn more about this purple button"
-            />
-            <Button
-                onPress={() => props.navigation.navigate('ConfigScreen')}
-                title="ConfigScreen" color="#841584"  accessibilityLabel="Learn more about this purple button"
-            />
-            <Button
-                onPress={() => props.navigation.navigate('BasketScreen')}
-                title="BasketScreen" color="#841584"  accessibilityLabel="Learn more about this purple button"
-            />  */}
+    else return (
+
+        <View style={styles.container}>
+            <SafeAreaView style={styles.container}>
+
+                {HeaderCmp (props.navigation.toggleDrawer)}
+                <Text>mainScreen!</Text>
+                <Button
+                    // onPress={() => props.navigation.navigate('MenuScreen')}
+                    onPress={() => props.navigation.toggleDrawer()}
+                    title="MenuScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+                />
+                <Button
+                    onPress={() => props.navigation.navigate('FindScreen')}
+                    title="FindScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+                />
+                <Button
+                    onPress={() => props.navigation.navigate('ConfigScreen')}
+                    title="ConfigScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+                />
+                <Button
+                    onPress={() => props.navigation.navigate('BasketScreen')}
+                    title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+                />
+            </SafeAreaView>
         </View>
 
     );
