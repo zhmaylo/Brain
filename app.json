@@ -22,8 +22,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "brain"
     },
-    "sdkVersion": "37.0.0"
+    "android": {
+      "package": "brain.my.expo"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }

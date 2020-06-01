@@ -25,14 +25,15 @@ export default function mainScr(props) {
 
     console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
 
- 
+
     if (state.statusResponseRdc.statusResponse.code !== -1)
         return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
 
-    else return (
+    else 
+    return (
 
         <View style={styles.container}>
-            <SafeAreaView style={styles.container}>
+            {/* <SafeAreaView style={styles.container}> */}
 
                 {HeaderCmp (props.navigation.toggleDrawer)}
                 <Text>mainScreen!</Text>
@@ -54,10 +55,10 @@ export default function mainScr(props) {
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 /> */}
                 {FooterCmp (props.navigation.toggleDrawer)}
-            </SafeAreaView>
+            {/* </SafeAreaView> */}
         </View>
 
-    );
+);
 
 }
 
@@ -68,5 +69,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
 
-    },
+    }
 });
