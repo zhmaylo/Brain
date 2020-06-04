@@ -33,7 +33,7 @@ export default function mainScr(props) {
     return (
 
         <View style={styles.container}>
-            {/* <SafeAreaView style={styles.container}> */}
+            <SafeAreaView style={styles.container}>
 
                 {HeaderCmp (props.navigation.toggleDrawer)}
                 <Text>mainScreen!</Text>
@@ -55,7 +55,7 @@ export default function mainScr(props) {
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 /> */}
                 {FooterCmp (props.navigation.toggleDrawer)}
-            {/* </SafeAreaView> */}
+            </SafeAreaView>
         </View>
 
 );

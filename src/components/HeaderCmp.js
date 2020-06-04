@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Button, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 import { WINDOW_WIDTH } from './../constants/other';
 
 
@@ -50,19 +50,20 @@ const styles = StyleSheet.create({
         height: buttonSize,
     },
     imageFind: {
-        width: buttonSize-6,
-        height: buttonSize-6,
-        marginLeft: buttonSize+9,
-        marginTop: 4,
+        width: buttonSize-10,
+        height: buttonSize-10,
+        marginLeft: buttonSize+13,
+        marginTop: 8,
         position: 'absolute',
-        opacity: 0.4,
-        zIndex: 1000, 
+        // position: 'relative',
+        opacity: 0.3,
+        zIndex: 100, 
     },
     search: {
-        width: WINDOW_WIDTH,
+        width: WINDOW_WIDTH-2*buttonSize-20,
         height: buttonSize,
         backgroundColor: "#e8e8e8",
-        // borderRadius: 30,
+        borderRadius: 30,
         paddingLeft: 36,
         marginHorizontal: 5,
 

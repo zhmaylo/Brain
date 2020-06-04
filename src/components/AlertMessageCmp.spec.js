@@ -6,7 +6,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 // import * as renderer from 'react-test-renderer';
 
-import { View } from 'react-native';
+// import { View } from 'react-native';
 import { AlertMessageCmp } from './AlertMessageCmp';
 
 

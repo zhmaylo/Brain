@@ -1,9 +1,11 @@
+
 import React from 'react';
 
 import renderer from 'react-test-renderer';
 
-import { View } from 'react-native';
+
 import { HeaderCmp } from './HeaderCmp';
+
 
 
 const callback = () => {

@@ -22,12 +22,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "brain"
-    },
-    "android": {
-      "package": "brain.my.expo"
-    },
-    "entryPoint": "node_modules/expo/AppEntry.js"
+      "supportsTablet": true
+    }
   }
 }

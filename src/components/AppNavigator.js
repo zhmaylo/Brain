@@ -17,7 +17,7 @@ export const AppNavigator = () => (
         <Drawer.Navigator
             drawerStyle={{
                 // backgroundColor: '#00000',
-                width: 140,
+                width: 200,
             }} >
             <Drawer.Screen name="MainScreen" component={mainScr} />
             <Drawer.Screen name="MenuScreen" component={menuScr} />

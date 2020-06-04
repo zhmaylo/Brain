@@ -53,13 +53,13 @@ exports[`renders correctly 1`] = `
     }
     style={
       Object {
-        "height": 24,
-        "marginLeft": 39,
-        "marginTop": 4,
-        "opacity": 0.4,
+        "height": 20,
+        "marginLeft": 43,
+        "marginTop": 8,
+        "opacity": 0.3,
         "position": "absolute",
-        "width": 24,
-        "zIndex": 1000,
+        "width": 20,
+        "zIndex": 100,
       }
     }
   />
@@ -70,10 +70,11 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "backgroundColor": "#e8e8e8",
+        "borderRadius": 30,
         "height": 30,
         "marginHorizontal": 5,
         "paddingLeft": 36,
-        "width": 750,
+        "width": 670,
       }
     }
     underlineColorAndroid="transparent"
