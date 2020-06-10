@@ -1,6 +1,6 @@
 
 import fetch from 'node-fetch';
-import { PROXY_URL_PC } from '../../constants/url';
+import { PROXY_URL_PC } from '../../constants/urlConst';
 
 
 // fetchData - receiving data from the server

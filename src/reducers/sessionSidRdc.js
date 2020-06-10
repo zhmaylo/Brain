@@ -1,4 +1,4 @@
-import { SESSION_SID } from '../constants/dar';
+import { SESSION_SID } from '../constants/darConst';
 
 
 const sessionSidRdc = (state = false, action) => {

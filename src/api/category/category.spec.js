@@ -3,7 +3,7 @@ jest.mock('node-fetch');
 import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
-import { PROXY_URL_PC, URL_GET_CATEGORY }  from '../../constants/url';
+import { PROXY_URL_PC, URL_GET_CATEGORY }  from '../../constants/urlConst';
 import { getCategoryList } from './category';
 
 function dispatch(data) {

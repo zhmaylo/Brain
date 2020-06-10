@@ -1,5 +1,5 @@
 
-import { URL_GET_CATEGORY } from '../../constants/url';
+import { URL_GET_CATEGORY } from '../../constants/urlConst';
 import { middleWareFetch } from './../fetch/middleWareFetch';
 
 

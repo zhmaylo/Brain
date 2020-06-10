@@ -1,5 +1,5 @@
 import { getSid } from './../sid/sid';
-import { NO_ERRORS, ERRORS_SID } from '../../constants/error';
+import { NO_ERRORS, ERRORS_SID } from '../../constants/errorConst';
 import { fetchData } from '../fetch/fetchData';
 
 // middleWareFetch - middle function for control over 'sid' and 'internet connection'

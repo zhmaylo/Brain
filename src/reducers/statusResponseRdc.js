@@ -1,4 +1,4 @@
-import { STATUS_RESPONSE } from '../constants/dar';
+import { STATUS_RESPONSE } from '../constants/darConst';
 
 
 const statusResponseRdc = (state = false, action) => {

@@ -1,8 +1,8 @@
 
-import { URL_POST_AUTH } from '../../constants/url';
+import { URL_POST_AUTH } from '../../constants/urlConst';
 import { fetchData } from '../fetch/fetchData';
 import { setTimeStampToSid } from './timeStamp';
-import { REQUEST_HEADER_AUTH } from '../../constants/authoriz';
+import { REQUEST_HEADER_AUTH } from '../../constants/authorizConst';
 
 // getSid - returns session SID
 // dispatch - this is callback 

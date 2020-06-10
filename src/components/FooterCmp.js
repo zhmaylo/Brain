@@ -1,53 +1,37 @@
 import React from 'react';
 import { View, StyleSheet, Button, Text, TextInput, TouchableOpacity, Image } from 'react-native';
-import { WINDOW_WIDTH } from '../constants/other';
+import { WINDOW_WIDTH } from '../constants/otherConst';
+import { ICON_FOOTER } from './../constants/footerConst';
+
+//main screen footer
+const itemFooter = (iconSource, iconName, iconUrl) => {
+    
+    return (
+        <View>
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() =>  iconUrl() }
+            >
+                <Image
+                    style={styles.menuImage}
+                    source={iconSource}
+                />
+                <Text style={styles.buttonText}>{iconName}</Text>
+            </TouchableOpacity>
+        </View>
+    )
+}
 
 
 export const FooterCmp = (menuUrl) => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity
-                onPress={() => { menuUrl() }}
-            >
-                <Image
-                    style={styles.menuImage}
-                    source={require('./../icons/th-large-solid.png')}
-                />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-                // style={styles.button}
-                onPress={() => { menuUrl() }}
-            >
-                <Image
-                    style={styles.menuImage}
-                    source={require('./../icons/balance-scale-solid.png')}
-                >
-                </Image>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-                // style={styles.button}
-                onPress={() => { menuUrl() }}
-            >
-                <Image
-                    style={styles.menuImage}
-                    source={require('./../icons/star-regular.png')}
-                >
-                </Image>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-                // style={styles.button}
-                onPress={() => { menuUrl() }}
-            >
-                <Image
-                    style={styles.menuImage}
-                    source={require('./../icons/shopping-basket-solid.png')}
-                >
-                </Image>
-            </TouchableOpacity>
+            {itemFooter(ICON_FOOTER[0].iconSource, ICON_FOOTER[0].iconName, menuUrl)}
+            {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, menuUrl)}
+            {itemFooter(ICON_FOOTER[3].iconSource, ICON_FOOTER[3].iconName, menuUrl)}
+            {itemFooter(ICON_FOOTER[4].iconSource, ICON_FOOTER[4].iconName, menuUrl)}
+            {itemFooter(ICON_FOOTER[5].iconSource, ICON_FOOTER[5].iconName, menuUrl)}
         </View >
     )
 }
@@ -60,7 +44,7 @@ const styles = StyleSheet.create({
         height: buttonSize,
         resizeMode: "contain",
     },
-    
+
     container: {
         flex: 1,
         flexDirection: "row",
@@ -69,6 +53,18 @@ const styles = StyleSheet.create({
         width: WINDOW_WIDTH,
         paddingVertical: 3,
         paddingHorizontal: 3,
+        opacity: 0.8
+    },
 
+    button: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        alignItems: "center",
+        fontSize: 4,
+    },
+    buttonText: {
+        fontSize: 10
     }
+
 })

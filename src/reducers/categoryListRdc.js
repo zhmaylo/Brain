@@ -1,4 +1,4 @@
-import { CATEGORY_LIST } from '../constants/dar';
+import { CATEGORY_LIST } from '../constants/darConst';
 
 
 //загружает в State данные о товаре из сервера

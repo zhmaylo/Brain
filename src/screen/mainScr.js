@@ -7,11 +7,13 @@ import { AlertMessageCmp } from '../components/AlertMessageCmp';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HeaderCmp } from './../components/HeaderCmp';
 import { FooterCmp } from '../components/FooterCmp';
+// import { FullScreen } from 'react-native-full-screen';
 
 
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
+
 
     useEffect(() => {
         // getSid(dispatch).then((sid) => {

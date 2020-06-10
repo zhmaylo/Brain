@@ -1,4 +1,4 @@
-import { IS_APP_INIT } from '../constants/dar';
+import { IS_APP_INIT } from '../constants/darConst';
 
 
 const isAppInitRdc = (state = false, action) => {

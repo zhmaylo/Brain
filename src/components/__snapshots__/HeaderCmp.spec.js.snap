@@ -8,6 +8,7 @@ exports[`renders correctly 1`] = `
       "flex": 1,
       "flexDirection": "row",
       "justifyContent": "space-between",
+      "opacity": 0.8,
       "paddingHorizontal": 3,
       "paddingVertical": 3,
       "width": 750,
@@ -34,7 +35,7 @@ exports[`renders correctly 1`] = `
     <Image
       source={
         Object {
-          "testUri": "../../../src/icons/bars-solid.png",
+          "testUri": "../../../src/icons/menu.png",
         }
       }
       style={
@@ -45,35 +46,16 @@ exports[`renders correctly 1`] = `
       }
     />
   </View>
-  <Image
-    source={
-      Object {
-        "testUri": "../../../src/icons/Search-icon.png",
-      }
-    }
-    style={
-      Object {
-        "height": 20,
-        "marginLeft": 43,
-        "marginTop": 8,
-        "opacity": 0.3,
-        "position": "absolute",
-        "width": 20,
-        "zIndex": 100,
-      }
-    }
-  />
   <TextInput
     allowFontScaling={true}
-    placeholder="Search"
+    placeholder="Поиск"
     rejectResponderTermination={true}
     style={
       Object {
-        "backgroundColor": "#e8e8e8",
-        "borderRadius": 30,
+        "borderWidth": 2,
         "height": 30,
         "marginHorizontal": 5,
-        "paddingLeft": 36,
+        "paddingLeft": 4,
         "width": 670,
       }
     }
@@ -99,7 +81,7 @@ exports[`renders correctly 1`] = `
     <Image
       source={
         Object {
-          "testUri": "../../../src/icons/filter-solid.png",
+          "testUri": "../../../src/icons/filter.png",
         }
       }
       style={

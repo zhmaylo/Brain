@@ -4,7 +4,7 @@ import categoryListRdc from "./categoryListRdc";
 import isAppInitRdc from './isAppInitRdc';
 import sessionSidRdc from './sessionSidRdc';
 import statusResponseRdc from './statusResponseRdc';
-import { NO_ERRORS } from './../constants/error';
+import { NO_ERRORS } from './../constants/errorConst';
 
 
 export const ContextApp = React.createContext(null);

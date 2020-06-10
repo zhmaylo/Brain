@@ -2,8 +2,8 @@ jest.mock('node-fetch');
 import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
-import { URL_POST_AUTH, PROXY_URL_PC, URL_GET_CATEGORY } from '../../constants/url';
-import { REQUEST_HEADER_AUTH } from '../../constants/authoriz';
+import { URL_POST_AUTH, PROXY_URL_PC, URL_GET_CATEGORY } from '../../constants/urlConst';
+import { REQUEST_HEADER_AUTH } from '../../constants/authorizConst';
 import { middleWareFetch } from './middleWareFetch';
 
 const sidValue = "11helsfokhm2d475ennf4em1p1"
