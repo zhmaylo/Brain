@@ -1359,7 +1359,7 @@
     react-is "^16.13.0"
     use-subscription "^1.4.0"
 
-"@react-navigation/drawer@^5.8.1":
+"@react-navigation/drawer@^5.8.2":
   version "5.8.2"
   resolved "https://registry.yarnpkg.com/@react-navigation/drawer/-/drawer-5.8.2.tgz#23714daf19a914d27396376206d0cd9b5fbdd46d"
   integrity sha512-s/+5hh468LVkoEW/63MJdBOwcbniKtgWP0fcZMo5yG5NdYvPd8R+VJuBVGsRBSs1KwVIC4Gx+aRROMxe4bhW1w==
@@ -1367,7 +1367,7 @@
     color "^3.1.2"
     react-native-iphone-x-helper "^1.2.1"
 
-"@react-navigation/native@^5.5.0":
+"@react-navigation/native@^5.5.1":
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-5.5.1.tgz#e669d9561e54d86b1315637b8d5630dc55ee9383"
   integrity sha512-5pzsfvLdnvqfrWgTMCLDFaGK6Sj30p7tAMhUGneV2oGlx0OIbhgc6/04UUMpKEmAS2PaC/GZa1LQIsSVWDewvw==
@@ -3017,7 +3017,7 @@ expo-web-browser@~8.2.1:
   dependencies:
     compare-urls "^2.0.0"
 
-expo@~37.0.3:
+expo@^37.0.12:
   version "37.0.12"
   resolved "https://registry.yarnpkg.com/expo/-/expo-37.0.12.tgz#9e1a7ce138cd6c580a112e20992754c7c7e9c97e"
   integrity sha512-roqGc7zTh3esYxAi95AWpNkrztO6istuKQNfYNwHbWmHbqbilZLzRNb844WWK++Uy4UxaObO5ymmacZyq4JnwA==

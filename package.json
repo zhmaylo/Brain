@@ -8,22 +8,21 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-navigation/drawer": "^5.8.1",
-    "@react-navigation/native": "^5.5.0",
-    "expo": "~37.0.3",
+    "@react-navigation/drawer": "^5.8.2",
+    "@react-navigation/native": "^5.5.1",
+    "expo": "^37.0.12",
     "jest": "^26.0.1",
     "node-fetch": "^2.6.0",
-    "react": "~16.9.0",
-    "react-dom": "~16.9.0",
-    "react-native": "0.61.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-native": "^0.61.4",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-reanimated": "~1.7.0",
     "react-native-safe-area-context": "0.7.3",
     "react-native-screens": "~2.2.0",
     "react-native-web": "^0.12.3",
     "react-test-renderer": "^16.13.1",
-    "redux": "^4.0.5",
-    "undefined": "react-native-web/dist/exports/Animated"
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

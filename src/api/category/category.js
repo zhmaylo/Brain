@@ -1,6 +1,7 @@
 
 import { URL_GET_CATEGORY } from '../../constants/urlConst';
 import { middleWareFetch } from './../fetch/middleWareFetch';
+import { categoryFromFile } from './../../constants/categoryJSON';
 
 
 
@@ -17,4 +18,16 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
     return json;
 }
 
+export const getMainCategory = () => {
+    let arrFilt = categoryFromFile.filter (item => item.parentID == 1);
+    return arrFilt;
 
+}
+
+export const getUpCategory = () => {
+
+}
+
+export const getDownCategory = () => {
+
+}

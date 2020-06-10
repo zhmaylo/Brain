@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Button, StyleSheet, Text, View, ImagePropTypes } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
-import { getCategoryList } from './../api/category/category';
+import { getCategoryList, getMainCategory } from './../api/category/category';
 import { AlertMessageCmp } from '../components/AlertMessageCmp';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HeaderCmp } from './../components/HeaderCmp';
@@ -18,6 +18,7 @@ export default function mainScr(props) {
     useEffect(() => {
         // getSid(dispatch).then((sid) => {
         console.log("mainScr. sid=>");//.sessionSid.sid);
+        
         // getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
         // console.log("mainScr.getCategoryList(data)", data);
         // })
@@ -27,6 +28,7 @@ export default function mainScr(props) {
 
     console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
 
+    console.log(getMainCategory());
 
     if (state.statusResponseRdc.statusResponse.code !== -1)
         return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
