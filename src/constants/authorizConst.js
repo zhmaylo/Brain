@@ -26,5 +26,5 @@ export const REQUEST_HEADER_AUTH = {
 // time life session - 5 min = 300000 ms
 // export const SID_TIME_LIFE = 300000;
 //
-// Start. Section 'Time Stamp'
+// End. Section 'Time Stamp'
 /////////////////////////////

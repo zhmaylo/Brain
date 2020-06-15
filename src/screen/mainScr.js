@@ -8,6 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { HeaderCmp } from './../components/HeaderCmp';
 import { FooterCmp } from '../components/FooterCmp';
 // import { FullScreen } from 'react-native-full-screen';
+import { categoryFromFile } from './../constants/categoryJSON';
 
 
 
@@ -28,7 +29,7 @@ export default function mainScr(props) {
 
     console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
 
-    console.log(getMainCategory());
+    // console.log(getMainCategory(categoryFromFile));
 
     if (state.statusResponseRdc.statusResponse.code !== -1)
         return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
