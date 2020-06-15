@@ -7,7 +7,8 @@ import { middleWareFetch } from './../fetch/middleWareFetch';
 
 
 // getCategoryList - returns categorry list from server. JSON-format.
-// dispatch - this is callback 
+// dispatch - this is callback
+
 
 export const getCategoryList = async (sidAndTime, dispatch) => {
 
@@ -15,7 +16,7 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
     // console.log("getCategoryList. sidAndTime => ", sidAndTime)
     json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
     console.log("getCategoryList=>", json);
-    
+    console.log("eeee");
     (json.status == 1) && (dispatch({ type: 'CATEGORY_LIST', payload: json }));
     return json;
 }
