@@ -18,7 +18,9 @@ export default function categoryScr(props) {
           </View>
         );
       }
-    const dataCat = getNormalizeList(categoryFromFile);
+    
+    // const dataCat = getMainListCategory(categoryFromFile, dispatch);
+    const dataCat = getMainListCategory(state.categoryListRdc.categoryList, dispatch);
     const ItemCategory = () => {
        
         return (

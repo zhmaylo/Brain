@@ -21,7 +21,7 @@ export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dis
         console.log("middleWareFetch. json", json);
 
         // if there is an error, then return the new SID
-        if (ERRORS_SID.includes(statusResponse.code) || sidAndTime.sid == undefined)  
+        if (ERRORS_SID.includes(statusResponse.code) || sidAndTime.sid == 1 || sidAndTime.sid == undefined)  
             (sidAndTime = await getSid(dispatch));
         else  (index++);
 

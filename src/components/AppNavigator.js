@@ -8,7 +8,7 @@ import menuScr from "../screen/menuScr";
 import findScr from "../screen/findScr";
 import configScr from "../screen/configScr";
 import basketScr from "../screen/basketScr";
-import { menuItem } from './../constants/menuConst';
+import { MENU_ITEM } from './../constants/menuConst';
 import categoryScr from './../screen/categoryScr';
 
 const Drawer = createDrawerNavigator();
@@ -21,8 +21,8 @@ export const AppNavigator = () => (
                 // backgroundColor: '#00000',
                 width: 200,
             }} >
-            <Drawer.Screen name={menuItem[0]} component={categoryScr} />
             <Drawer.Screen name="MainScreen" component={mainScr} />
+            <Drawer.Screen name={MENU_ITEM[0]} component={categoryScr} />
 
             <Drawer.Screen name="MenuScreen" component={menuScr} />
             <Drawer.Screen name="FindScreen" component={findScr} />
