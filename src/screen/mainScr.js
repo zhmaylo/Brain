@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Button, StyleSheet, Text, View, ImagePropTypes } from 'react-native';
+import { Button, StyleSheet, Text, View, ImagePropTypes, StatusBar } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
 import { getCategoryList, getMainCategory } from './../api/category/category';
@@ -20,15 +20,15 @@ export default function mainScr(props) {
 
     useEffect(() => {
         // getSid(dispatch).then((sid) => {
-        console.log("mainScr. sid=>");//.sessionSid.sid);
+        // console.log("mainScr. sid=>");//.sessionSid.sid);
 
         // getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
-            // console.log("mainScr.getCategoryList(data)", data);
-            // dispatch({ type: 'CATEGORY_LIST', payload: data});
+        //     console.log("mainScr.getCategoryList(data)", data);
+        //     dispatch({ type: 'CATEGORY_LIST', payload: data});
             dispatch({ type: 'CATEGORY_LIST', payload: CATEGORY_FROM_FILE });
             dispatch({ type: 'IS_APP_INIT', payload: true });
         // })
-        // })
+        
 
     }, [!state.isAppInitRdc.isAppInit]);
 
@@ -47,8 +47,8 @@ export default function mainScr(props) {
         return (
 
             <View style={styles.container}>
-                <SafeAreaView style={styles.container}>
-
+            <StatusBar hidden={true} />
+          
                     {HeaderCmp(props.navigation.toggleDrawer)}
                     <Text>mainScreen!</Text>
                     <Button
@@ -69,8 +69,9 @@ export default function mainScr(props) {
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 /> */}
                     {FooterCmp(props.navigation.toggleDrawer)}
+
                     {props.navigation.navigate(MENU_ITEM[0])}
-                </SafeAreaView>
+          
             </View>
 
         );
@@ -88,6 +89,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingTop: 18,
 
     }
 });
