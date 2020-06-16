@@ -44,7 +44,6 @@ export const addFieldChildren = (categoryJSON) => {
 // dispatch - this is callback
 export const getMainListCategory = (categoryJSON, dispatch) => {
     let arrFilt = categoryJSON.filter(item => item.parentID == 1);
-
     arrFilt = setIsChildren (arrFilt, categoryJSON, dispatch);
 
     return arrFilt;

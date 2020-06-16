@@ -9,7 +9,7 @@
 export const setIsChildren = (arrFilt, categoryList, dispatch) => {
     if (isCheckUndef(arrFilt)) {
         arrFilt = { ...setValueIsChildren(arrFilt, categoryList) };
-        dispatch({ type: 'CATEGORY_LIST', payload: categoryList });
+        // dispatch({ type: 'CATEGORY_LIST', payload: {...categoryList} });
     };
     return arrFilt;
 };
@@ -32,7 +32,7 @@ export const setValueIsChildren = (arrFilt, categoryList) => {
 
 
 export const isItemHaveChildren = (categoryList, categoryID_UP) => {
-    let arrTemp = categoryList.filter(item => item.parentID == categoryID_UP);
+    let arrTemp = categoryList.filter(item => item.parentID === categoryID_UP);
     if (arrTemp.length > 0) return true
     else return false;
 }

@@ -27,8 +27,9 @@ export default function categoryScr(props) {
             </View>
         );
     }
-
-    const dataCat = getMainListCategory(state.categoryListRdc.categoryList, dispatch);
+    
+    let dataCat = getMainListCategory(state.categoryListRdc.categoryList, dispatch);
+    // dispatch({ type: 'CATEGORY_LIST', payload: state.categoryListRdc.categoryList });
     const ItemCategory = () => {
 
         return (

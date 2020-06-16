@@ -10,6 +10,7 @@
   "dependencies": {
     "@react-navigation/drawer": "^5.8.2",
     "@react-navigation/native": "^5.5.1",
+    "eslint-plugin-react-hooks": "^4.0.4",
     "expo": "^37.0.12",
     "jest": "^26.0.1",
     "node-fetch": "^2.6.0",

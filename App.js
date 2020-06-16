@@ -13,7 +13,7 @@ export default function App(props) {
 
     // const {state, dispatch} = React.useContext(ContextApp);
 
-    console.log("state", state)
+    // console.log("state", state)
 
     return (
         <ContextApp.Provider value={{state, dispatch}}>

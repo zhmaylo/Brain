@@ -28,7 +28,7 @@ export default function mainScr(props) {
             dispatch({ type: 'CATEGORY_LIST', payload: CATEGORY_FROM_FILE });
             dispatch({ type: 'IS_APP_INIT', payload: true });
         // })
-        
+        {props.navigation.navigate(MENU_ITEM[0])}
 
     }, [!state.isAppInitRdc.isAppInit]);
 
@@ -70,7 +70,7 @@ export default function mainScr(props) {
                 /> */}
                     {FooterCmp(props.navigation.toggleDrawer)}
 
-                    {props.navigation.navigate(MENU_ITEM[0])}
+                   
           
             </View>
 
