@@ -4,9 +4,9 @@ import { Button, StyleSheet, Text, View, FlatList, SafeAreaView, StatusBar, Touc
 import { ContextApp } from "../reducers/unionRdc";
 
 import { NUMCOLUMN } from './../constants/categoryConst';
-import { getMainListCategory, getNormalizeList } from './../api/category/category';
-import { categoryFromFile } from './../constants/categoryJSON';
 import { WINDOW_WIDTH } from './../constants/otherConst';
+import { getMainListCategory } from '../api/category/symbChildren';
+
 
 
 export default function categoryScr(props) {
@@ -27,9 +27,8 @@ export default function categoryScr(props) {
             </View>
         );
     }
-    
-    let dataCat = getMainListCategory(state.categoryListRdc.categoryList, dispatch);
-    // dispatch({ type: 'CATEGORY_LIST', payload: state.categoryListRdc.categoryList });
+    let catList = state.categoryListRdc.categoryList;
+    let dataCat = getMainListCategory(catList, dispatch);
     const ItemCategory = () => {
 
         return (

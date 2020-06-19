@@ -15,7 +15,7 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
     // console.log("getCategoryList=>", json);
     if (json.status == 1) {
         json = addFieldChildren(json.result);
-        // (dispatch({ type: 'CATEGORY_LIST', payload: json}))
+        (dispatch({ type: 'CATEGORY_LIST', payload: json}))
     };
     return json;
 }
@@ -45,9 +45,11 @@ export const addFieldChildren = (categoryJSON) => {
 export const getMainListCategory = (categoryJSON, dispatch) => {
     let arrFilt = categoryJSON.filter(item => item.parentID == 1);
     arrFilt = setIsChildren (arrFilt, categoryJSON, dispatch);
-
+    console.log("getMainListCategory arrFilt", arrFilt[0]);
+    console.log("getMainListCategory categoryJSON", categoryJSON[0]);
     return arrFilt;
 }
+
 
 
 export const getUpListCategory = () => {

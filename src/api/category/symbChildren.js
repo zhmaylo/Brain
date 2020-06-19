@@ -1,27 +1,31 @@
 /////////////////////////////
 // Start. Functions group to set value field 'isChildren' in the list of categories
-//
+//isChildren = undefined - isChildren field not checked
+//isChildren = true - isChldren have children
+//isChildren = false - isChldren do NOT have children
+
 
 // stIsChildren - set field 'isChildren' to "true" or "false"
 // arrFilt - current category level
 // categoryList - full list category in format 'Array of Objects'
 // dispatch - this is callback
 export const setIsChildren = (arrFilt, categoryList, dispatch) => {
-    if (isCheckUndef(arrFilt)) {
-        arrFilt = { ...setValueIsChildren(arrFilt, categoryList) };
+    if (isUndef(arrFilt)) {
+        arrFilt = getValueIsChildren(arrFilt, categoryList);
         // dispatch({ type: 'CATEGORY_LIST', payload: {...categoryList} });
     };
     return arrFilt;
 };
 
-// isCheckUndef - checks for children in the category
+// isUndef - checks for children in the category
 // arrFilt - current category level
-export const isCheckUndef = (arrFilt) => {
+export const isUndef = (arrFilt) => {
     let arrTemp = arrFilt.find(item => item.isChildren == undefined);
     return arrTemp; //true - item found, undefined - item NOT found
 }
 
-export const setValueIsChildren = (arrFilt, categoryList) => {
+// setValueIsChildren - 
+export const getValueIsChildren = (arrFilt, categoryList) => {
     arrFilt.forEach(function (item, index, array) {
         // console.log("setValueIsChildren 1", item.isChildren )
         item.isChildren = isItemHaveChildren(categoryList, item.categoryID);
