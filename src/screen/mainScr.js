@@ -32,8 +32,8 @@ export default function mainScr(props) {
 
     }, [!state.isAppInitRdc.isAppInit]);
 
-    console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
-    console.log('mainScr. state', state);
+    // console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
+    // console.log('mainScr. state', state);
 
     // console.log(getMainCategory(categoryFromFile));
 

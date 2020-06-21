@@ -5,7 +5,8 @@ import { ContextApp } from "../reducers/unionRdc";
 
 import { NUMCOLUMN } from './../constants/categoryConst';
 import { WINDOW_WIDTH } from './../constants/otherConst';
-import { getMainListCategory } from '../api/category/symbChildren';
+
+import { getMainListCategory } from './../api/category/category';
 
 
 
@@ -27,8 +28,20 @@ export default function categoryScr(props) {
             </View>
         );
     }
-    let catList = state.categoryListRdc.categoryList;
-    let dataCat = getMainListCategory(catList, dispatch);
+
+    // let catList2 = {...state};
+    // let catList = {...catList2.categoryListRdc.categoryList};
+    let catList2 = state.categoryListRdc.categoryList.filter(item => item.parentID == 1);
+    let catList = {...catList2};
+    // catList[0].isChildren = 123;
+    catList[0].isChildren = 123;
+    state.categoryListRdc.categoryList[0].isChildren = 999;
+
+    console.log("catList[0]", catList[0].isChildren);
+    console.log("state...categoryList[0]", state.categoryListRdc.categoryList[0].isChildren);
+
+
+    let dataCat = getMainListCategory(state.categoryListRdc.categoryList, dispatch);
     const ItemCategory = () => {
 
         return (
