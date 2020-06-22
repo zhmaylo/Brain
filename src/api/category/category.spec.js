@@ -32,12 +32,9 @@ test('"getCategoryList" receiving data from the server. => ', async () => {
 });
 
 let baseList = [
-    {categoryID: 1181, parentID: 3, childrenFlag : 0, realcat: 10, name: "Ноутбуки, планшеты"},
-    {categoryID: 1331, parentID: 1, childrenFlag : 0, realcat: 30, name: "Компьютеры, аксессуары"},
-    {categoryID: 1330, parentID: 1, childrenFlag : 0, realcat: 50, name: "Комплектующие для ПК"},
-    {categoryID: 1513, parentID: 2, childrenFlag : 0, realcat: 0, name: "ТВ, Аудио, Видео, Фото"},
-    {categoryID: 1266, parentID: 1, childrenFlag : 0, realcat: 60, name: "Смартфоны, связь, навигация"},
-    {categoryID: 1378, parentID: 6, childrenFlag : 0, realcat: 0, name: "Периферия, оргтехника"},
+    {categoryID: 1181, parentID: 3, isChildren : undefined, realcat: 10, name: "Ноутбуки, планшеты"},
+    {categoryID: 1331, parentID: 1, isChildren : undefined, realcat: 30, name: "Компьютеры, аксессуары"},
+    {categoryID: 1330, parentID: 1, isChildren : undefined, realcat: 50, name: "Комплектующие для ПК"},
 ];
 
 
@@ -46,31 +43,32 @@ test('"getMainListCategory" returns entry level categories (parentID=1). => ', (
     let entryList = baseList;
     
     let outList = [
-        {categoryID: 1331, parentID: 1, childrenFlag : 0, realcat: 30, name: "Компьютеры, аксессуары"},
-        {categoryID: 1330, parentID: 1, childrenFlag : 0, realcat: 50, name: "Комплектующие для ПК"},
-        {categoryID: 1266, parentID: 1, childrenFlag : 0, realcat: 60, name: "Смартфоны, связь, навигация"},
+        {categoryID: 1331, parentID: 1, isChildren : false, realcat: 30, name: "Компьютеры, аксессуары"},
+        {categoryID: 1330, parentID: 1, isChildren : false, realcat: 50, name: "Комплектующие для ПК"},
     ];
     let data = getMainListCategory(entryList);
     console.log("getMainListCategory", data);
     expect(data).toMatchObject(outList);
 });
 
-test('"addFieldChildren" creates a new array and add to him with field "childrenFlag". Returns a new array.. => ', () => {
+test('"addFieldIsChildren" creates a new array and add to him with field "isChildren". Returns a new array.. => ', () => {
     
-    let ListWithoutchildrenFlag = [
-        {categoryID: 1181, parentID: 3, realcat: 10, name: "Ноутбуки, планшеты"},
+    let listWithOutIsChildren = 
+        [{categoryID: 1181, parentID: 3, realcat: 10, name: "Ноутбуки, планшеты"},
         {categoryID: 1331, parentID: 1, realcat: 30, name: "Компьютеры, аксессуары"},
-        {categoryID: 1330, parentID: 1, realcat: 50, name: "Комплектующие для ПК"},
-        {categoryID: 1513, parentID: 2, realcat: 0, name: "ТВ, Аудио, Видео, Фото"},
-        {categoryID: 1266, parentID: 1, realcat: 60, name: "Смартфоны, связь, навигация"},
-        {categoryID: 1378, parentID: 6, realcat: 0, name: "Периферия, оргтехника"}
-    ];
-    
-    let listWitnchildrenFlag = {...baseList}
+        {categoryID: 1330, parentID: 1, realcat: 50, name: "Комплектующие для ПК"}];
+
+    let listWithIsChildren = {
+        "0" : {categoryID: 1181, parentID: 3, isChildren : undefined, realcat: 10, name: "Ноутбуки, планшеты"},
+        "1" : {categoryID: 1331, parentID: 1, isChildren : undefined, realcat: 30, name: "Компьютеры, аксессуары"},
+        "2" : {categoryID: 1330, parentID: 1, isChildren : undefined, realcat: 50, name: "Комплектующие для ПК"}};
+       
         
-    let data = addFieldChildren(ListWithoutchildrenFlag);
+    // let listWithIsChildren = {...baseList}
+        
+    let data = addFieldChildren(listWithOutIsChildren);
     console.log("addFieldChildren", data);
-    expect(data).toMatchObject(listWitnchildrenFlag);
+    expect(data).toMatchObject(listWithIsChildren);
 });
 
 // tasca - testAsyncCallback Creates Async Callback test

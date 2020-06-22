@@ -1,7 +1,7 @@
 
 import { URL_GET_CATEGORY } from '../../constants/urlConst';
 import { middleWareFetch } from './../fetch/middleWareFetch';
-import { setIsChildren } from './symbChildren';
+import { setFieldIsChildren } from './symbChildren';
 
 
 // getCategoryList - returns categorry list from server. JSON-format.
@@ -44,7 +44,7 @@ export const addFieldChildren = (categoryJSON) => {
 // dispatch - this is callback
 export const getMainListCategory = (categoryJSON, dispatch) => {
     let arrFilt = categoryJSON.filter(item => item.parentID == 1);
-    arrFilt = setIsChildren (arrFilt, categoryJSON, dispatch);
+    arrFilt = setFieldIsChildren (arrFilt, categoryJSON, dispatch);
     // console.log("getMainListCategory arrFilt", arrFilt[0]);
     // console.log("getMainListCategory categoryJSON", categoryJSON[0]);
     return arrFilt;

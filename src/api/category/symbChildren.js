@@ -9,33 +9,29 @@
 // arrFilt - current category level
 // categoryList - full list category in format 'Array of Objects'
 // dispatch - this is callback
-export const setIsChildren = (arrFilt, categoryList, dispatch) => {
+export const setFieldIsChildren = (arrFilt, categoryList, dispatch) => {
     if (isUndef(arrFilt)) {
-        arrFilt = getValueIsChildren(arrFilt, categoryList);
+        arrFilt.forEach(function (item, index, array) {
+            item.isChildren = isItemHaveChildren(categoryList, item.categoryID);
+        })
         // dispatch({ type: 'CATEGORY_LIST', payload: {...categoryList} });
     };
     return arrFilt;
 };
 
-// isUndef - checks for children in the category
+// isUndef - checks the incoming list "arrFilt" for the value "undefined"
 // arrFilt - current category level
-export const isUndef = (arrFilt) => {
+// return "true" - values "undefined" found, 
+// return "undefined" - values "undefined" NOT found
+const isUndef = (arrFilt) => {
     let arrTemp = arrFilt.find(item => item.isChildren == undefined);
     return arrTemp; //true - item found, undefined - item NOT found
 }
 
-// setValueIsChildren - 
-export const getValueIsChildren = (arrFilt, categoryList) => {
-    arrFilt.forEach(function (item, index, array) {
-        // console.log("setValueIsChildren 1", item.isChildren )
-        item.isChildren = isItemHaveChildren(categoryList, item.categoryID);
-        // console.log("setValueIsChildren 2", item.isChildren)
-    })
-    return arrFilt;
-}
-
-
-export const isItemHaveChildren = (categoryList, categoryID_UP) => {
+// isItemHaveChildren - checks for the presence of "children" in the category
+// categoryList - full list category in format 'Array of Objects'
+// categoryID_UP - "id" верхней категории
+const isItemHaveChildren = (categoryList, categoryID_UP) => {
     let arrTemp = categoryList.filter(item => item.parentID === categoryID_UP);
     if (arrTemp.length > 0) return true
     else return false;

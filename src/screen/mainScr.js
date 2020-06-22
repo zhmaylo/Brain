@@ -22,12 +22,12 @@ export default function mainScr(props) {
         // getSid(dispatch).then((sid) => {
         // console.log("mainScr. sid=>");//.sessionSid.sid);
 
-        // getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
-        //     console.log("mainScr.getCategoryList(data)", data);
-        //     dispatch({ type: 'CATEGORY_LIST', payload: data});
-            dispatch({ type: 'CATEGORY_LIST', payload: CATEGORY_FROM_FILE });
+        getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
+            console.log("mainScr.getCategoryList(data)", data);
+            dispatch({ type: 'CATEGORY_LIST', payload: data});
+            // dispatch({ type: 'CATEGORY_LIST', payload: CATEGORY_FROM_FILE });
             dispatch({ type: 'IS_APP_INIT', payload: true });
-        // })
+        })
         {props.navigation.navigate(MENU_ITEM[0])}
 
     }, [!state.isAppInitRdc.isAppInit]);
