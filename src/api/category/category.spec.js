@@ -12,23 +12,24 @@ function dispatch(data) {
     return;
 }
 
-test('"getCategoryList" receiving data from the server. => ', async () => {
+test.only ('"getCategoryList" receiving data from the server. => ', async () => {
 
     const sidValue = "11helsfokhm2d475ennf4em1p1"
     const sidAndTime = { sid: sidValue, timeStamp: 13456789 };//SID - imitation
     //   //\u0065\u0065 = ee
-    const json = '{"categoryID":8013,"parentID":1,"realcat":0,"name":"ee", "status":1,"result":"' + sidValue + '"}';
-    //   console.log("Test getCategoryList. json", json);
-    //   // console.log("getCategoryList. sidAndStamp.sid", sidAndTime.sid);
+    let json = '{"result" : {"categoryID":8013,"parentID":1,"realcat":0,"name":"ee","status":1},"result1":"' + sidValue + '"}';
+    
+    // console.log("Test getCategoryList. json", json);
+    // console.log("getCategoryList. sidAndStamp.sid", sidAndTime.sid);
 
     fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
     const data = await getCategoryList(sidAndTime, dispatch);
 
-    // console.log("Test getCategoryList. data", data);
+    console.log("Test getCategoryList. data", data);
     expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY + sidAndTime.sid);
-    expect(data.categoryID).toBe(8013);
-    expect(data.name).toBe('ee');
+    expect(data.result.categoryID).toBe(8013);
+    expect(data.result.name).toBe('ee');
 });
 
 let baseList = [

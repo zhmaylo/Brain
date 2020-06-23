@@ -12,7 +12,7 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
     let json = 0;
     // console.log("getCategoryList. sidAndTime => ", sidAndTime)
     json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
-    // console.log("getCategoryList=>", json);
+    //  console.log("getCategoryList=>", json);
     if (json.status == 1) {
         json = addFieldChildren(json.result);
         (dispatch({ type: 'CATEGORY_LIST', payload: json}))
