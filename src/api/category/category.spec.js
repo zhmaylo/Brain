@@ -17,8 +17,15 @@ test.only ('"getCategoryList" receiving data from the server. => ', async () => 
     const sidValue = "11helsfokhm2d475ennf4em1p1"
     const sidAndTime = { sid: sidValue, timeStamp: 13456789 };//SID - imitation
     //   //\u0065\u0065 = ee
-    let json = '{"result" : {"categoryID":8013,"parentID":1,"realcat":0,"name":"ee","status":1},"result1":"' + sidValue + '"}';
+    let json = '{"result" : {"categoryID":8013,"parentID":1,"realcat":0,"name":"ee"},"status":1' + sidAndTime + '"}';
     
+//     result: Array(1173)
+// [0 … 99]
+// 0: {categoryID: 1181, parentID: 1, realcat: 0, name: "Ноутбуки, планшеты"}
+// 1: {categoryID: 1331, parentID: 1, realcat: 0, name: "Компьютеры, аксессуары"}
+// 2: {categoryID: 1330, parentID: 1, realcat: 0, name: "Комплектующие для ПК"}
+
+// status: 1
     // console.log("Test getCategoryList. json", json);
     // console.log("getCategoryList. sidAndStamp.sid", sidAndTime.sid);
 
