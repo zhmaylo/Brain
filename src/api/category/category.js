@@ -13,8 +13,9 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
     let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
     console.log("getCategoryList=>", json);
     console.log("getCategoryList>json.status #1", json.status);
-    // if (json.status == 1) 
+
     json = addFieldChildren(json.result);
+    json = setFieldIsChildren(json, json);
 
     return json;
 }
@@ -43,12 +44,14 @@ export const addFieldChildren = (categoryJSON) => {
 // getMainListCategory - returns entry level categories
 // categoryJSON - full list category in format JSON
 // dispatch - this is callback
-export const getMainListCategory = (categoryJSON, dispatch) => {
-    let arrFilt = categoryJSON.filter(item => item.parentID == 1);
-    arrFilt = setFieldIsChildren(arrFilt, categoryJSON, dispatch);
+export const getMainListCategory = (categoryJSON) => {
+
+    let arrMainListCategory = categoryJSON.filter(item => item.parentID == 1);
+    // arrMainListCategory = setFieldIsChildren(arrFilt, categoryJSON);
+    // arrMainListCategory = setFieldIsChildren(categoryJSON, categoryJSON);
     // console.log("getMainListCategory arrFilt", arrFilt[0]);
     // console.log("getMainListCategory categoryJSON", categoryJSON[0]);
-    return arrFilt;
+    return arrMainListCategory;
 }
 
 

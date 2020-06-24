@@ -9,12 +9,12 @@
 // arrFilt - current category level
 // categoryList - full list category in format 'Array of Objects'
 // dispatch - this is callback
-export const setFieldIsChildren = (arrFilt, categoryList, dispatch) => {
+export const setFieldIsChildren = (arrFilt, categoryList) => {
     if (isUndef(arrFilt)) {
         arrFilt.forEach(function (item, index, array) {
             item.isChildren = isItemHaveChildren(categoryList, item.categoryID);
         })
-        // dispatch({ type: 'CATEGORY_LIST', payload: {...categoryList} });
+        
     };
     return arrFilt;
 };
@@ -33,8 +33,8 @@ const isUndef = (arrFilt) => {
 // categoryID_UP - "id" верхней категории
 const isItemHaveChildren = (categoryList, categoryID_UP) => {
     let arrTemp = categoryList.filter(item => item.parentID === categoryID_UP);
-    if (arrTemp.length > 0) return true
-    else return false;
+    if (arrTemp.length > 0) return true // children found
+    else return false; // children NOT found
 }
 
 

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Button, StyleSheet, Text, View, ImagePropTypes, StatusBar } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
-import { getCategoryList, getMainCategory } from './../api/category/category';
+import { getCategoryList, getMainCategory, getMainListCategory } from './../api/category/category';
 import { AlertMessageCmp } from '../components/AlertMessageCmp';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HeaderCmp } from './../components/HeaderCmp';
@@ -28,7 +28,7 @@ export default function mainScr(props) {
             // dispatch({ type: 'CATEGORY_LIST', payload: CATEGORY_FROM_FILE });
             dispatch({ type: 'IS_APP_INIT', payload: true });
         })
-        {props.navigation.navigate(MENU_ITEM[0])}
+        // {props.navigation.navigate(MENU_ITEM[0])}
 
     }, [!state.isAppInitRdc.isAppInit]);
 
