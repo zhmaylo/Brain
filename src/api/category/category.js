@@ -8,17 +8,14 @@ import { setFieldIsChildren } from './symbChildren';
 // sidAndTime - session SID and TimeStamp 
 // dispatch - this is callback
 export const getCategoryList = async (sidAndTime, dispatch) => {
-
-    let json = 0;
+   
     // console.log("getCategoryList. sidAndTime => ", sidAndTime)
-    json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
-     console.log("getCategoryList=>", json);
-     console.log("getCategoryList>json.status", json.status)
-    if (json.status == 1) {
-        console.log("getCategoryList>json.status 2", json.status)
-        json = addFieldChildren(json.result);
-        (dispatch({ type: 'CATEGORY_LIST', payload: json}))
-    };
+    let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
+    console.log("getCategoryList=>", json);
+    console.log("getCategoryList>json.status #1", json.status);
+    // if (json.status == 1) 
+    json = addFieldChildren(json.result);
+
     return json;
 }
 
@@ -27,7 +24,9 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
 // categoryJSON - full list category in format JSON
 export const addFieldChildren = (categoryJSON) => {
     let arrListaddField = [];
-    let itemList = { categoryID: 0, parentID: 0, isChildren: undefined, realcat: 0, name: "" };
+    let itemList = { categoryID: 0, parentID: 0, 
+        isChildren: undefined, //field which add
+        realcat: 0, name: "" };
 
     categoryJSON.forEach(function (item, index, array) {
         itemList.categoryID = item.categoryID;
@@ -36,7 +35,7 @@ export const addFieldChildren = (categoryJSON) => {
         itemList.name = item.name;
         arrListaddField[index] = { ...itemList };
     })
-
+    console.log("arrListaddField", arrListaddField[0]);
     return arrListaddField;
 }
 
@@ -46,7 +45,7 @@ export const addFieldChildren = (categoryJSON) => {
 // dispatch - this is callback
 export const getMainListCategory = (categoryJSON, dispatch) => {
     let arrFilt = categoryJSON.filter(item => item.parentID == 1);
-    arrFilt = setFieldIsChildren (arrFilt, categoryJSON, dispatch);
+    arrFilt = setFieldIsChildren(arrFilt, categoryJSON, dispatch);
     // console.log("getMainListCategory arrFilt", arrFilt[0]);
     // console.log("getMainListCategory categoryJSON", categoryJSON[0]);
     return arrFilt;
@@ -54,10 +53,3 @@ export const getMainListCategory = (categoryJSON, dispatch) => {
 
 
 
-export const getUpListCategory = () => {
-
-}
-
-export const getDownListCategory = () => {
-
-}
