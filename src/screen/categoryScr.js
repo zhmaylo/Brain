@@ -6,12 +6,21 @@ import { ContextApp } from "../reducers/unionRdc";
 import { NUMCOLUMN } from './../constants/categoryConst';
 import { WINDOW_WIDTH } from './../constants/otherConst';
 
-import { getMainListCategory } from './../api/category/category';
+import { getMainListCategory, addFieldChildren } from './../api/category/category';
+import { setFieldIsChildren } from './../api/category/symbChildren';
 
 
 
 export default function categoryScr(props) {
     const { state, dispatch } = useContext(ContextApp);
+    let json = state.categoryListRdc.categoryList;
+
+    useEffect(() => {
+        
+        json = addFieldChildren(json);
+        json = setFieldIsChildren(json);
+        dispatch({ type: 'CATEGORY_LIST', payload: json});
+    }, []);
 
     const SymbolChildren = (isChildren) => {
         if (isChildren) return '>'

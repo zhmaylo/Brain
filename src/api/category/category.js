@@ -8,15 +8,13 @@ import { setFieldIsChildren } from './symbChildren';
 // sidAndTime - session SID and TimeStamp 
 // dispatch - this is callback
 export const getCategoryList = async (sidAndTime, dispatch) => {
-   
+    
     // console.log("getCategoryList. sidAndTime => ", sidAndTime)
     let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
+    json = json.result;
     console.log("getCategoryList=>", json);
-    console.log("getCategoryList>json.status #1", json.status);
-
-    json = addFieldChildren(json.result);
-    json = setFieldIsChildren(json, json);
-
+    
+    
     return json;
 }
 
@@ -25,9 +23,14 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
 // categoryJSON - full list category in format JSON
 export const addFieldChildren = (categoryJSON) => {
     let arrListaddField = [];
-    let itemList = { categoryID: 0, parentID: 0, 
+    let itemList = {
+        categoryID: 0, parentID: 0,
         isChildren: undefined, //field which add
-        realcat: 0, name: "" };
+        realcat: 0, name: ""
+    };
+    console.log("addFieldChildren.categoryJSON", categoryJSON);
+
+    // if (typeof categoryJSON === 'undefined') { return [] };
 
     categoryJSON.forEach(function (item, index, array) {
         itemList.categoryID = item.categoryID;
@@ -36,7 +39,9 @@ export const addFieldChildren = (categoryJSON) => {
         itemList.name = item.name;
         arrListaddField[index] = { ...itemList };
     })
-    console.log("arrListaddField", arrListaddField[0]);
+
+
+    // console.log("arrListaddField", arrListaddField[0]);
     return arrListaddField;
 }
 
@@ -45,12 +50,8 @@ export const addFieldChildren = (categoryJSON) => {
 // categoryJSON - full list category in format JSON
 // dispatch - this is callback
 export const getMainListCategory = (categoryJSON) => {
-
+    console.log("getMainListCategory categoryJSON", categoryJSON);
     let arrMainListCategory = categoryJSON.filter(item => item.parentID == 1);
-    // arrMainListCategory = setFieldIsChildren(arrFilt, categoryJSON);
-    // arrMainListCategory = setFieldIsChildren(categoryJSON, categoryJSON);
-    // console.log("getMainListCategory arrFilt", arrFilt[0]);
-    // console.log("getMainListCategory categoryJSON", categoryJSON[0]);
     return arrMainListCategory;
 }
 

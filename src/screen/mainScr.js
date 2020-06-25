@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Button, StyleSheet, Text, View, ImagePropTypes, StatusBar } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
-import { getCategoryList, getMainCategory, getMainListCategory } from './../api/category/category';
+import { getCategoryList, getMainCategory, getMainListCategory, addFieldChildren } from './../api/category/category';
 import { AlertMessageCmp } from '../components/AlertMessageCmp';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { HeaderCmp } from './../components/HeaderCmp';
@@ -10,6 +10,7 @@ import { FooterCmp } from '../components/FooterCmp';
 import { MENU_ITEM } from './../constants/menuConst';
 // import { FullScreen } from 'react-native-full-screen';
 import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
+import { setFieldIsChildren } from './../api/category/symbChildren';
 
 
 
@@ -24,8 +25,9 @@ export default function mainScr(props) {
 
         getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
             console.log("mainScr.getCategoryList(data)", data);
-            dispatch({ type: 'CATEGORY_LIST', payload: data});
-            // dispatch({ type: 'CATEGORY_LIST', payload: CATEGORY_FROM_FILE });
+   
+            // dispatch({ type: 'CATEGORY_LIST', payload: data});
+            dispatch({ type: 'CATEGORY_LIST', payload: CATEGORY_FROM_FILE });
             dispatch({ type: 'IS_APP_INIT', payload: true });
         })
         // {props.navigation.navigate(MENU_ITEM[0])}

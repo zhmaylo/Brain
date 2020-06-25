@@ -21,7 +21,7 @@ export async function fetchData(requestUrl, requestHeader) {
         response = cloneResponse(response);
         json = await response.json();
 
-        console.log("fetchData. json =>", json);
+        // console.log("fetchData. json =>", json);
 
         return json;
     }

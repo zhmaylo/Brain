@@ -9,7 +9,7 @@ import { fetchData } from '../fetch/fetchData';
 // dispatch - dispatch
 export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dispatch) => {
 
-    console.log("middleWareFetch. sidAndTime => ", sidAndTime);
+    // console.log("middleWareFetch. sidAndTime => ", sidAndTime);
     
     let json;
     
@@ -18,7 +18,7 @@ export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dis
         
         json = await fetchData(requestUrl + sidAndTime.sid, requestHeader);
         statusResponse = getStatusResponse(json);
-        console.log("middleWareFetch. json", json);
+        // console.log("middleWareFetch. json", json);
 
         // if there is an error, then return the new SID
         if (ERRORS_SID.includes(statusResponse.code) || sidAndTime.sid == 1 || sidAndTime.sid == undefined)  
@@ -27,7 +27,7 @@ export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dis
 
     }
     dispatch({ type: 'STATUS_RESPONSE', payload: statusResponse });
-    console.log("middleWareFetch. statusResponse => ", statusResponse);
+    // console.log("middleWareFetch. statusResponse => ", statusResponse);
     // console.log ("middleWareFetch. json", json.status)
     return json;
 }
@@ -42,7 +42,7 @@ export function getStatusResponse(json) {
     const errArr = [0, undefined];
     if (errArr.includes(json.status) || (json.error_code > 0)) {
         let errMessage = "Response Error N" + json.error_code + " - " + json.error_message;
-        console.log("getStatusResponse. errMessage", errMessage);
+        // console.log("getStatusResponse. errMessage", errMessage);
         // console.log("getStatusResponse.json", json);
         
         statusResponse = { code: json.error_code, message: errMessage };

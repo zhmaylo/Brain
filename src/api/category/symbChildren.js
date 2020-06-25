@@ -9,14 +9,14 @@
 // arrFilt - current category level
 // categoryList - full list category in format 'Array of Objects'
 // dispatch - this is callback
-export const setFieldIsChildren = (arrFilt, categoryList) => {
-    if (isUndef(arrFilt)) {
-        arrFilt.forEach(function (item, index, array) {
+export const setFieldIsChildren = (categoryList) => {
+    if (isUndef(categoryList)) {
+        categoryList.forEach(function (item, index, array) {
             item.isChildren = isItemHaveChildren(categoryList, item.categoryID);
         })
         
     };
-    return arrFilt;
+    return categoryList;
 };
 
 // isUndef - checks the incoming list "arrFilt" for the value "undefined"
