@@ -18,11 +18,11 @@ export async function fetchData(requestUrl, requestHeader) {
         else response = await fetch(PROXY_URL_PC + requestUrl, requestHeader);
 
         // console.log("getJSON. response before =>", response.bodyUsed);
-        response = cloneResponse(response);
+        response = await cloneResponse(response);
         json = await response.json();
 
         // console.log("fetchData. json =>", json);
-
+                
         return json;
     }
     catch (error) {

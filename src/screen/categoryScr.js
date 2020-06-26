@@ -13,14 +13,6 @@ import { setFieldIsChildren } from './../api/category/symbChildren';
 
 export default function categoryScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-    let json = state.categoryListRdc.categoryList;
-
-    useEffect(() => {
-        
-        json = addFieldChildren(json);
-        json = setFieldIsChildren(json);
-        dispatch({ type: 'CATEGORY_LIST', payload: json});
-    }, []);
 
     const SymbolChildren = (isChildren) => {
         if (isChildren) return '>'
@@ -40,6 +32,7 @@ export default function categoryScr(props) {
 
 
     let dataCat = getMainListCategory(state.categoryListRdc.categoryList, dispatch);
+    
     const ItemCategory = () => {
 
         return (

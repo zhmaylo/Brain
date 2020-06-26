@@ -12,7 +12,7 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
     // console.log("getCategoryList. sidAndTime => ", sidAndTime)
     let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
     json = json.result;
-    console.log("getCategoryList=>", json);
+    // console.log("getCategoryList=>", json);
     
     
     return json;
@@ -28,7 +28,7 @@ export const addFieldChildren = (categoryJSON) => {
         isChildren: undefined, //field which add
         realcat: 0, name: ""
     };
-    console.log("addFieldChildren.categoryJSON", categoryJSON);
+    // console.log("addFieldChildren.categoryJSON", categoryJSON);
 
     // if (typeof categoryJSON === 'undefined') { return [] };
 
@@ -40,17 +40,15 @@ export const addFieldChildren = (categoryJSON) => {
         arrListaddField[index] = { ...itemList };
     })
 
-
     // console.log("arrListaddField", arrListaddField[0]);
     return arrListaddField;
 }
-
 
 // getMainListCategory - returns entry level categories
 // categoryJSON - full list category in format JSON
 // dispatch - this is callback
 export const getMainListCategory = (categoryJSON) => {
-    console.log("getMainListCategory categoryJSON", categoryJSON);
+    // console.log("getMainListCategory categoryJSON", categoryJSON);
     let arrMainListCategory = categoryJSON.filter(item => item.parentID == 1);
     return arrMainListCategory;
 }
