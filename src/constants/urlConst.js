@@ -13,11 +13,6 @@ if  (Platform.OS === 'web') {proxy_url_pc = "https://cors-anywhere.herokuapp.com
 //
 export const PROXY_URL_PC = proxy_url_pc;
 const HTTP = http;
-
-
-// proxy for PC Chrome
-// export const PROXY_URL_PC = "https://cors-anywhere.herokuapp.com/";
-// const http = 'https';
 //
 // End. Section 'Proxy/no-proxy'
 /////////////////////////////

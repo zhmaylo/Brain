@@ -8,6 +8,7 @@ import { HeaderCmp } from './../components/HeaderCmp';
 import { FooterCmp } from '../components/FooterCmp';
 // import { FullScreen } from 'react-native-full-screen';
 import { setFieldIsChildren } from './../api/category/symbChildren';
+import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 
 
 
@@ -20,15 +21,21 @@ export default function mainScr(props) {
         // getSid(dispatch).then((sid) => {
         // console.log("mainScr. sid=>");//.sessionSid.sid);
 
-        getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
+        // getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
             // console.log("mainScr.getCategoryList(data)", data);
             // console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
-            data = addFieldChildren(data);
-            data = setFieldIsChildren(data);
-            dispatch({ type: 'CATEGORY_LIST', payload: data});
-            // dispatch({ type: 'CATEGORY_LIST', payload: CATEGORY_FROM_FILE });
+            // data = addFieldChildren(data);
+            // data = setFieldIsChildren(data);
+            // dispatch({ type: 'CATEGORY_LIST', payload: data});
+
+                //Start. Section Dev. Stub.
+                    let data = addFieldChildren(CATEGORY_FROM_FILE);
+                    data = setFieldIsChildren(data);
+                    dispatch({ type: 'CATEGORY_LIST', payload: data });
+                //End. Section Dev.
+
             dispatch({ type: 'IS_APP_INIT', payload: true });
-        })
+        // })
         // {props.navigation.navigate(MENU_ITEM[0])}
 
     }, [!state.isAppInitRdc.isAppInit]);

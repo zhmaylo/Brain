@@ -9,7 +9,7 @@ export const HeaderCmp = (menuUrl) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                onPress={() => { menuUrl() }}
+               onPress={() => { menuUrl() }}
             >
                 <Image
                     style={styles.menuImage}

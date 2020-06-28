@@ -33,21 +33,13 @@ test('"getCategoryList" receiving data from the server. => ', async () => {
     expect(data[0].name).toBe('ee');
 });
 
-let baseList = [
-    { categoryID: 1181, parentID: 3, isChildren: undefined, realcat: 10, name: "Ноутбуки, планшеты" },
-    { categoryID: 1331, parentID: 1, isChildren: undefined, realcat: 30, name: "Компьютеры, аксессуары" },
-    { categoryID: 1330, parentID: 1, isChildren: undefined, realcat: 50, name: "Комплектующие для ПК" },
-];
-
 
 test('"getMainListCategory" returns entry level categories (parentID=1). => ', () => {
 
-    let entryList = baseList;
-
-    let outList = [
-        { categoryID: 1331, parentID: 1, isChildren: false, realcat: 30, name: "Компьютеры, аксессуары" },
-        { categoryID: 1330, parentID: 1, isChildren: false, realcat: 50, name: "Комплектующие для ПК" },
-    ];
+    let entryList = [{ parentID: 3}, { parentID: 1}, { parentID: 1}];
+    
+    let outList = [{ parentID: 1}, { parentID: 1}];
+    
     let data = getMainListCategory(entryList);
     console.log("getMainListCategory", data);
     expect(data).toMatchObject(outList);

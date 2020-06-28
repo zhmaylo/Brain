@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/21</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -112,7 +112,9 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,31 +128,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -159,9 +150,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,14 +181,13 @@ import { setFieldIsChildren } from './symbChildren';
 // sidAndTime - session SID and TimeStamp 
 // dispatch - this is callback
 export const getCategoryList = async (sidAndTime, dispatch) =&gt; {
-   
+    
     // console.log("getCategoryList. sidAndTime =&gt; ", sidAndTime)
     let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
-    console.log("getCategoryList=&gt;", json);
-    console.log("getCategoryList&gt;json.status #1", json.status);
-    // if (json.status == 1) 
-    json = addFieldChildren(json.result);
-&nbsp;
+    json = json.result;
+    // console.log("getCategoryList=&gt;", json);
+    
+    
     return json;
 }
 &nbsp;
@@ -193,9 +196,14 @@ export const getCategoryList = async (sidAndTime, dispatch) =&gt; {
 // categoryJSON - full list category in format JSON
 export const addFieldChildren = (categoryJSON) =&gt; {
     let arrListaddField = [];
-    let itemList = { categoryID: 0, parentID: 0, 
+    let itemList = {
+        categoryID: 0, parentID: 0,
         isChildren: undefined, //field which add
-        realcat: 0, name: "" };
+        realcat: 0, name: ""
+    };
+    // console.log("addFieldChildren.categoryJSON", categoryJSON);
+&nbsp;
+    // if (typeof categoryJSON === 'undefined') { return [] };
 &nbsp;
     categoryJSON.forEach(function (item, index, array) {
         itemList.categoryID = item.categoryID;
@@ -204,20 +212,18 @@ export const addFieldChildren = (categoryJSON) =&gt; {
         itemList.name = item.name;
         arrListaddField[index] = { ...itemList };
     })
-    console.log("arrListaddField", arrListaddField[0]);
+&nbsp;
+    // console.log("arrListaddField", arrListaddField[0]);
     return arrListaddField;
 }
-&nbsp;
 &nbsp;
 // getMainListCategory - returns entry level categories
 // categoryJSON - full list category in format JSON
 // dispatch - this is callback
-export const getMainListCategory = (categoryJSON, dispatch) =&gt; {
-    let arrFilt = categoryJSON.filter(item =&gt; item.parentID == 1);
-    arrFilt = setFieldIsChildren(arrFilt, categoryJSON, dispatch);
-    // console.log("getMainListCategory arrFilt", arrFilt[0]);
-    // console.log("getMainListCategory categoryJSON", categoryJSON[0]);
-    return arrFilt;
+export const getMainListCategory = (categoryJSON) =&gt; {
+    // console.log("getMainListCategory categoryJSON", categoryJSON);
+    let arrMainListCategory = categoryJSON.filter(item =&gt; item.parentID == 1);
+    return arrMainListCategory;
 }
 &nbsp;
 &nbsp;
@@ -229,7 +235,7 @@ export const getMainListCategory = (categoryJSON, dispatch) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jun 24 2020 14:53:23 GMT+0300 (Восточная Европа, летнее время)
+                at Sat Jun 27 2020 19:56:40 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
         <script src="../../prettify.js"></script>

@@ -1,18 +1,14 @@
 
 import React from 'react';
-
 import renderer from 'react-test-renderer';
-
-
 import { HeaderCmp } from './HeaderCmp';
-
 
 
 const callback = () => {
     console.log("Test headerCmp - callback test  ");
     // expect(data).toMatch('Test Ok');
     return;
-}
+};
 
 test('renders correctly', () => {
     
@@ -21,7 +17,6 @@ test('renders correctly', () => {
         .toJSON();
     expect(tree).toMatchSnapshot();
 });
-
 
 
 

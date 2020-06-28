@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>3/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>3/12</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -112,31 +112,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,32 +154,32 @@
 // arrFilt - current category level
 // categoryList - full list category in format 'Array of Objects'
 // dispatch - this is callback
-export const setFieldIsChildren = (arrFilt, categoryList, dispatch) =&gt; {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (isUndef(arrFilt)) {
-        arrFilt.forEach(function (item, index, array) {
-            item.isChildren = isItemHaveChildren(categoryList, item.categoryID);
+export const setFieldIsChildren = <span class="fstat-no" title="function not covered" >(c</span>ategoryList) =&gt; {
+<span class="cstat-no" title="statement not covered" >    if (isUndef(categoryList)) {</span>
+<span class="cstat-no" title="statement not covered" >        categoryList.forEach(<span class="fstat-no" title="function not covered" >fu</span>nction (item, index, array) {</span>
+<span class="cstat-no" title="statement not covered" >            item.isChildren = isItemHaveChildren(categoryList, item.categoryID);</span>
         })
-        // dispatch({ type: 'CATEGORY_LIST', payload: {...categoryList} });
+        
     };
-    return arrFilt;
+<span class="cstat-no" title="statement not covered" >    return categoryList;</span>
 };
 &nbsp;
 // isUndef - checks the incoming list "arrFilt" for the value "undefined"
 // arrFilt - current category level
 // return "true" - values "undefined" found, 
 // return "undefined" - values "undefined" NOT found
-const isUndef = (arrFilt) =&gt; {
-    let arrTemp = arrFilt.find(item =&gt; item.isChildren == undefined);
-    return arrTemp; //true - item found, undefined - item NOT found
+const isUndef = <span class="fstat-no" title="function not covered" >(a</span>rrFilt) =&gt; {
+    let arrTemp = <span class="cstat-no" title="statement not covered" >arrFilt.find(<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item.isChildren == undefined)</span>;</span>
+<span class="cstat-no" title="statement not covered" >    return arrTemp; </span>//true - item found, undefined - item NOT found
 }
 &nbsp;
 // isItemHaveChildren - checks for the presence of "children" in the category
 // categoryList - full list category in format 'Array of Objects'
 // categoryID_UP - "id" верхней категории
-const isItemHaveChildren = (categoryList, categoryID_UP) =&gt; {
-    let arrTemp = categoryList.filter(item =&gt; item.parentID === categoryID_UP);
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (arrTemp.length &gt; 0) <span class="cstat-no" title="statement not covered" >return true</span>
-    else return false;
+const isItemHaveChildren = <span class="fstat-no" title="function not covered" >(c</span>ategoryList, categoryID_UP) =&gt; {
+    let arrTemp = <span class="cstat-no" title="statement not covered" >categoryList.filter(<span class="fstat-no" title="function not covered" >it</span>em =&gt; <span class="cstat-no" title="statement not covered" >item.parentID === categoryID_UP)</span>;</span>
+<span class="cstat-no" title="statement not covered" >    if (arrTemp.length &gt; 0) <span class="cstat-no" title="statement not covered" >return true </span>// children found</span>
+    else <span class="cstat-no" title="statement not covered" >return false; </span>// children NOT found
 }
 &nbsp;
 &nbsp;
@@ -193,7 +193,7 @@ const isItemHaveChildren = (categoryList, categoryID_UP) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jun 24 2020 14:53:23 GMT+0300 (Восточная Европа, летнее время)
+                at Sat Jun 27 2020 19:56:40 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
         <script src="../../prettify.js"></script>
