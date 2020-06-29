@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1593277000191" clover="3.2.0">
-  <project timestamp="1593277000191" name="All files">
-    <metrics statements="100" coveredstatements="89" conditionals="21" coveredconditionals="15" methods="22" coveredmethods="14" elements="143" coveredelements="118" complexity="0" loc="100" ncloc="100" packages="6" files="15" classes="15"/>
+<coverage generated="1593414429973" clover="3.2.0">
+  <project timestamp="1593414429974" name="All files">
+    <metrics statements="100" coveredstatements="98" conditionals="21" coveredconditionals="18" methods="22" coveredmethods="20" elements="143" coveredelements="136" complexity="0" loc="100" ncloc="100" packages="6" files="15" classes="15"/>
     <package name="api.category">
-      <metrics statements="29" coveredstatements="20" conditionals="4" coveredconditionals="0" methods="11" coveredmethods="5"/>
+      <metrics statements="29" coveredstatements="29" conditionals="4" coveredconditionals="3" methods="11" coveredmethods="11"/>
       <file name="category.js" path="D:\Java\Brain\my-app\src\api\category\category.js">
         <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
         <line num="10" count="1" type="stmt"/>
@@ -25,19 +25,19 @@
         <line num="53" count="1" type="stmt"/>
       </file>
       <file name="symbChildren.js" path="D:\Java\Brain\my-app\src\api\category\symbChildren.js">
-        <metrics statements="12" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="6"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="9" type="stmt"/>
+        <line num="34" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="2" type="stmt"/>
       </file>
     </package>
     <package name="api.fetch">

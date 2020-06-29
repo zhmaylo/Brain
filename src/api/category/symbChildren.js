@@ -5,10 +5,8 @@
 //isChildren = false - isChldren do NOT have children
 
 
-// stIsChildren - set field 'isChildren' to "true" or "false"
-// arrFilt - current category level
+// setFieldIsChildren - set field 'isChildren' to "true" or "false"
 // categoryList - full list category in format 'Array of Objects'
-// dispatch - this is callback
 export const setFieldIsChildren = (categoryList) => {
     if (isUndef(categoryList)) {
         categoryList.forEach(function (item, index, array) {
@@ -23,7 +21,7 @@ export const setFieldIsChildren = (categoryList) => {
 // arrFilt - current category level
 // return "true" - values "undefined" found, 
 // return "undefined" - values "undefined" NOT found
-const isUndef = (arrFilt) => {
+export const isUndef = (arrFilt) => {
     let arrTemp = arrFilt.find(item => item.isChildren == undefined);
     return arrTemp; //true - item found, undefined - item NOT found
 }

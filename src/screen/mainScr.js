@@ -30,7 +30,9 @@ export default function mainScr(props) {
 
                 //Start. Section Dev. Stub.
                     let data = addFieldChildren(CATEGORY_FROM_FILE);
+                    console.log("CATEGORY_FROM_FILE[0]", CATEGORY_FROM_FILE[0]);
                     data = setFieldIsChildren(data);
+                    console.log("data[0]", data[0]);
                     dispatch({ type: 'CATEGORY_LIST', payload: data });
                 //End. Section Dev.
 
