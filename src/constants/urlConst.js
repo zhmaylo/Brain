@@ -6,10 +6,10 @@ import { Platform } from 'react-native';
 let proxy_url_pc, http;
 //
 // no proxy for smart/android
-if  (Platform.OS === 'android') {proxy_url_pc = "", http="http"};
+if  (Platform.OS === 'android') {proxy_url_pc = "", http="http"}
 //
-// proxy for PC Chrome
-if  (Platform.OS === 'web') {proxy_url_pc = "https://cors-anywhere.herokuapp.com/", http="https"};
+// proxy for PC Chrome if  (Platform.OS === 'web') 
+else {proxy_url_pc = "https://cors-anywhere.herokuapp.com/", http="https"};
 //
 export const PROXY_URL_PC = proxy_url_pc;
 const HTTP = http;

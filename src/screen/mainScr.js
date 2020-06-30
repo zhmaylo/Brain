@@ -22,13 +22,13 @@ export default function mainScr(props) {
         // console.log("mainScr. sid=>");//.sessionSid.sid);
 
         // getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
-            // console.log("mainScr.getCategoryList(data)", data);
-            // console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
-            // data = addFieldChildren(data);
-            // data = setFieldIsChildren(data);
-            // dispatch({ type: 'CATEGORY_LIST', payload: data});
-
-                //Start. Section Dev. Stub.
+        //     /// console.log("mainScr.getCategoryList(data)", data);
+        //     /// console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
+        //     data = addFieldChildren(data);
+        //     data = setFieldIsChildren(data);
+        //     dispatch({ type: 'CATEGORY_LIST', payload: data});
+        // })
+                // Start. Section Dev. Stub.
                     let data = addFieldChildren(CATEGORY_FROM_FILE);
                     console.log("CATEGORY_FROM_FILE[0]", CATEGORY_FROM_FILE[0]);
                     data = setFieldIsChildren(data);
@@ -37,7 +37,6 @@ export default function mainScr(props) {
                 //End. Section Dev.
 
             dispatch({ type: 'IS_APP_INIT', payload: true });
-        // })
         // {props.navigation.navigate(MENU_ITEM[0])}
 
     }, [!state.isAppInitRdc.isAppInit]);

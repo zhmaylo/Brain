@@ -1,62 +1,68 @@
 
 import React, { useContext, useEffect } from 'react';
-import { Button, StyleSheet, Text, View, FlatList, SafeAreaView, StatusBar, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
 import { NUMCOLUMN } from './../constants/categoryConst';
 import { WINDOW_WIDTH } from './../constants/otherConst';
 
-import { getMainListCategory, addFieldChildren } from './../api/category/category';
-import { setFieldIsChildren } from './../api/category/symbChildren';
+import { getMainListCategory, getUnderListCategory } from './../api/category/category';
+import { viewListCatRdc } from './../reducers/categoryListRdc';
 
 
 
 export default function categoryScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-
-    const SymbolChildren = (isChildren) => {
-        if (isChildren) return '>'
-        else return "";
-    }
+    let dataCat;
+    let catList = state.categoryListRdc.categoryList;
+    let viewList = state.viewListCatRdc.viewListCat;
+    useEffect(() => {
+        dataCat = getMainListCategory(catList);
+        dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
+    }, []);
 
     const ItemCat = ({ item }) => {
         return (
             <View>
-                <TouchableOpacity style={styles.item}>
+                <TouchableOpacity style={styles.item}
+                    onPress={() => {
+                        console.log(item);
+                        dataCat = getUnderListCategory(catList, item)
+                        console.log(dataCat);
+                        dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
+                    }
+                    }
+                >
                     <Text style={styles.title}>{item.name} </Text>
                     <Text style={styles.symbCat}>{item.isChildren ? '>' : ''} </Text>
+
                 </TouchableOpacity>
             </View>
         );
     }
 
-
-    let dataCat = getMainListCategory(state.categoryListRdc.categoryList, dispatch);
     
-    const ItemCategory = () => {
+
+    const ListCategory = (state) => {
 
         return (
             <View style={styles.container}>
                 <FlatList
                     numColumns={NUMCOLUMN}
                     horizontal={false}
-                    data={dataCat}
+                    data={viewList}
+                    // onRefresh={() => onRefresh}
+                    // refreshing={true}
                     renderItem={({ item }) => <ItemCat item={item} />}
                     keyExtractor={item => item.categoryID + ""}
                 />
-
             </View>
         )
     }
 
     return (
         <View style={styles.container}>
-            <ItemCategory />
-            {/* <Text>CategoryScreen</Text>
-            <Button
-                onPress={() => props.navigation.navigate('MainScreen')}
-                title="Back"
-            /> */}
+            <ListCategory />
         </View>
     );
 }

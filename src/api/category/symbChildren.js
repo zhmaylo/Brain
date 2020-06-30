@@ -12,7 +12,6 @@ export const setFieldIsChildren = (categoryList) => {
         categoryList.forEach(function (item, index, array) {
             item.isChildren = isItemHaveChildren(categoryList, item.categoryID);
         })
-        
     };
     return categoryList;
 };
@@ -21,7 +20,7 @@ export const setFieldIsChildren = (categoryList) => {
 // arrFilt - current category level
 // return "true" - values "undefined" found, 
 // return "undefined" - values "undefined" NOT found
-export const isUndef = (arrFilt) => {
+const isUndef = (arrFilt) => {
     let arrTemp = arrFilt.find(item => item.isChildren == undefined);
     return arrTemp; //true - item found, undefined - item NOT found
 }

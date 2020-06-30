@@ -46,12 +46,22 @@ export const addFieldChildren = (categoryJSON) => {
 
 // getMainListCategory - returns entry level categories
 // categoryJSON - full list category in format JSON
-// dispatch - this is callback
 export const getMainListCategory = (categoryJSON) => {
     // console.log("getMainListCategory categoryJSON", categoryJSON);
     let arrMainListCategory = categoryJSON.filter(item => item.parentID == 1);
     return arrMainListCategory;
 }
 
+// getUnderListCategory - returns lower level categories
+// categoryJSON - full list category in format JSON
+// selectItem - selected parent item  
+export const getUnderListCategory = (categoryJSON, selectItem) => {
+    // console.log("getMainListCategory categoryJSON", categoryJSON);
+    let selectParentID = selectItem.categoryID;
+    (selectItem.realcat !== 0) && (selectParentID = selectItem.realcat);
+
+    let arrUnderListCategory = categoryJSON.filter(item => item.parentID == selectParentID);
+    return arrUnderListCategory;
+}
 
 
