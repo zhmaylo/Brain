@@ -2,6 +2,7 @@
 import { URL_GET_CATEGORY } from '../../constants/urlConst';
 import { middleWareFetch } from './../fetch/middleWareFetch';
 import { setFieldIsChildren } from './symbChildren';
+import { SIGN_MAIN_LIST, SIGN_LEVEL_UP } from './../../constants/categoryConst';
 
 
 // getCategoryList - returns categorry list from server. JSON-format.
@@ -44,26 +45,6 @@ export const addFieldChildren = (categoryJSON) => {
     return arrListaddField;
 }
 
-// getMainListCategory - returns entry level categories
-// categoryJSON - full list category in format JSON
-export const getMainListCategory = (categoryJSON) => {
-    // console.log("getMainListCategory categoryJSON", categoryJSON);
-    let arrMainListCategory = getUnderListCategory(categoryJSON, 1);
-    return arrMainListCategory;
-}
 
-// getUnderListCategory - returns lower level categories
-// categoryJSON - full list category in format JSON
-// selectItem - selected parent item  
-export const getUnderListCategory = (categoryJSON, selectItem) => {
-    // console.log("getMainListCategory categoryJSON", categoryJSON);
-    let selectParentID = selectItem;
-    if (typeof (selectItem) == "object") {
-        selectParentID = selectItem.categoryID;
-        (selectItem.realcat !== 0) && (selectParentID = selectItem.realcat);
-    }
-    let arrUnderListCategory = categoryJSON.filter(item => item.parentID == selectParentID);
-    return arrUnderListCategory;
-}
 
 

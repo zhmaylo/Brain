@@ -3,11 +3,11 @@ import React, { useContext, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
-import { NUMCOLUMN } from './../constants/categoryConst';
+import { NUM_COLUMN, SIGN_DEEP } from './../constants/categoryConst';
 import { WINDOW_WIDTH } from './../constants/otherConst';
 
-import { getMainListCategory, getUnderListCategory } from './../api/category/category';
-import { viewListCatRdc } from './../reducers/categoryListRdc';
+import { getMainListCategory, getListCategory } from './../api/category/catView';
+
 
 
 
@@ -27,14 +27,15 @@ export default function categoryScr(props) {
                 <TouchableOpacity style={styles.item}
                     onPress={() => {
                         console.log(item);
-                        dataCat = getUnderListCategory(catList, item)
-                        console.log(dataCat);
+                        dataCat = getListCategory(catList, item)
+                        // console.log(dataCat);
+                        // console.log(catList);
                         dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
                     }
                     }
                 >
                     <Text style={styles.title}>{item.name} </Text>
-                    <Text style={styles.symbCat}>{item.isChildren ? '>' : ''} </Text>
+                    <Text style={styles.symbCat}>{item.isChildren ? SIGN_DEEP : ''} </Text>
 
                 </TouchableOpacity>
             </View>
@@ -48,7 +49,7 @@ export default function categoryScr(props) {
         return (
             <View style={styles.container}>
                 <FlatList
-                    numColumns={NUMCOLUMN}
+                    numColumns={NUM_COLUMN}
                     horizontal={false}
                     data={viewList}
                     // onRefresh={() => onRefresh}
