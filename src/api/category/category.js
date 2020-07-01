@@ -8,13 +8,13 @@ import { setFieldIsChildren } from './symbChildren';
 // sidAndTime - session SID and TimeStamp 
 // dispatch - this is callback
 export const getCategoryList = async (sidAndTime, dispatch) => {
-    
+
     // console.log("getCategoryList. sidAndTime => ", sidAndTime)
     let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
     json = json.result;
     // console.log("getCategoryList=>", json);
-    
-    
+
+
     return json;
 }
 
@@ -48,7 +48,7 @@ export const addFieldChildren = (categoryJSON) => {
 // categoryJSON - full list category in format JSON
 export const getMainListCategory = (categoryJSON) => {
     // console.log("getMainListCategory categoryJSON", categoryJSON);
-    let arrMainListCategory = categoryJSON.filter(item => item.parentID == 1);
+    let arrMainListCategory = getUnderListCategory(categoryJSON, 1);
     return arrMainListCategory;
 }
 
@@ -57,9 +57,11 @@ export const getMainListCategory = (categoryJSON) => {
 // selectItem - selected parent item  
 export const getUnderListCategory = (categoryJSON, selectItem) => {
     // console.log("getMainListCategory categoryJSON", categoryJSON);
-    let selectParentID = selectItem.categoryID;
-    (selectItem.realcat !== 0) && (selectParentID = selectItem.realcat);
-
+    let selectParentID = selectItem;
+    if (typeof (selectItem) == "object") {
+        selectParentID = selectItem.categoryID;
+        (selectItem.realcat !== 0) && (selectParentID = selectItem.realcat);
+    }
     let arrUnderListCategory = categoryJSON.filter(item => item.parentID == selectParentID);
     return arrUnderListCategory;
 }
