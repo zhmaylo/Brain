@@ -1,8 +1,6 @@
 
 import { URL_GET_CATEGORY } from '../../constants/urlConst';
 import { middleWareFetch } from './../fetch/middleWareFetch';
-import { setFieldIsChildren } from './symbChildren';
-import { SIGN_MAIN_LIST, SIGN_LEVEL_UP } from './../../constants/categoryConst';
 
 
 // getCategoryList - returns categorry list from server. JSON-format.
