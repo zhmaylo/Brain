@@ -1,6 +1,6 @@
 
 
-import { getMainListCategory, getUnderListCategory } from './catView';
+import { getMainListCategory, getListCategory } from './catView';
 import { SIGN_LEVEL_UP } from '../../constants/categoryConst';
 
 
@@ -15,22 +15,51 @@ test('"getMainListCategory" returns entry level categories (parentID=1). => ', (
     expect(data).toMatchObject(outList);
 });
 
-test('"getUnderListCategory" returns lower level categories. => ', () => {
+test('"getUpperListCategory" returns view upper list category (selectItem.name != SIGN_LEVEL_UP). => ', () => {
 
     let entryList =
-        [{ categoryID: 1181, parentID: 1, isChildren: undefined, realcat: 0, name: "Ноутбуки, планшеты" },
-        { categoryID: 1191, parentID: 1181, isChildren: undefined, realcat: 0, name: "Ноутбуки" },
-        { categoryID: 1211, parentID: 1181, isChildren: undefined, realcat: 0, name: "Аксессуары для ноутбуков" }];
+        [{ categoryID: 1181, parentID: 1, isChildren: true, realcat: 0, name: "Ноутбуки, планшеты" },
+        { categoryID: 1191, parentID: 1181, isChildren: false, realcat: 0, name: "Ноутбуки" },
+        { categoryID: 1211, parentID: 1181, isChildren: false, realcat: 0, name: "Аксессуары для ноутбуков" }];
 
     let outList =
-        [{ categoryID: 0, parentID: 1181, isChildren: undefined, realcat: 0, name: SIGN_LEVEL_UP },
-        { categoryID: 1191, parentID: 1181, isChildren: undefined, realcat: 0, name: "Ноутбуки" },
-        { categoryID: 1211, parentID: 1181, isChildren: undefined, realcat: 0, name: "Аксессуары для ноутбуков" }];
-
-
-    let data = getUnderListCategory(entryList, entryList[0]);
-    console.log("getUnderListCategory", data);
+        [{ categoryID: 0, parentID: 1181, isChildren: false, realcat: 0, name: SIGN_LEVEL_UP },
+        { categoryID: 1191, parentID: 1181, isChildren: false, realcat: 0, name: "Ноутбуки" },
+        { categoryID: 1211, parentID: 1181, isChildren: false, realcat: 0, name: "Аксессуары для ноутбуков" }];
+        
+        
+    let data = getUpperListCategory(entryList, entryList[0]);
+    console.log("getUpperListCategory", data);
     expect(data).toMatchObject(outList);
+});
+
+test('"getListCategory" returns view list category (isChildren = true). => ', () => {
+
+    let entryList =
+        [{ categoryID: 1181, parentID: 1, isChildren: true, realcat: 0, name: "Ноутбуки, планшеты" },
+        { categoryID: 1191, parentID: 1181, isChildren: false, realcat: 0, name: "Ноутбуки" },
+        { categoryID: 1211, parentID: 1181, isChildren: false, realcat: 0, name: "Аксессуары для ноутбуков" }];
+
+    let outList =
+        [{ categoryID: 0, parentID: 1181, isChildren: false, realcat: 0, name: SIGN_LEVEL_UP },
+        { categoryID: 1191, parentID: 1181, isChildren: false, realcat: 0, name: "Ноутбуки" },
+        { categoryID: 1211, parentID: 1181, isChildren: false, realcat: 0, name: "Аксессуары для ноутбуков" }];
+        
+    let data = getListCategory(entryList, entryList[0]);
+    console.log("getListCategory", data);
+    expect(data).toMatchObject(outList);
+});
+
+test('"getListCategory" returns view list category  (isChildren = false && selectItem.name != SIGN_LEVEL_UP). => ', 
+    () => {
+    let entryList =
+        [{ categoryID: 1181, parentID: 1, isChildren: false, realcat: 0, name: "Ноутбуки, планшеты" },
+        { categoryID: 1191, parentID: 1181, isChildren: false, realcat: 0, name: "Ноутбуки" },
+        { categoryID: 1211, parentID: 1181, isChildren: false, realcat: 0, name: "Аксессуары для ноутбуков" }];
+
+    let data = getListCategory(entryList, entryList[0]);
+    console.log("getListCategory", data);
+    expect(data).toBe(false);
 });
 
 

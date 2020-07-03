@@ -14,22 +14,24 @@ export const getMainListCategory = (categoryJSON) => {
 // categoryJSON - full list category in format JSON
 // selectItem - selected parent item  
 export const getListCategory = (categoryJSON, selectItem) => {
-    let arrViewListCat;
+    let arrViewListCat = [];
     if (selectItem.name === SIGN_LEVEL_UP) arrViewListCat = getUpperListCategory(categoryJSON, selectItem);
     else if (selectItem.isChildren) arrViewListCat = getUnderListCategory (categoryJSON, selectItem);
     else return false; // no child category 
+    // console.log("getListCategory.arrViewListCat", arrViewListCat);
     return arrViewListCat;
 }
 
-
-// getUpperListCategory - returns lower level categories
+// getUpperListCategory - returns upper level categories
 // categoryJSON - full list category in format JSON
-// selectItem - selected parent item  
+// selectItem - selected item  
 const getUpperListCategory = (categoryJSON, selectItem) => {
     // console.log("getMainListCategory categoryJSON", categoryJSON);
-    let arrUnderListCategory = categoryJSON.filter(item => item.categoryID === selectItem.parentID);
-    arrUnderListCategory = addUpToViewListCategory(arrUnderListCategory);
-    return arrUnderListCategory;
+    let arrUpperListCategory = categoryJSON.filter(item => item.categoryID === selectItem.parentID);
+    // if (arrUpperListCategory.parentID === 1) arrUpperListCategory = getMainListCategory(categoryJSON);
+    arrUpperListCategory = categoryJSON.filter(item => item.parentID === arrUpperListCategory[0].parentID);
+    if (arrUpperListCategory[0].parentID !== 1) arrUpperListCategory = addUpToViewListCategory(arrUpperListCategory);
+    return arrUpperListCategory;
 }
 
 // getUnderListCategory - returns lower level categories

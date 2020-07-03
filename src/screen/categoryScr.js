@@ -26,7 +26,7 @@ export default function categoryScr(props) {
             <View>
                 <TouchableOpacity style={styles.item}
                     onPress={() => {
-                        console.log(item);
+                        // console.log(item);
                         dataCat = getListCategory(catList, item)
                         // console.log(dataCat);
                         // console.log(catList);
