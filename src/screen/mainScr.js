@@ -28,13 +28,21 @@ export default function mainScr(props) {
         //     data = setFieldIsChildren(data);
         //     dispatch({ type: 'CATEGORY_LIST', payload: data});
         // })
-                // Start. Section Dev. Stub.
+                // Start Stub. Section Dev. .
                     let data = addFieldChildren(CATEGORY_FROM_FILE);
                     console.log("CATEGORY_FROM_FILE[0]", CATEGORY_FROM_FILE[0]);
-                    data = setFieldIsChildren(data);
+                    data = setFieldIsChildren(data).sort((a, b)=> {
+                        var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
+                        if (nameA < nameB) //сортируем строки по возрастанию
+                          return -1
+                        if (nameA > nameB)
+                          return 1
+                        return 0 // Никакой сортировки
+                        });
+                    
                     console.log("data[0]", data[0]);
                     dispatch({ type: 'CATEGORY_LIST', payload: data });
-                //End. Section Dev.
+                //End Stub. Section Dev.
 
             dispatch({ type: 'IS_APP_INIT', payload: true });
         // {props.navigation.navigate(MENU_ITEM[0])}
