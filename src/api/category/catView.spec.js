@@ -15,7 +15,6 @@ test('"getMainListCategory" returns entry level categories (parentID=1). => ', (
     expect(data).toMatchObject(outList);
 });
 
-
 test('"getListCategory" (getUpperListCategory) returns view upper list category (parentID = 1 ). => ', 
 () => {
 

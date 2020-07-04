@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Button, StyleSheet, Text, View, StatusBar } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
-import { getCategoryList, addFieldChildren } from './../api/category/category';
+import { getCategoryList,sortListbyName, addFieldChildren } from './../api/category/category';
 import { AlertMessageCmp } from '../components/AlertMessageCmp';
 import { HeaderCmp } from './../components/HeaderCmp';
 import { FooterCmp } from '../components/FooterCmp';
@@ -21,27 +21,23 @@ export default function mainScr(props) {
         // getSid(dispatch).then((sid) => {
         // console.log("mainScr. sid=>");//.sessionSid.sid);
 
-        // getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
-        //     /// console.log("mainScr.getCategoryList(data)", data);
-        //     /// console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
-        //     data = addFieldChildren(data);
-        //     data = setFieldIsChildren(data);
-        //     dispatch({ type: 'CATEGORY_LIST', payload: data});
-        // })
+        getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
+            /// console.log("mainScr.getCategoryList(data)", data);
+            /// console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
+            data = addFieldChildren(data);
+            data = setFieldIsChildren(data);
+            dispatch({ type: 'CATEGORY_LIST', payload: data});
+        })
                 // Start Stub. Section Dev. .
-                    let data = addFieldChildren(CATEGORY_FROM_FILE);
-                    console.log("CATEGORY_FROM_FILE[0]", CATEGORY_FROM_FILE[0]);
-                    data = setFieldIsChildren(data).sort((a, b)=> {
-                        var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
-                        if (nameA < nameB) //сортируем строки по возрастанию
-                          return -1
-                        if (nameA > nameB)
-                          return 1
-                        return 0 // Никакой сортировки
-                        });
-                    
-                    console.log("data[0]", data[0]);
-                    dispatch({ type: 'CATEGORY_LIST', payload: data });
+                    // let data = addFieldChildren(CATEGORY_FROM_FILE);
+                    // console.log("CATEGORY_FROM_FILE[0]", CATEGORY_FROM_FILE[0]);
+                    // data = setFieldIsChildren(data);
+                    // data = sortListbyName(data);
+                               
+                    // console.log("data[0]", data[0]);
+                    // dispatch({ type: 'CATEGORY_LIST', payload: data });
+                    // // {categoryID: 1484, parentID: 1330, isChildren: undefined, realcat: 1235, name: "SSD диски"},
+                    // getProductsList()
                 //End Stub. Section Dev.
 
             dispatch({ type: 'IS_APP_INIT', payload: true });

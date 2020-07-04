@@ -11,11 +11,25 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
     // console.log("getCategoryList. sidAndTime => ", sidAndTime)
     let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
     json = json.result;
+    json = sortListbyName(json);
     // console.log("getCategoryList=>", json);
 
 
     return json;
 }
+
+// sortListByName - sorts the list by "name"
+// json - sort list
+export const sortListbyName = (json) => {
+    return json = json.sort((a, b) => {
+        var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase()
+        if (nameA < nameB) //сортируем строки по возрастанию
+            return -1
+        if (nameA > nameB)
+            return 1
+        return 0 // Никакой сортировки
+    })
+};
 
 // addFieldChildren - creates a new array and add to him "categoryJSON"  with field "isChildren".
 //                    Returns a new array.
