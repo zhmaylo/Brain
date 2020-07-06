@@ -10,7 +10,7 @@ export async function fetchData(requestUrl, requestHeader) {
     let json = "";
     try {
         let response = null;
-        // console.log("requestUrl", requestUrl);
+        console.log("requestUrl", requestUrl);
         // console.log("requestHeader", requestHeader);
 
         //"if requestHeader == null" GET request, else - POST request

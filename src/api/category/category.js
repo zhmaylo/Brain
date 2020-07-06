@@ -9,25 +9,25 @@ import { middleWareFetch } from './../fetch/middleWareFetch';
 export const getCategoryList = async (sidAndTime, dispatch) => {
 
     // console.log("getCategoryList. sidAndTime => ", sidAndTime)
-    let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
-    json = json.result;
-    json = sortListbyName(json);
+    let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, "", dispatch);
+    json = await json.result;
+    json = await sortListbyName(json);
     // console.log("getCategoryList=>", json);
 
 
     return json;
 }
 
-// sortListByName - sorts the list by "name"
+// sortListByName - sort the list by "name" ascending
 // json - sort list
 export const sortListbyName = (json) => {
     return json = json.sort((a, b) => {
         var nameA = a.name.toLowerCase(), nameB = b.name.toLowerCase()
-        if (nameA < nameB) //сортируем строки по возрастанию
-            return -1
+        if (nameA < nameB) //sort ascending (сортируем строки по возрастанию)
+            return -1;
         if (nameA > nameB)
-            return 1
-        return 0 // Никакой сортировки
+            return 1;
+        return 0; // no sorting
     })
 };
 

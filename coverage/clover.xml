@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1593869075250" clover="3.2.0">
-  <project timestamp="1593869075250" name="All files">
-    <metrics statements="137" coveredstatements="129" conditionals="29" coveredconditionals="24" methods="31" coveredmethods="28" elements="197" coveredelements="181" complexity="0" loc="137" ncloc="137" packages="6" files="17" classes="17"/>
+<coverage generated="1594053876264" clover="3.2.0">
+  <project timestamp="1594053876264" name="All files">
+    <metrics statements="138" coveredstatements="136" conditionals="29" coveredconditionals="28" methods="31" coveredmethods="29" elements="198" coveredelements="193" complexity="0" loc="138" ncloc="138" packages="6" files="17" classes="17"/>
     <package name="api.category">
-      <metrics statements="62" coveredstatements="56" conditionals="14" coveredconditionals="10" methods="20" coveredmethods="19"/>
+      <metrics statements="63" coveredstatements="63" conditionals="14" coveredconditionals="14" methods="20" coveredmethods="20"/>
       <file name="catView.js" path="D:\Java\Brain\my-app\src\api\category\catView.js">
-        <metrics statements="27" coveredstatements="27" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9"/>
+        <metrics statements="28" coveredstatements="28" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9"/>
         <line num="7" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
@@ -14,7 +14,6 @@
         <line num="18" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
         <line num="22" count="3" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
         <line num="30" count="6" type="stmt"/>
@@ -32,23 +31,25 @@
         <line num="58" count="2" type="stmt"/>
         <line num="59" count="2" type="stmt"/>
         <line num="60" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
         <line num="62" count="2" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
       </file>
       <file name="category.js" path="D:\Java\Brain\my-app\src\api\category\category.js">
-        <metrics statements="23" coveredstatements="17" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="4"/>
+        <metrics statements="23" coveredstatements="23" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
         <line num="9" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="26" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
         <line num="39" count="1" type="stmt"/>
@@ -77,12 +78,13 @@
       </file>
     </package>
     <package name="api.fetch">
-      <metrics statements="29" coveredstatements="29" conditionals="13" coveredconditionals="13" methods="4" coveredmethods="4"/>
+      <metrics statements="30" coveredstatements="30" conditionals="13" coveredconditionals="13" methods="4" coveredmethods="4"/>
       <file name="fetchData.js" path="D:\Java\Brain\my-app\src\api\fetch\fetchData.js">
-        <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="10" count="11" type="stmt"/>
         <line num="11" count="11" type="stmt"/>
         <line num="12" count="11" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
         <line num="17" count="11" type="cond" truecount="2" falsecount="0"/>
         <line num="18" count="5" type="stmt"/>
         <line num="21" count="11" type="stmt"/>
@@ -115,13 +117,12 @@
       </file>
     </package>
     <package name="api.sid">
-      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="sid.js" path="D:\Java\Brain\my-app\src\api\sid\sid.js">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="9" count="4" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
         <line num="18" count="3" type="stmt"/>
         <line num="21" count="3" type="stmt"/>

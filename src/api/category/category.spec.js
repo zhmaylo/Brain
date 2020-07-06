@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
 import { PROXY_URL_PC, URL_GET_CATEGORY } from '../../constants/urlConst';
-import { getCategoryList, addFieldChildren, getMainListCategory, getUnderListCategory } from './category';
+import { getCategoryList, addFieldChildren, getMainListCategory, getUnderListCategory, sortListbyName } from './category';
 import { SIGN_LEVEL_UP } from '../../constants/categoryConst';
 
 function dispatch(data) {
@@ -34,6 +34,26 @@ test('"getCategoryList" receiving data from the server. => ', async () => {
     expect(data[0].name).toBe('ee');
 });
 
+test('"sortListbyName" sort the list by "name" ascending. => ', () => {
+    let listIn =
+        [{ categoryID: 1181, parentID: 3, isChildren: true, realcat: 10, name: "Ноутбуки, планшеты" },
+        { categoryID: 1331, parentID: 1, isChildren: true, realcat: 30, name: "SSD диски" },
+        { categoryID: 1330, parentID: 1, isChildren: false, realcat: 50, name: "А комплектующие для ПК" },
+        { categoryID: 7811, parentID: 1331, isChildren: undefined, realcat: 0, name: "Электрооборудование" },
+        { categoryID: 7811, parentID: 1331, isChildren: undefined, realcat: 0, name: "Электрооборудование" }
+        ];
+    let listOut = [
+        { categoryID: 1331, parentID: 1, isChildren: true, realcat: 30, name: "SSD диски" },
+        { categoryID: 1330, parentID: 1, isChildren: false, realcat: 50, name: "А комплектующие для ПК" },
+        { categoryID: 1181, parentID: 3, isChildren: true, realcat: 10, name: "Ноутбуки, планшеты" },
+        
+        { categoryID: 7811, parentID: 1331, isChildren: undefined, realcat: 0, name: "Электрооборудование" },
+        { categoryID: 7811, parentID: 1331, isChildren: undefined, realcat: 0, name: "Электрооборудование" }
+    ];
+    let data = sortListbyName(listIn);
+    expect(data).toMatchObject(listOut);
+});
+
 
 
 test('"addFieldIsChildren" creates a new array and add to him with field "isChildren". Returns a new array.. => ', () => {
@@ -50,7 +70,6 @@ test('"addFieldIsChildren" creates a new array and add to him with field "isChil
     };
 
     // let listWithIsChildren = {...baseList}
-
     let data = addFieldChildren(listWithOutIsChildren);
     console.log("addFieldChildren", data);
     expect(data).toMatchObject(listWithIsChildren);

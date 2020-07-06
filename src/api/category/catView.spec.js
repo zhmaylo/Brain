@@ -40,7 +40,7 @@ test('"getListCategory" (getUpperListCategory) returns view upper list category 
         { categoryID: 1211, parentID: 1183, isChildren: false, realcat: 0, name: "Аксессуары для ноутбуков" }];
 
     let outList =
-        [{ categoryID: 0, parentID: 1182, isChildren: false, realcat: 0, name: "<" },
+        [{ categoryID: 0, parentID: 1182, isChildren: false, realcat: 0, name: SIGN_LEVEL_UP },
         { categoryID: 1181, parentID: 1182, isChildren: false, realcat: 0, name: "Ноутбуки" }];
     // { categoryID: 1191, parentID: 1181, isChildren: false, realcat: 0, name: "Ноутбуки" },
     // { categoryID: 1211, parentID: 1181, isChildren: false, realcat: 0, name: "Аксессуары для ноутбуков" }];

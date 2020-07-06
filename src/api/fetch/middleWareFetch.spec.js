@@ -21,7 +21,7 @@ test('"middleWareFetch" request GET, complete => ', async () => {
 
     fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
-    const data = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
+    const data = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, "", dispatch);
     // console.log("Test middleWareFetch. data", data);
 
     expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY + sidAndTime.sid);
@@ -36,7 +36,7 @@ test ('"middleWareFetch" request POST, complete => ', async () => {
     const json = '{"status":1,"result": "' + sidAndTime.sid + '"}';
     fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
-    const data = await middleWareFetch(URL_POST_AUTH, REQUEST_HEADER_AUTH, sidAndTime, dispatch);
+    const data = await middleWareFetch(URL_POST_AUTH, REQUEST_HEADER_AUTH, sidAndTime, "", dispatch);
     // console.log("Test middleWareFetch. data", data);
 
     // expect(fetch).toHaveBeenCalledTimes(2);
@@ -52,7 +52,7 @@ test('"middleWareFetch" Error N5: Session identifier is outdate => ', async () =
 
     fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
-    const data = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, dispatch);
+    const data = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, "", dispatch);
     // console.log("Test middleWareFetch. data", data);
 
     // expect(fetch).toHaveBeenCalledTimes(6);

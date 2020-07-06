@@ -6,8 +6,9 @@ import { fetchData } from '../fetch/fetchData';
 // requestUrl - request address
 // requestHeader - request header (null for not Get request)
 // sidAndTime - object: sid and timeStamp 
+// params - request parameters. Required parameter
 // dispatch - dispatch
-export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dispatch) => {
+export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, params, dispatch) => {
 
     // console.log("middleWareFetch. sidAndTime => ", sidAndTime);
     
@@ -16,7 +17,7 @@ export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dis
     let statusResponse;
     for (let index = 0; index < 2; index++) {
         
-        json = await fetchData(requestUrl + sidAndTime.sid, requestHeader);
+        json = await fetchData(requestUrl + sidAndTime.sid + params, requestHeader);
         statusResponse = getStatusResponse(json);
         // console.log("middleWareFetch. json", json);
 

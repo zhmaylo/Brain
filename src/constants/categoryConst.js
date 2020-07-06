@@ -5,7 +5,7 @@
 export const NUM_COLUMN = 1;
 export const SIGN_DEEP = ">";
 export const SIGN_MAIN_LIST = 1;
-export const SIGN_LEVEL_UP = "<";
+export const SIGN_LEVEL_UP = "< Назад";
 
 //
 // End. Section 'category list - setting list category'

@@ -10,7 +10,7 @@ export const getSid = async (dispatch) => {
     let json = await fetchData(URL_POST_AUTH, REQUEST_HEADER_AUTH);
     let sidAndTime = { sid: json.result, timeStamp: null };
 
-    console.log("getSid=> json ", json);
+    // console.log("getSid=> json ", json);
     // console.log("getSid=> dispatch ", dispatch);
     // console.log("getSid. sidAndTime (before IF) =>", sidAndTime.sid);
 
