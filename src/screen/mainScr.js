@@ -12,33 +12,37 @@ import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { getProductsList } from './../api/products/products';
 
 
-
+let i=0;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-
+    
 
     useEffect(() => {
         // getSid(dispatch).then((sid) => {
         // console.log("mainScr. sid=>");//.sessionSid.sid);
-
-        // getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
-        //     // console.log("mainScr.getCategoryList(data)", data);
-        //     // console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
-        //     data = addFieldChildren(data);
-        //     data = setFieldIsChildren(data);
-        //     dispatch({ type: 'CATEGORY_LIST', payload: data});
-        // })
+        if (i<1) {
+            getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
+                // console.log("mainScr.getCategoryList(data)", data);
+                console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
+                data = addFieldChildren(data);
+                data = setFieldIsChildren(data);
+                console.log("getProductsList => ", getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch));
+                dispatch({ type: 'CATEGORY_LIST', payload: data});
+                dispatch({ type: 'IS_APP_INIT', payload: true });
+            })
+            i++;
+        }
                 // Start Stub. Section Dev. .
-                    let data = addFieldChildren(CATEGORY_FROM_FILE);
-                    console.log("CATEGORY_FROM_FILE[0]", CATEGORY_FROM_FILE[0]);
-                    data = setFieldIsChildren(data);
-                    data = sortListbyName(data);
+                    // let data = addFieldChildren(CATEGORY_FROM_FILE);
+                    // console.log("CATEGORY_FROM_FILE[0]", CATEGORY_FROM_FILE[0]);
+                    // data = setFieldIsChildren(data);
+                    // data = sortListbyName(data);
                                
-                    console.log("data[0]", data[0]);
-                    dispatch({ type: 'CATEGORY_LIST', payload: data });
+                    // console.log("data[0]", data[0]);
+                    // dispatch({ type: 'CATEGORY_LIST', payload: data });
                     // {categoryID: 1484, parentID: 1330, isChildren: undefined, realcat: 1235, name: "SSD диски"},
-                    getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch);
+        
                 //End Stub. Section Dev.
 
             dispatch({ type: 'IS_APP_INIT', payload: true });

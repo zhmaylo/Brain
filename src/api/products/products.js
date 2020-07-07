@@ -1,26 +1,42 @@
-// getProductsList - returns products list of a specified category from server. JSON-format.
-// sidAndTime - session SID and TimeStamp 
 
 import { URL_GET_PRODUCTS } from "../../constants/urlConst";
 import { middleWareFetch } from './../fetch/middleWareFetch';
 
+// getProductsList - returns products list of a specified category from server. JSON-format.
+// categoryID - "id" produtcts category
+// sidAndTime - session SID and TimeStamp 
 // dispatch - this is callback
 export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
-    
-    // console.log("getProductsList. sidAndTime => ", sidAndTime)
-    //let filterID = "?filterID='a'";
-    // let filterID ='?sortby=articul';
-    //product_code: "U0344115"
-    let filterID ='?sortby=available&order=desc&offset=0';
-    let json = await middleWareFetch(URL_GET_PRODUCTS+categoryID+'/', null, sidAndTime, filterID, dispatch);
-    // let json = await middleWareFetch( 'https://api.brain.com.ua/filters_all/'+categoryID+'/', null, sidAndTime, filterID, dispatch);
+
+    let json = [];
+    let offset = 0;
+    let arrTemp = 0;
+    do {
+        arrTemp = await middleWareFetch(URL_GET_PRODUCTS + categoryID + '/', null, sidAndTime, '?offset='+offset, dispatch);
+        // json = json.push(await arrTemp.result);
+        console.log("getProductsList 0 =>", await arrTemp);
+        arrTemp.result.list.forEach((item) => {json.push(item)});
+        
+        offset += 100;
+        console.log("getProductsList.json =>", json);
+        console.log("getProductsList.offset =>", offset);
+        console.log("getProductsList.arrTemp.result.count =>", arrTemp.result.count);
+        console.log("getProductsList.arrTemp.result.count =>", arrTemp.result.count);
+        if (offset > arrTemp.result.count) (offset = arrTemp.result.count)
+        
+
+    } while (json.length === arrTemp.result.count); //json.result.length)
     
     // console.log("getProductsList=>", json);
-    json = await json.result;
-     console.log("getProductsList 2 =>", json);
+    // console.log("getProductsList 2 =>", json);
     return json;
 }
 
+
+
+// let json = await middleWareFetch( 'https://api.brain.com.ua/filters_all/'+categoryID+'/', null, sidAndTime, filterID, dispatch);
+// let filterID = "?filterID='a'";
+// let filterID ='?sortby=articul&order=desc&offset=0'';
 
 // EAN: ""
 // FOP: 0

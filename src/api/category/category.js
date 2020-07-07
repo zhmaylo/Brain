@@ -8,7 +8,7 @@ import { middleWareFetch } from './../fetch/middleWareFetch';
 // dispatch - this is callback
 export const getCategoryList = async (sidAndTime, dispatch) => {
 
-    // console.log("getCategoryList. sidAndTime => ", sidAndTime)
+    console.log("getCategoryList. sidAndTime => ", sidAndTime)
     let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, "", dispatch);
     json = await json.result;
     json = await sortListbyName(json);

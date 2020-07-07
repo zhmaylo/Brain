@@ -27,7 +27,7 @@ const isUndef = (arrFilt) => {
 
 // isItemHaveChildren - checks for the presence of "children" in the category
 // categoryList - full list category in format 'Array of Objects'
-// categoryID_UP - "id" верхней категории
+// categoryID_UP - "id" upper category
 const isItemHaveChildren = (categoryList, categoryID_UP) => {
     let arrTemp = categoryList.filter(item => item.parentID === categoryID_UP);
     if (arrTemp.length > 0) return true // children found
