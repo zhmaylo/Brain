@@ -19,7 +19,7 @@ export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, par
         
         json = await fetchData(requestUrl + sidAndTime.sid + params, requestHeader);
         statusResponse = getStatusResponse(json);
-        // console.log("middleWareFetch. json", json);
+        console.log("middleWareFetch. json", json);
 
         // if there is an error, then return the new SID
         if (ERRORS_SID.includes(statusResponse.code) || sidAndTime.sid == 1 || sidAndTime.sid == undefined)  

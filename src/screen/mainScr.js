@@ -17,22 +17,27 @@ let i=0;
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
     
-
     useEffect(() => {
         // getSid(dispatch).then((sid) => {
         // console.log("mainScr. sid=>");//.sessionSid.sid);
+
+        // console.log("mainScr.state 1 => ", state);
+    
+    //    console.log("mainScr.state 1 => ", state);
         if (i<1) {
             getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
                 // console.log("mainScr.getCategoryList(data)", data);
                 console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
+                console.log("mainScr.state 2 => ", state);
                 data = addFieldChildren(data);
                 data = setFieldIsChildren(data);
-                console.log("getProductsList => ", getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch));
+                // console.log("getProductsList => ", getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch));
                 dispatch({ type: 'CATEGORY_LIST', payload: data});
                 dispatch({ type: 'IS_APP_INIT', payload: true });
             })
             i++;
         }
+           console.log("mainScr.state 3 => ", state);
                 // Start Stub. Section Dev. .
                     // let data = addFieldChildren(CATEGORY_FROM_FILE);
                     // console.log("CATEGORY_FROM_FILE[0]", CATEGORY_FROM_FILE[0]);
@@ -51,7 +56,7 @@ export default function mainScr(props) {
     }, [!state.isAppInitRdc.isAppInit]);
 
     // console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
-    // console.log('mainScr. state', state);
+    console.log('mainScr. state', state);
 
     // console.log(getMainCategory(categoryFromFile));
 
