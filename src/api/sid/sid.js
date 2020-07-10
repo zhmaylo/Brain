@@ -7,7 +7,8 @@ import { REQUEST_HEADER_AUTH } from '../../constants/authorizConst';
 // getSid - returns session SID
 // dispatch - this is callback 
 export const getSid = async (dispatch) => {
-    let json = await fetchData(URL_POST_AUTH, REQUEST_HEADER_AUTH);
+    let requestUrl, requestHeader;
+    let json = await fetchData(requestUrl=URL_POST_AUTH, requestHeader=REQUEST_HEADER_AUTH);
     let sidAndTime = { sid: json.result, timeStamp: null };
 
     // console.log("getSid=> json ", json);

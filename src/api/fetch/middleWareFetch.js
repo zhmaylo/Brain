@@ -1,23 +1,27 @@
 import { getSid } from './../sid/sid';
 import { NO_ERRORS, ERRORS_SID } from '../../constants/errorConst';
 import { fetchData } from '../fetch/fetchData';
+import { argMiddle } from '../argMiddle';
 
 // middleWareFetch - middle function for control over 'sid' and 'internet connection'
-// requestUrl - request address
-// requestHeader - request header (null for not Get request)
-// sidAndTime - object: sid and timeStamp 
-// params - request parameters. Required parameter
-// dispatch - dispatch
-export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, params, dispatch) => {
+// arg.requestUrl - request address
+// arg.requestHeader - request header (null for not Get request)
+// arg.sidAndTime - object: sid and timeStamp 
+// arg.params - request parameters. Required parameter
+// arg.dispatch - dispatch
+
+// export const middleWareFetch = async (requestUrl, requestHeader=null, sidAndTime, params='', dispatch) => {
+export const middleWareFetch = async (arg) => {
 
     // console.log("middleWareFetch. sidAndTime => ", sidAndTime);
     
-    let json;
+    let sidAndTime=arg.sidAndTime;
+    let dispatch=arg.dispatch;
+    let json, statusResponse;
     
-    let statusResponse;
     for (let index = 0; index < 2; index++) {
         
-        json = await fetchData(requestUrl + sidAndTime.sid + params, requestHeader);
+        json = await fetchData(arg.requestUrl + sidAndTime.sid + arg.params, arg.requestHeader);
         statusResponse = getStatusResponse(json);
         console.log("middleWareFetch. json", json);
 
@@ -30,7 +34,8 @@ export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, par
     dispatch({ type: 'STATUS_RESPONSE', payload: statusResponse });
     // console.log("middleWareFetch. statusResponse => ", statusResponse);
     // console.log ("middleWareFetch. json", json.status)
-    return json;
+    
+    return {json, sidAndTime};
 }
 
 // getStatusResponse - processing errors/status from the server

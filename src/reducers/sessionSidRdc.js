@@ -2,7 +2,7 @@ import { SESSION_SID } from '../constants/darConst';
 
 
 const sessionSidRdc = (state = false, action) => {
-    console.log("sessionSidRdc.action", action);
+    // console.log("sessionSidRdc.action", action);
     switch(action.type) {
         case SESSION_SID:
             return {

@@ -6,11 +6,11 @@ import { PROXY_URL_PC } from '../../constants/urlConst';
 // fetchData - receiving data from the server
 // requestUrl - request address
 // requestHeader - request header
-export async function fetchData(requestUrl, requestHeader) {
+export async function fetchData(requestUrl, requestHeader=null) {
     let json = "";
     try {
         let response = null;
-        console.log("requestUrl", requestUrl);
+        // console.log("requestUrl", requestUrl);
         // console.log("requestHeader", requestHeader);
 
         //"if requestHeader == null" GET request, else - POST request
@@ -26,7 +26,7 @@ export async function fetchData(requestUrl, requestHeader) {
         return json;
     }
     catch (error) {
-        console.log('fetchData => An error occurred.', error);
+        // console.log('fetchData => An error occurred.', error);
         // alert('fetchData => An error occurred: ' + error);
         return error;
     }

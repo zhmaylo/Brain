@@ -1,16 +1,21 @@
 
 import { URL_GET_CATEGORY } from '../../constants/urlConst';
 import { middleWareFetch } from './../fetch/middleWareFetch';
+import { argMiddle } from '../argMiddle';
 
 
 // getCategoryList - returns categorry list from server. JSON-format.
 // sidAndTime - session SID and TimeStamp 
 // dispatch - this is callback
 export const getCategoryList = async (sidAndTime, dispatch) => {
-
+    argMiddle.requestUrl = URL_GET_CATEGORY;
+    argMiddle.sidAndTime = sidAndTime;
+    argMiddle.dispatch = dispatch
+    
     console.log("getCategoryList. sidAndTime => ", sidAndTime)
-    let json = await middleWareFetch(URL_GET_CATEGORY, null, sidAndTime, "", dispatch);
-    json = await json.result;
+    let json = await middleWareFetch(argMiddle);
+    console.log("getCategoryList, argMiddle", json);
+    json = await json.json.result;
     json = await sortListbyName(json);
     // console.log("getCategoryList=>", json);
 

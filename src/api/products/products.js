@@ -2,34 +2,43 @@
 import { URL_GET_PRODUCTS } from "../../constants/urlConst";
 import { middleWareFetch } from './../fetch/middleWareFetch';
 import { OFFSET } from './../../constants/productsConst';
+import { argMiddle } from './../argMiddle';
 
 // getProductsList - returns products list of a specified category from server. JSON-format.
 // categoryID - "id" produtcts category
 // sidAndTime - session SID and TimeStamp 
 // dispatch - this is callback
 export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
+    let json = [], offset = 0, arrTemp = 0, result;
+    
+    argMiddle.requestUrl = URL_GET_PRODUCTS + categoryID + '/';
+    argMiddle.sidAndTime = sidAndTime;
+    argMiddle.dispatch = dispatch;
 
-    let json = [];
-    let offset = 0;
-    let arrTemp = 0;
     do {
-        arrTemp = await middleWareFetch(URL_GET_PRODUCTS + categoryID + '/', null, sidAndTime, '?offset=' + offset, dispatch);
+        arrTemp = await middleWareFetch(argMiddle);
+        argMiddle.sidAndTime = arrTemp.sidAndTime;
+
+        result = arrTemp.json.result;
+        // arrTemp = await middleWareFetch(URL_GET_PRODUCTS + categoryID + '/', null, sidAndTime, '?offset=' + offset, dispatch);
         // json = json.push(await arrTemp.result);
         // console.log("getProductsList.arrTemp.result.list =>", arrTemp.result.list);
-        await arrTemp.result.list.forEach((item) => {
+        await result.list.forEach((item) => {
             if (item.stocks_expected.length != 0) json.push(item);
             // console.log("getProductsList. item.stocks_expected.length => ", item.stocks_expected.length);
         });
         offset += OFFSET;
+        argMiddle.params = '?offset=' + offset;    
+
         // console.log("getProductsList.json =>", json);
         // console.log("getProductsList.offset =>", offset);
         // console.log("getProductsList.arrTemp.result.count =>", arrTemp.result.count);
         // console.log("getProductsList.arrTemp.json.length =>", json.length);
-        
-    } while (offset <= arrTemp.result.count); //json.result.length)
+
+    } while (offset <= result.count); //json.result.length)
 
     console.log("getProductsList=>", json);
-    
+
     return json;
 }
 

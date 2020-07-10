@@ -31,7 +31,7 @@ export default function mainScr(props) {
                 console.log("mainScr.state 2 => ", state);
                 data = addFieldChildren(data);
                 data = setFieldIsChildren(data);
-                // console.log("getProductsList => ", getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch));
+                console.log("getProductsList => ", getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch));
                 dispatch({ type: 'CATEGORY_LIST', payload: data});
                 dispatch({ type: 'IS_APP_INIT', payload: true });
             })
@@ -56,7 +56,7 @@ export default function mainScr(props) {
     }, [!state.isAppInitRdc.isAppInit]);
 
     // console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
-    console.log('mainScr. state', state);
+    // console.log('mainScr. state', state);
 
     // console.log(getMainCategory(categoryFromFile));
 
