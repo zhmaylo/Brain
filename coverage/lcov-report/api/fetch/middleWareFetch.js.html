@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/16</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -113,7 +113,17 @@
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
 <a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -126,14 +136,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
@@ -142,6 +153,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -172,24 +184,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { getSid } from './../sid/sid';
 import { NO_ERRORS, ERRORS_SID } from '../../constants/errorConst';
 import { fetchData } from '../fetch/fetchData';
+import { argMiddle } from '../argMiddle';
 &nbsp;
 // middleWareFetch - middle function for control over 'sid' and 'internet connection'
-// requestUrl - request address
-// requestHeader - request header (null for not Get request)
-// sidAndTime - object: sid and timeStamp 
-// dispatch - dispatch
-export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dispatch) =&gt; {
+// arg.requestUrl - request address
+// arg.requestHeader - request header (null for not Get request)
+// arg.sidAndTime - object: sid and timeStamp 
+// arg.params - request parameters. Required parameter
+// arg.dispatch - dispatch
+&nbsp;
+// export const middleWareFetch = async (requestUrl, requestHeader=null, sidAndTime, params='', dispatch) =&gt; {
+export const middleWareFetch = async (arg) =&gt; {
 &nbsp;
     // console.log("middleWareFetch. sidAndTime =&gt; ", sidAndTime);
     
-    let json;
+    let sidAndTime=arg.sidAndTime;
+    let dispatch=arg.dispatch;
+    let json, statusResponse;
     
-    let statusResponse;
     for (let index = 0; index &lt; 2; index++) {
         
-        json = await fetchData(requestUrl + sidAndTime.sid, requestHeader);
+        json = await fetchData(arg.requestUrl + sidAndTime.sid + arg.params, arg.requestHeader);
         statusResponse = getStatusResponse(json);
-        // console.log("middleWareFetch. json", json);
+        console.log("middleWareFetch. json", json);
 &nbsp;
         // if there is an error, then return the new SID
         if (ERRORS_SID.includes(statusResponse.code) || sidAndTime.sid == 1 || sidAndTime.sid == undefined)  
@@ -200,7 +217,8 @@ export const middleWareFetch = async (requestUrl, requestHeader, sidAndTime, dis
     dispatch({ type: 'STATUS_RESPONSE', payload: statusResponse });
     // console.log("middleWareFetch. statusResponse =&gt; ", statusResponse);
     // console.log ("middleWareFetch. json", json.status)
-    return json;
+    
+    return {json, sidAndTime};
 }
 &nbsp;
 // getStatusResponse - processing errors/status from the server
@@ -232,7 +250,7 @@ export function getStatusResponse(json) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jul 06 2020 19:44:36 GMT+0300 (Восточная Европа, летнее время)
+                at Sat Jul 11 2020 15:45:04 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
         <script src="../../prettify.js"></script>

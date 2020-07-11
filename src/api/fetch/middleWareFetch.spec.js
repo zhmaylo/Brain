@@ -27,10 +27,10 @@ test('"middleWareFetch" request GET, complete => ', async () => {
     fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
     const data = await middleWareFetch(argMiddle);
-    // console.log("Test middleWareFetch. data", data);
+    console.log("Test middleWareFetch. data", data);
 
     expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY + sidAndTime.sid);
-    expect(data.status).toBe(1);
+    expect(data.json.status).toBe(1);
 });
 
 
@@ -50,7 +50,7 @@ test ('"middleWareFetch" request POST, complete => ', async () => {
     // console.log("Test middleWareFetch. data", data);
 
     expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_POST_AUTH + sidAndTime.sid, REQUEST_HEADER_AUTH);
-    expect(data.status).toBe(1);
+    expect(data.json.status).toBe(1);
 });
 
 
@@ -69,8 +69,8 @@ test('"middleWareFetch" Error N5: Session identifier is outdate => ', async () =
     // console.log("Test middleWareFetch. data", data);
    
     expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY + sidAndTime.sid);
-    expect(data.status).toBe(0);
-    expect(data.error_code).toBe(5);
-    expect(data.error_message).toBe("Session identifier is fault");
+    expect(data.json.status).toBe(0);
+    expect(data.json.error_code).toBe(5);
+    expect(data.json.error_message).toBe("Session identifier is fault");
 });
 

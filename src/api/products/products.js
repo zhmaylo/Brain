@@ -15,30 +15,29 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
     argMiddle.sidAndTime = sidAndTime;
     argMiddle.dispatch = dispatch;
 
-    do {
+    // do {
+        
+        argMiddle.params = '?offset=' + offset;
+        // console.log("getProductsList.offset =>", offset);
         arrTemp = await middleWareFetch(argMiddle);
-        argMiddle.sidAndTime = arrTemp.sidAndTime;
 
         result = arrTemp.json.result;
-        // arrTemp = await middleWareFetch(URL_GET_PRODUCTS + categoryID + '/', null, sidAndTime, '?offset=' + offset, dispatch);
-        // json = json.push(await arrTemp.result);
+        argMiddle.sidAndTime = arrTemp.sidAndTime;
+        
         // console.log("getProductsList.arrTemp.result.list =>", arrTemp.result.list);
         await result.list.forEach((item) => {
             if (item.stocks_expected.length != 0) json.push(item);
             // console.log("getProductsList. item.stocks_expected.length => ", item.stocks_expected.length);
         });
         offset += OFFSET;
-        argMiddle.params = '?offset=' + offset;    
 
         // console.log("getProductsList.json =>", json);
-        // console.log("getProductsList.offset =>", offset);
         // console.log("getProductsList.arrTemp.result.count =>", arrTemp.result.count);
         // console.log("getProductsList.arrTemp.json.length =>", json.length);
 
-    } while (offset <= result.count); //json.result.length)
+    // } while (offset <= result.count); //json.result.length)
 
     console.log("getProductsList=>", json);
-
     return json;
 }
 

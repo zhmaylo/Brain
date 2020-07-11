@@ -1,0 +1,149 @@
+Date : 2020-07-11 16:02:22
+Directory : d:\Java\Brain\my-app
+Total : 98 files,  31671 codes, 502 comments, 2950 blanks, all 35123 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Log        |          1 |     14,039 |          0 |      2,066 |     16,105 |
+| JSON       |          4 |     10,678 |         11 |          2 |     10,691 |
+| HTML       |         26 |      4,015 |          0 |        392 |      4,407 |
+| JavaScript |         56 |      2,500 |        482 |        475 |      3,457 |
+| XML        |          9 |        235 |          0 |          1 |        236 |
+| CSS        |          2 |        204 |          9 |         14 |        227 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                         | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                            |         98 |     31,671 |        502 |      2,950 |     35,123 |
+| coverage                                                                     |         33 |      4,668 |         32 |        436 |      5,136 |
+| coverage\lcov-report                                                         |         31 |      4,422 |         32 |        434 |      4,888 |
+| coverage\lcov-report\api                                                     |         12 |      2,025 |          0 |        181 |      2,206 |
+| coverage\lcov-report\api\category                                            |          4 |        837 |          0 |         60 |        897 |
+| coverage\lcov-report\api\fetch                                               |          3 |        557 |          0 |         50 |        607 |
+| coverage\lcov-report\api\sid                                                 |          3 |        450 |          0 |         43 |        493 |
+| coverage\lcov-report\components                                              |          3 |        545 |          0 |         44 |        589 |
+| coverage\lcov-report\constants                                               |          7 |        983 |          0 |        103 |      1,086 |
+| coverage\lcov-report\icons                                                   |          3 |        281 |          0 |         44 |        325 |
+| src                                                                          |         59 |      2,279 |        442 |        429 |      3,150 |
+| src\actions                                                                  |          5 |         42 |          5 |          7 |         54 |
+| src\api                                                                      |         16 |        443 |        243 |        204 |        890 |
+| src\api\category                                                             |          6 |        225 |         68 |         84 |        377 |
+| src\api\fetch                                                                |          4 |        147 |         38 |         69 |        254 |
+| src\api\products                                                             |          1 |         22 |         77 |         16 |        115 |
+| src\api\sid                                                                  |          4 |         43 |         59 |         35 |        137 |
+| src\components                                                               |          7 |        215 |         29 |         66 |        310 |
+| src\constants                                                                |         11 |      1,231 |        118 |         54 |      1,403 |
+| src\icons                                                                    |          8 |          8 |          0 |          0 |          8 |
+| src\icons\svg                                                                |          8 |          8 |          0 |          0 |          8 |
+| src\reducers                                                                 |          6 |        113 |         10 |         32 |        155 |
+| src\screen                                                                   |          6 |        227 |         37 |         66 |        330 |
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                     | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| d:\Java\Brain\my-app\App.js                                                  | JavaScript |         20 |         17 |         17 |         54 |
+| d:\Java\Brain\my-app\app.json                                                | JSON       |         22 |         11 |          0 |         33 |
+| d:\Java\Brain\my-app\babel.config.js                                         | JavaScript |          6 |          0 |          1 |          7 |
+| d:\Java\Brain\my-app\coverage\clover.xml                                     | XML        |        227 |          0 |          1 |        228 |
+| d:\Java\Brain\my-app\coverage\coverage-final.json                            | JSON       |         19 |          0 |          1 |         20 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\argMiddle.js.html              | HTML       |         84 |          0 |         14 |         98 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\category\catView.js.html       | HTML       |        260 |          0 |         15 |        275 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\category\category.js.html      | HTML       |        266 |          0 |         15 |        281 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\category\index.html            | HTML       |        125 |          0 |         16 |        141 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\category\symbChildren.js.html  | HTML       |        186 |          0 |         14 |        200 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\fetch\fetchData.js.html        | HTML       |        200 |          0 |         15 |        215 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\fetch\index.html               | HTML       |        111 |          0 |         15 |        126 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\fetch\middleWareFetch.js.html  | HTML       |        246 |          0 |         20 |        266 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\index.html                     | HTML       |         97 |          0 |         14 |        111 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\sid\index.html                 | HTML       |        111 |          0 |         15 |        126 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\sid\sid.js.html                | HTML       |        141 |          0 |         14 |        155 |
+| d:\Java\Brain\my-app\coverage\lcov-report\api\sid\timeStamp.js.html          | HTML       |        198 |          0 |         14 |        212 |
+| d:\Java\Brain\my-app\coverage\lcov-report\base.css                           | CSS        |        203 |          9 |         13 |        225 |
+| d:\Java\Brain\my-app\coverage\lcov-report\block-navigation.js                | JavaScript |         60 |          6 |         14 |         80 |
+| d:\Java\Brain\my-app\coverage\lcov-report\components\AlertMessageCmp.js.html | HTML       |        153 |          0 |         14 |        167 |
+| d:\Java\Brain\my-app\coverage\lcov-report\components\HeaderCmp.js.html       | HTML       |        281 |          0 |         15 |        296 |
+| d:\Java\Brain\my-app\coverage\lcov-report\components\index.html              | HTML       |        111 |          0 |         15 |        126 |
+| d:\Java\Brain\my-app\coverage\lcov-report\constants\authorizConst.js.html    | HTML       |        153 |          0 |         14 |        167 |
+| d:\Java\Brain\my-app\coverage\lcov-report\constants\categoryConst.js.html    | HTML       |        117 |          0 |         14 |        131 |
+| d:\Java\Brain\my-app\coverage\lcov-report\constants\errorConst.js.html       | HTML       |        147 |          0 |         14 |        161 |
+| d:\Java\Brain\my-app\coverage\lcov-report\constants\headerConst.js.html      | HTML       |        102 |          0 |         14 |        116 |
+| d:\Java\Brain\my-app\coverage\lcov-report\constants\index.html               | HTML       |        167 |          0 |         19 |        186 |
+| d:\Java\Brain\my-app\coverage\lcov-report\constants\otherConst.js.html       | HTML       |         99 |          0 |         14 |        113 |
+| d:\Java\Brain\my-app\coverage\lcov-report\constants\urlConst.js.html         | HTML       |        198 |          0 |         14 |        212 |
+| d:\Java\Brain\my-app\coverage\lcov-report\icons\filter.png.html              | HTML       |         89 |          0 |         15 |        104 |
+| d:\Java\Brain\my-app\coverage\lcov-report\icons\index.html                   | HTML       |        111 |          0 |         15 |        126 |
+| d:\Java\Brain\my-app\coverage\lcov-report\icons\menu.png.html                | HTML       |         81 |          0 |         14 |         95 |
+| d:\Java\Brain\my-app\coverage\lcov-report\index.html                         | HTML       |        181 |          0 |         20 |        201 |
+| d:\Java\Brain\my-app\coverage\lcov-report\prettify.css                       | CSS        |          1 |          0 |          1 |          2 |
+| d:\Java\Brain\my-app\coverage\lcov-report\prettify.js                        | JavaScript |          1 |          1 |          1 |          3 |
+| d:\Java\Brain\my-app\coverage\lcov-report\sorter.js                          | JavaScript |        142 |         16 |         13 |        171 |
+| d:\Java\Brain\my-app\package-lock.json                                       | JSON       |     10,599 |          0 |          1 |     10,600 |
+| d:\Java\Brain\my-app\package.json                                            | JSON       |         38 |          0 |          0 |         38 |
+| d:\Java\Brain\my-app\src\actions\categoryList.js                             | JavaScript |         14 |          1 |          2 |         17 |
+| d:\Java\Brain\my-app\src\actions\isAppInit.js                                | JavaScript |          7 |          1 |          1 |          9 |
+| d:\Java\Brain\my-app\src\actions\productsList.js                             | JavaScript |          7 |          1 |          2 |         10 |
+| d:\Java\Brain\my-app\src\actions\sessionSid.js                               | JavaScript |          7 |          1 |          1 |          9 |
+| d:\Java\Brain\my-app\src\actions\statusResponse.js                           | JavaScript |          7 |          1 |          1 |          9 |
+| d:\Java\Brain\my-app\src\api\argMiddle.js                                    | JavaScript |          6 |          1 |          0 |          7 |
+| d:\Java\Brain\my-app\src\api\category\catView.js                             | JavaScript |         35 |         20 |         11 |         66 |
+| d:\Java\Brain\my-app\src\api\category\catView.spec.js                        | JavaScript |         56 |          7 |         25 |         88 |
+| d:\Java\Brain\my-app\src\api\category\category.js                            | JavaScript |         40 |         12 |         16 |         68 |
+| d:\Java\Brain\my-app\src\api\category\category.spec.js                       | JavaScript |         54 |         11 |         18 |         83 |
+| d:\Java\Brain\my-app\src\api\category\symbChildren.js                        | JavaScript |         17 |         16 |          8 |         41 |
+| d:\Java\Brain\my-app\src\api\category\symbChildren.spec.js                   | JavaScript |         23 |          2 |          6 |         31 |
+| d:\Java\Brain\my-app\src\api\fetch\fetchData.js                              | JavaScript |         22 |         15 |          9 |         46 |
+| d:\Java\Brain\my-app\src\api\fetch\fetchData.spec.js                         | JavaScript |         48 |          1 |         19 |         68 |
+| d:\Java\Brain\my-app\src\api\fetch\middleWareFetch.js                        | JavaScript |         28 |         19 |         16 |         63 |
+| d:\Java\Brain\my-app\src\api\fetch\middleWareFetch.spec.js                   | JavaScript |         49 |          3 |         25 |         77 |
+| d:\Java\Brain\my-app\src\api\products\products.js                            | JavaScript |         22 |         77 |         16 |        115 |
+| d:\Java\Brain\my-app\src\api\sid\sid.js                                      | JavaScript |         13 |          6 |          7 |         26 |
+| d:\Java\Brain\my-app\src\api\sid\sid.spec.js                                 | JavaScript |         17 |          8 |         10 |         35 |
+| d:\Java\Brain\my-app\src\api\sid\timeStamp.js                                | JavaScript |          7 |         26 |         12 |         45 |
+| d:\Java\Brain\my-app\src\api\sid\timeStamp.spec.js                           | JavaScript |          6 |         19 |          6 |         31 |
+| d:\Java\Brain\my-app\src\components\AlertMessageCmp.js                       | JavaScript |         24 |          0 |          6 |         30 |
+| d:\Java\Brain\my-app\src\components\AlertMessageCmp.spec.js                  | JavaScript |          9 |         15 |         17 |         41 |
+| d:\Java\Brain\my-app\src\components\AppNavigator.js                          | JavaScript |         28 |          2 |          7 |         37 |
+| d:\Java\Brain\my-app\src\components\FooterCmp.js                             | JavaScript |         59 |          1 |         11 |         71 |
+| d:\Java\Brain\my-app\src\components\HeaderCmp.js                             | JavaScript |         58 |          5 |         10 |         73 |
+| d:\Java\Brain\my-app\src\components\HeaderCmp.spec.js                        | JavaScript |         13 |          6 |          9 |         28 |
+| d:\Java\Brain\my-app\src\components\productCard.js                           | JavaScript |         24 |          0 |          6 |         30 |
+| d:\Java\Brain\my-app\src\constants\authorizConst.js                          | JavaScript |          9 |         18 |          3 |         30 |
+| d:\Java\Brain\my-app\src\constants\categoryConst.js                          | JavaScript |          4 |          6 |          8 |         18 |
+| d:\Java\Brain\my-app\src\constants\categoryJSON.js                           | JavaScript |      1,173 |          6 |          2 |      1,181 |
+| d:\Java\Brain\my-app\src\constants\darConst.js                               | JavaScript |          6 |         17 |          7 |         30 |
+| d:\Java\Brain\my-app\src\constants\errorConst.js                             | JavaScript |         14 |          8 |          6 |         28 |
+| d:\Java\Brain\my-app\src\constants\footerConst.js                            | JavaScript |          7 |          7 |          3 |         17 |
+| d:\Java\Brain\my-app\src\constants\headerConst.js                            | JavaScript |          4 |          7 |          2 |         13 |
+| d:\Java\Brain\my-app\src\constants\menuConst.js                              | JavaScript |          1 |          6 |          7 |         14 |
+| d:\Java\Brain\my-app\src\constants\otherConst.js                             | JavaScript |          3 |          6 |          3 |         12 |
+| d:\Java\Brain\my-app\src\constants\productsConst.js                          | JavaScript |          1 |          7 |          7 |         15 |
+| d:\Java\Brain\my-app\src\constants\urlConst.js                               | JavaScript |          9 |         30 |          6 |         45 |
+| d:\Java\Brain\my-app\src\icons\svg\balance-scale-solid.svg                   | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\bars-solid.svg                            | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\filter-solid.svg                          | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\shopping-basket-solid.svg                 | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\sort-amount-down-solid.svg                | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\sort-amount-up-alt-solid.svg              | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\star-regular.svg                          | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\th-large-solid.svg                        | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\reducers\categoryListRdc.js                         | JavaScript |         23 |          4 |          6 |         33 |
+| d:\Java\Brain\my-app\src\reducers\isAppInitRdc.js                            | JavaScript |         13 |          0 |          2 |         15 |
+| d:\Java\Brain\my-app\src\reducers\productsListRdc.js                         | JavaScript |         12 |          1 |          3 |         16 |
+| d:\Java\Brain\my-app\src\reducers\sessionSidRdc.js                           | JavaScript |         13 |          1 |          2 |         16 |
+| d:\Java\Brain\my-app\src\reducers\statusResponseRdc.js                       | JavaScript |         13 |          0 |          2 |         15 |
+| d:\Java\Brain\my-app\src\reducers\unionRdc.js                                | JavaScript |         39 |          4 |         17 |         60 |
+| d:\Java\Brain\my-app\src\screen\basketScr.js                                 | JavaScript |         21 |          0 |          3 |         24 |
+| d:\Java\Brain\my-app\src\screen\categoryScr.js                               | JavaScript |         78 |          5 |         22 |        105 |
+| d:\Java\Brain\my-app\src\screen\configScr.js                                 | JavaScript |         21 |          0 |          3 |         24 |
+| d:\Java\Brain\my-app\src\screen\findScr.js                                   | JavaScript |         21 |          0 |          3 |         24 |
+| d:\Java\Brain\my-app\src\screen\mainScr.js                                   | JavaScript |         63 |         32 |         28 |        123 |
+| d:\Java\Brain\my-app\src\screen\menuScr.js                                   | JavaScript |         23 |          0 |          7 |         30 |
+| d:\Java\Brain\my-app\yarn-error.log                                          | Log        |     14,039 |          0 |      2,066 |     16,105 |
+| Total                                                                        |            |     31,671 |        502 |      2,950 |     35,123 |
++------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
