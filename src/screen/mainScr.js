@@ -1,68 +1,49 @@
 import React, { useContext, useEffect } from 'react';
-import { Button, StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
-import { getCategoryList,sortListbyName, addFieldChildren } from './../api/category/category';
+import { getCategoryList, addFieldChildren } from './../api/category/category';
 import { AlertMessageCmp } from '../components/AlertMessageCmp';
 import { HeaderCmp } from './../components/HeaderCmp';
 import { FooterCmp } from '../components/FooterCmp';
-// import { FullScreen } from 'react-native-full-screen';
 import { setFieldIsChildren } from './../api/category/symbChildren';
-import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { getProductsList } from './../api/products/products';
-import { ProductsCardCmp } from './../components/ProductCardCmp';
+import { ProductCardCmp } from './../components/ProductCardCmp';
+import { devStub } from './../api/dev';
 
 
-let i=0;
+let i = 0;
+const devMode = true;
+// const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-    
+
     useEffect(() => {
-        // getSid(dispatch).then((sid) => {
+
         // console.log("mainScr. sid=>");//.sessionSid.sid);
-
         // console.log("mainScr.state 1 => ", state);
-        
-        // if (i<1) {
-        //     getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
-        //             // console.log("mainScr.getCategoryList(data)", data);
-        //             // console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
-        //             // console.log("mainScr.state 2 => ", state);
-        //         data = addFieldChildren(data);
-        //         data = setFieldIsChildren(data);
-                                
-        //         getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
-        //             console.log("getProductsList => ", productsList);
-        //             dispatch({ type: 'PRODUCTS_LIST', payload: productsList});
-        //             dispatch({ type: 'CATEGORY_LIST', payload: data});
-        //             dispatch({ type: 'IS_APP_INIT', payload: true });
-        //         });
-        //     })
-        //     i++;
-        // }
-            // console.log("mainScr.state 3 => ", state);
-                // Start Stub. Section Dev. .
-                    let data = addFieldChildren(CATEGORY_FROM_FILE);
-                        // console.log("CATEGORY_FROM_FILE[0]", CATEGORY_FROM_FILE[0]);
-                    data = setFieldIsChildren(data);
-                    data = sortListbyName(data);
-                               
-                        // console.log("data[0]", data[0]);
+        // Start Stub. Section Dev. .
+        if (devMode) devStub(state, dispatch);
+        //End Stub. Section Dev.
+        else if (i < 1) {
+            getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
+                // console.log("mainScr.getCategoryList(data)", data);
+                // console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
+                // console.log("mainScr.state 2 => ", state);
+                data = addFieldChildren(data);
+                data = setFieldIsChildren(data);
+
+                getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
+                    console.log("getProductsList => ", productsList);
+                    dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
                     dispatch({ type: 'CATEGORY_LIST', payload: data });
-                        // {categoryID: 1484, parentID: 1330, isChildren: undefined, realcat: 1235, name: "SSD диски"},
-        
-                    getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
-                        console.log("getProductsList => ", productsList);
-                        dispatch({ type: 'PRODUCTS_LIST', payload: productsList});
-                        dispatch({ type: 'CATEGORY_LIST', payload: data});
-                        dispatch({ type: 'IS_APP_INIT', payload: true });
-                    });
-
-                //End Stub. Section Dev.
-
-            // dispatch({ type: 'IS_APP_INIT', payload: true });
-        // {props.navigation.navigate(MENU_ITEM[0])}
+                    dispatch({ type: 'IS_APP_INIT', payload: true });
+                });
+            })
+            i++;
+        }
+        // console.log("mainScr.state 3 => ", state);
 
     }, [!state.isAppInitRdc.isAppInit]);
 
@@ -72,21 +53,21 @@ export default function mainScr(props) {
     // console.log(getMainCategory(categoryFromFile));
     console.log("state.isAppInitRdc.isAppInit", state.isAppInitRdc.isAppInit);
 
-    if ((state.statusResponseRdc.statusResponse.code !== -1) && 
-    (state.statusResponseRdc.statusResponse.code !== undefined))  
+    if ((state.statusResponseRdc.statusResponse.code !== -1) &&
+        (state.statusResponseRdc.statusResponse.code !== undefined))
         return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
-   
-    else 
-    if (state.isAppInitRdc.isAppInit)
-        return (
 
-            <View style={styles.container}>
-            <StatusBar hidden={true} />
-          
+    else
+        if (state.isAppInitRdc.isAppInit)
+            return (
+
+                <View style={styles.container}>
+                    <StatusBar hidden={true} />
+
                     {HeaderCmp(props.navigation.toggleDrawer)}
-                    <Text>mainScreen!</Text>
-                    <ProductsCardCmp item={state.productsListRdc.productsList[0]}/>
-                    
+                    {/* <Text>mainScreen!</Text> */}
+                    <ProductCardCmp item={state.productsListRdc.productsList[0]} />
+
                     {/* <Button
                         // onPress={() => props.navigation.navigate('MenuScreen')}
                         onPress={() => props.navigation.toggleDrawer()}
@@ -106,16 +87,16 @@ export default function mainScr(props) {
                 /> */}
                     {FooterCmp(props.navigation.toggleDrawer)}
 
-                   
-          
-            </View>
 
-        );
-    else return (
-        <View>
-            <Text>Init App</Text>
-        </View>
-    )
+
+                </View>
+
+            );
+        else return (
+            <View>
+                <Text>Init App</Text>
+            </View>
+        )
 
 }
 

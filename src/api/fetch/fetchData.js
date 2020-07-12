@@ -10,11 +10,11 @@ export async function fetchData(requestUrl, requestHeader=null) {
     let json = "";
     try {
         let response = null;
-        // console.log("requestUrl", requestUrl);
+        console.log("requestUrl", requestUrl);
         // console.log("requestHeader", requestHeader);
-
+        
         //"if requestHeader == null" GET request, else - POST request
-        if (requestHeader == null) response = await fetch(PROXY_URL_PC + requestUrl)
+        if (requestHeader === null) response = await fetch(PROXY_URL_PC + requestUrl)
         else response = await fetch(PROXY_URL_PC + requestUrl, requestHeader);
 
         // console.log("getJSON. response before =>", response.bodyUsed);
