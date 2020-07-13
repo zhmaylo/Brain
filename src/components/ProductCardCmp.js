@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image, FlatList } from 'react-native';
+import { WINDOW_WIDTH } from './../constants/otherConst';
 
 
 export const ProductCardCmp = ({ item }) => {
-    console.log("ProductsCardCmp=>item", item);
+    // console.log("ProductsCardCmp=>item", item);
     console.log("ProductsCardCmp=>item.small_image", item.small_image);
     return (
-        <View style={styles.container}>
+        <View style={styles.itemProd}>
 
 
             <Image style={styles.image}
@@ -22,12 +23,12 @@ export const ViewListProd = ({ productList }) => {
     return (
         <View style={styles.container}>
             <FlatList
-                numColumns={NUM_COLUMN}
+                numColumns='1'
                 horizontal={false}
                 data={productList}
                 // onRefresh={() => onRefresh}
                 // refreshing={true}
-                renderItem={({ item }) => <ProductCartCmp item={item} />}
+                renderItem={({ item }) => <ProductCardCmp item={item} />}
                 keyExtractor={item => item.productID}
             />
 
@@ -39,12 +40,33 @@ export const ViewListProd = ({ productList }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        resizeMode: "contain",
+        width: WINDOW_WIDTH,
+      
+        
     },
+
     image: {
-        flex: 1,
-        justifyContent: "center",
-        width: 100
+        // justifyContent: 'space-around',
+        // alignItems: 'center',
+        // alignContent: 'center',
+        height: 50,
+        width: 100,
+    
+        // alignSelf: 'stretch',
+
+        paddingHorizontal:5,
+        paddingVertical: 5,
+    },
+
+    itemProd : {
+        flex:1,
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        paddingLeft: 10,
+        paddingVertical : 10,
+        height: 400,
+        // paddingBottom:18
+
     }
 })
