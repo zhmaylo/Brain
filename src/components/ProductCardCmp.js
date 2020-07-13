@@ -1,39 +1,36 @@
 import React from 'react';
-import { View, StyleSheet, Button, Text, Image } from 'react-native';
-import { PROXY_URL_PC } from './../constants/urlConst';
+import { View, StyleSheet, Text, Image, FlatList } from 'react-native';
 
-export const ProductCardCmp = ({item}) => {
+
+export const ProductCardCmp = ({ item }) => {
     console.log("ProductsCardCmp=>item", item);
     console.log("ProductsCardCmp=>item.small_image", item.small_image);
     return (
         <View style={styles.container}>
-            
+
+
+            <Image style={styles.image}
+                source={{ uri: (item.small_image) }}
+            />
             <Text>{item.name} </Text>
-            <Image  style={styles.image} 
-                    source={{uri : (item.small_image)}} 
-            /> 
             <Text>{item.retail_price_uah} грн </Text>
         </View>
     )
 }
 
-export const ViewListProd = ({ item }) => {
+export const ViewListProd = ({ productList }) => {
     return (
-        <View>
-            <TouchableOpacity style={styles.item}
-                onPress={() => {
-                    // console.log(item);
-                    dataCat = getListCategory(catList, item)
-                    // console.log(dataCat);
-                    // console.log(catList);
-                    dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
-                }
-                }
-            >
-                <Text style={styles.title}>{item.name} </Text>
-                <Text style={styles.symbCat}>{item.isChildren ? SIGN_DEEP : ''} </Text>
+        <View style={styles.container}>
+            <FlatList
+                numColumns={NUM_COLUMN}
+                horizontal={false}
+                data={productList}
+                // onRefresh={() => onRefresh}
+                // refreshing={true}
+                renderItem={({ item }) => <ProductCartCmp item={item} />}
+                keyExtractor={item => item.productID}
+            />
 
-            </TouchableOpacity>
         </View>
     );
 }
@@ -45,9 +42,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-    image : {
+    image: {
         flex: 1,
         justifyContent: "center",
-        width:100
+        width: 100
     }
 })

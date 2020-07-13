@@ -8,7 +8,7 @@ import { HeaderCmp } from './../components/HeaderCmp';
 import { FooterCmp } from '../components/FooterCmp';
 import { setFieldIsChildren } from './../api/category/symbChildren';
 import { getProductsList } from './../api/products/products';
-import { ProductCardCmp } from './../components/ProductCardCmp';
+import { ProductCardCmp, ViewListProd } from './../components/ProductCardCmp';
 import { devStub } from './../api/dev';
 
 
@@ -66,7 +66,8 @@ export default function mainScr(props) {
 
                     {HeaderCmp(props.navigation.toggleDrawer)}
                     {/* <Text>mainScreen!</Text> */}
-                    <ProductCardCmp item={state.productsListRdc.productsList[0]} />
+                    {/* <ProductCardCmp item={state.productsListRdc.productsList[0]} /> */}
+                    <ViewListProd productList={state.productsListRdc.productsList} />
 
                     {/* <Button
                         // onPress={() => props.navigation.navigate('MenuScreen')}
