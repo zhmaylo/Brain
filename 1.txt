@@ -1,0 +1,7 @@
+- react-native-reanimated - expected version range: ~1.9.0 - actual version installed: ~1.7.0
+ - react-native-screens - expected version range: ~2.9.0 - actual version installed:
+~2.2.0
+yarn add react-native-safe-area-context - expected version range: ~3.0.7 - actual version installed: 0.7.3
+
+
+yarn add react-native-safe-area-context@3.0.7 react-native-screens@2.9.0

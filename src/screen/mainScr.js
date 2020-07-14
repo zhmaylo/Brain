@@ -64,7 +64,7 @@ export default function mainScr(props) {
                 <View style={styles.container}>
                     <StatusBar hidden={true} />
 
-                    {/* {HeaderCmp(props.navigation.toggleDrawer)} */}
+                    {HeaderCmp(props.navigation.toggleDrawer)}
                     {/* <Text>mainScreen!</Text> */}
                     {/* <ProductCardCmp item={state.productsListRdc.productsList[0]} /> */}
                     <ViewListProd productList={state.productsListRdc.productsList} />
@@ -86,10 +86,7 @@ export default function mainScr(props) {
                     onPress={() => props.navigation.navigate('BasketScreen')}
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 /> */}
-                    {/* {FooterCmp(props.navigation.toggleDrawer)} */}
-
-
-
+                    {FooterCmp(props.navigation.toggleDrawer)}
                 </View>
 
             );
@@ -103,7 +100,7 @@ export default function mainScr(props) {
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
+        flex: 1,
         backgroundColor: '#fff',
         paddingTop: 18,
     }

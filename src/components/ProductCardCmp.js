@@ -1,22 +1,27 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image, FlatList } from 'react-native';
-import { WINDOW_WIDTH } from './../constants/otherConst';
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
 
 
 export const ProductCardCmp = ({ item }) => {
     // console.log("ProductsCardCmp=>item", item);
-    console.log("ProductsCardCmp=>item.small_image", item.small_image);
+    // console.log("ProductsCardCmp=>item.small_image", item.small_image);
     return (
         <View style={styles.itemProd}>
 
 
-            <Image style={styles.image}
-                source={{ uri: (item.small_image) }}
-            />
-            <Text>{item.name} </Text>
-            <Text>{item.retail_price_uah} грн </Text>
+            <Image
+                style={styles.image}
+                source={{ uri: (item.large_image) }}
+            />            
+            <Text style={styles.textName}>{item.name} </Text>
+            <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
         </View>
     )
+}
+
+const separ = () => {
+    <Text>-----------</Text>
 }
 
 export const ViewListProd = ({ productList }) => {
@@ -30,6 +35,7 @@ export const ViewListProd = ({ productList }) => {
                 // refreshing={true}
                 renderItem={({ item }) => <ProductCardCmp item={item} />}
                 keyExtractor={item => item.productID}
+                ItemSeparatorComponent={separ}
             />
 
         </View>
@@ -39,34 +45,35 @@ export const ViewListProd = ({ productList }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 17,
         resizeMode: "contain",
         width: WINDOW_WIDTH,
-      
+        height: WINDOW_HEIGHT,
+        // paddingBottom:10,
+        // paddingHorizontal: 5,
+        // paddingVertical: 5,
         
     },
 
     image: {
-        // justifyContent: 'space-around',
-        // alignItems: 'center',
-        // alignContent: 'center',
-        height: 50,
-        width: 100,
-    
-        // alignSelf: 'stretch',
+      
+        height: WINDOW_HEIGHT/2.3,
+        resizeMode: "contain",
 
-        paddingHorizontal:5,
-        paddingVertical: 5,
     },
 
-    itemProd : {
-        flex:1,
+    itemProd: {
+        // flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-around',
-        paddingLeft: 10,
-        paddingVertical : 10,
-        height: 400,
-        // paddingBottom:18
 
+    },
+    textName: {
+        fontSize: 18,
+    },
+
+    textPrice: {
+        fontSize: 18,
+        fontWeight: 700
     }
 })
