@@ -9,7 +9,6 @@ export const ProductCardCmp = ({ item }) => {
     return (
         <View style={styles.itemProd}>
 
-
             <Image
                 style={styles.image}
                 source={{ uri: (item.large_image) }}
@@ -20,9 +19,9 @@ export const ProductCardCmp = ({ item }) => {
     )
 }
 
-const separ = () => {
-    <Text>-----------</Text>
-}
+// const separ = () => {
+//     <Text>-----------</Text>
+// }
 
 export const ViewListProd = ({ productList }) => {
     return (
@@ -35,7 +34,7 @@ export const ViewListProd = ({ productList }) => {
                 // refreshing={true}
                 renderItem={({ item }) => <ProductCardCmp item={item} />}
                 keyExtractor={item => item.productID}
-                ItemSeparatorComponent={separ}
+                // ItemSeparatorComponent={separ}
             />
 
         </View>
@@ -49,7 +48,7 @@ const styles = StyleSheet.create({
         resizeMode: "contain",
         width: WINDOW_WIDTH,
         height: WINDOW_HEIGHT,
-        // paddingBottom:10,
+        paddingBottom:10,
         // paddingHorizontal: 5,
         // paddingVertical: 5,
         
@@ -74,6 +73,6 @@ const styles = StyleSheet.create({
 
     textPrice: {
         fontSize: 18,
-        fontWeight: 700
+        fontWeight: "700"
     }
 })
