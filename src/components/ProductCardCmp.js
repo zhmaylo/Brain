@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image, FlatList } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
+import { NUM_COLLUMNS } from '../constants/productsConst';
 
 
 export const ProductCardCmp = ({ item }) => {
@@ -12,7 +13,7 @@ export const ProductCardCmp = ({ item }) => {
             <Image
                 style={styles.image}
                 source={{ uri: (item.large_image) }}
-            />            
+            />
             <Text style={styles.textName}>{item.name} </Text>
             <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
         </View>
@@ -24,14 +25,14 @@ export const ViewListProd = ({ productList }) => {
     return (
         <View style={styles.container}>
             <FlatList
-                numColumns='2'
+                numColumns={NUM_COLLUMNS}
                 horizontal={false}
                 data={productList}
                 // onRefresh={() => onRefresh}
                 // refreshing={true}
                 renderItem={({ item }) => <ProductCardCmp item={item} />}
                 keyExtractor={item => item.productID}
-                // ItemSeparatorComponent={separ}
+            // ItemSeparatorComponent={separ}
             />
 
         </View>
@@ -45,15 +46,15 @@ const styles = StyleSheet.create({
         resizeMode: "contain",
         width: WINDOW_WIDTH,
         height: WINDOW_HEIGHT,
-        paddingBottom:10,
-        // paddingHorizontal: 5,
-        // paddingVertical: 5,
-        
+
+
+        backgroundColor: "lightgray",
+
     },
 
     image: {
-      
-        height: WINDOW_HEIGHT/3.0,
+
+        height: WINDOW_HEIGHT / 3.0,
         resizeMode: "contain",
 
     },
@@ -62,10 +63,14 @@ const styles = StyleSheet.create({
         // flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-around',
-        borderColor: "red",
-        // borderWidth: 3,
-        borderBottomWidth: 3,
-        borderTopWidth: 3
+        backgroundColor: "white",
+        width: WINDOW_WIDTH/NUM_COLLUMNS,
+    
+        backgroundColor: "white",
+        margin: 1,
+        // paddingHorizontal: 5,
+        // paddingVertical: 5,
+
     },
     textName: {
         fontSize: 18,

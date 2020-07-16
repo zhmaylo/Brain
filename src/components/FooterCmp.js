@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-evenly",
         alignItems: "flex-end",
         width: WINDOW_WIDTH,
+        paddingTop: 6,
         paddingVertical: 3,
         paddingHorizontal: 3,
         opacity: 0.8
