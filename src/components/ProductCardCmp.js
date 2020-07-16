@@ -19,15 +19,12 @@ export const ProductCardCmp = ({ item }) => {
     )
 }
 
-// const separ = () => {
-//     <Text>-----------</Text>
-// }
 
 export const ViewListProd = ({ productList }) => {
     return (
         <View style={styles.container}>
             <FlatList
-                numColumns='1'
+                numColumns='2'
                 horizontal={false}
                 data={productList}
                 // onRefresh={() => onRefresh}
@@ -56,7 +53,7 @@ const styles = StyleSheet.create({
 
     image: {
       
-        height: WINDOW_HEIGHT/2.3,
+        height: WINDOW_HEIGHT/3.0,
         resizeMode: "contain",
 
     },
@@ -65,7 +62,10 @@ const styles = StyleSheet.create({
         // flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-around',
-
+        borderColor: "red",
+        // borderWidth: 3,
+        borderBottomWidth: 3,
+        borderTopWidth: 3
     },
     textName: {
         fontSize: 18,
