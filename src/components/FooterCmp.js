@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, Button, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { WINDOW_WIDTH } from '../constants/otherConst';
 import { ICON_FOOTER } from './../constants/footerConst';
+import { ContextApp } from '../reducers/unionRdc';
+import { toggleViewProd } from './../api/footer';
 
 //main screen footer
 const itemFooter = (iconSource, iconName, iconUrl) => {
-    
+
     return (
         <View>
             <TouchableOpacity
                 style={styles.button}
-                onPress={() =>  iconUrl() }
+                onPress={() => iconUrl()}
             >
                 <Image
                     style={styles.menuImage}
@@ -23,11 +25,16 @@ const itemFooter = (iconSource, iconName, iconUrl) => {
 }
 
 
-export const FooterCmp = (menuUrl) => {
+export const FooterCmp = (menuUrl, state, dispatch) => {
 
     return (
         <View style={styles.container}>
-            {itemFooter(ICON_FOOTER[0].iconSource, ICON_FOOTER[0].iconName, menuUrl)}
+            {itemFooter(ICON_FOOTER[2-state.viewListProdRdc.numColumViewListProd].iconSource, ICON_FOOTER[0].iconName, () => {
+                let num = toggleViewProd(state.viewListProdRdc.numColumViewListProd);
+                dispatch({ type: 'NUM_COLUM_VIEW_LIST_PROD', payload: num });
+            })}
+            {/* dispatch({ type: 'NUM_COLUM_VIEW_LIST_PROD', payload: toggleViewProd(state.viewListProdRdc.numColumViewListProd) }))} */}
+
             {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, menuUrl)}
             {itemFooter(ICON_FOOTER[3].iconSource, ICON_FOOTER[3].iconName, menuUrl)}
             {itemFooter(ICON_FOOTER[4].iconSource, ICON_FOOTER[4].iconName, menuUrl)}
@@ -51,8 +58,8 @@ const styles = StyleSheet.create({
         justifyContent: "space-evenly",
         alignItems: "flex-end",
         width: WINDOW_WIDTH,
-        paddingTop: 6,
-        paddingVertical: 3,
+        paddingTop: 15,
+        // paddingVertical: 3,
         paddingHorizontal: 3,
         opacity: 0.8
     },

@@ -1,17 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { View, StyleSheet, Text, Image, FlatList } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
-import { ContextApp } from '../reducers/unionRdc';
 
 
-const { state, dispatch } = useContext(ContextApp);
-
-let numCollumns=state.viewListProdRdc.numColumViewListProd;
-const ProductCardCmp = ({ item }) => {
+const ProductCardCmp = ({ item, numCol }) => {
     // console.log("ProductsCardCmp=>item", item);
     // console.log("ProductsCardCmp=>item.small_image", item.small_image);
     return (
-        <View style={styles.itemProd}>
+        <View width={WINDOW_WIDTH / numCol} style={styles.itemProd} >
 
             <Image
                 style={styles.image}
@@ -24,19 +20,23 @@ const ProductCardCmp = ({ item }) => {
 }
 
 
-export const ViewListProd = ({ productList, numCollumns }) => {
+export const ViewListProd = ({productList, numCollumns }) => {
+    console.log(productList, numCollumns);
     return (
-        <View style={styles.container}>
-            <FlatList
-                numColumns={numCollumns}
-                horizontal={false}
-                data={productList}
-                renderItem={({ item }) => <ProductCardCmp item={item} />}
-                keyExtractor={item => item.productID}
-            />
-
+        <View style={styles.container} >
+                <FlatList
+                    numColumns={numCollumns}
+                    horizontal={false}
+                    data={productList}
+                    renderItem={({ item }) => <ProductCardCmp item={item} numCol={numCollumns} />}
+                    keyExtractor={item => item.productID+numCollumns}
+                    key={numCollumns}
+                    
+                />
+            
         </View>
     );
+  
 }
 
 
@@ -47,9 +47,7 @@ const styles = StyleSheet.create({
         width: WINDOW_WIDTH,
         height: WINDOW_HEIGHT,
 
-
         backgroundColor: "lightgray",
-
     },
 
     image: {
@@ -60,25 +58,22 @@ const styles = StyleSheet.create({
     },
 
     itemProd: {
-        // flex: 1,
+        flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-around',
         backgroundColor: "white",
-        width: WINDOW_WIDTH/numCollumns,
-    
-        backgroundColor: "white",
         margin: 1,
         padding: 5,
-        
+
 
     },
     textName: {
-        fontSize: 18,
+        fontSize: 16,
         paddingHorizontal: 5,
     },
 
     textPrice: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: "700",
         paddingHorizontal: 5,
     }

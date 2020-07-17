@@ -52,7 +52,7 @@ export default function mainScr(props) {
     // console.log('mainScr. state', state);
 
     // console.log(getMainCategory(categoryFromFile));
-    console.log("state.isAppInitRdc.isAppInit", state.isAppInitRdc.isAppInit);
+    // console.log("state.isAppInitRdc.isAppInit", state.isAppInitRdc.isAppInit);
 
     if ((state.statusResponseRdc.statusResponse.code !== -1) &&
         (state.statusResponseRdc.statusResponse.code !== undefined))
@@ -68,7 +68,9 @@ export default function mainScr(props) {
                     {HeaderCmp(props.navigation.toggleDrawer)}
                     {/* <Text>mainScreen!</Text> */}
                     {/* <ProductCardCmp item={state.productsListRdc.productsList[0]} /> */}
-                    <ViewListProd productList={state.productsListRdc.productsList} />
+                    <ViewListProd   productList={state.productsListRdc.productsList}
+                                    numCollumns= {state.viewListProdRdc.numColumViewListProd} />
+                    {/* <ViewListProd productList={state.productsListRdc.productsList, state} /> */}
 
                     {/* <Button
                         // onPress={() => props.navigation.navigate('MenuScreen')}
@@ -87,7 +89,7 @@ export default function mainScr(props) {
                     onPress={() => props.navigation.navigate('BasketScreen')}
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 /> */}
-                    {FooterCmp(props.navigation.toggleDrawer)}
+                    {FooterCmp(props.navigation.toggleDrawer,state, dispatch)}
                 </View>
 
             );
