@@ -7,6 +7,7 @@ import statusResponseRdc from './statusResponseRdc';
 import { NO_ERRORS } from './../constants/errorConst';
 import { categoryListRdc, viewListCatRdc } from './categoryListRdc';
 import { productsListRdc } from './productsListRdc';
+import { viewListProdRdc } from './viewListProdRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -34,7 +35,10 @@ export const initialState = {
     },
     productsListRdc: {
         productsList: Array()
-    }
+    },
+    viewListProdRdc: {
+        numColumViewListProd: 2
+    },
 
 };
 
@@ -53,7 +57,8 @@ export const unionRdc = combineReducers(
 
         isAppInitRdc: isAppInitRdc,
         sessionSidRdc: sessionSidRdc,
-        statusResponseRdc: statusResponseRdc
+        statusResponseRdc: statusResponseRdc,
+        viewListProdRdc: viewListProdRdc,
     }
 );
 

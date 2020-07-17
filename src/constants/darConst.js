@@ -20,6 +20,9 @@ export const  VIEW_LIST_CAT  = 'VIEW_LIST_CAT';
 // products list (JSON format)
 export const  PRODUCTS_LIST = 'PRODUCTS_LIST';
 //
+// 
+export const  NUM_COLUM_VIEW_LIST_PROD = 'NUM_COLUM_VIEW_LIST_PROD';
+//
 // End. Section 'DAR - constants for Actions/Reducers/dispatchs'
 /////////////////////////////
 

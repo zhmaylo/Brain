@@ -8,8 +8,9 @@ import { HeaderCmp } from './../components/HeaderCmp';
 import { FooterCmp } from '../components/FooterCmp';
 import { setFieldIsChildren } from './../api/category/symbChildren';
 import { getProductsList } from './../api/products/products';
-import { ProductCardCmp, ViewListProd } from './../components/ProductCardCmp';
+import { ViewListProd } from './../components/ProductCardCmp';
 import { devStub } from './../api/dev';
+import { viewListProdRdc } from '../reducers/viewListProdRdc';
 
 
 let i = 0;

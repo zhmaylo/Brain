@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, Text, Image, FlatList } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
-import { NUM_COLLUMNS } from '../constants/productsConst';
+import { ContextApp } from '../reducers/unionRdc';
 
 
-export const ProductCardCmp = ({ item }) => {
+const { state, dispatch } = useContext(ContextApp);
+
+let numCollumns=state.viewListProdRdc.numColumViewListProd;
+const ProductCardCmp = ({ item }) => {
     // console.log("ProductsCardCmp=>item", item);
     // console.log("ProductsCardCmp=>item.small_image", item.small_image);
     return (
@@ -21,18 +24,15 @@ export const ProductCardCmp = ({ item }) => {
 }
 
 
-export const ViewListProd = ({ productList }) => {
+export const ViewListProd = ({ productList, numCollumns }) => {
     return (
         <View style={styles.container}>
             <FlatList
-                numColumns={NUM_COLLUMNS}
+                numColumns={numCollumns}
                 horizontal={false}
                 data={productList}
-                // onRefresh={() => onRefresh}
-                // refreshing={true}
                 renderItem={({ item }) => <ProductCardCmp item={item} />}
                 keyExtractor={item => item.productID}
-            // ItemSeparatorComponent={separ}
             />
 
         </View>
@@ -64,20 +64,22 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'space-around',
         backgroundColor: "white",
-        width: WINDOW_WIDTH/NUM_COLLUMNS,
+        width: WINDOW_WIDTH/numCollumns,
     
         backgroundColor: "white",
         margin: 1,
-        // paddingHorizontal: 5,
-        // paddingVertical: 5,
+        padding: 5,
+        
 
     },
     textName: {
         fontSize: 18,
+        paddingHorizontal: 5,
     },
 
     textPrice: {
         fontSize: 18,
-        fontWeight: "700"
+        fontWeight: "700",
+        paddingHorizontal: 5,
     }
 })
