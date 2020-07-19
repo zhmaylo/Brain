@@ -14,8 +14,10 @@ import categoryScr from './../screen/categoryScr';
 const Drawer = createDrawerNavigator();
 
 export const AppNavigator = () => (
+    
     <NavigationContainer>
         {/* <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />} > */}
+        {/* {console.log("Drawer.Navigator")}     */}
         <Drawer.Navigator
             drawerStyle={{
                 // backgroundColor: '#00000',

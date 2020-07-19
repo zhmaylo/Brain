@@ -68,8 +68,7 @@ export default function mainScr(props) {
                     {HeaderCmp(props.navigation.toggleDrawer)}
                     {/* <Text>mainScreen!</Text> */}
                     {/* <ProductCardCmp item={state.productsListRdc.productsList[0]} /> */}
-                    <ViewListProd   productList={state.productsListRdc.productsList}
-                                    numCollumns= {state.viewListProdRdc.numColumViewListProd} />
+                    <ViewListProd   state={state} />
                     {/* <ViewListProd productList={state.productsListRdc.productsList, state} /> */}
 
                     {/* <Button

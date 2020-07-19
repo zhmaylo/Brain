@@ -20,8 +20,13 @@ const ProductCardCmp = ({ item, numCol }) => {
 }
 
 
-export const ViewListProd = ({productList, numCollumns }) => {
-    console.log(productList, numCollumns);
+export const ViewListProd = (state) => {
+    // console.log("ViewListProd.state => ",state);
+    let productList = state.state.productsListRdc.productsList;
+    let numCollumns = state.state.viewListProdRdc.numColumViewListProd;
+    // console.log("ViewListProd.productList => ", productList);
+    // console.log("ViewListProd.numCollumns => ", numCollumns);
+
     return (
         <View style={styles.container} >
                 <FlatList
