@@ -23,7 +23,7 @@ export const devStub = (state, dispatch) => {
     // getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
     let productsList = removeProductAbsence(PRODUCTS_FROM_FILE[0].result.list);
 
-    console.log("PRODUCTS_FROM_FILE.result => ", PRODUCTS_FROM_FILE[0].result.list);
+    // console.log("PRODUCTS_FROM_FILE.result => ", PRODUCTS_FROM_FILE[0].result.list);
 
     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
     dispatch({ type: 'IS_APP_INIT', payload: true });

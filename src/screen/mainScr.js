@@ -11,11 +11,12 @@ import { getProductsList } from './../api/products/products';
 import { ViewListProd } from './../components/ProductCardCmp';
 import { devStub } from './../api/dev';
 import { viewListProdRdc } from '../reducers/viewListProdRdc';
+import { SpinnerСmp } from '../components/SpinnerCmp';
 
 
 let i = 0;
-const devMode = true;
-// const devMode = false;
+// const devMode = true;
+const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -94,7 +95,8 @@ export default function mainScr(props) {
             );
         else return (
             <View>
-                <Text>Init App</Text>
+                {/* <Text>Init App</Text> */}
+                <SpinnerСmp toggle={true}/>
             </View>
         )
 

@@ -1,7 +1,7 @@
 
 import { URL_GET_PRODUCTS } from "../../constants/urlConst";
 import { middleWareFetch } from './../fetch/middleWareFetch';
-import { OFFSET } from './../../constants/productsConst';
+import { OFFSET, LIMIT } from './../../constants/productsConst';
 import { argMiddle } from './../argMiddle';
 
 // getProductsList - returns products list of a specified category from server. JSON-format.
@@ -16,7 +16,7 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
     argMiddle.dispatch = dispatch;
 
     do {
-        argMiddle.params = '?offset=' + offset;
+        argMiddle.params = '?offset=' + offset+'&limit='+LIMIT;
         // console.log("getProductsList.offset =>", offset);
         arrTemp = await middleWareFetch(argMiddle);
        
@@ -26,8 +26,9 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
        
         offset += OFFSET;
 
-        // console.log("getProductsList.json =>", json);
-        // console.log("getProductsList.arrTemp.result.count =>", arrTemp.result.count);
+        console.log("getProductsList.result.count =>", result.count);
+        console.log("getProductsList.json.length =>", json.length);
+        
         // console.log("getProductsList.arrTemp.json.length =>", json.length);
 
     } while (offset <= result.count); //json.result.length)
@@ -40,7 +41,7 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
 // data - entering array
 // arr - compressed array
 export const removeProductAbsence = (data) => {
-    console.log("removeProductAbsence. data =>", data);
+    // console.log("removeProductAbsence. data =>", data);
     let arr=[];
     data.forEach((item) => {
         if (item.stocks_expected.length != 0) arr.push(item);

@@ -8,6 +8,7 @@ import { NO_ERRORS } from './../constants/errorConst';
 import { categoryListRdc, viewListCatRdc } from './categoryListRdc';
 import { productsListRdc } from './productsListRdc';
 import { viewListProdRdc } from './viewListProdRdc';
+import { spinerToggleRdc, spinerVolumeRdc, spinerMaxRdc } from './spinerRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -17,7 +18,9 @@ export const initialState = {
     isAppInitRdc: {
         isAppInit: false
     },
-
+    
+    ////////////////////////////////
+    //Start. Reducers of categoryes
     categoryListRdc: {
         categoryList: Array()
     },
@@ -25,7 +28,9 @@ export const initialState = {
     viewListCatRdc: {
         viewListCat: Array()
     },
-
+    //End. Reducers of categoryes
+    ////////////////////////////////
+    
     sessionSidRdc: {
         sessionSid: { sid: "1", timeStamp: 1 }
     },
@@ -33,12 +38,32 @@ export const initialState = {
     statusResponseRdc: {
         statusResponse: NO_ERRORS
     },
+    
     productsListRdc: {
         productsList: Array()
     },
+    
     viewListProdRdc: {
         numColumViewListProd: 2
     },
+
+    ////////////////////////////////
+    //Start. Spiner
+    spinerToggleRdc: {
+        spinerToggle: true
+    },
+
+    spinerVolumeRdc: { 
+        spinerVolume: 100
+    },
+
+    spinerMaxRdc: {
+        spinerMax: 100
+    }
+    //End. Spiner
+    ////////////////////////////////
+
+
 
 };
 
@@ -51,6 +76,14 @@ export const unionRdc = combineReducers(
         categoryListRdc: categoryListRdc,
         viewListCatRdc: viewListCatRdc,
         //End. Reducers of categoryes
+        ////////////////////////////////
+       
+        ////////////////////////////////
+        //Start. Spiner
+        spinerToggleRdc: spinerToggleRdc,
+        spinerVolumeRdc: spinerVolumeRdc,
+        spinerMaxRdc: spinerMaxRdc,
+        //End. Spiner
         ////////////////////////////////
 
         productsListRdc: productsListRdc,

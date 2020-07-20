@@ -8,7 +8,7 @@ import { WINDOW_WIDTH } from './../constants/otherConst';
 
 import { getMainListCategory, getListCategory } from './../api/category/catView';
 import { getProductsList } from './../api/products/products';
-import { SpinnerGif } from './../components/SpinnerCmp';
+import { SpinnerGif, SpinnerСmp } from './../components/SpinnerCmp';
 
 
 
@@ -19,7 +19,7 @@ export default function categoryScr(props) {
     let dataCat;
     let catList = state.categoryListRdc.categoryList;
     let viewList = state.viewListCatRdc.viewListCat;
-    console.log("viewList", viewList);
+    // console.log("viewList", viewList);
     useEffect(() => {
         dataCat = getMainListCategory(catList);
         dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
@@ -28,21 +28,22 @@ export default function categoryScr(props) {
     const ItemCat = ({ item }) => {
         return (
             <View>
-                
+
                 <TouchableOpacity style={styles.item}
                     onPress={() => {
-                                              
+
                         // console.log(item);
                         dataCat = getListCategory(catList, item);
-                              
+
                         if (!dataCat) {
-                            <SpinnerСmp
                             getProductsList(item.categoryID, state.sessionSidRdc.sessionSid, dispatch)
-                            .then((productsList) => {
-                                console.log("getProductsList => ", productsList);
-                                dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
-                                props.navigation.navigate("MainScreen");
-                            })};
+                                .then((productsList) => {
+                                    console.log("getProductsList => ", productsList);
+                                    dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
+
+                                })
+                            props.navigation.navigate("MainScreen");
+                        };
                         // console.log(dataCat);
                         // console.log(catList);
                         if (dataCat) dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
@@ -53,7 +54,7 @@ export default function categoryScr(props) {
                     <Text style={styles.symbCat}>{item.isChildren ? SIGN_DEEP : ''} </Text>
 
                 </TouchableOpacity>
-              
+
             </View>
         );
     }
@@ -63,9 +64,9 @@ export default function categoryScr(props) {
     const ListCategory = (state) => {
 
         return (
-         
+
             <View style={styles.container}>
-                
+
                 <FlatList
                     numColumns={NUM_COLUMN}
                     horizontal={false}
