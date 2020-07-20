@@ -5,7 +5,7 @@ import { SPINNER_GIF, SPINNER_MES } from './../constants/spinnerConst';
 // spinner component
 // toggle=true - spinner show 
 // toggle=false - spinner hide 
-export const SpinnerGif = (toggle) => {
+export const SpinnerСmp = (toggle) => {
     if (toggle)
         return (
             <View style={styles.container}>

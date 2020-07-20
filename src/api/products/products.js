@@ -40,7 +40,7 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
 // data - entering array
 // arr - compressed array
 export const removeProductAbsence = (data) => {
-    // console.log("removeProductAbsence. data =>", data);
+    console.log("removeProductAbsence. data =>", data);
     let arr=[];
     data.forEach((item) => {
         if (item.stocks_expected.length != 0) arr.push(item);

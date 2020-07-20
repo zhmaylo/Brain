@@ -36,6 +36,7 @@ export default function categoryScr(props) {
                         dataCat = getListCategory(catList, item);
                               
                         if (!dataCat) {
+                            <SpinnerСmp
                             getProductsList(item.categoryID, state.sessionSidRdc.sessionSid, dispatch)
                             .then((productsList) => {
                                 console.log("getProductsList => ", productsList);
