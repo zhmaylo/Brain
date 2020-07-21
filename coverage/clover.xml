@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1594975661718" clover="3.2.0">
-  <project timestamp="1594975661718" name="All files">
-    <metrics statements="147" coveredstatements="145" conditionals="30" coveredconditionals="29" methods="31" coveredmethods="29" elements="208" coveredelements="203" complexity="0" loc="147" ncloc="147" packages="7" files="18" classes="18"/>
+<coverage generated="1595326556895" clover="3.2.0">
+  <project timestamp="1595326556895" name="All files">
+    <metrics statements="146" coveredstatements="144" conditionals="30" coveredconditionals="29" methods="31" coveredmethods="29" elements="207" coveredelements="202" complexity="0" loc="146" ncloc="146" packages="7" files="18" classes="18"/>
     <package name="api">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="argMiddle.js" path="D:\Java\Brain\src\api\argMiddle.js">
@@ -90,7 +90,7 @@
       </file>
     </package>
     <package name="api.fetch">
-      <metrics statements="32" coveredstatements="32" conditionals="14" coveredconditionals="14" methods="4" coveredmethods="4"/>
+      <metrics statements="31" coveredstatements="31" conditionals="14" coveredconditionals="14" methods="4" coveredmethods="4"/>
       <file name="fetchData.js" path="D:\Java\Brain\src\api\fetch\fetchData.js">
         <metrics statements="14" coveredstatements="14" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
         <line num="10" count="11" type="stmt"/>
@@ -109,14 +109,13 @@
         <line num="44" count="11" type="stmt"/>
       </file>
       <file name="middleWareFetch.js" path="D:\Java\Brain\src\api\fetch\middleWareFetch.js">
-        <metrics statements="18" coveredstatements="18" conditionals="9" coveredconditionals="9" methods="2" coveredmethods="2"/>
+        <metrics statements="17" coveredstatements="17" conditionals="9" coveredconditionals="9" methods="2" coveredmethods="2"/>
         <line num="14" count="3" type="stmt"/>
         <line num="18" count="4" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
         <line num="22" count="4" type="stmt"/>
         <line num="24" count="5" type="stmt"/>
         <line num="25" count="5" type="stmt"/>
-        <line num="26" count="5" type="stmt"/>
         <line num="29" count="5" type="cond" truecount="5" falsecount="0"/>
         <line num="30" count="2" type="stmt"/>
         <line num="31" count="3" type="stmt"/>

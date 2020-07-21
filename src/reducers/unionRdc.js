@@ -50,11 +50,11 @@ export const initialState = {
     ////////////////////////////////
     //Start. Spiner
     spinerToggleRdc: {
-        spinerToggle: true
+        spinerToggle: false
     },
 
     spinerVolumeRdc: { 
-        spinerVolume: 100
+        spinerVolume: 0
     },
 
     spinerMaxRdc: {

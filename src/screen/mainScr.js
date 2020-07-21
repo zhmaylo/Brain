@@ -15,8 +15,8 @@ import { SpinnerСmp } from '../components/SpinnerCmp';
 
 
 let i = 0;
-// const devMode = true;
-const devMode = false;
+const devMode = true;
+// const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -60,7 +60,7 @@ export default function mainScr(props) {
         return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
 
     else
-        if (state.isAppInitRdc.isAppInit)
+        if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false))
             return (
 
                 <View style={styles.container}>
@@ -94,9 +94,9 @@ export default function mainScr(props) {
 
             );
         else return (
-            <View>
+            <View style={styles.container}>
                 {/* <Text>Init App</Text> */}
-                <SpinnerСmp toggle={true}/>
+                <SpinnerСmp state={state}/>
             </View>
         )
 
