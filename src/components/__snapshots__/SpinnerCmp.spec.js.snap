@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "center",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/icons/spinner.gif",
+      }
+    }
+    style={
+      Object {
+        "height": 30,
+        "width": 30,
+      }
+    }
+  />
+  <Text>
+    Загрузка...
+  </Text>
+  <Text>
+     
+    12
+    % / 100%
+  </Text>
+</View>
+`;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image, FlatList } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
+import { BORDER_PAGIN_PROD } from '../constants/productsConst';
 
 
 const ProductCardCmp = ({ item, numCol }) => {
@@ -36,6 +37,15 @@ export const ViewListProd = (state) => {
                     renderItem={({ item }) => <ProductCardCmp item={item} numCol={numCollumns} />}
                     keyExtractor={item => item.productID+numCollumns}
                     key={numCollumns}
+
+                    // onEndReached={() => {currLst()}}
+                    onEndReached={() => {console.log("start pagination")}}
+                    onEndReachedThreshold={BORDER_PAGIN_PROD}
+                   
+                    onRefresh={() => onRefresh}
+                    refreshing={true}
+                    
+
                     
                 />
             

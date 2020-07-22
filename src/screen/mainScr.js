@@ -96,7 +96,10 @@ export default function mainScr(props) {
         else return (
             <View style={styles.container}>
                 {/* <Text>Init App</Text> */}
-                <SpinnerСmp state={state}/>
+                {/* <SpinnerСmp state={state}/> */}
+                <SpinnerСmp volume = {state.spinerVolumeRdc.spinerVolume}
+                            max = {state.spinerMaxRdc.spinerMax}
+                />
             </View>
         )
 
