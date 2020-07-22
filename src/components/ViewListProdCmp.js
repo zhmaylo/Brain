@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image, FlatList } from 'react-native';
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../constants/otherConst';
 import { BORDER_PAGIN_PROD } from '../constants/productsConst';
 
-
-const ProductCardCmp = ({ item, numCol }) => {
+// product card
+const ProductCard = ({ item, numCol }) => {
     // console.log("ProductsCardCmp=>item", item);
     // console.log("ProductsCardCmp=>item.small_image", item.small_image);
     return (
@@ -20,13 +20,11 @@ const ProductCardCmp = ({ item, numCol }) => {
     )
 }
 
-
-export const ViewListProd = (state) => {
-    // console.log("ViewListProd.state => ",state);
-    let productList = state.state.productsListRdc.productsList;
-    let numCollumns = state.state.viewListProdRdc.numColumViewListProd;
-    // console.log("ViewListProd.productList => ", productList);
-    // console.log("ViewListProd.numCollumns => ", numCollumns);
+// view list products
+export const ViewListProdCmp = ({productList, numCollumns}) => {
+    
+    // console.log("ViewListProdCmp.productList => ", productList);
+    // console.log("ViewListProdCmp.numCollumns => ", numCollumns);
 
     return (
         <View style={styles.container} >
@@ -34,21 +32,17 @@ export const ViewListProd = (state) => {
                     numColumns={numCollumns}
                     horizontal={false}
                     data={productList}
-                    renderItem={({ item }) => <ProductCardCmp item={item} numCol={numCollumns} />}
+                    renderItem={({ item }) => <ProductCard item={item} numCol={numCollumns} />}
                     keyExtractor={item => item.productID+numCollumns}
                     key={numCollumns}
 
-                    // onEndReached={() => {currLst()}}
+                    onEndReached={() => {currViewLstProd()}}
                     onEndReached={() => {console.log("start pagination")}}
                     onEndReachedThreshold={BORDER_PAGIN_PROD}
                    
-                    onRefresh={() => onRefresh}
+                    // onRefresh={() => onRefresh}
                     refreshing={true}
-                    
-
-                    
                 />
-            
         </View>
     );
   

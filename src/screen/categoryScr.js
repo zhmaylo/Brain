@@ -8,7 +8,7 @@ import { WINDOW_WIDTH } from './../constants/otherConst';
 
 import { getMainListCategory, getListCategory } from './../api/category/catView';
 import { getProductsList } from './../api/products/products';
-import { SpinnerGif, SpinnerСmp } from './../components/SpinnerCmp';
+
 
 
 

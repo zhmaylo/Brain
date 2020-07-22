@@ -1,18 +1,20 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image, } from 'react-native';
-import { SPINNER_GIF, SPINNER_MES } from './../constants/spinnerConst';
+import { SPINER_GIF, SPINER_MES } from './../constants/spinerConst';
 
 // spinner component
 // volume - current spiner volume
 // max - max spiner volume
-export const SpinnerСmp = (volume, max) => {
+export const SpinerСmp = ({volume, max}) => {
+    // console.log("SpinerСmp. volume => ", volume);
+    // console.log("SpinerСmp. max => ", max);
     return (
         <View style={styles.container}>
             <Image
                 style={styles.image}
-                source={SPINNER_GIF}
+                source={SPINER_GIF}
             />
-            <Text>{SPINNER_MES}</Text>
+            <Text>{SPINER_MES}</Text>
             <Text> {~~((volume * 100) / max)}% / 100%</Text>
         </View>)
 }

@@ -31,7 +31,7 @@ export const  VIEW_LIST_CAT  = 'VIEW_LIST_CAT';
 export const  PRODUCTS_LIST = 'PRODUCTS_LIST';
 //
 // number of columns of displayed products
-export const  NUM_COLUM_VIEW_LIST_PROD = 'NUM_COLUM_VIEW_LIST_PROD';
+export const  NUM_COLUM_PROD = 'NUM_COLUM_PROD';
 //
 //End. Products sdection
 /////////////////////////////

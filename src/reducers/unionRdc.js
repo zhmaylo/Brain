@@ -7,7 +7,7 @@ import statusResponseRdc from './statusResponseRdc';
 import { NO_ERRORS } from './../constants/errorConst';
 import { categoryListRdc, viewListCatRdc } from './categoryListRdc';
 import { productsListRdc } from './productsListRdc';
-import { viewListProdRdc } from './viewListProdRdc';
+import { numColumProdRdc } from './numColumProdRdc';
 import { spinerToggleRdc, spinerVolumeRdc, spinerMaxRdc } from './spinerRdc';
 
 
@@ -43,9 +43,13 @@ export const initialState = {
         productsList: Array()
     },
     
-    viewListProdRdc: {
-        numColumViewListProd: 2
+    numColumProdRdc: {
+        numColumProd: 2
     },
+
+    // viewListProdRdc: {
+    //     numColumViewListProd: 2
+    // },
 
     ////////////////////////////////
     //Start. Spiner
@@ -91,7 +95,7 @@ export const unionRdc = combineReducers(
         isAppInitRdc: isAppInitRdc,
         sessionSidRdc: sessionSidRdc,
         statusResponseRdc: statusResponseRdc,
-        viewListProdRdc: viewListProdRdc,
+        numColumProdRdc: numColumProdRdc,
     }
 );
 

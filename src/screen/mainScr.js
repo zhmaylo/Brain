@@ -8,10 +8,10 @@ import { HeaderCmp } from './../components/HeaderCmp';
 import { FooterCmp } from '../components/FooterCmp';
 import { setFieldIsChildren } from './../api/category/symbChildren';
 import { getProductsList } from './../api/products/products';
-import { ViewListProd } from './../components/ProductCardCmp';
+import { ViewListProdCmp } from '../components/ViewListProdCmp';
 import { devStub } from './../api/dev';
-import { viewListProdRdc } from '../reducers/viewListProdRdc';
-import { SpinnerСmp } from '../components/SpinnerCmp';
+
+import { SpinerСmp } from '../components/SpinerCmp';
 
 
 let i = 0;
@@ -67,10 +67,11 @@ export default function mainScr(props) {
                     <StatusBar hidden={true} />
 
                     {HeaderCmp(props.navigation.toggleDrawer)}
-                    {/* <Text>mainScreen!</Text> */}
-                    {/* <ProductCardCmp item={state.productsListRdc.productsList[0]} /> */}
-                    <ViewListProd   state={state} />
-                    {/* <ViewListProd productList={state.productsListRdc.productsList, state} /> */}
+                    
+                    <ViewListProdCmp    productList={state.productsListRdc.productsList}
+                                        numCollumns={state.numColumProdRdc.numColumProd}
+                    />
+                    
 
                     {/* <Button
                         // onPress={() => props.navigation.navigate('MenuScreen')}
@@ -89,16 +90,14 @@ export default function mainScr(props) {
                     onPress={() => props.navigation.navigate('BasketScreen')}
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 /> */}
-                    {FooterCmp(props.navigation.toggleDrawer,state, dispatch)}
+                    {FooterCmp(props.navigation.toggleDrawer, state, dispatch)}
                 </View>
 
             );
         else return (
             <View style={styles.container}>
-                {/* <Text>Init App</Text> */}
-                {/* <SpinnerСmp state={state}/> */}
-                <SpinnerСmp volume = {state.spinerVolumeRdc.spinerVolume}
-                            max = {state.spinerMaxRdc.spinerMax}
+                <SpinerСmp volume={state.spinerVolumeRdc.spinerVolume}
+                            max={state.spinerMaxRdc.spinerMax}
                 />
             </View>
         )

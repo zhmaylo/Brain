@@ -29,11 +29,11 @@ export const FooterCmp = (menuUrl, state, dispatch) => {
 
     return (
         <View style={styles.container}>
-            {itemFooter(ICON_FOOTER[2-state.viewListProdRdc.numColumViewListProd].iconSource, ICON_FOOTER[0].iconName, () => {
-                let num = toggleViewProd(state.viewListProdRdc.numColumViewListProd);
-                dispatch({ type: 'NUM_COLUM_VIEW_LIST_PROD', payload: num });
+            {itemFooter(ICON_FOOTER[2-state.numColumProdRdc.numColumProd].iconSource, ICON_FOOTER[0].iconName, () => {
+                let num = toggleViewProd(state.numColumProdRdc.numColumProd);
+                dispatch({ type: 'NUM_COLUM_PROD', payload: num });
             })}
-            {/* dispatch({ type: 'NUM_COLUM_VIEW_LIST_PROD', payload: toggleViewProd(state.viewListProdRdc.numColumViewListProd) }))} */}
+            {/* dispatch({ type: 'NUM_COLUM_PROD', payload: toggleViewProd(state.numColumProdRdc.numColumProd) }))} */}
 
             {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, menuUrl)}
             {itemFooter(ICON_FOOTER[3].iconSource, ICON_FOOTER[3].iconName, menuUrl)}
