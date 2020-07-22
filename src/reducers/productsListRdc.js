@@ -1,5 +1,7 @@
-import { PRODUCTS_LIST } from '../constants/darConst';
 
+// products list (JSON format)
+const  PRODUCTS_LIST = 'PRODUCTS_LIST';
+//
 
 //loads products list from the server into State
 export const productsListRdc = (state = false, action) => {

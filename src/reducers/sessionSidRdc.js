@@ -1,5 +1,7 @@
-import { SESSION_SID } from '../constants/darConst';
 
+// SID session 
+const  SESSION_SID  = 'SESSION_SID';
+//
 
 const sessionSidRdc = (state = false, action) => {
     // console.log("sessionSidRdc.action", action);

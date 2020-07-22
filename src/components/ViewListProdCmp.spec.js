@@ -1,11 +1,11 @@
 
 import renderer from 'react-test-renderer';
-import { ViewListProd } from './ViewListProdCmp';
+import { ViewListProdCmp } from './ViewListProdCmp';
 
 test('renders correctly', () => {
     
     const tree = renderer.create(
-        ViewListProd (25, 200))
+        ViewListProdCmp (25, 200))
         .toJSON();
     expect(tree).toMatchSnapshot();
 });

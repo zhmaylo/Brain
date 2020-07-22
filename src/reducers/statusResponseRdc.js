@@ -1,5 +1,6 @@
-import { STATUS_RESPONSE } from '../constants/darConst';
-
+// status response (error/ok)
+const  STATUS_RESPONSE = 'STATUS_RESPONSE';
+//
 
 const statusResponseRdc = (state = false, action) => {
     switch(action.type) {

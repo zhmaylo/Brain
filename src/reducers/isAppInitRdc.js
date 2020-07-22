@@ -1,5 +1,7 @@
-import { IS_APP_INIT } from '../constants/darConst';
 
+// application initialization flag
+const IS_APP_INIT = 'IS_APP_INIT';
+//
 
 const isAppInitRdc = (state = false, action) => {
     switch(action.type) {

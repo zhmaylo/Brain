@@ -1,5 +1,7 @@
-import { NUM_COLUM_PROD } from '../constants/darConst';
 
+// number of columns of displayed products
+export const  NUM_COLUM_PROD = 'NUM_COLUM_PROD';
+//
 
 //set number collumns view list products
 export const numColumProdRdc = (state = false, action) => {

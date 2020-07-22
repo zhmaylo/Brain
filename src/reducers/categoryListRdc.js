@@ -1,5 +1,10 @@
-import { CATEGORY_LIST, VIEW_LIST_CAT } from '../constants/darConst';
 
+// categories list (JSON format)
+const  CATEGORY_LIST = 'CATEGORY_LIST';
+//
+// view categories list (JSON format)
+const  VIEW_LIST_CAT  = 'VIEW_LIST_CAT';
+//
 
 //loads product data from the server into State
 export const categoryListRdc = (state = false, action) => {
@@ -14,7 +19,6 @@ export const categoryListRdc = (state = false, action) => {
     }
 }
 
-// export default categoryListRdc;
 
 //loads the current displayed list of categories into State
 export const viewListCatRdc = (state = false, action) => {
@@ -28,5 +32,5 @@ export const viewListCatRdc = (state = false, action) => {
             return state;
     }
 }
-// export default categoryListRdc;
+
 

@@ -1,4 +1,17 @@
-import { SPINER_TOGGLE, SPINER_VOLUME, SPINER_MAX } from '../constants/darConst';
+/////////////////////////////
+//Start. Spiner section
+//
+// spiner toggle (off(false)/ on(true))
+const  SPINER_TOGGLE = 'SPINER_TOGGLE';
+// 
+// current spiner volume
+const  SPINER_VOLUME = 'SPINER_VOLUME';
+//
+// max spiner volume
+const  SPINER_MAX = 'SPINER_MAX';
+//
+//End. Spiner section
+/////////////////////////////
 
 // spiner toggle (off(false)/ on(true))
 export const spinerToggleRdc = (state = false, action) => {
