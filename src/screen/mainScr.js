@@ -15,8 +15,8 @@ import { SpinerСmp } from '../components/SpinerCmp';
 
 
 let i = 0;
-// const devMode = true;
-const devMode = false;
+const devMode = true;
+// const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -70,6 +70,8 @@ export default function mainScr(props) {
                     
                     <ViewListProdCmp    productList={state.productsListRdc.productsList}
                                         numCollumns={state.numColumProdRdc.numColumProd}
+                                        currSizeList={state.sizeViewListProdRdc.sizeViewListProd}
+                                        dispatch={dispatch}
                     />
                     
 

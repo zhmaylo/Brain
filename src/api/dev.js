@@ -4,8 +4,8 @@
 import { addFieldChildren, sortListbyName } from "./category/category";
 
 import { setFieldIsChildren } from './category/symbChildren';
-import { getProductsList, removeProductAbsence } from './products/products';
-import { PRODUCTS_LIST } from "../constants/darConst";
+import { removeProductAbsence } from './products/products';
+
 import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
 

@@ -6,7 +6,7 @@ import sessionSidRdc from './sessionSidRdc';
 import statusResponseRdc from './statusResponseRdc';
 import { NO_ERRORS } from './../constants/errorConst';
 import { categoryListRdc, viewListCatRdc } from './categoryListRdc';
-import { productsListRdc } from './productsListRdc';
+import { productsListRdc, sizeViewListProdRdc } from './productsListRdc';
 import { numColumProdRdc } from './numColumProdRdc';
 import { spinerToggleRdc, spinerVolumeRdc, spinerMaxRdc } from './spinerRdc';
 
@@ -39,17 +39,21 @@ export const initialState = {
         statusResponse: NO_ERRORS
     },
     
+    ////////////////////////////////
+    //Start. Products list
     productsListRdc: {
         productsList: Array()
     },
+
+    sizeViewListProdRdc: {
+        sizeViewListProd: 0
+    },
+    //End. Products list
+    ////////////////////////////////
     
     numColumProdRdc: {
         numColumProd: 2
     },
-
-    // viewListProdRdc: {
-    //     numColumViewListProd: 2
-    // },
 
     ////////////////////////////////
     //Start. Spiner
@@ -90,7 +94,12 @@ export const unionRdc = combineReducers(
         //End. Spiner
         ////////////////////////////////
 
+        ////////////////////////////////
+        //Start. Products list
         productsListRdc: productsListRdc,
+        sizeViewListProdRdc: sizeViewListProdRdc, 
+        //End. Products list
+        ////////////////////////////////
 
         isAppInitRdc: isAppInitRdc,
         sessionSidRdc: sessionSidRdc,
