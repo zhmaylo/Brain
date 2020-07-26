@@ -3,7 +3,7 @@
 const  PRODUCTS_LIST = 'PRODUCTS_LIST';
 //
 // size view list products
-const  SIZE_VIEW_LIST_PROD = 'SIZE_VIEW_LIST_PROD';
+const  SIZE_LIST_PROD = 'SIZE_LIST_PROD';
 //
 
 //loads products list from the server into State
@@ -20,12 +20,12 @@ export const productsListRdc = (state = false, action) => {
 }
 
 //lenght view list products
-export const sizeViewListProdRdc = (state = false, action) => {
+export const sizeListProdRdc = (state = false, action) => {
     switch(action.type) {
-        case SIZE_VIEW_LIST_PROD:
+        case SIZE_LIST_PROD:
             return {
                 ...state,
-                sizeViewListProd:action.payload
+                sizeListProd:action.payload
             };
         default:
             return state;

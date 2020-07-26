@@ -12,7 +12,7 @@ import { getProductsList } from './../api/products/products';
 import { devStub } from './../api/dev';
 
 import { SpinerСmp } from '../components/SpinerCmp';
-import { ViewListProdCmp } from './../components/ViewListProdCmp';
+import { ListProdCmp } from '../components/ListProdCmp';
 
 
 let i = 0;
@@ -69,10 +69,10 @@ export default function mainScr(props) {
 
                     {HeaderCmp(props.navigation.toggleDrawer)}
                     
-                    <ViewListProdCmp    productList={state.productsListRdc.productsList}
-                                        numCollumns={state.numColumProdRdc.numColumProd}
-                                        currSizeList={state.sizeViewListProdRdc.sizeViewListProd}
-                                        dispatch={dispatch}
+                    <ListProdCmp    productList={state.productsListRdc.productsList}
+                                    numCollumns={state.numColumProdRdc.numColumProd}
+                                    currSizeList={state.sizeListProdRdc.sizeListProd}
+                                    dispatch={dispatch}
                     />
                     
 

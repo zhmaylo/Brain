@@ -54,16 +54,16 @@ export const removeProductAbsence = (data) => {
     return arr;
 }
 
-// setSizeViewListProd - set size view list products
+// setSizeListProd - set size view list products
 // currSize - current size view list of products
 // stepPagin - step pagination
 // maxSize - lenght list of products
-export const setSizeViewListProd = (currSize, stepPagin, maxSize) => {
-    // console.log("setSizeViewListProd. currSize =>", currSize);
-    // console.log("setSizeViewListProd. maxSize =>", cumaxSizerrSize);
+export const setSizeListProd = (currSize, stepPagin, maxSize) => {
+    // console.log("setSizeListProd. currSize =>", currSize);
+    // console.log("setSizeListProd. maxSize =>", cumaxSizerrSize);
     currSize+=stepPagin;
     (currSize>=maxSize) && (currSize=maxSize);
-    // console.log("setSizeViewListProd. newSize =>", newSize);
+    // console.log("setSizeListProd. newSize =>", newSize);
     return currSize;
 }
 
