@@ -8,10 +8,11 @@ import { HeaderCmp } from './../components/HeaderCmp';
 import { FooterCmp } from '../components/FooterCmp';
 import { setFieldIsChildren } from './../api/category/symbChildren';
 import { getProductsList } from './../api/products/products';
-import { ViewListProdCmp } from '../components/ViewListProdCmp';
+
 import { devStub } from './../api/dev';
 
 import { SpinerСmp } from '../components/SpinerCmp';
+import { ViewListProdCmp } from './../components/ViewListProdCmp';
 
 
 let i = 0;

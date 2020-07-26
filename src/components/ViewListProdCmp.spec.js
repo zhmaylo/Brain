@@ -3,10 +3,9 @@ import renderer from 'react-test-renderer';
 import { ViewListProdCmp } from './ViewListProdCmp';
 import {PRODUCTS_FROM_FILE} from './../constants/productsJSON';
 
-console.log(PRODUCTS_FROM_FILE[0].result.list[0]);
-let productsList = PRODUCTS_FROM_FILE[0].result.list;
-// let productsList = 122;
 
+let productsList = PRODUCTS_FROM_FILE[0].result.list;
+console.log("ViewListProdCmp.spec => productsList", PRODUCTS_FROM_FILE[0].result.list[0]);
 
 const callback = () => {
     console.log("Test - callback test  ");
@@ -17,8 +16,14 @@ const callback = () => {
 test('renders correctly', () => {
     
     const tree = renderer.create(
-        
-        ViewListProdCmp ({productList=productsList, numCollumns = 1, currSizeList = 20, dispatch : callback}))
+        ViewListProdCmp({
+                productList : productsList,
+                numCollumns : 1,
+                currSizeList : 20,
+                dispatch : callback }
+        ))
+        // ViewListProdCmp ({productsList, 1, 20, callback}))
+        // ViewListProdCmp (productsList, 1, 20, callback))
         // ViewListProdCmp ({productsList, 1}))
         .toJSON();
     expect(tree).toMatchSnapshot();

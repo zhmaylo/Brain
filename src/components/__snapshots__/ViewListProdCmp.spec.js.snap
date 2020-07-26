@@ -13,48 +13,43 @@ exports[`renders correctly 1`] = `
   }
 >
   <RCTScrollView
-    disableVirtualization={false}
-    getItem={[Function]}
-    getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    onContentSizeChange={[Function]}
-    onEndReached={[Function]}
-    onEndReachedThreshold={0.5}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    refreshing={true}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    updateCellsBatchingPeriod={50}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
-  >
-    <View />
-  </RCTScrollView>
-</View>
-`;
-
-exports[`renders correctly 2`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "lightgray",
-      "flex": 17,
-      "height": 1334,
-      "resizeMode": "contain",
-      "width": 750,
+    data={
+      Array [
+        Object {
+          "EAN": "",
+          "FOP": 0,
+          "articul": "SV300S37A/120G",
+          "available": Array [],
+          "bonus": 0,
+          "brief_description": "внутренний, V300, Тип флеш-памяти - MLC, SATA 6Gb/s, 450 Mb/s, 450 Mb/s, 1м. ч.",
+          "categoryID": "1235",
+          "country": "США",
+          "full_image": "http://brain.com.ua/static/common/images/no-photo-api.png",
+          "is_archive": "0",
+          "is_exclusive": "0",
+          "is_new": "0",
+          "kbt": "0",
+          "large_image": "http://opt.brain.com.ua/static/images/prod_img/4/1/U0033541_big.jpg",
+          "medium_image": "http://opt.brain.com.ua/static/images/prod_img/4/1/U0033541.jpg",
+          "name": "Накопитель SSD 2.5\\" 120GB Kingston (SV300S37A/120G)",
+          "prepayment_amount": "0",
+          "price": "23.05",
+          "price_uah": "637.00",
+          "productID": "41681",
+          "product_code": "U0033541",
+          "quantity_package_sale": 0,
+          "recommendable_price": "0.00",
+          "retail_price_uah": "666.00",
+          "small_image": "http://opt.brain.com.ua/static/images/prod_img/4/1/U0033541_small.jpg",
+          "stocks": Array [],
+          "stocks_expected": Array [],
+          "vendorID": "25",
+          "volume": "0",
+          "warranty": "36",
+          "weight": "0.15",
+        },
+      ]
     }
-  }
->
-  <RCTScrollView
     disableVirtualization={false}
     getItem={[Function]}
     getItemCount={[Function]}
@@ -79,7 +74,74 @@ exports[`renders correctly 2`] = `
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
   >
-    <View />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "white",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "space-around",
+              "margin": 1,
+              "padding": 5,
+            }
+          }
+          width={750}
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/icons/basket.png",
+              }
+            }
+            style={
+              Object {
+                "height": 444.6666666666667,
+                "resizeMode": "contain",
+              }
+            }
+          />
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "paddingHorizontal": 5,
+              }
+            }
+          >
+            41681
+             
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "paddingHorizontal": 5,
+              }
+            }
+          >
+            Накопитель SSD 2.5" 120GB Kingston (SV300S37A/120G)
+             
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "fontWeight": "700",
+                "paddingHorizontal": 5,
+              }
+            }
+          >
+            666.00
+             грн 
+          </Text>
+        </View>
+      </View>
+    </View>
   </RCTScrollView>
 </View>
 `;

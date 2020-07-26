@@ -19,7 +19,7 @@ export const LIMIT = OFFSET;
 export const BORDER_PAGIN_PROD = 0.5;
 //
 // pagination step
-export const STEP_PAGIN_PROD = 100;
+export const STEP_PAGIN_PROD = 10;
 //
 // End. Section 'products list - pagination'
 /////////////////////////////
