@@ -12,8 +12,8 @@ export const ProductCardCmp = ({ item, numCol }) => {
 
             <Image
                 style={styles.image}
-                // source={{ uri: (item.large_image) }}
-                source={require('./../icons/basket.png')}
+                source={{ uri: (item.large_image) }}
+                // source={require('./../icons/basket.png')}
             />
             <Text style={styles.textName}>{item.productID} </Text>
             <Text style={styles.textName}>{item.name} </Text>

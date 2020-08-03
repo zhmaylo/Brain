@@ -95,7 +95,7 @@ exports[`renders correctly 1`] = `
           <Image
             source={
               Object {
-                "testUri": "../../../src/icons/basket.png",
+                "uri": "http://opt.brain.com.ua/static/images/prod_img/4/1/U0033541_big.jpg",
               }
             }
             style={

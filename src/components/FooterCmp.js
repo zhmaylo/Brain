@@ -2,8 +2,7 @@ import React, { useContext } from 'react';
 import { View, StyleSheet, Button, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { WINDOW_WIDTH } from '../constants/otherConst';
 import { ICON_FOOTER } from './../constants/footerConst';
-import { ContextApp } from '../reducers/unionRdc';
-import { toggleViewProd } from './../api/footer';
+import { buttonViewProd } from '../api/footer/buttonView';
 
 //main screen footer
 const itemFooter = (iconSource, iconName, iconUrl) => {
@@ -30,10 +29,10 @@ export const FooterCmp = (menuUrl, state, dispatch) => {
     return (
         <View style={styles.container}>
             {itemFooter(ICON_FOOTER[2-state.numColumProdRdc.numColumProd].iconSource, ICON_FOOTER[0].iconName, () => {
-                let num = toggleViewProd(state.numColumProdRdc.numColumProd);
+                let num = buttonViewProd(state.numColumProdRdc.numColumProd);
                 dispatch({ type: 'NUM_COLUM_PROD', payload: num });
             })}
-            {/* dispatch({ type: 'NUM_COLUM_PROD', payload: toggleViewProd(state.numColumProdRdc.numColumProd) }))} */}
+            {/* dispatch({ type: 'NUM_COLUM_PROD', payload: buttonViewProd(state.numColumProdRdc.numColumProd) }))} */}
 
             {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, menuUrl)}
             {itemFooter(ICON_FOOTER[3].iconSource, ICON_FOOTER[3].iconName, menuUrl)}

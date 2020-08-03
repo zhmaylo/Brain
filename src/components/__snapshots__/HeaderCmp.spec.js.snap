@@ -79,6 +79,36 @@ exports[`renders correctly 1`] = `
     <Image
       source={
         Object {
+          "testUri": "../../../src/icons/sort-amount-up-alt-solid.png",
+        }
+      }
+      style={
+        Object {
+          "height": 30,
+          "width": 30,
+        }
+      }
+    />
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
           "testUri": "../../../src/icons/filter.png",
         }
       }

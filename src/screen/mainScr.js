@@ -67,7 +67,7 @@ export default function mainScr(props) {
                 <View style={styles.container}>
                     <StatusBar hidden={true} />
 
-                    {HeaderCmp(props.navigation.toggleDrawer)}
+                    {HeaderCmp(state.productsListRdc.productsList, props.navigation.toggleDrawer, dispatch)}
                     
                     <ListProdCmp    productList={state.productsListRdc.productsList}
                                     numCollumns={state.numColumProdRdc.numColumProd}

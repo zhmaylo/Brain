@@ -5,6 +5,7 @@ import { BORDER_PAGIN_PROD, STEP_PAGIN_PROD } from '../constants/productsConst';
 import { setSizeListProd } from '../api/products/products';
 import { ProductCardCmp } from './ProductCardCmp';
 
+// current list size 
 let currSize=1;
 
 // view list products
@@ -24,12 +25,8 @@ export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch }
                 key={numCollumns}
                 onEndReached={() => {
                     // console.log("start pagination")
-                    // console.log("currSizeList, STEP_PAGIN_PROD, productList.length", 
-                    //         currSizeList, STEP_PAGIN_PROD, productList.length)
-                    
                     currSize = setSizeListProd(currSizeList, STEP_PAGIN_PROD, productList.length);
                     dispatch({ type: 'SIZE_LIST_PROD', payload: currSize });
-
                     // console.log("currSize pagination => ", currSize);
                 }}
                 onEndReachedThreshold={BORDER_PAGIN_PROD}

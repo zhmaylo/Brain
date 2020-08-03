@@ -54,7 +54,7 @@ export const removeProductAbsence = (data) => {
     return arr;
 }
 
-// setSizeListProd - set size view list products
+// setSizeListProd - set size view list products (pagination)
 // currSize - current size view list of products
 // stepPagin - step pagination
 // maxSize - lenght list of products
