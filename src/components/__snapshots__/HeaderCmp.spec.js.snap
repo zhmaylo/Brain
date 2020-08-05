@@ -55,7 +55,7 @@ exports[`renders correctly 1`] = `
         "height": 30,
         "marginHorizontal": 5,
         "paddingLeft": 4,
-        "width": 670,
+        "width": 640,
       }
     }
     underlineColorAndroid="transparent"

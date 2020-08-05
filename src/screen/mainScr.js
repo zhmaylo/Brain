@@ -12,8 +12,7 @@ import { getProductsList } from './../api/products/products';
 import { devStub } from './../api/dev';
 
 import { SpinerСmp } from '../components/SpinerCmp';
-import { ListProdCmp } from '../components/ListProdCmp';
-import { sortListProdRdc } from './../reducers/sortListProd';
+import { MenuSortCmp } from './../components/MenuSortCmp';
 
 
 let i = 0;
@@ -71,13 +70,13 @@ export default function mainScr(props) {
                     <StatusBar hidden={true} />
 
                     {HeaderCmp(state.productsListRdc.productsList, props.navigation.toggleDrawer, dispatch)}
-                    
-                    <ListProdCmp    productList={state.productsListRdc.productsList}
+                    {MenuSortCmp ()}
+                    {/* <ListProdCmp    productList={state.productsListRdc.productsList}
                                     numCollumns={state.numColumProdRdc.numColumProd}
                                     currSizeList={state.sizeListProdRdc.sizeListProd}
                                     dispatch={dispatch}
                     />
-                    
+                     */}
 
                     {/* <Button
                         // onPress={() => props.navigation.navigate('MenuScreen')}
