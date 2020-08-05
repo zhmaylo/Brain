@@ -41,6 +41,7 @@ export default function mainScr(props) {
                 getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
                     console.log("getProductsList => ", productsList);
                     productsList = buttonSort(productsList, state.sortListProdRdc.sortListProd);
+                    
                     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
                     dispatch({ type: 'CATEGORY_LIST', payload: data });
                     dispatch({ type: 'IS_APP_INIT', payload: true });

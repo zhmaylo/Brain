@@ -8,6 +8,7 @@ import { removeProductAbsence } from './products/products';
 
 import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
+import { buttonSort } from './header/sort';
 
 // devStub - stub for developer
 export const devStub = (state, dispatch) => {
@@ -24,7 +25,7 @@ export const devStub = (state, dispatch) => {
     let productsList = removeProductAbsence(PRODUCTS_FROM_FILE[0].result.list);
 
     // console.log("PRODUCTS_FROM_FILE.result => ", PRODUCTS_FROM_FILE[0].result.list);
-
+    productsList = buttonSort(productsList, state.sortListProdRdc.sortListProd);
     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
     dispatch({ type: 'IS_APP_INIT', payload: true });
     // });
