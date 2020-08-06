@@ -12,7 +12,8 @@ import { getProductsList } from './../api/products/products';
 import { devStub } from './../api/dev';
 
 import { SpinerСmp } from '../components/SpinerCmp';
-import { MenuSortCmp } from './../components/MenuSortCmp';
+import { MenuSortCmp, DLAndroid } from './../components/MenuSortCmp';
+import { ListProdCmp } from '../components/ListProdCmp';
 
 
 let i = 0;
@@ -70,13 +71,13 @@ export default function mainScr(props) {
                     <StatusBar hidden={true} />
 
                     {HeaderCmp(state.productsListRdc.productsList, props.navigation.toggleDrawer, dispatch)}
-                    {MenuSortCmp ()}
-                    {/* <ListProdCmp    productList={state.productsListRdc.productsList}
+                    {/* {MenuSortCmp ()} */}
+                    <ListProdCmp    productList={state.productsListRdc.productsList}
                                     numCollumns={state.numColumProdRdc.numColumProd}
                                     currSizeList={state.sizeListProdRdc.sizeListProd}
                                     dispatch={dispatch}
                     />
-                     */}
+                    
 
                     {/* <Button
                         // onPress={() => props.navigation.navigate('MenuScreen')}
@@ -95,7 +96,8 @@ export default function mainScr(props) {
                     onPress={() => props.navigation.navigate('BasketScreen')}
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 /> */}
-                    {FooterCmp(props.navigation.toggleDrawer, state, dispatch)}
+
+                    {/* {FooterCmp(props.navigation.toggleDrawer, state, dispatch)} */}
                 </View>
 
             );

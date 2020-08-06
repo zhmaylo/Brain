@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
-import { WINDOW_WIDTH } from './../constants/otherConst';
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
 import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER } from './../constants/headerConst';
 
-import { MenuSortCmp } from './MenuSortCmp';
+import { MenuSortCmp} from './MenuSortCmp';
 
 
 export const HeaderCmp = (productsList, menuUrl, dispatch) => {
@@ -33,6 +33,8 @@ export const HeaderCmp = (productsList, menuUrl, dispatch) => {
             </TextInput>
             <TouchableOpacity
                 onPress={() => {
+                                MenuSortCmp ()
+                                console.log('MenuSortCmp called');
                                 // <MenuSortCmp />
                                 // let prodList = buttonSort(productsList) 
                                 
@@ -84,6 +86,6 @@ const styles = StyleSheet.create({
         width: WINDOW_WIDTH,
         paddingVertical: 3,
         paddingHorizontal: 3,
-        opacity: 0.8
+        opacity: 0.8,
     }
 })
