@@ -31,10 +31,10 @@ export const HeaderCmp = (productsList, menuUrl, dispatch) => {
                 placeholder= {TEXT_INPUT_PLACEHOLDER}
                 >
             </TextInput>
-            <TouchableOpacity
+            <TouchableOpacity 
                 onPress={() => {
-                                MenuSortCmp ()
-                                console.log('MenuSortCmp called');
+                                MenuSortCmp ();
+                                console.log(' onPress=>MenuSortCmp called');
                                 // <MenuSortCmp />
                                 // let prodList = buttonSort(productsList) 
                                 

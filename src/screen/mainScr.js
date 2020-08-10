@@ -71,7 +71,7 @@ export default function mainScr(props) {
                     <StatusBar hidden={true} />
 
                     {HeaderCmp(state.productsListRdc.productsList, props.navigation.toggleDrawer, dispatch)}
-                    {/* {MenuSortCmp ()} */}
+                    {MenuSortCmp ()}
                     <ListProdCmp    productList={state.productsListRdc.productsList}
                                     numCollumns={state.numColumProdRdc.numColumProd}
                                     currSizeList={state.sizeListProdRdc.sizeListProd}
@@ -97,7 +97,7 @@ export default function mainScr(props) {
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 /> */}
 
-                    {/* {FooterCmp(props.navigation.toggleDrawer, state, dispatch)} */}
+                    {FooterCmp(props.navigation.toggleDrawer, state, dispatch)}
                 </View>
 
             );

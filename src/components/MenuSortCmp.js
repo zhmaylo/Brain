@@ -1,21 +1,9 @@
 import React from "react";
 import { Button, DrawerLayoutAndroid, Text, StyleSheet, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
+import { stylesMain } from "../screen/mainScr";
 
 
-const navigationView = (
-    <View style={{
-        flex: 1,
-        paddingTop: 50,
-        backgroundColor: "#fff",
-        padding: 8,
-        height: 300
-    }}>
-        <Text style={{ margin: 10, fontSize: 15 }}>I'm in the Drawer!</Text>
-    </View>
-);
-
-export var DLAndroid = DrawerLayoutAndroid;
 
 const data = [
     {
@@ -37,9 +25,10 @@ const renderItem = ({ item }) => (
 );
 
 export const MenuSortCmp = () => {
-
+    console.log("MenuSortCmp");
     return (
-        <View style={styles.container} >
+        <View style={styles.container}>
+            
             <FlatList
                 data={data}
                 renderItem={({item}) => renderItem(item={item})}
@@ -50,48 +39,26 @@ export const MenuSortCmp = () => {
         </View>
     );
 };
-// export const MenuSortCmp = (drawer) => {
 
-//     return (
-//         <DLAndroid
-//             drawerWidth={300}
-//             drawerPosition="right"
-
-//             renderNavigationView={() => navigationView}
-//         >
-//             <View style={styles.container}>
-//                 <Text style={{ margin: 10, fontSize: 15 }}>
-//                     DrawerLayoutAndroid example
-//                 </Text>
-
-//                 <Text style={{ margin: 10, fontSize: 15 }}>
-//                     Drawer on the right! Swipe from the side to see!
-//                 </Text>
-//             </View>
-//         </DLAndroid>
-
-//     );
-// };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         position: 'absolute', 
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: 'right',
+        justifyContent: 'center',
         // paddingTop: 50,
         backgroundColor: "#ecf0f1",
-        color: 'black',
+        paddingRight: 10, 
+        opacity: 1,
+        shadowOffset: 5,
+        // color: 'black',
         // padding: 8,
-        zIndex: 200,
-        width: 400,
-        height: 800
-    },
-    navigationContainer: {
-        flex: 1,
-        paddingTop: 50,
-        backgroundColor: "#fff",
-        padding: 8
+        // zIndex: 200,
+        width: 300,
+        height: 800,
+        // top:0,
+
     }
 });
 
