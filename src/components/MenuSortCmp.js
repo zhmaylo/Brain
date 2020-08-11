@@ -2,6 +2,8 @@ import React from "react";
 import { Button, DrawerLayoutAndroid, Text, StyleSheet, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { stylesMain } from "../screen/mainScr";
+import { WINDOW_WIDTH } from './../constants/otherConst';
+import { HEADER_BUTTON_SIZE } from "../constants/headerConst";
 
 
 
@@ -21,7 +23,7 @@ const data = [
 ];
 
 const renderItem = ({ item }) => (
-    <Text>{item.title}</Text>
+    <Text style={{paddingVertical: 5, fontSize: 16}}>{item.title}</Text>
 );
 
 export const MenuSortCmp = () => {
@@ -29,7 +31,7 @@ export const MenuSortCmp = () => {
     return (
         <View style={styles.container}>
             
-            <FlatList
+            <FlatList 
                 data={data}
                 renderItem={({item}) => renderItem(item={item})}
                 keyExtractor={item => item.id}
@@ -45,20 +47,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         position: 'absolute', 
-        alignItems: 'right',
-        justifyContent: 'center',
-        // paddingTop: 50,
+        justifyContent: 'flex-end',
         backgroundColor: "#ecf0f1",
-        paddingRight: 10, 
+        padding: 5, 
+        marginLeft: WINDOW_WIDTH-120,
+        marginRight: 10,
+        marginTop: HEADER_BUTTON_SIZE+10,
         opacity: 1,
-        shadowOffset: 5,
-        // color: 'black',
-        // padding: 8,
-        // zIndex: 200,
-        width: 300,
-        height: 800,
-        // top:0,
-
+        zIndex: 2,
+        elevation: '10',
+        outlineProvider: 'bounds',
+        
     }
 });
 

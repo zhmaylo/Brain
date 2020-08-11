@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
-import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER } from './../constants/headerConst';
+import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from './../constants/headerConst';
 
 import { MenuSortCmp} from './MenuSortCmp';
 
@@ -63,16 +63,15 @@ export const HeaderCmp = (productsList, menuUrl, dispatch) => {
 }
 
 
-const buttonSize = 30;
 const styles = StyleSheet.create({
     menuImage: {
-        width: buttonSize,
-        height: buttonSize,
+        width: HEADER_BUTTON_SIZE,
+        height: HEADER_BUTTON_SIZE,
     },
 
     search: {
-        width: WINDOW_WIDTH-3*buttonSize-20,
-        height: buttonSize,
+        width: WINDOW_WIDTH-3*HEADER_BUTTON_SIZE-20,
+        height: HEADER_BUTTON_SIZE,
         borderWidth: 2,
         paddingLeft: 4,
         marginHorizontal: 5,
