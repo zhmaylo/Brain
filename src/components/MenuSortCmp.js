@@ -1,9 +1,9 @@
 import React from "react";
-import { Button, DrawerLayoutAndroid, Text, StyleSheet, View } from "react-native";
+import { Button, Text, StyleSheet, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import { stylesMain } from "../screen/mainScr";
 import { WINDOW_WIDTH } from './../constants/otherConst';
 import { HEADER_BUTTON_SIZE } from "../constants/headerConst";
+import SimplePopupMenu from 'react-native-simple-popup-menu';
 
 
 
@@ -23,41 +23,81 @@ const data = [
 ];
 
 const renderItem = ({ item }) => (
-    <Text style={{paddingVertical: 5, fontSize: 16}}>{item.title}</Text>
+    <Text style={{ paddingVertical: 5, fontSize: 16 }}>{item.title}</Text>
 );
+
+const items = [
+    { id: 'edit', label: 'Edit' },
+    { id: 'delete', label: 'Delete' },
+];
+
 
 export const MenuSortCmp = () => {
     console.log("MenuSortCmp");
     return (
         <View style={styles.container}>
-            
-            <FlatList 
-                data={data}
-                renderItem={({item}) => renderItem(item={item})}
-                keyExtractor={item => item.id}
-                refreshing={true}
 
-            />
+
+            <SimplePopupMenu
+            
+                items={items}
+                style={styles.button}
+                onSelect={this.onMenuPress}
+                onCancel={() => console.log('onCancel')}>
+                <Text>Show menu</Text>
+            </SimplePopupMenu>
+
         </View>
     );
 };
+
+// export const MenuSortCmp = () => {
+//     console.log("MenuSortCmp");
+//     return (
+//         <View style={styles.container}>
+
+//             <FlatList 
+//                 data={data}
+//                 renderItem={({item}) => renderItem(item={item})}
+//                 keyExtractor={item => item.id}
+//                 refreshing={true}
+
+//             />
+//         </View>
+//     );
+// };
 
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        position: 'absolute', 
+        position: 'absolute',
         justifyContent: 'flex-end',
         backgroundColor: "#ecf0f1",
-        padding: 5, 
-        marginLeft: WINDOW_WIDTH-120,
+        padding: 5,
+        marginLeft: WINDOW_WIDTH - 120,
         marginRight: 10,
-        marginTop: HEADER_BUTTON_SIZE+10,
+        marginTop: HEADER_BUTTON_SIZE + 10,
         opacity: 1,
         zIndex: 2,
         elevation: '10',
         outlineProvider: 'bounds',
-        
+
     }
+    // container: {
+    //     flex: 1,
+    //     position: 'absolute', 
+    //     justifyContent: 'flex-end',
+    //     backgroundColor: "#ecf0f1",
+    //     padding: 5, 
+    //     marginLeft: WINDOW_WIDTH-120,
+    //     marginRight: 10,
+    //     marginTop: HEADER_BUTTON_SIZE+10,
+    //     opacity: 1,
+    //     zIndex: 2,
+    //     elevation: '10',
+    //     outlineProvider: 'bounds',
+
+    // }
 });
 
