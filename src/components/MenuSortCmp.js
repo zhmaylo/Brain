@@ -3,9 +3,8 @@ import { Button, Text, StyleSheet, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { WINDOW_WIDTH } from './../constants/otherConst';
 import { HEADER_BUTTON_SIZE } from "../constants/headerConst";
-import SimplePopupMenu from 'react-native-simple-popup-menu';
 
-
+import OptionsMenu from "react-native-options-menu";
 
 const data = [
     {
@@ -27,26 +26,26 @@ const renderItem = ({ item }) => (
 );
 
 const items = [
-    { id: 'edit', label: 'Edit' },
-    { id: 'delete', label: 'Delete' },
+    { label: 'Do a little dance' },
+    { label: 'Make a lil love' },
+    { label: 'Get down tonight' },
 ];
 
+
+const MoreIcon = require('./../icons/sort-amount-up-alt-solid.png');
+
+// const myIcon = (<Icon name="rocket" size={30} color="#900" />)
 
 export const MenuSortCmp = () => {
     console.log("MenuSortCmp");
     return (
         <View style={styles.container}>
 
-
-            <SimplePopupMenu
-            
-                items={items}
-                style={styles.button}
-                onSelect={this.onMenuPress}
-                onCancel={() => console.log('onCancel')}>
-                <Text>Show menu</Text>
-            </SimplePopupMenu>
-
+            <OptionsMenu
+                customButton={myIcon}
+                destructiveIndex={1}
+                options={["Edit", "Delete", "Cancel"]}
+                actions={[this.editPost, this.deletePost]} />
         </View>
     );
 };
@@ -70,19 +69,11 @@ export const MenuSortCmp = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        position: 'absolute',
-        justifyContent: 'flex-end',
-        backgroundColor: "#ecf0f1",
-        padding: 5,
-        marginLeft: WINDOW_WIDTH - 120,
-        marginRight: 10,
-        marginTop: HEADER_BUTTON_SIZE + 10,
-        opacity: 1,
-        zIndex: 2,
-        elevation: '10',
-        outlineProvider: 'bounds',
-
+        container: {
+            width: '50%',
+            height: '50%',
+            position: 'relative',
+        },
     }
     // container: {
     //     flex: 1,
