@@ -8,6 +8,10 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/blur": "^3.6.0",
+    "@react-native-community/datetimepicker": "^3.0.0",
+    "@react-native-community/netinfo": "^5.9.6",
+    "@react-native-community/picker": "^1.6.6",
     "@react-navigation/drawer": "^5.8.2",
     "@react-navigation/native": "^5.5.1",
     "eslint-plugin-react-hooks": "^4.0.4",
@@ -19,8 +23,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-native": "0.63.0",
-    "react-native-gesture-handler": "~1.6.0",
-    "react-native-reanimated": "~1.9.0",
+    "react-native-gesture-handler": "^1.7.0",
+    "react-native-reanimated": "^1.13.0",
     "react-native-safe-area-context": "^3.0.7",
     "react-native-screens": "2.9.0",
     "react-native-ui-lib": "^5.12.4",
@@ -37,3 +41,8 @@
   },
   "private": true
 }
+npm i @react-native-community/netinfo@5.9.2 react-native-gesture-handler@1.6.0 react-native-reanimated@1.9.0 - actual version installed: ^1.13.0
+- @react-native-community/datetimepicker - expected version range:
+2.4.0 - actual version installed: ^3.0.0
+- @react-native-community/picker - expected version range: 1.6.0 -
+actual version installed: ^1.6.6
