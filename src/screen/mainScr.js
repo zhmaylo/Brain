@@ -12,13 +12,14 @@ import { getProductsList } from './../api/products/products';
 import { devStub } from './../api/dev';
 
 import { SpinerСmp } from '../components/SpinerCmp';
-import { MenuSortCmp, DLAndroid } from './../components/MenuSortCmp';
+
 import { ListProdCmp } from '../components/ListProdCmp';
+import { buttonSort } from './../api/header/sort';
 
 
 let i = 0;
-const devMode = true;
-// const devMode = false;
+// const devMode = true;
+const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);

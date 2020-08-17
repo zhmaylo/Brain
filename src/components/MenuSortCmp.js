@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
         marginTop: HEADER_BUTTON_SIZE + 10,
         opacity: 1,
         zIndex: 2,
-        elevation: '10',
-        outlineProvider: 'bounds',
+        // elevation: '10',
+        // outlineProvider: 'bounds',
 
     }
 });
