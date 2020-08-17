@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-gesture-handler
 
 PATH: 
-  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\nodejs\;C:\Users\User\AppData\Local\Microsoft\WindowsApps;;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Local\Yarn\bin;C:\Users\User\AppData\Roaming\npm
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python38\Scripts\;C:\Python38\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\User\AppData\Local\Microsoft\WindowsApps;;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\User\AppData\Local\Yarn\bin;C:\Users\User\AppData\Roaming\npm
 
 Yarn version: 
   1.22.4
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'D:\Java\Brain\node_modules\@expo\xdl\binaries\windows\adb\AdbWinApi.dll'
+  Error: EPERM: operation not permitted, unlink 'D:\Java\Brain\my-app\node_modules\@babel\compat-data\node_modules\.bin'
 
 npm manifest: 
   {
@@ -27,10 +27,6 @@ npm manifest:
       "eject": "expo eject"
     },
     "dependencies": {
-      "@react-native-community/blur": "^3.6.0",
-      "@react-native-community/datetimepicker": "^3.0.0",
-      "@react-native-community/netinfo": "^5.9.6",
-      "@react-native-community/picker": "^1.6.6",
       "@react-navigation/drawer": "^5.8.2",
       "@react-navigation/native": "^5.5.1",
       "eslint-plugin-react-hooks": "^4.0.4",
@@ -42,11 +38,9 @@ npm manifest:
       "react": "^16.13.1",
       "react-dom": "^16.13.1",
       "react-native": "0.63.0",
-      "react-native-gesture-handler": "^1.7.0",
-      "react-native-reanimated": "^1.13.0",
       "react-native-safe-area-context": "^3.0.7",
       "react-native-screens": "2.9.0",
-      "react-native-ui-lib": "^5.12.4",
+      "react-native-simple-popup-menu": "^1.0.3",
       "react-native-web": "^0.12.3",
       "react-test-renderer": "^16.13.1",
       "redux": "^4.0.5"
@@ -1976,13 +1970,6 @@ Lockfile:
       exec-sh "^0.3.2"
       minimist "^1.2.0"
   
-  "@egjs/hammerjs@^2.0.17":
-    version "2.0.17"
-    resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
-    integrity sha512-XQsZgjm2EcVUiZQf11UBJQfmZeEmOW8DpI1gsFeln6w0ae0ii4dMQEQ0kjl6DspdWX1aGY1/loyXnP0JS06e/A==
-    dependencies:
-      "@types/hammerjs" "^2.0.36"
-  
   "@expo/babel-preset-cli@0.2.17":
     version "0.2.17"
     resolved "https://registry.yarnpkg.com/@expo/babel-preset-cli/-/babel-preset-cli-0.2.17.tgz#308ce8a8519e10e3756eb7b5d550bcda99b24159"
@@ -3538,11 +3525,6 @@ Lockfile:
     integrity sha512-AiHRaEB50LQg0pZmm659vNBb9f4SJ0qrAnteuzhSeAUcJKxoYgEnprg/83kppCnc2zvtCKbdZry1a5pVY3lOTQ==
     dependencies:
       "@types/node" "*"
-  
-  "@types/hammerjs@^2.0.36":
-    version "2.0.36"
-    resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.36.tgz#17ce0a235e9ffbcdcdf5095646b374c2bf615a4c"
-    integrity sha512-7TUK/k2/QGpEAv/BCwSHlYu3NXZhQ9ZwBYpzr9tjlPIL2C5BeGhH3DmVavRx3ZNyELX5TLC91JTz/cen6AAtIQ==
   
   "@types/html-minifier-terser@^5.0.0":
     version "5.1.0"
@@ -8583,11 +8565,6 @@ Lockfile:
     version "4.2.1"
     resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
     integrity sha512-QLg82fGkfnJ/4iy1xZ81/9SIJiq1NGFUMGs6ParyjBZr6jW2Ufj/snDqTHixNlHdPNwN2RLVD0Pi3igeK9+JfA==
-  
-  hoist-non-react-statics@^2.3.1:
-    version "2.5.5"
-    resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
-    integrity sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
   
   hosted-git-info@^2.1.4, hosted-git-info@^2.6.0, hosted-git-info@^2.7.1, hosted-git-info@^2.8.8:
     version "2.8.8"
@@ -14042,27 +14019,10 @@ Lockfile:
       invariant "^2.2.4"
       use-subscription "^1.0.0"
   
-  react-native-gesture-handler@^1.7.0:
-    version "1.7.0"
-    resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.7.0.tgz#0ef74a5ba836832e497dc49eb1ce58baa6c617e5"
-    integrity sha512-1CrjJf8Z6Iz2XWzfZknYtsm2sud5Lu/pLhhokkgBIKttxqGDtetDEVFDJOTJWJyKCrUPk0X5tnWi/diSF4q++w==
-    dependencies:
-      "@egjs/hammerjs" "^2.0.17"
-      hoist-non-react-statics "^2.3.1"
-      invariant "^2.2.4"
-      prop-types "^15.7.2"
-  
   react-native-iphone-x-helper@^1.2.1:
     version "1.2.1"
     resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
     integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
-  
-  react-native-reanimated@^1.13.0:
-    version "1.13.0"
-    resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.13.0.tgz#1ee5d27d34bd2cee7dfad4ae9a3673300872c917"
-    integrity sha512-uadP/0QO+4TCsyPSvzRdl+76NPM7Bp8M25KQLB4Hg3tWBMjhrMrETnzNi33L/OPfmhU+7rceyi0QPe/DxKT5bQ==
-    dependencies:
-      fbjs "^1.0.0"
   
   react-native-safe-area-context@^3.0.7:
     version "3.1.4"
@@ -14078,6 +14038,11 @@ Lockfile:
     version "2.9.0"
     resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.9.0.tgz#ead2843107ba00fee259aa377582e457c74f1f3b"
     integrity sha512-5MaiUD6HA3nzY3JbVI8l3V7pKedtxQF3d8qktTVI0WmWXTI4QzqOU8r8fPVvfKo3MhOXwhWBjr+kQ7DZaIQQeg==
+  
+  react-native-simple-popup-menu@^1.0.3:
+    version "1.0.3"
+    resolved "https://registry.yarnpkg.com/react-native-simple-popup-menu/-/react-native-simple-popup-menu-1.0.3.tgz#e6f9ac3a900b48e0a3838bdb8b52b5690272a356"
+    integrity sha512-RqrfzF+tJo+tQqfxhOHNZcJ3D7nC1YQAJv4qjVAtdEnJfas1CcArkw9qo5SSRBSNGlDbs8eeAq7+ffeJhT0nVQ==
   
   react-native-web@^0.12.3:
     version "0.12.3"

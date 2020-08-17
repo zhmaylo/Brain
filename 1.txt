@@ -5,3 +5,12 @@ yarn add react-native-safe-area-context - expected version range: ~3.0.7 - actua
 
 
 yarn add react-native-safe-area-context@3.0.7 react-native-screens@2.9.0
+
+
+npm i @react-native-community/netinfo@5.9.2 react-native-gesture-handler@1.6.0 
+react-native-reanimated@1.9.0  @react-native-community/datetimepicker@2.4.0
+@react-native-community/picker@1.6.0
+
+yarn add @react-native-community/netinfo@5.9.2 react-native-gesture-handler@1.6.0 react-native-reanimated@1.9.0  @react-native-community/datetimepicker@2.4.0 @react-native-community/picker@1.6.0
+
+yarn remove @react-native-community/netinfo react-native-gesture-handler react-native-reanimated @react-native-community/datetimepicker @react-native-community/picker

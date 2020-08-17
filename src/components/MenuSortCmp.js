@@ -3,6 +3,7 @@ import { Button, StyleSheet, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { WINDOW_WIDTH } from './../constants/otherConst';
 import { HEADER_BUTTON_SIZE } from "../constants/headerConst";
+// import { SimplePopupMenu } from 'react-native-simple-popup-menu';
 
 
 const data = [
@@ -30,7 +31,7 @@ export const MenuSortCmp = () => {
     return (
         <View style={styles.container}>
             
-        
+            {/* <SimplePopupMenu></SimplePopupMenu> */}
         
         </View>
     );
@@ -54,27 +55,21 @@ export const MenuSortCmp = () => {
 
 
 const styles = StyleSheet.create({
+    
     container: {
-        container: {
-            width: '50%',
-            height: '50%',
-            position: 'relative',
-        },
-    }
-    // container: {
-    //     flex: 1,
-    //     position: 'absolute', 
-    //     justifyContent: 'flex-end',
-    //     backgroundColor: "#ecf0f1",
-    //     padding: 5, 
-    //     marginLeft: WINDOW_WIDTH-120,
-    //     marginRight: 10,
-    //     marginTop: HEADER_BUTTON_SIZE+10,
-    //     opacity: 1,
-    //     zIndex: 2,
-    //     elevation: '10',
-    //     outlineProvider: 'bounds',
+        flex: 1,
+        position: 'absolute', 
+        justifyContent: 'flex-end',
+        backgroundColor: "#ecf0f1",
+        padding: 5, 
+        marginLeft: WINDOW_WIDTH-120,
+        marginRight: 10,
+        marginTop: HEADER_BUTTON_SIZE+10,
+        opacity: 1,
+        zIndex: 2,
+        elevation: '10',
+        outlineProvider: 'bounds',
 
-    // }
+    }
 });
 
