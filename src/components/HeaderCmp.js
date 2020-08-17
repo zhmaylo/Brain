@@ -3,20 +3,42 @@ import { View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-nati
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
 import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from './../constants/headerConst';
 
-import { MenuSortCmp} from './MenuSortCmp';
+import { MenuSortCmp } from './MenuSortCmp';
+import { Popup } from 'reactjs-popup';
+
 
 
 export const HeaderCmp = (productsList, menuUrl, dispatch) => {
 
+    const pMenu = () => {
+        return (
+            // <Popup
+            //     trigger={<button className="button_sort"> Trigger </button>}
+            //     position="top center"
+            //     closeOnDocumentClick
+            // >
+            // <span>
+            //     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
+            //     magni omnis delectus nemo, maxime molestiae dolorem numquam
+            //     mollitia, voluptate ea, accusamus excepturi deleniti ratione
+            //     sapiente! Laudantium, aperiam doloribus. Odit, aut.
+            // </span>
+            <View>
+                {/* <Popup>
+                </Popup> */}
+            </View>
+        );
+    };
+
     return (
         <View style={styles.container}>
             <TouchableOpacity
-               onPress={() => { menuUrl() }}
+                onPress={() => { menuUrl() }}
             >
                 <Image
                     style={styles.menuImage}
                     // style={{ width: 26, height: 26, marginRight: 20 }}
-                    source={ICON_HEADER [0].iconSource}
+                    source={ICON_HEADER[0].iconSource}
                 />
             </TouchableOpacity>
 
@@ -28,36 +50,43 @@ export const HeaderCmp = (productsList, menuUrl, dispatch) => {
             </Image> */}
             <TextInput
                 style={styles.search}
-                placeholder= {TEXT_INPUT_PLACEHOLDER}
-                >
-            </TextInput>
-            <TouchableOpacity 
-                onPress={() => {
-                                MenuSortCmp ();
-                                console.log(' onPress=>MenuSortCmp called');
-                                // <MenuSortCmp />
-                                // let prodList = buttonSort(productsList) 
-                                
-                                // dispatch({ type: 'PRODUCTS_LIST', payload: prodList })
-                                }
-                        }
+                placeholder={TEXT_INPUT_PLACEHOLDER}
             >
+            </TextInput>
+
+
+            <TouchableOpacity className="button_sort"
+                onPress={() => {
+                    pMenu();
+                    // MenuSortCmp();
+
+                    console.log(' onPress=>MenuSortCmp called');
+                    // <MenuSortCmp />
+                    // let prodList = buttonSort(productsList) 
+
+                    // dispatch({ type: 'PRODUCTS_LIST', payload: prodList })
+                }
+                }
+            >
+
                 <Image
                     style={styles.menuImage}
-                    source={ICON_HEADER [1].iconSource}
+                    source={ICON_HEADER[1].iconSource}
                 >
                 </Image>
             </TouchableOpacity>
+
+
             <TouchableOpacity
                 onPress={() => { menuUrl() }}
             >
                 <Image
                     style={styles.menuImage}
-                    source={ICON_HEADER [2].iconSource}
+                    source={ICON_HEADER[2].iconSource}
                 >
                 </Image>
             </TouchableOpacity>
-            
+
         </View >
     )
 }
@@ -70,7 +99,7 @@ const styles = StyleSheet.create({
     },
 
     search: {
-        width: WINDOW_WIDTH-3*HEADER_BUTTON_SIZE-20,
+        width: WINDOW_WIDTH - 3 * HEADER_BUTTON_SIZE - 20,
         height: HEADER_BUTTON_SIZE,
         borderWidth: 2,
         paddingLeft: 4,
