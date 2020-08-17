@@ -4,7 +4,7 @@ import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
 import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from './../constants/headerConst';
 
 import { MenuSortCmp } from './MenuSortCmp';
-import { Popup } from 'reactjs-popup';
+// import { Popup } from 'reactjs-popup';
 
 
 
@@ -24,8 +24,8 @@ export const HeaderCmp = (productsList, menuUrl, dispatch) => {
             //     sapiente! Laudantium, aperiam doloribus. Odit, aut.
             // </span>
             <View>
-                {/* <Popup>
-                </Popup> */}
+                <Text>dsfsd</Text>
+            
             </View>
         );
     };
@@ -57,8 +57,8 @@ export const HeaderCmp = (productsList, menuUrl, dispatch) => {
 
             <TouchableOpacity className="button_sort"
                 onPress={() => {
-                    pMenu();
-                    // MenuSortCmp();
+                    // pMenu();
+                    MenuSortCmp();
 
                     console.log(' onPress=>MenuSortCmp called');
                     // <MenuSortCmp />

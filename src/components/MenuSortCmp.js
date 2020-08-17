@@ -3,14 +3,14 @@ import { Button, StyleSheet, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { WINDOW_WIDTH } from './../constants/otherConst';
 import { HEADER_BUTTON_SIZE } from "../constants/headerConst";
-import Popup from "reactjs-popup";
+
 
 
 export const MenuSortCmp = () => {
     console.log("MenuSortCmp");
     return (
         <View style={styles.container}>
-          
+          <Text>werewr</Text>
         </View>
     );
 };
