@@ -4,7 +4,7 @@ export const  SORT_PRICE_ASCEND = 'SORT_PRICE_ASCEND';
 // descending sort by price
 export const  SORT_PRICE_DESCEND = 'SORT_PRICE_DESCEND';
 // header, sort button, event onPress - true (button press) 
-export const  SORT_BUTTON_PRESS = 'SORT_PRICE_DESCEND';
+export const  SORT_BUTTON_PRESS = 'SORT_BUTTON_PRESS';
 //
 
 //set number collumns view list products
@@ -31,15 +31,3 @@ export const sortListProdRdc = (state = false, action) => {
     }
 };
 
-export const sortButtonPressRdc = (state = false, action) => {
-    switch(action.type) {
-        case SORT_BUTTON_PRESS:
-            return {
-                ...state,
-                sortButtonPress:action.payload // = true - button press
-
-            };
-        default:
-            return state;
-    }
-}

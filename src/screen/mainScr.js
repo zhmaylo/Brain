@@ -72,7 +72,7 @@ export default function mainScr(props) {
                 <View style={styles.container}>
                     <StatusBar hidden={true} />
                     
-                    {HeaderCmp(state.productsListRdc.productsList, props.navigation.toggleDrawer, dispatch)}
+                    {HeaderCmp(props)}
                     {/* <MenuSortCmp 
                         sortButtonPress={state.sortButtonPressRdc.sortButtonPress} dispatch={dispatch} /> */}
 

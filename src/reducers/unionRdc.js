@@ -9,7 +9,7 @@ import { categoryListRdc, viewListCatRdc } from './categoryListRdc';
 import { productsListRdc, sizeListProdRdc } from './productsListRdc';
 import { numColumProdRdc } from './numColumProdRdc';
 import { spinerToggleRdc, spinerVolumeRdc, spinerMaxRdc } from './spinerRdc';
-import { sortListProdRdc, SORT_PRICE_ASCEND, sortButtonPressRdc } from './sortListProdRdc';
+import { sortListProdRdc, SORT_PRICE_ASCEND } from './sortListProdRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -76,10 +76,6 @@ export const initialState = {
     //Start. Sort list
     sortListProdRdc: {
         sortListProd: SORT_PRICE_ASCEND
-    },
-
-    sortButtonPressRdc: {
-        sortButtonPress: true
     }
     //End. Sort list
     ////////////////////////////////
@@ -116,7 +112,6 @@ export const unionRdc = combineReducers(
         ////////////////////////////////
         //Start. Sort list
         sortListProdRdc: sortListProdRdc,
-        sortButtonPressRdc: sortButtonPressRdc,
         //End. Sort list
         ////////////////////////////////
 

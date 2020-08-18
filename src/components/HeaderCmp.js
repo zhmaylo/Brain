@@ -6,12 +6,12 @@ import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from './../co
 import { MenuSortCmp } from './MenuSortCmp';
 import { SORT_BUTTON_PRESS } from '../reducers/sortListProdRdc';
 
-export const HeaderCmp = (productsList, menuUrl, dispatch) => {
+export const HeaderCmp = ( props ) => {
 
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                onPress={() => { menuUrl() }}
+                onPress={() => { props.navigation.toggleDrawer() }}
             >
                 <Image
                     style={styles.menuImage}
@@ -34,15 +34,15 @@ export const HeaderCmp = (productsList, menuUrl, dispatch) => {
 
 
             <TouchableOpacity className="button_sort"
-                onPress={() => {
-                    dispatch({ type: SORT_BUTTON_PRESS, payload: true })
+                onPress={() => {props.navigation.navigate('SortScreen');
+                    
                     console.log(' onPress=>MenuSortCmp called');
                     
                     // let prodList = buttonSort(productsList) 
                     // dispatch({ type: 'PRODUCTS_LIST', payload: prodList })
                    
-                }
-                }
+                
+                }}
             >
 
                 <Image
