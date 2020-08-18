@@ -4,31 +4,9 @@ import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
 import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from './../constants/headerConst';
 
 import { MenuSortCmp } from './MenuSortCmp';
-// import { Popup } from 'reactjs-popup';
-
-
+import { SORT_BUTTON_PRESS } from '../reducers/sortListProdRdc';
 
 export const HeaderCmp = (productsList, menuUrl, dispatch) => {
-
-    const pMenu = () => {
-        return (
-            // <Popup
-            //     trigger={<button className="button_sort"> Trigger </button>}
-            //     position="top center"
-            //     closeOnDocumentClick
-            // >
-            // <span>
-            //     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-            //     magni omnis delectus nemo, maxime molestiae dolorem numquam
-            //     mollitia, voluptate ea, accusamus excepturi deleniti ratione
-            //     sapiente! Laudantium, aperiam doloribus. Odit, aut.
-            // </span>
-            <View>
-                <Text>dsfsd</Text>
-            
-            </View>
-        );
-    };
 
     return (
         <View style={styles.container}>
@@ -57,14 +35,12 @@ export const HeaderCmp = (productsList, menuUrl, dispatch) => {
 
             <TouchableOpacity className="button_sort"
                 onPress={() => {
-                    // pMenu();
-                    MenuSortCmp();
-
+                    dispatch({ type: SORT_BUTTON_PRESS, payload: true })
                     console.log(' onPress=>MenuSortCmp called');
-                    // <MenuSortCmp />
+                    
                     // let prodList = buttonSort(productsList) 
-
                     // dispatch({ type: 'PRODUCTS_LIST', payload: prodList })
+                   
                 }
                 }
             >

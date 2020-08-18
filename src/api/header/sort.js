@@ -2,7 +2,7 @@
 // buttonSort - sort list by price from smallest to largest
 // listProd - input list
 
-import { SORT_PRICE_DESCEND, SORT_PRICE_ASCEND } from "../../reducers/sortListProd";
+import { SORT_PRICE_DESCEND, SORT_PRICE_ASCEND } from "../../reducers/sortListProdRdc";
 
 // sort - sort type
 export const buttonSort = (listProd = null, sortType) => {

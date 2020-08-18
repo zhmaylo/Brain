@@ -15,11 +15,12 @@ import { SpinerСmp } from '../components/SpinerCmp';
 
 import { ListProdCmp } from '../components/ListProdCmp';
 import { buttonSort } from './../api/header/sort';
+import { MenuSortCmp } from './../components/MenuSortCmp';
 
 
 let i = 0;
-// const devMode = true;
-const devMode = false;
+const devMode = true;
+// const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -55,7 +56,7 @@ export default function mainScr(props) {
     }, [!state.isAppInitRdc.isAppInit]);
 
     // console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
-    // console.log('mainScr. state', state);
+    console.log('mainScr. state', state);
 
     // console.log(getMainCategory(categoryFromFile));
     // console.log("state.isAppInitRdc.isAppInit", state.isAppInitRdc.isAppInit);
@@ -70,9 +71,11 @@ export default function mainScr(props) {
 
                 <View style={styles.container}>
                     <StatusBar hidden={true} />
-
+                    
                     {HeaderCmp(state.productsListRdc.productsList, props.navigation.toggleDrawer, dispatch)}
-                    {/* {MenuSortCmp ()} */}
+                    {/* <MenuSortCmp 
+                        sortButtonPress={state.sortButtonPressRdc.sortButtonPress} dispatch={dispatch} /> */}
+
                     <ListProdCmp    productList={state.productsListRdc.productsList}
                                     numCollumns={state.numColumProdRdc.numColumProd}
                                     currSizeList={state.sizeListProdRdc.sizeListProd}
@@ -117,6 +120,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         paddingTop: 18,
-    }
-
+    },
+    
 });
