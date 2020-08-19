@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
         height: WINDOW_HEIGHT,
 
         backgroundColor: "lightgray",
+        
     }
   
 })

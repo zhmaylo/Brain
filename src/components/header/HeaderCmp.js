@@ -1,10 +1,10 @@
-import React from 'react';
+import React from '../../../node_modules/react';
 import { View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from './../constants/otherConst';
-import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from './../constants/headerConst';
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../../constants/otherConst';
+import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from '../../constants/headerConst';
 
-import { MenuSortCmp } from './MenuSortCmp';
-import { SORT_BUTTON_PRESS } from '../reducers/sortListProdRdc';
+// import { MenuSortCmp } from './MenuSortCmp';
+// import { SORT_BUTTON_PRESS } from '../../reducers/sortListProdRdc';
 
 export const HeaderCmp = ( props ) => {
 

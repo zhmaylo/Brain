@@ -9,6 +9,8 @@ export const ICON_HEADER = [
     {iconSource: require('./../icons/sort-amount-up-alt-solid.png')}, //sort icon
     {iconSource: require('./../icons/filter.png')}]; //filter icon
 
+export const ICON_BACK = require('./../icons/back.png'); //back icon
+
 //
 // End. Section 'Header'
 /////////////////////////////

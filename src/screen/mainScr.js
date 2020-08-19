@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { SafeAreaView, View, StatusBar, StyleSheet } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
 import { getCategoryList, addFieldChildren } from './../api/category/category';
 import { AlertMessageCmp } from '../components/AlertMessageCmp';
-import { HeaderCmp } from './../components/HeaderCmp';
+import { HeaderCmp } from '../components/header/HeaderCmp';
 import { FooterCmp } from '../components/FooterCmp';
 import { setFieldIsChildren } from './../api/category/symbChildren';
 import { getProductsList } from './../api/products/products';
@@ -15,7 +15,6 @@ import { SpinerСmp } from '../components/SpinerCmp';
 
 import { ListProdCmp } from '../components/ListProdCmp';
 import { buttonSort } from './../api/header/sort';
-import { MenuSortCmp } from './../components/MenuSortCmp';
 
 
 let i = 0;
@@ -43,7 +42,7 @@ export default function mainScr(props) {
                 getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
                     console.log("getProductsList => ", productsList);
                     productsList = buttonSort(productsList, state.sortListProdRdc.sortListProd);
-                    
+
                     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
                     dispatch({ type: 'CATEGORY_LIST', payload: data });
                     dispatch({ type: 'IS_APP_INIT', payload: true });
@@ -69,26 +68,27 @@ export default function mainScr(props) {
         if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false))
             return (
 
-                <View style={styles.container}>
-                    <StatusBar hidden={true} />
-                    
-                    {HeaderCmp(props)}
-                    {/* <MenuSortCmp 
+                <SafeAreaView style={styles.container}>
+                {/* <View style={styles.container}> */}
+                        <StatusBar hidden={true} />
+
+                        {HeaderCmp(props)}
+                        {/* <MenuSortCmp 
                         sortButtonPress={state.sortButtonPressRdc.sortButtonPress} dispatch={dispatch} /> */}
 
-                    <ListProdCmp    productList={state.productsListRdc.productsList}
-                                    numCollumns={state.numColumProdRdc.numColumProd}
-                                    currSizeList={state.sizeListProdRdc.sizeListProd}
-                                    dispatch={dispatch}
-                    />
-                    
+                        <ListProdCmp productList={state.productsListRdc.productsList}
+                            numCollumns={state.numColumProdRdc.numColumProd}
+                            currSizeList={state.sizeListProdRdc.sizeListProd}
+                            dispatch={dispatch}
+                        />
 
-                    {/* <Button
+
+                        {/* <Button
                         // onPress={() => props.navigation.navigate('MenuScreen')}
                         onPress={() => props.navigation.toggleDrawer()}
                         title="MenuScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                     /> */}
-                    {/* <Button
+                        {/* <Button
                     onPress={() => props.navigation.navigate('FindScreen')}
                     title="FindScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 />
@@ -101,14 +101,17 @@ export default function mainScr(props) {
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 /> */}
 
-                    {FooterCmp(props.navigation.toggleDrawer, state, dispatch)}
-                </View>
+                        {FooterCmp(props.navigation.toggleDrawer, state, dispatch)}
+            
+
+                {/* </View> */}
+                </SafeAreaView>
 
             );
         else return (
             <View style={styles.container}>
                 <SpinerСmp volume={state.spinerVolumeRdc.spinerVolume}
-                            max={state.spinerMaxRdc.spinerMax}
+                    max={state.spinerMaxRdc.spinerMax}
                 />
             </View>
         )
@@ -118,8 +121,9 @@ export default function mainScr(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        paddingTop: 18,
+        // backgroundColor: '#fff',
+        
+        paddingTop: 10,
     },
-    
+
 });
