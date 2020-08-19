@@ -11,6 +11,8 @@ export const ICON_FOOTER = [
     {iconSource: require('./../icons/profile.png'), iconName: 'Профиль'}];
   
 //
+//
+export const FOOTER_BACK_TITLE = 'Назад';
 // End. Section 'Footer image'
 /////////////////////////////
 

@@ -5,7 +5,7 @@ import { ContextApp } from "../reducers/unionRdc";
 import { getCategoryList, addFieldChildren } from './../api/category/category';
 import { AlertMessageCmp } from '../components/AlertMessageCmp';
 import { HeaderCmp } from '../components/header/HeaderCmp';
-import { FooterCmp } from '../components/FooterCmp';
+import { FooterCmp } from './../components/footer/FooterCmp';
 import { setFieldIsChildren } from './../api/category/symbChildren';
 import { getProductsList } from './../api/products/products';
 

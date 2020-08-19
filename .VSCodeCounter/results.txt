@@ -1,0 +1,113 @@
+Date : 2020-08-19 20:30:55
+Directory : d:\Java\Brain\my-app\src
+Total : 72 files,  42871 codes, 547 comments, 574 blanks, all 43992 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         64 |     42,863 |        547 |        574 |     43,984 |
+| XML        |          8 |          8 |          0 |          0 |          8 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                            | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                               |         72 |     42,871 |        547 |        574 |     43,992 |
+| api                                                             |         19 |        490 |        201 |        217 |        908 |
+| api\category                                                    |          6 |        225 |         68 |         84 |        377 |
+| api\fetch                                                       |          4 |        147 |         38 |         69 |        254 |
+| api\footer                                                      |          1 |          4 |          2 |          0 |          6 |
+| api\header                                                      |          1 |          9 |          3 |          4 |         16 |
+| api\products                                                    |          1 |         39 |         21 |         14 |         74 |
+| api\sid                                                         |          4 |         43 |         59 |         35 |        137 |
+| components                                                      |         14 |        440 |         80 |        147 |        667 |
+| components\footer                                               |          2 |        109 |          6 |         23 |        138 |
+| components\header                                               |          3 |        126 |         19 |         39 |        184 |
+| constants                                                       |         13 |     41,395 |        137 |         60 |     41,592 |
+| foundations                                                     |          2 |         30 |          4 |          6 |         40 |
+| icons                                                           |          8 |          8 |          0 |          0 |          8 |
+| icons\svg                                                       |          8 |          8 |          0 |          0 |          8 |
+| reducers                                                        |          9 |        220 |         79 |         55 |        354 |
+| screen                                                          |          7 |        288 |         46 |         89 |        423 |
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                        | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+
+| d:\Java\Brain\my-app\src\api\argMiddle.js                       | JavaScript |          6 |          1 |          0 |          7 |
+| d:\Java\Brain\my-app\src\api\category\catView.js                | JavaScript |         35 |         20 |         11 |         66 |
+| d:\Java\Brain\my-app\src\api\category\catView.spec.js           | JavaScript |         56 |          7 |         25 |         88 |
+| d:\Java\Brain\my-app\src\api\category\category.js               | JavaScript |         40 |         12 |         16 |         68 |
+| d:\Java\Brain\my-app\src\api\category\category.spec.js          | JavaScript |         54 |         11 |         18 |         83 |
+| d:\Java\Brain\my-app\src\api\category\symbChildren.js           | JavaScript |         17 |         16 |          8 |         41 |
+| d:\Java\Brain\my-app\src\api\category\symbChildren.spec.js      | JavaScript |         23 |          2 |          6 |         31 |
+| d:\Java\Brain\my-app\src\api\dev.js                             | JavaScript |         17 |          9 |         11 |         37 |
+| d:\Java\Brain\my-app\src\api\fetch\fetchData.js                 | JavaScript |         23 |         14 |          9 |         46 |
+| d:\Java\Brain\my-app\src\api\fetch\fetchData.spec.js            | JavaScript |         48 |          1 |         19 |         68 |
+| d:\Java\Brain\my-app\src\api\fetch\middleWareFetch.js           | JavaScript |         27 |         20 |         16 |         63 |
+| d:\Java\Brain\my-app\src\api\fetch\middleWareFetch.spec.js      | JavaScript |         49 |          3 |         25 |         77 |
+| d:\Java\Brain\my-app\src\api\footer\buttonView.js               | JavaScript |          4 |          2 |          0 |          6 |
+| d:\Java\Brain\my-app\src\api\header\sort.js                     | JavaScript |          9 |          3 |          4 |         16 |
+| d:\Java\Brain\my-app\src\api\products\products.js               | JavaScript |         39 |         21 |         14 |         74 |
+| d:\Java\Brain\my-app\src\api\sid\sid.js                         | JavaScript |         13 |          6 |          7 |         26 |
+| d:\Java\Brain\my-app\src\api\sid\sid.spec.js                    | JavaScript |         17 |          8 |         10 |         35 |
+| d:\Java\Brain\my-app\src\api\sid\timeStamp.js                   | JavaScript |          7 |         26 |         12 |         45 |
+| d:\Java\Brain\my-app\src\api\sid\timeStamp.spec.js              | JavaScript |          6 |         19 |          6 |         31 |
+| d:\Java\Brain\my-app\src\components\AlertMessageCmp.js          | JavaScript |         17 |          0 |          5 |         22 |
+| d:\Java\Brain\my-app\src\components\AlertMessageCmp.spec.js     | JavaScript |          9 |         15 |         17 |         41 |
+| d:\Java\Brain\my-app\src\components\AppNavigator.js             | JavaScript |         31 |          2 |         11 |         44 |
+| d:\Java\Brain\my-app\src\components\ListProdCmp.js              | JavaScript |         36 |          6 |         11 |         53 |
+| d:\Java\Brain\my-app\src\components\ListProdCmp.spec.js         | JavaScript |         20 |          9 |         10 |         39 |
+| d:\Java\Brain\my-app\src\components\MenuSortCmp.js              | JavaScript |         18 |          9 |          9 |         36 |
+| d:\Java\Brain\my-app\src\components\ProductCardCmp.js           | JavaScript |         39 |          4 |         12 |         55 |
+| d:\Java\Brain\my-app\src\components\SpinerCmp.js                | JavaScript |         26 |          5 |          4 |         35 |
+| d:\Java\Brain\my-app\src\components\SpinerCmp.spec.js           | JavaScript |          9 |          5 |          6 |         20 |
+| d:\Java\Brain\my-app\src\components\footer\FooterBackCmp.js     | JavaScript |         45 |          4 |         11 |         60 |
+| d:\Java\Brain\my-app\src\components\footer\FooterCmp.js         | JavaScript |         64 |          2 |         12 |         78 |
+| d:\Java\Brain\my-app\src\components\header\HeaderBackCmp.js     | JavaScript |         45 |          4 |         11 |         60 |
+| d:\Java\Brain\my-app\src\components\header\HeaderCmp.js         | JavaScript |         68 |          9 |         19 |         96 |
+| d:\Java\Brain\my-app\src\components\header\HeaderCmp.spec.js    | JavaScript |         13 |          6 |          9 |         28 |
+| d:\Java\Brain\my-app\src\constants\authorizConst.js             | JavaScript |          9 |         18 |          3 |         30 |
+| d:\Java\Brain\my-app\src\constants\categoryConst.js             | JavaScript |          4 |          6 |          8 |         18 |
+| d:\Java\Brain\my-app\src\constants\categoryJSON.js              | JavaScript |      1,173 |          6 |          2 |      1,181 |
+| d:\Java\Brain\my-app\src\constants\errorConst.js                | JavaScript |         14 |          8 |          6 |         28 |
+| d:\Java\Brain\my-app\src\constants\footerConst.js               | JavaScript |          7 |          7 |          3 |         17 |
+| d:\Java\Brain\my-app\src\constants\headerConst.js               | JavaScript |          7 |          7 |          4 |         18 |
+| d:\Java\Brain\my-app\src\constants\menuConst.js                 | JavaScript |          1 |          6 |          7 |         14 |
+| d:\Java\Brain\my-app\src\constants\otherConst.js                | JavaScript |          3 |          6 |          3 |         12 |
+| d:\Java\Brain\my-app\src\constants\productsConst.js             | JavaScript |          4 |         18 |          9 |         31 |
+| d:\Java\Brain\my-app\src\constants\productsJSON.js              | JavaScript |     40,150 |          7 |          4 |     40,161 |
+| d:\Java\Brain\my-app\src\constants\sortConst.js                 | JavaScript |         12 |          9 |          3 |         24 |
+| d:\Java\Brain\my-app\src\constants\spinerConst.js               | JavaScript |          2 |          9 |          2 |         13 |
+| d:\Java\Brain\my-app\src\constants\urlConst.js                  | JavaScript |          9 |         30 |          6 |         45 |
+| d:\Java\Brain\my-app\src\foundations\ComponentsConfig.js        | JavaScript |         11 |          4 |          2 |         17 |
+| d:\Java\Brain\my-app\src\foundations\FoundationConfig.js        | JavaScript |         19 |          0 |          4 |         23 |
+| d:\Java\Brain\my-app\src\icons\svg\balance-scale-solid.svg      | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\bars-solid.svg               | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\filter-solid.svg             | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\shopping-basket-solid.svg    | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\sort-amount-down-solid.svg   | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\sort-amount-up-alt-solid.svg | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\star-regular.svg             | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\icons\svg\th-large-solid.svg           | XML        |          1 |          0 |          0 |          1 |
+| d:\Java\Brain\my-app\src\reducers\categoryListRdc.js            | JavaScript |         24 |          6 |          7 |         37 |
+| d:\Java\Brain\my-app\src\reducers\isAppInitRdc.js               | JavaScript |         13 |          2 |          2 |         17 |
+| d:\Java\Brain\my-app\src\reducers\numColumProdRdc.js            | JavaScript |         12 |          3 |          3 |         18 |
+| d:\Java\Brain\my-app\src\reducers\productsListRdc.js            | JavaScript |         24 |          6 |          4 |         34 |
+| d:\Java\Brain\my-app\src\reducers\sessionSidRdc.js              | JavaScript |         13 |          3 |          2 |         18 |
+| d:\Java\Brain\my-app\src\reducers\sortListProdRdc.js            | JavaScript |         19 |         10 |          5 |         34 |
+| d:\Java\Brain\my-app\src\reducers\spinerRdc.js                  | JavaScript |         36 |         14 |          5 |         55 |
+| d:\Java\Brain\my-app\src\reducers\statusResponseRdc.js          | JavaScript |         13 |          2 |          1 |         16 |
+| d:\Java\Brain\my-app\src\reducers\unionRdc.js                   | JavaScript |         66 |         33 |         26 |        125 |
+| d:\Java\Brain\my-app\src\screen\basketScr.js                    | JavaScript |         21 |          0 |          3 |         24 |
+| d:\Java\Brain\my-app\src\screen\categoryScr.js                  | JavaScript |         86 |          7 |         30 |        123 |
+| d:\Java\Brain\my-app\src\screen\configScr.js                    | JavaScript |         21 |          0 |          3 |         24 |
+| d:\Java\Brain\my-app\src\screen\findScr.js                      | JavaScript |         21 |          0 |          3 |         24 |
+| d:\Java\Brain\my-app\src\screen\mainScr.js                      | JavaScript |         74 |         26 |         30 |        130 |
+| d:\Java\Brain\my-app\src\screen\menuScr.js                      | JavaScript |         23 |          0 |          7 |         30 |
+| d:\Java\Brain\my-app\src\screen\sortScr.js                      | JavaScript |         42 |         13 |         13 |         68 |
+| Total                                                           |            |     42,871 |        547 |        574 |     43,992 |
++-----------------------------------------------------------------+------------+------------+------------+------------+------------+

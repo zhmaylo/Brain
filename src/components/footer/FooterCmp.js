@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { View, StyleSheet, Button, Text, TextInput, TouchableOpacity, Image } from 'react-native';
-import { WINDOW_WIDTH } from '../constants/otherConst';
-import { ICON_FOOTER } from './../constants/footerConst';
-import { buttonViewProd } from '../api/footer/buttonView';
+import { WINDOW_WIDTH } from '../../constants/otherConst';
+import { ICON_FOOTER } from '../../constants/footerConst';
+import { buttonViewProd } from '../../api/footer/buttonView';
 
 //main screen footer
 const itemFooter = (iconSource, iconName, iconUrl) => {
