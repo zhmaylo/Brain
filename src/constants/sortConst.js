@@ -11,12 +11,12 @@ export const SORT_HEADER_TITLE = 'Сортировка';
 //
 // array of sort name
 export const SORT_NAME_ARR = [
-    {sortNameItem : 'Цена по возростанию',          sortNameRdc: SORT_PRICE_ASCEND},
-    {sortNameItem : 'Цена по убыванию',             sortNameRdc: SORT_PRICE_DESCEND},
-    {sortNameItem : 'Изготовитель по возростанию',  sortNameRdc: SORT_VENDOR_ASCEND},
-    {sortNameItem : 'Изготовитель по убыванию',     sortNameRdc: SORT_VENDOR_DESCEND},
-    {sortNameItem : 'Срок гарантии по возростанию', sortNameRdc: SORT_WARRANTY_ASCEND},
-    {sortNameItem : 'Срок гарантии по убыванию',    sortNameRdc: SORT_WARRANTY_DESCEND}
+    {id: '0', sortNameItem : 'Цена по возростанию',          sortNameRdc: SORT_PRICE_ASCEND,        switchOn: false},
+    {id: '1', sortNameItem : 'Цена по убыванию',             sortNameRdc: SORT_PRICE_DESCEND,       switchOn: false},
+    {id: '2', sortNameItem : 'Изготовитель по возростанию',  sortNameRdc: SORT_VENDOR_ASCEND,       switchOn: false},
+    {id: '3', sortNameItem : 'Изготовитель по убыванию',     sortNameRdc: SORT_VENDOR_DESCEND,      switchOn: false},
+    {id: '4', sortNameItem : 'Срок гарантии по возростанию', sortNameRdc: SORT_WARRANTY_ASCEND,     switchOn: false},
+    {id: '5', sortNameItem : 'Срок гарантии по убыванию',    sortNameRdc: SORT_WARRANTY_DESCEND,    switchOn: false},
 ];
 //
 // End. Section 'Sort'
