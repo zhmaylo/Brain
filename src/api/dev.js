@@ -8,7 +8,8 @@ import { removeProductAbsence } from './products/products';
 
 import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
-import { buttonSort } from './header/sort';
+// import { buttonSort } from './header/sort';
+import { sortBySwitch } from './sort';
 
 // devStub - stub for developer
 export const devStub = (state, dispatch) => {
@@ -23,6 +24,7 @@ export const devStub = (state, dispatch) => {
     // {categoryID: 1484, parentID: 1330, isChildren: undefined, realcat: 1235, name: "SSD диски"},
     // getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
     let productsList = removeProductAbsence(PRODUCTS_FROM_FILE[0].result.list);
+    productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);
 
     // console.log("PRODUCTS_FROM_FILE.result => ", PRODUCTS_FROM_FILE[0].result.list);
     // productsList = buttonSort(productsList, state.sortListProdRdc.sortListProd);

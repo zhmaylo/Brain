@@ -35,13 +35,7 @@ export const HeaderCmp = ( props ) => {
 
             <TouchableOpacity className="button_sort"
                 onPress={() => {props.navigation.navigate('SortScreen');
-                    
                     console.log(' onPress=>MenuSortCmp called');
-                    
-                    // let prodList = buttonSort(productsList) 
-                    // dispatch({ type: 'PRODUCTS_LIST', payload: prodList })
-                   
-                
                 }}
             >
 

@@ -24,10 +24,10 @@ export const AppNavigator = () => (
                 // backgroundColor: '#00000',
                 width: 200,
             }} >
-            <Drawer.Screen name="SortScreen" component={sortScr} />
             
             <Drawer.Screen name="MainScreen" component={mainScr} />
             <Drawer.Screen name={MENU_ITEM[0]} component={categoryScr} />
+            <Drawer.Screen name="SortScreen" component={sortScr} />
             
             
             <Drawer.Screen name="MenuScreen" component={menuScr} />

@@ -8,6 +8,8 @@ import { WINDOW_WIDTH } from './../constants/otherConst';
 
 import { getMainListCategory, getListCategory } from './../api/category/catView';
 import { getProductsList } from './../api/products/products';
+import { sortBySwitch } from './../api/sort';
+import { clone } from './../api/clone';
 
 
 
@@ -19,6 +21,7 @@ export default function categoryScr(props) {
     let dataCat;
     let catList = state.categoryListRdc.categoryList;
     let viewList = state.viewListCatRdc.viewListCat;
+   
     // console.log("viewList", viewList);
     useEffect(() => {
         dataCat = getMainListCategory(catList);
@@ -39,6 +42,7 @@ export default function categoryScr(props) {
                             getProductsList(item.categoryID, state.sessionSidRdc.sessionSid, dispatch)
                                 .then((productsList) => {
                                     console.log("getProductsList => ", productsList);
+                                    productsList = sortBySwitch(productsList, clone(state.sortSwitchArrRdc.sortSwitchArr));
                                     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
 
                                 })

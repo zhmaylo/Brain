@@ -14,7 +14,7 @@ import { devStub } from './../api/dev';
 import { SpinerСmp } from '../components/SpinerCmp';
 
 import { ListProdCmp } from '../components/ListProdCmp';
-import { buttonSort } from './../api/header/sort';
+import { sortBySwitch } from './../api/sort';
 
 
 let i = 0;
@@ -41,8 +41,8 @@ export default function mainScr(props) {
 
                 getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
                     console.log("getProductsList => ", productsList);
-                    productsList = buttonSort(productsList, state.sortListProdRdc.sortListProd);
-
+                    // productsList = buttonSort(productsList, state.sortSwitchArrRdc.sortSwitchArr);
+                    productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);
                     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
                     dispatch({ type: 'CATEGORY_LIST', payload: data });
                     dispatch({ type: 'IS_APP_INIT', payload: true });
@@ -59,6 +59,7 @@ export default function mainScr(props) {
 
     // console.log(getMainCategory(categoryFromFile));
     // console.log("state.isAppInitRdc.isAppInit", state.isAppInitRdc.isAppInit);
+  
 
     if ((state.statusResponseRdc.statusResponse.code !== -1) &&
         (state.statusResponseRdc.statusResponse.code !== undefined))
