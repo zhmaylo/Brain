@@ -1,0 +1,299 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for api/products/products.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">api/products</a> products.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">8.82% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>3/34</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/4</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/5</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">10% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>3/30</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+import { URL_GET_PRODUCTS } from "../../constants/urlConst";
+import { middleWareFetch } from './../fetch/middleWareFetch';
+import { OFFSET, LIMIT } from './../../constants/productsConst';
+import { argMiddle } from './../argMiddle';
+&nbsp;
+// getProductsList - returns products list of a specified category from server. JSON-format.
+// categoryID - "id" produtcts category
+// sidAndTime - session SID and TimeStamp 
+// dispatch - this is callback
+export const getProductsList = <span class="fstat-no" title="function not covered" >as</span>ync (categoryID, sidAndTime, dispatch) =&gt; {
+    let json = <span class="cstat-no" title="statement not covered" >[],</span> offset = <span class="cstat-no" title="statement not covered" >0,</span> arrTemp = <span class="cstat-no" title="statement not covered" >0,</span> result;
+    
+<span class="cstat-no" title="statement not covered" >    argMiddle.requestUrl = URL_GET_PRODUCTS + categoryID + '/';</span>
+<span class="cstat-no" title="statement not covered" >    argMiddle.sidAndTime = sidAndTime;</span>
+<span class="cstat-no" title="statement not covered" >    argMiddle.dispatch = dispatch;</span>
+<span class="cstat-no" title="statement not covered" >    dispatch({ type: 'SPINER_TOGGLE', payload: true });</span>
+<span class="cstat-no" title="statement not covered" >    do {</span>
+<span class="cstat-no" title="statement not covered" >        argMiddle.params = '?offset=' + offset+'&amp;limit='+LIMIT;</span>
+        // console.log("getProductsList.offset =&gt;", offset);
+<span class="cstat-no" title="statement not covered" >        arrTemp = await middleWareFetch(argMiddle);</span>
+       
+<span class="cstat-no" title="statement not covered" >        result = await arrTemp.json.result;</span>
+<span class="cstat-no" title="statement not covered" >        argMiddle.sidAndTime = arrTemp.sidAndTime;</span>
+<span class="cstat-no" title="statement not covered" >        removeProductAbsence(result.list).forEach(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >json.push(item))</span>;</span>
+       
+<span class="cstat-no" title="statement not covered" >        offset += OFFSET;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        console.log("getProductsList.result.count =&gt;", result.count);</span>
+<span class="cstat-no" title="statement not covered" >        console.log("getProductsList.json.length =&gt;", json.length);</span>
+        
+        // console.log("getProductsList.arrTemp.json.length =&gt;", json.length);
+<span class="cstat-no" title="statement not covered" >        dispatch({ type: 'SPINER_VOLUME', payload: offset });</span>
+<span class="cstat-no" title="statement not covered" >        dispatch({ type: 'SPINER_MAX', payload: result.count });</span>
+&nbsp;
+    } while (offset &lt;= result.count); //json.result.length)
+<span class="cstat-no" title="statement not covered" >    dispatch({ type: 'SPINER_VOLUME', payload: 0 });</span>
+<span class="cstat-no" title="statement not covered" >    dispatch({ type: 'SPINER_TOGGLE', payload: false });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    console.log("getProductsList=&gt;", json);</span>
+<span class="cstat-no" title="statement not covered" >    return json;</span>
+}
+&nbsp;
+// removeProductAbsence - remove product absence
+// data - entering array
+// arr - compressed array
+export const removeProductAbsence = <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
+    // console.log("removeProductAbsence. data =&gt;", data);
+    let arr=<span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >    data.forEach(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (item.stocks_expected.length != 0) <span class="cstat-no" title="statement not covered" >arr.push(item);</span></span>
+    });
+    // console.log("removeProductAbsence. arr =&gt;", arr);
+<span class="cstat-no" title="statement not covered" >    return arr;</span>
+}
+&nbsp;
+// setSizeListProd - set size view list products (pagination)
+// currSize - current size view list of products
+// stepPagin - step pagination
+// maxSize - lenght list of products
+export const setSizeListProd = <span class="fstat-no" title="function not covered" >(c</span>urrSize, stepPagin, maxSize) =&gt; {
+    // console.log("setSizeListProd. currSize =&gt;", currSize);
+    // console.log("setSizeListProd. maxSize =&gt;", cumaxSizerrSize);
+<span class="cstat-no" title="statement not covered" >    currSize+=stepPagin;</span>
+<span class="cstat-no" title="statement not covered" >    (currSize&gt;=maxSize) &amp;&amp; (currSize=maxSize);</span>
+    // console.log("setSizeListProd. newSize =&gt;", newSize);
+<span class="cstat-no" title="statement not covered" >    return currSize;</span>
+}
+&nbsp;
+&nbsp;
+// let json = await middleWareFetch( 'https://api.brain.com.ua/filters_all/'+categoryID+'/', null, sidAndTime, filterID, dispatch);
+// let filterID = "?filterID='a'";
+// let filterID ='?sortby=articul&amp;order=desc&amp;offset=0'';
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
+                at Tue Aug 25 2020 20:14:03 GMT+0300 (Восточная Европа, летнее время)
+            </div>
+        </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-around",
+      "margin": 1,
+      "padding": 5,
+    }
+  }
+  width={750}
+>
+  <Image
+    source={
+      Object {
+        "uri": undefined,
+      }
+    }
+    style={
+      Object {
+        "height": 444.6666666666667,
+        "resizeMode": "contain",
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+     
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "700",
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+     грн 
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+        "paddingHorizontal": 5,
+      }
+    }
+  >
+    Гарантия: 
+    мec.
+     
+    ID: 
+     
+  </Text>
+</View>
+`;

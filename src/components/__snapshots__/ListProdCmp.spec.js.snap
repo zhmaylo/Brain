@@ -113,17 +113,6 @@ exports[`renders correctly 1`] = `
               }
             }
           >
-            41681
-             
-          </Text>
-          <Text
-            style={
-              Object {
-                "fontSize": 16,
-                "paddingHorizontal": 5,
-              }
-            }
-          >
             Накопитель SSD 2.5" 120GB Kingston (SV300S37A/120G)
              
           </Text>
@@ -138,6 +127,22 @@ exports[`renders correctly 1`] = `
           >
             666.00
              грн 
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "paddingHorizontal": 5,
+              }
+            }
+          >
+            Гарантия: 
+            36
+            мec.
+             
+            ID: 
+            41681
+             
           </Text>
         </View>
       </View>
