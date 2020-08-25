@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1598375645891" clover="3.2.0">
-  <project timestamp="1598375645891" name="All files">
-    <metrics statements="191" coveredstatements="162" conditionals="34" coveredconditionals="29" methods="39" coveredmethods="33" elements="264" coveredelements="224" complexity="0" loc="191" ncloc="191" packages="8" files="23" classes="23"/>
+<coverage generated="1598383153787" clover="3.2.0">
+  <project timestamp="1598383153787" name="All files">
+    <metrics statements="206" coveredstatements="173" conditionals="34" coveredconditionals="29" methods="43" coveredmethods="34" elements="283" coveredelements="236" complexity="0" loc="206" ncloc="206" packages="9" files="29" classes="29"/>
     <package name="api">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="argMiddle.js" path="D:\Java\Brain\my-app\src\api\argMiddle.js">
@@ -207,9 +207,9 @@
       </file>
       <file name="ProductCardCmp.js" path="D:\Java\Brain\my-app\src\components\ProductCardCmp.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
       </file>
       <file name="SpinerCmp.js" path="D:\Java\Brain\my-app\src\components\SpinerCmp.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -218,13 +218,26 @@
         <line num="22" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="components.header">
+      <metrics statements="7" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <file name="HeaderCmp.js" path="D:\Java\Brain\my-app\src\components\header\HeaderCmp.js">
+        <metrics statements="7" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="constants">
-      <metrics statements="31" coveredstatements="31" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+      <metrics statements="35" coveredstatements="35" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
       <file name="ProductCardConst.js" path="D:\Java\Brain\my-app\src\constants\ProductCardConst.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
       </file>
       <file name="authorizConst.js" path="D:\Java\Brain\my-app\src\constants\authorizConst.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -247,21 +260,28 @@
         <line num="8" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
       </file>
+      <file name="headerConst.js" path="D:\Java\Brain\my-app\src\constants\headerConst.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
       <file name="otherConst.js" path="D:\Java\Brain\my-app\src\constants\otherConst.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
       </file>
-      <file name="productsConst.js" path="D:\Java\Brain\src\constants\productsConst.js">
+      <file name="productsConst.js" path="D:\Java\Brain\my-app\src\constants\productsConst.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="6" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
       </file>
-      <file name="productsJSON.js" path="D:\Java\Brain\src\constants\productsJSON.js">
+      <file name="productsJSON.js" path="D:\Java\Brain\my-app\src\constants\productsJSON.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="10" count="1" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
       </file>
       <file name="spinerConst.js" path="D:\Java\Brain\my-app\src\constants\spinerConst.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -280,7 +300,23 @@
       </file>
     </package>
     <package name="icons">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="back.png" path="D:\Java\Brain\my-app\src\icons\back.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="filter.png" path="D:\Java\Brain\my-app\src\icons\filter.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="menu.png" path="D:\Java\Brain\my-app\src\icons\menu.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="sort-amount-up-alt-solid.png" path="D:\Java\Brain\my-app\src\icons\sort-amount-up-alt-solid.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
       <file name="spinner.gif" path="D:\Java\Brain\my-app\src\icons\spinner.gif">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
