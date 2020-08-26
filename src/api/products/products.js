@@ -19,7 +19,8 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
         argMiddle.params = '?offset=' + offset+'&limit='+LIMIT;
         // console.log("getProductsList.offset =>", offset);
         arrTemp = await middleWareFetch(argMiddle);
-       
+        console.log("getProductsList.arrTemp =>", arrTemp);
+
         result = await arrTemp.json.result;
         argMiddle.sidAndTime = arrTemp.sidAndTime;
         removeProductAbsence(result.list).forEach((item) => json.push(item));

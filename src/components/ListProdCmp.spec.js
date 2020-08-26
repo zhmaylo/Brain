@@ -1,4 +1,4 @@
-
+import React from 'react';
 import renderer from 'react-test-renderer';
 import { ListProdCmp } from './ListProdCmp';
 import {PRODUCTS_FROM_FILE} from '../constants/productsJSON';
