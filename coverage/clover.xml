@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1598436668209" clover="3.2.0">
-  <project timestamp="1598436668209" name="All files">
-    <metrics statements="191" coveredstatements="162" conditionals="34" coveredconditionals="29" methods="39" coveredmethods="33" elements="264" coveredelements="224" complexity="0" loc="191" ncloc="191" packages="8" files="23" classes="23"/>
+<coverage generated="1598532284009" clover="3.2.0">
+  <project timestamp="1598532284009" name="All files">
+    <metrics statements="187" coveredstatements="172" conditionals="34" coveredconditionals="29" methods="39" coveredmethods="34" elements="260" coveredelements="235" complexity="0" loc="187" ncloc="187" packages="8" files="23" classes="23"/>
     <package name="api">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="argMiddle.js" path="D:\Java\Brain\src\api\argMiddle.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="4" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
       </file>
     </package>
     <package name="api.category">
@@ -90,86 +90,82 @@
       </file>
     </package>
     <package name="api.fetch">
-      <metrics statements="31" coveredstatements="31" conditionals="14" coveredconditionals="14" methods="4" coveredmethods="4"/>
+      <metrics statements="30" coveredstatements="30" conditionals="14" coveredconditionals="14" methods="4" coveredmethods="4"/>
       <file name="fetchData.js" path="D:\Java\Brain\src\api\fetch\fetchData.js">
-        <metrics statements="14" coveredstatements="14" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
-        <line num="10" count="11" type="stmt"/>
-        <line num="11" count="11" type="stmt"/>
-        <line num="12" count="11" type="stmt"/>
-        <line num="13" count="11" type="stmt"/>
-        <line num="17" count="11" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="13" coveredstatements="13" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="11" count="12" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="17" count="12" type="cond" truecount="2" falsecount="0"/>
         <line num="18" count="7" type="stmt"/>
-        <line num="21" count="11" type="stmt"/>
-        <line num="22" count="11" type="stmt"/>
+        <line num="21" count="12" type="stmt"/>
+        <line num="22" count="12" type="stmt"/>
         <line num="26" count="10" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="39" count="5" type="stmt"/>
-        <line num="41" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="39" count="6" type="stmt"/>
+        <line num="41" count="12" type="cond" truecount="2" falsecount="0"/>
         <line num="43" count="3" type="stmt"/>
-        <line num="44" count="11" type="stmt"/>
+        <line num="44" count="12" type="stmt"/>
       </file>
       <file name="middleWareFetch.js" path="D:\Java\Brain\src\api\fetch\middleWareFetch.js">
         <metrics statements="17" coveredstatements="17" conditionals="9" coveredconditionals="9" methods="2" coveredmethods="2"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
-        <line num="22" count="4" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
-        <line num="29" count="5" type="cond" truecount="5" falsecount="0"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="24" count="6" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="29" count="6" type="cond" truecount="5" falsecount="0"/>
         <line num="30" count="2" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="38" count="4" type="stmt"/>
-        <line num="47" count="8" type="stmt"/>
-        <line num="48" count="8" type="stmt"/>
-        <line num="49" count="8" type="cond" truecount="4" falsecount="0"/>
-        <line num="50" count="4" type="stmt"/>
-        <line num="54" count="4" type="stmt"/>
-        <line num="60" count="8" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
+        <line num="47" count="9" type="stmt"/>
+        <line num="48" count="9" type="stmt"/>
+        <line num="49" count="9" type="cond" truecount="4" falsecount="0"/>
+        <line num="50" count="5" type="stmt"/>
+        <line num="54" count="5" type="stmt"/>
+        <line num="60" count="9" type="stmt"/>
       </file>
     </package>
     <package name="api.products">
-      <metrics statements="30" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <metrics statements="27" coveredstatements="14" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="1"/>
       <file name="products.js" path="D:\Java\Brain\src\api\products\products.js">
-        <metrics statements="30" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
+        <metrics statements="27" coveredstatements="14" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="67" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="68" count="0" type="stmt"/>
       </file>
     </package>
     <package name="api.sid">
       <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="sid.js" path="D:\Java\Brain\src\api\sid\sid.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="9" count="5" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="3" type="stmt"/>
         <line num="18" count="3" type="stmt"/>
@@ -179,10 +175,10 @@
       </file>
       <file name="timeStamp.js" path="D:\Java\Brain\src\api\sid\timeStamp.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="7" count="6" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
-        <line num="14" count="6" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
         <line num="16" count="4" type="stmt"/>
       </file>
     </package>
@@ -228,11 +224,11 @@
       </file>
       <file name="authorizConst.js" path="D:\Java\Brain\src\constants\authorizConst.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="6" count="5" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
-        <line num="10" count="5" type="stmt"/>
-        <line num="11" count="5" type="stmt"/>
-        <line num="13" count="5" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
       </file>
       <file name="categoryConst.js" path="D:\Java\Brain\src\constants\categoryConst.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -243,9 +239,9 @@
       </file>
       <file name="errorConst.js" path="D:\Java\Brain\src\constants\errorConst.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
       </file>
       <file name="otherConst.js" path="D:\Java\Brain\src\constants\otherConst.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -254,10 +250,10 @@
       </file>
       <file name="productsConst.js" path="D:\Java\Brain\src\constants\productsConst.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
       </file>
       <file name="productsJSON.js" path="D:\Java\Brain\src\constants\productsJSON.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -270,13 +266,13 @@
       </file>
       <file name="urlConst.js" path="D:\Java\Brain\src\constants\urlConst.js">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
-        <line num="9" count="5" type="cond" truecount="1" falsecount="1"/>
-        <line num="12" count="5" type="stmt"/>
-        <line num="14" count="5" type="stmt"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="26" count="5" type="stmt"/>
-        <line num="30" count="5" type="stmt"/>
-        <line num="35" count="5" type="stmt"/>
+        <line num="9" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="35" count="6" type="stmt"/>
       </file>
     </package>
     <package name="icons">

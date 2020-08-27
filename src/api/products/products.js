@@ -19,7 +19,7 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
         argMiddle.params = '?offset=' + offset+'&limit='+LIMIT;
         // console.log("getProductsList.offset =>", offset);
         arrTemp = await middleWareFetch(argMiddle);
-        console.log("getProductsList.arrTemp =>", arrTemp);
+        // console.log("getProductsList.arrTemp =>", arrTemp);
 
         result = await arrTemp.json.result;
         argMiddle.sidAndTime = arrTemp.sidAndTime;
@@ -27,8 +27,8 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
        
         offset += OFFSET;
 
-        console.log("getProductsList.result.count =>", result.count);
-        console.log("getProductsList.json.length =>", json.length);
+        // console.log("getProductsList.result.count =>", result.count);
+        // console.log("getProductsList.json.length =>", json.length);
         
         // console.log("getProductsList.arrTemp.json.length =>", json.length);
         dispatch({ type: 'SPINER_VOLUME', payload: offset });
@@ -38,7 +38,7 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
     dispatch({ type: 'SPINER_VOLUME', payload: 0 });
     dispatch({ type: 'SPINER_TOGGLE', payload: false });
 
-    console.log("getProductsList=>", json);
+    // console.log("getProductsList=>", json);
     return json;
 }
 

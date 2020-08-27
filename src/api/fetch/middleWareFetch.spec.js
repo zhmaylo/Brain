@@ -27,7 +27,7 @@ test('"middleWareFetch" request GET, complete => ', async () => {
     fetch.mockReturnValue(Promise.resolve(new Response(json)));
 
     const data = await middleWareFetch(argMiddle);
-    console.log("Test middleWareFetch. data", data);
+    // console.log("Test middleWareFetch. data", data);
 
     expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_CATEGORY + sidAndTime.sid);
     expect(data.json.status).toBe(1);
