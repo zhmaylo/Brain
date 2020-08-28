@@ -24,7 +24,15 @@ export const STEP_PAGIN_PROD = 10;
 // End. Section 'products list - pagination'
 /////////////////////////////
 
-
+/////////////////////////////
+// Start. Section 'product card' - description
+//
+export const WARANTY_HOME = 'Гарантия: ';
+export const WARANTY_END = 'мec.';
+export const ID_HOME = 'ID: ';
+//
+// End. Section 'product card - description'
+/////////////////////////////
 
 
 

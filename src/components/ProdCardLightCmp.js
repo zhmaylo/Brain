@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../constants/otherConst';
-import { WARANTY_HOME, WARANTY_END, ID_HOME } from './../constants/ProductCardConst';
+import { WARANTY_HOME, WARANTY_END, ID_HOME } from '../constants/productsConst';
 
 
 // product card
-export const ProductCardCmp = ({ item, numCol }) => {
+export const ProdCardLightCmp = ({ item, numCol }) => {
     // console.log("ProductsCardCmp=>item", item);
     // console.log("ProductsCardCmp=>item.small_image", item.small_image);
     return (

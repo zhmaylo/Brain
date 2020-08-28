@@ -3,7 +3,7 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../constants/otherConst';
 import { BORDER_PAGIN_PROD, STEP_PAGIN_PROD } from '../constants/productsConst';
 import { setSizeListProd } from '../api/products/products';
-import { ProductCardCmp } from './ProductCardCmp';
+import { ProdCardLightCmp } from './ProdCardLightCmp';
 
 // current list size 
 let currSize=1;
@@ -20,7 +20,7 @@ export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch }
                 numColumns={numCollumns}
                 horizontal={false}
                 data={productList.slice(0,currSize)}
-                renderItem={({ item }) => <ProductCardCmp item={item} numCol={numCollumns} />}
+                renderItem={({ item }) => <ProdCardLightCmp item={item} numCol={numCollumns} />}
                 keyExtractor={item => item.productID + numCollumns}
                 key={numCollumns}
                 onEndReached={() => {

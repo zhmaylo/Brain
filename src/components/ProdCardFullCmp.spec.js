@@ -1,7 +1,7 @@
 
 import renderer from 'react-test-renderer';
 import {PRODUCTS_FROM_FILE} from '../constants/productsJSON';
-import { ProductCardCmp } from './ProductCardCmp';
+import { ProdCardFullCmp } from './ProdCardFullCmp';
 
 
 let item = PRODUCTS_FROM_FILE[0].result.list;
@@ -9,7 +9,7 @@ let item = PRODUCTS_FROM_FILE[0].result.list;
 test('renders correctly', () => {
     
     const tree = renderer.create(
-        ProductCardCmp({
+        ProdCardFullCmp({
                 item : item,
                 numCol : 1 }
         ))

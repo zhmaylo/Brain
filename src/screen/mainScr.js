@@ -18,8 +18,8 @@ import { sortBySwitch } from './../api/sort';
 
 
 let i = 0;
-// const devMode = true;
-const devMode = false;
+const devMode = true;
+// const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -55,7 +55,7 @@ export default function mainScr(props) {
     }, [!state.isAppInitRdc.isAppInit]);
 
     // console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
-    console.log('mainScr. state', state);
+    // console.log('mainScr. state', state);
 
     // console.log(getMainCategory(categoryFromFile));
     // console.log("state.isAppInitRdc.isAppInit", state.isAppInitRdc.isAppInit);

@@ -12,9 +12,9 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
     argMiddle.sidAndTime = sidAndTime;
     argMiddle.dispatch = dispatch
     
-    console.log("getCategoryList. sidAndTime => ", sidAndTime)
+    // console.log("getCategoryList. sidAndTime => ", sidAndTime)
     let json = await middleWareFetch(argMiddle);
-    console.log("getCategoryList, argMiddle", json);
+    // console.log("getCategoryList, argMiddle", json);
     json = await json.json.result;
     json = await sortListbyName(json);
     // console.log("getCategoryList=>", json);

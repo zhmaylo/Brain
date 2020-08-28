@@ -43,7 +43,8 @@ test('"getProductsList" returns products list of a specified category from serve
                 "count": 3
             }
         }];
-        // console.log('json.result.list[0] => ', json[0]);
+
+        // console.log('json2.result.list[0] => ', json2);
 
         let listOut = [{
             "result": {
@@ -54,13 +55,17 @@ test('"getProductsList" returns products list of a specified category from serve
             }
         }];
 
-        console.log('Test getProductsList. result', json.result.list[0] );
+        // console.log('Test getProductsList. result', json.result.list[0] );
 
         // let data;
         fetch.mockReturnValue(Promise.resolve(new Response(json)));
-        let data = await (getProductsList(1235, sidAndTime, dispatch));
-        console.log('data=>', data);
-        expect(data).toMatchObject(listOut);
-        expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_PRODUCTS + '1235/11helsfokhm2d475ennf4em1p1?offset=0&limit=1000');
+        getProductsList(1235, sidAndTime, dispatch, json).then((productsList) => {
+            let data = productsList;
+            console.log('data=>', data);
+            expect(data).toMatchObject(listOut);
+        })
+        expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_PRODUCTS +
+            '1235/11helsfokhm2d475ennf4em1p1?offset=0&limit=1000');
+
     });
 
