@@ -1,19 +1,19 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Image } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../constants/otherConst';
-import { WARANTY_HOME, WARANTY_END, ID_HOME } from '../constants/ProductCardConst';
+import { WARANTY_HOME, WARANTY_END, ID_HOME } from '../constants/productsConst';
 
 
 // product card
-export const ProdCardFullCmp = ({ item, numCol }) => {
+export const ProdCardFullCmp = (item, numCol) => {
     // console.log("ProdCardFullCmp=>item", item);
+    console.log("ProdCardFullCmp.item.retail_price_uah=> ", item.retail_price_uah);
     // console.log("ProdCardFullCmp=>item.small_image", item.small_image);
-    return (
-        <TouchableOpacity
-            onPress={() => { props.navigation.toggleDrawer() }}
-        >
 
-            <View width={WINDOW_WIDTH / numCol} style={styles.itemProd} >
+    return (
+
+        <View width={WINDOW_WIDTH / numCol} style={styles.itemProd} >
+         
                 <Image
                     style={styles.image}
                     source={{ uri: (item.large_image) }}
@@ -23,9 +23,9 @@ export const ProdCardFullCmp = ({ item, numCol }) => {
                 <Text style={styles.textName}>{item.name} </Text>
                 <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
                 <Text style={styles.textName}>{WARANTY_HOME}{item.warranty}{WARANTY_END} {ID_HOME}{item.productID} </Text>
+      
+        </View >
 
-            </View>
-        </TouchableOpacity>
     )
 }
 

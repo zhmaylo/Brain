@@ -14662,6 +14662,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rn-popup@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/rn-popup/-/rn-popup-1.0.4.tgz#701da75fc8bea447095f04d9106865f48f11b0d6"
+  integrity sha1-cB2nX8i+pEcJXwTZEGhl9I8RsNY=
+
 router-ips@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/router-ips/-/router-ips-1.0.0.tgz#44e00858ebebc0133d58e40b2cd8a1fbb04203f5"
