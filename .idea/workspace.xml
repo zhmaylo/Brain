@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b86c83ec-bd9b-4f62-94b0-e5a15c20732d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProdCardLightCmp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProdCardLightCmp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/__snapshots__/ListProdCmp.spec.js.snap" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/__snapshots__/ListProdCmp.spec.js.snap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/__snapshots__/ProdCardFullCmp.spec.js.snap" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/__snapshots__/ProdCardFullCmp.spec.js.snap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/__snapshots__/ProdCardLightCmp.spec.js.snap" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/__snapshots__/ProdCardLightCmp.spec.js.snap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/HeaderBackCmp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/HeaderBackCmp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/HeaderCmp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/HeaderCmp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/categoryConst.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/categoryConst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/menuConst.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/menuConst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/categoryScr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/categoryScr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/mainScr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/mainScr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screen/sortScr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/sortScr.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1gmdz0LJj88w0AIlirMZdvdLyHd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b86c83ec-bd9b-4f62-94b0-e5a15c20732d" name="Default Changelist" comment="" />
+      <created>1598723967760</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598723967760</updated>
+    </task>
+    <servers />
+  </component>
+</project>

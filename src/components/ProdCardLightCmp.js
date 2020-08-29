@@ -10,7 +10,7 @@ export const ProdCardLightCmp = ( item, numCol ) => {
     // console.log("ProductsCardCmp=>item", item);
     // console.log("ProductsCardCmp=>item.small_image", item.small_image);
     return (
-        <View width={WINDOW_WIDTH / numCol} style={styles.itemProd} >
+        <View style={styles.itemProd} width={WINDOW_WIDTH / numCol} >
             <TouchableOpacity
                 onPress={() => ProdCardFullCmp (item, numCol)}
                 
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         margin: 1,
         padding: 5,
+        
 
 
     },

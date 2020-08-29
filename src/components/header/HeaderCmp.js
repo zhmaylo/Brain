@@ -5,13 +5,15 @@ import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from '../../c
 
 // import { MenuSortCmp } from './MenuSortCmp';
 // import { SORT_BUTTON_PRESS } from '../../reducers/sortListProdRdc';
+import { CATEG_SCR } from './../../constants/menuConst';
 
 export const HeaderCmp = ( props ) => {
 
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                onPress={() => { props.navigation.toggleDrawer() }}
+                onPress={() => { props.navigation.navigate(CATEG_SCR)}}
+                // onPress={() => { props.navigation.toggleDrawer() }}
             >
                 <Image
                     style={styles.menuImage}

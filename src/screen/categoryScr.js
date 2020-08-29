@@ -10,9 +10,7 @@ import { getMainListCategory, getListCategory } from './../api/category/catView'
 import { getProductsList } from './../api/products/products';
 import { sortBySwitch } from './../api/sort';
 import { clone } from './../api/clone';
-
-
-
+import { HeaderBack } from './../components/header/HeaderBackCmp';
 
 
 export default function categoryScr(props) {
@@ -21,7 +19,7 @@ export default function categoryScr(props) {
     let dataCat;
     let catList = state.categoryListRdc.categoryList;
     let viewList = state.viewListCatRdc.viewListCat;
-   
+
     // console.log("viewList", viewList);
     useEffect(() => {
         dataCat = getMainListCategory(catList);
@@ -30,8 +28,7 @@ export default function categoryScr(props) {
 
     const ItemCat = ({ item }) => {
         return (
-            <View>
-
+            <View >
                 <TouchableOpacity style={styles.item}
                     onPress={() => {
 
@@ -70,7 +67,8 @@ export default function categoryScr(props) {
         return (
 
             <View style={styles.container}>
-
+                {/* <HeaderBack props={props} headerName={CATEG_HEADER_TITLE} /> */}
+                <HeaderBack props={props} headerName=""/>
                 <FlatList
                     numColumns={NUM_COLUMN}
                     horizontal={false}
@@ -80,6 +78,7 @@ export default function categoryScr(props) {
                     renderItem={({ item }) => <ItemCat item={item} />}
                     keyExtractor={item => item.categoryID + ""}
                 />
+                {/* <FooterBack props={props} headerName={CATEG_HEADER_TITLE} /> */}
             </View>
         )
     }
@@ -94,7 +93,8 @@ export default function categoryScr(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        // backgroundColor: 'white',
+        backgroundColor: "#F0F0F0",
         justifyContent: "flex-start"
     },
     item: {
@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
 
+        backgroundColor: 'white',
         width: WINDOW_WIDTH - 5,
         height: 50,
 

@@ -90,60 +90,79 @@ exports[`renders correctly 1`] = `
               "padding": 5,
             }
           }
-          width={750}
+          width={NaN}
         >
-          <Image
-            source={
-              Object {
-                "uri": "http://opt.brain.com.ua/static/images/prod_img/4/1/U0033541_big.jpg",
-              }
-            }
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "height": 444.6666666666667,
-                "resizeMode": "contain",
-              }
-            }
-          />
-          <Text
-            style={
-              Object {
-                "fontSize": 16,
-                "paddingHorizontal": 5,
+                "opacity": 1,
               }
             }
           >
-            Накопитель SSD 2.5" 120GB Kingston (SV300S37A/120G)
-             
-          </Text>
-          <Text
-            style={
-              Object {
-                "fontSize": 16,
-                "fontWeight": "700",
-                "paddingHorizontal": 5,
-              }
-            }
-          >
-            666.00
-             грн 
-          </Text>
-          <Text
-            style={
-              Object {
-                "fontSize": 16,
-                "paddingHorizontal": 5,
-              }
-            }
-          >
-            Гарантия: 
-            36
-            мec.
-             
-            ID: 
-            41681
-             
-          </Text>
+            <View>
+              <Image
+                source={
+                  Object {
+                    "uri": "http://opt.brain.com.ua/static/images/prod_img/4/1/U0033541_big.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 444.6666666666667,
+                    "resizeMode": "contain",
+                  }
+                }
+              />
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "paddingHorizontal": 5,
+                  }
+                }
+              >
+                Накопитель SSD 2.5" 120GB Kingston (SV300S37A/120G)
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "700",
+                    "paddingHorizontal": 5,
+                  }
+                }
+              >
+                666.00
+                 грн 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 16,
+                    "paddingHorizontal": 5,
+                  }
+                }
+              >
+                Гарантия: 
+                36
+                мec.
+                 
+                ID: 
+                41681
+                 
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
     </View>

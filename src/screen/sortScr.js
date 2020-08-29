@@ -37,7 +37,8 @@ export default function sortScr(props) {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
+        {/* <SafeAreaView style={styles.container}> */}
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={SORT_HEADER_TITLE} />
             <View style={styles.item} >
@@ -49,7 +50,8 @@ export default function sortScr(props) {
                 />
             </View>
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
-        </SafeAreaView>
+        {/* </SafeAreaView> */}
+        </View>
     );
 }
 
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#F0F0F0",
-        paddingTop: 10,
+       
         width: WINDOW_WIDTH,
     },
 

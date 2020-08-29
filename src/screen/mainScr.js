@@ -18,8 +18,8 @@ import { sortBySwitch } from './../api/sort';
 
 
 let i = 0;
-const devMode = true;
-// const devMode = false;
+// const devMode = true;
+const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -69,11 +69,11 @@ export default function mainScr(props) {
         if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false))
             return (
 
-                <SafeAreaView style={styles.container}>
-                {/* <View style={styles.container}> */}
+                // <SafeAreaView style={styles.container}>
+                <View style={styles.container}> 
                         <StatusBar hidden={true} />
 
-                        {HeaderCmp(props)}
+                        {/* {HeaderCmp(props)} */}
                         {/* <MenuSortCmp 
                         sortButtonPress={state.sortButtonPressRdc.sortButtonPress} dispatch={dispatch} /> */}
 
@@ -102,11 +102,11 @@ export default function mainScr(props) {
                     title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
                 /> */}
 
-                        {FooterCmp(props.navigation.toggleDrawer, state, dispatch)}
+                        {/* {FooterCmp(props.navigation.toggleDrawer, state, dispatch)} */}
             
 
-                {/* </View> */}
-                </SafeAreaView>
+                </View>
+                // </SafeAreaView>
 
             );
         else return (

@@ -12,55 +12,74 @@ exports[`renders correctly 1`] = `
       "padding": 5,
     }
   }
-  width={750}
+  width={NaN}
 >
-  <Image
-    source={
-      Object {
-        "uri": undefined,
-      }
-    }
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "height": 444.6666666666667,
-        "resizeMode": "contain",
-      }
-    }
-  />
-  <Text
-    style={
-      Object {
-        "fontSize": 16,
-        "paddingHorizontal": 5,
+        "opacity": 1,
       }
     }
   >
-     
-  </Text>
-  <Text
-    style={
-      Object {
-        "fontSize": 16,
-        "fontWeight": "700",
-        "paddingHorizontal": 5,
-      }
-    }
-  >
-     грн 
-  </Text>
-  <Text
-    style={
-      Object {
-        "fontSize": 16,
-        "paddingHorizontal": 5,
-      }
-    }
-  >
-    Гарантия: 
-    мec.
-     
-    ID: 
-     
-  </Text>
+    <View>
+      <Image
+        source={
+          Object {
+            "uri": undefined,
+          }
+        }
+        style={
+          Object {
+            "height": 444.6666666666667,
+            "resizeMode": "contain",
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "paddingHorizontal": 5,
+          }
+        }
+      >
+         
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "fontWeight": "700",
+            "paddingHorizontal": 5,
+          }
+        }
+      >
+         грн 
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 16,
+            "paddingHorizontal": 5,
+          }
+        }
+      >
+        Гарантия: 
+        мec.
+         
+        ID: 
+         
+      </Text>
+    </View>
+  </View>
 </View>
 `;
