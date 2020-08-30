@@ -4,11 +4,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import mainScr from "../screen/mainScr";
-import menuScr from "../screen/menuScr";
-import findScr from "../screen/findScr";
-import configScr from "../screen/configScr";
-import basketScr from "../screen/basketScr";
-import { CATEG_SCR, SORT_SCR, PROD_SCR, MAIN_SCR } from './../constants/menuConst';
+// import menuScr from "../screen/menuScr";
+// import findScr from "../screen/findScr";
+// import configScr from "../screen/configScr";
+// import basketScr from "../screen/basketScr";
+import { CATEG_SCR, SORT_SCR, PROD_SCR, MAIN_SCR } from '../constants/appNavigatorConst';
 import categoryScr from './../screen/categoryScr';
 import sortScr from './../screen/sortScr';
 import prodScr from './../screen/prodScr';
@@ -32,10 +32,10 @@ export const AppNavigator = () => (
             <Drawer.Screen name={PROD_SCR} component={prodScr} />
 
 
-            <Drawer.Screen name="MenuScreen" component={menuScr} />
+            {/* <Drawer.Screen name="MenuScreen" component={menuScr} />
             <Drawer.Screen name="FindScreen" component={findScr} />
             <Drawer.Screen name="ConfigScreen" component={configScr} />
-            <Drawer.Screen name="BasketScreen" component={basketScr} />
+            <Drawer.Screen name="BasketScreen" component={basketScr} /> */}
 
         </Drawer.Navigator>
     </NavigationContainer>

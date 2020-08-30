@@ -5,14 +5,15 @@ import { WARANTY_HOME, WARANTY_END, ID_HOME } from '../constants/productsConst';
 
 
 // product card
-export const ProdCardFullCmp = (item, numCol) => {
-    // console.log("ProdCardFullCmp=>item", item);
-    console.log("ProdCardFullCmp.item.retail_price_uah=> ", item.retail_price_uah);
+export const ProdCardFullCmp = ({item} ) => {
+    
+    console.log("ProdCardFullCmp=>item", item);
+    // console.log("ProdCardFullCmp.item.retail_price_uah=> ", item.retail_price_uah);
     // console.log("ProdCardFullCmp=>item.small_image", item.small_image);
 
     return (
 
-        <View width={WINDOW_WIDTH / numCol} style={styles.itemProd} >
+        <View style={styles.itemProd} >
          
                 <Image
                     style={styles.image}

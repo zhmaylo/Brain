@@ -90,7 +90,6 @@ exports[`renders correctly 1`] = `
               "padding": 5,
             }
           }
-          width={NaN}
         >
           <View
             accessible={true}
@@ -117,7 +116,7 @@ exports[`renders correctly 1`] = `
                 }
                 style={
                   Object {
-                    "height": 444.6666666666667,
+                    "height": 266.8,
                     "resizeMode": "contain",
                   }
                 }
@@ -125,7 +124,7 @@ exports[`renders correctly 1`] = `
               <Text
                 style={
                   Object {
-                    "fontSize": 16,
+                    "fontSize": 14,
                     "paddingHorizontal": 5,
                   }
                 }
@@ -148,7 +147,7 @@ exports[`renders correctly 1`] = `
               <Text
                 style={
                   Object {
-                    "fontSize": 16,
+                    "fontSize": 12,
                     "paddingHorizontal": 5,
                   }
                 }

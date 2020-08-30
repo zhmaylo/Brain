@@ -17,7 +17,7 @@ export const getSid = async (dispatch) => {
 
     sidAndTime = setTimeStampToSid(sidAndTime);
     await dispatch({ type: 'SESSION_SID', payload: sidAndTime });
-    console.log("getSid. sidAndTime 2 (into IF) =>", sidAndTime);    
+    // console.log("getSid. sidAndTime 2 (into IF) =>", sidAndTime);    
 
     return sidAndTime;
 }

@@ -5,7 +5,7 @@ import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from '../../c
 
 // import { MenuSortCmp } from './MenuSortCmp';
 // import { SORT_BUTTON_PRESS } from '../../reducers/sortListProdRdc';
-import { CATEG_SCR } from './../../constants/menuConst';
+import { CATEG_SCR } from '../../constants/appNavigatorConst';
 
 export const HeaderCmp = ( props ) => {
 

@@ -1,6 +1,6 @@
 
 import React, { useContext, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, SafeAreaView } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
 import { NUM_COLUMN, SIGN_DEEP } from './../constants/categoryConst';
@@ -28,7 +28,7 @@ export default function categoryScr(props) {
 
     const ItemCat = ({ item }) => {
         return (
-            <View >
+            <SafeAreaView>
                 <TouchableOpacity style={styles.item}
                     onPress={() => {
 
@@ -56,7 +56,7 @@ export default function categoryScr(props) {
 
                 </TouchableOpacity>
 
-            </View>
+            </SafeAreaView>
         );
     }
 

@@ -11,6 +11,7 @@ import { numColumProdRdc } from './numColumProdRdc';
 import { spinerToggleRdc, spinerVolumeRdc, spinerMaxRdc } from './spinerRdc';
 import { sortSwitchArrRdc } from './sortListProdRdc';
 import { SORT_SWITCHES_ARR } from '../constants/sortConst';
+import { prodCurrentRdc } from './prodCurrentRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -77,8 +78,16 @@ export const initialState = {
     //Start. Sort list
     sortSwitchArrRdc: {
         sortSwitchArr: SORT_SWITCHES_ARR
-    }
+    },
     //End. Sort list
+    ////////////////////////////////
+
+    ////////////////////////////////
+    //Start. Product current
+    prodCurrentRdc: {
+        prodCurrent: []
+    }
+    //End. Product current
     ////////////////////////////////
 
 
@@ -114,6 +123,12 @@ export const unionRdc = combineReducers(
         //Start. Sort list
         sortSwitchArrRdc: sortSwitchArrRdc,
         //End. Sort list
+        ////////////////////////////////
+        
+        ////////////////////////////////
+        //Start. Product current
+        prodCurrentRdc: prodCurrentRdc,
+        //End. Product current
         ////////////////////////////////
 
         isAppInitRdc: isAppInitRdc,

@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Brain" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b86c83ec-bd9b-4f62-94b0-e5a15c20732d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/my-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my-app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppNavigator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProdCardLightCmp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProdCardLightCmp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/__snapshots__/ListProdCmp.spec.js.snap" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/__snapshots__/ListProdCmp.spec.js.snap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/__snapshots__/ProdCardFullCmp.spec.js.snap" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/__snapshots__/ProdCardFullCmp.spec.js.snap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/__snapshots__/ProdCardLightCmp.spec.js.snap" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/__snapshots__/ProdCardLightCmp.spec.js.snap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/HeaderBackCmp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/HeaderBackCmp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/HeaderCmp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/HeaderCmp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/categoryConst.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/categoryConst.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/menuConst.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/menuConst.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/categoryScr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/categoryScr.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screen/mainScr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/mainScr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screen/sortScr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screen/sortScr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,7 +48,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b86c83ec-bd9b-4f62-94b0-e5a15c20732d" name="Default Changelist" comment="" />
@@ -45,5 +60,23 @@
       <updated>1598723967760</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="501" y="184" key="SettingsEditor" timestamp="1598785403320">
+      <screen x="81" y="0" width="1839" height="1080" />
+    </state>
+    <state x="501" y="184" key="SettingsEditor/81.0.1839.1080/-1600.104.1600.860@81.0.1839.1080" timestamp="1598785403320" />
   </component>
 </project>

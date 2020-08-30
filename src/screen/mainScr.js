@@ -18,8 +18,8 @@ import { sortBySwitch } from './../api/sort';
 
 
 let i = 0;
-// const devMode = true;
-const devMode = false;
+const devMode = true;
+// const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -68,47 +68,42 @@ export default function mainScr(props) {
     else
         if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false))
             return (
-
-                // <SafeAreaView style={styles.container}>
-                <View style={styles.container}> 
+                <SafeAreaView style={styles.container}>
                         <StatusBar hidden={true} />
-
-                        {/* {HeaderCmp(props)} */}
-                        {/* <MenuSortCmp 
-                        sortButtonPress={state.sortButtonPressRdc.sortButtonPress} dispatch={dispatch} /> */}
+                        {HeaderCmp(props)}
+                        {/* <MenuSortCmp sortButtonPress={state.sortButtonPressRdc.sortButtonPress} dispatch={dispatch} /> */}
 
                         <ListProdCmp productList={state.productsListRdc.productsList}
                             numCollumns={state.numColumProdRdc.numColumProd}
                             currSizeList={state.sizeListProdRdc.sizeListProd}
                             dispatch={dispatch}
+                            props={props}
                         />
+                   {FooterCmp(props.navigation.toggleDrawer, state, dispatch)}
+                </SafeAreaView>
+            );
+
+//                        /* <Button
+//                        // onPress={() => props.navigation.navigate('MenuScreen')}
+//                        onPress={() => props.navigation.toggleDrawer()}
+//                        title="MenuScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+//                    /> */
+//                        {/* <Button
+//                    onPress={() => props.navigation.navigate('FindScreen')}
+//                    title="FindScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+//                />
+//                <Button
+//                    onPress={() => props.navigation.navigate('ConfigScreen')}
+//                    title="ConfigScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+//                />
+//                <Button
+//                    onPress={() => props.navigation.navigate('BasketScreen')}
+//                    title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+//                /> */}
 
 
-                        {/* <Button
-                        // onPress={() => props.navigation.navigate('MenuScreen')}
-                        onPress={() => props.navigation.toggleDrawer()}
-                        title="MenuScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-                    /> */}
-                        {/* <Button
-                    onPress={() => props.navigation.navigate('FindScreen')}
-                    title="FindScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-                />
-                <Button
-                    onPress={() => props.navigation.navigate('ConfigScreen')}
-                    title="ConfigScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-                />
-                <Button
-                    onPress={() => props.navigation.navigate('BasketScreen')}
-                    title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-                /> */}
-
-                        {/* {FooterCmp(props.navigation.toggleDrawer, state, dispatch)} */}
-            
-
-                </View>
                 // </SafeAreaView>
 
-            );
         else return (
             <View style={styles.container}>
                 <SpinerСmp volume={state.spinerVolumeRdc.spinerVolume}
