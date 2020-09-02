@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
         justifyContent: "space-evenly",
         alignItems: "flex-end",
         width: WINDOW_WIDTH,
-        paddingTop: 15,
-        // paddingVertical: 3,
+        // paddingTop: 10,
+        paddingVertical: 10,
         paddingHorizontal: 3,
         opacity: 0.8
     },

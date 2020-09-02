@@ -28,6 +28,10 @@
       "package": "com.yourcompany.yourappname",
       "versionCode": 1
     },
-    "description": ""
+    "description": "my-app",
+        
+    "androidNavigationBar": {
+      "visible": "immersive"
+    }
   }
 }

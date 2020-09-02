@@ -18,19 +18,14 @@ const Drawer = createDrawerNavigator();
 export const AppNavigator = () => (
 
     <NavigationContainer>
-        {/* <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />} > */}
-        {/* {console.log("Drawer.Navigator")}     */}
         <Drawer.Navigator
-            drawerStyle={{
-                // backgroundColor: '#00000',
-                width: 200,
-            }} >
-
+            drawerStyle = {{width: 100}}
+            screenOptions={{swipeEnabled: false}}
+        >
             <Drawer.Screen name={MAIN_SCR} component={mainScr} />
             <Drawer.Screen name={CATEG_SCR} component={categoryScr} />
             <Drawer.Screen name={SORT_SCR} component={sortScr} />
             <Drawer.Screen name={PROD_SCR} component={prodScr} />
-
 
             {/* <Drawer.Screen name="MenuScreen" component={menuScr} />
             <Drawer.Screen name="FindScreen" component={findScr} />

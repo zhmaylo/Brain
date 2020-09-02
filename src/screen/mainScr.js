@@ -59,7 +59,6 @@ export default function mainScr(props) {
 
     // console.log(getMainCategory(categoryFromFile));
     // console.log("state.isAppInitRdc.isAppInit", state.isAppInitRdc.isAppInit);
-  
 
     if ((state.statusResponseRdc.statusResponse.code !== -1) &&
         (state.statusResponseRdc.statusResponse.code !== undefined))
@@ -101,8 +100,6 @@ export default function mainScr(props) {
 //                    title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
 //                /> */}
 
-
-                // </SafeAreaView>
 
         else return (
             <View style={styles.container}>
