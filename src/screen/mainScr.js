@@ -43,9 +43,9 @@ export default function mainScr(props) {
                     console.log("getProductsList => ", productsList);
                     // productsList = buttonSort(productsList, state.sortSwitchArrRdc.sortSwitchArr);
                     productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);
-                    dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
-                    dispatch({ type: 'CATEGORY_LIST', payload: data });
-                    dispatch({ type: 'IS_APP_INIT', payload: true });
+                    dispatch({ type: PRODUCTS_LIST, payload: productsList });
+                    dispatch({ type: CATEGORY_LIST, payload: data });
+                    dispatch({ type: IS_APP_INIT, payload: true });
                 });
             })
             i++;
@@ -115,6 +115,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         // backgroundColor: '#fff',
+        
+        paddingTop: 10,
+    },
+    
+    spiner: {
+        flex: 1,
+        backgroundColor: '#fff',
         
         paddingTop: 10,
     },

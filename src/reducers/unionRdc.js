@@ -8,7 +8,7 @@ import { NO_ERRORS } from './../constants/errorConst';
 import { categoryListRdc, viewListCatRdc } from './categoryListRdc';
 import { productsListRdc, sizeListProdRdc } from './productsListRdc';
 import { numColumProdRdc } from './numColumProdRdc';
-import { spinerToggleRdc, spinerVolumeRdc, spinerMaxRdc } from './spinerRdc';
+import { spinerToggleRdc } from './spinerRdc';
 import { sortSwitchArrRdc } from './sortListProdRdc';
 import { SORT_SWITCHES_ARR } from '../constants/sortConst';
 import { prodCurrentRdc } from './prodCurrentRdc';
@@ -63,14 +63,6 @@ export const initialState = {
     spinerToggleRdc: {
         spinerToggle: false
     },
-
-    spinerVolumeRdc: {
-        spinerVolume: 0
-    },
-
-    spinerMaxRdc: {
-        spinerMax: 100
-    },
     //End. Spiner
     ////////////////////////////////
 
@@ -107,8 +99,6 @@ export const unionRdc = combineReducers(
         ////////////////////////////////
         //Start. Spiner
         spinerToggleRdc: spinerToggleRdc,
-        spinerVolumeRdc: spinerVolumeRdc,
-        spinerMaxRdc: spinerMaxRdc,
         //End. Spiner
         ////////////////////////////////
 

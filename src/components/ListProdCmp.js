@@ -29,7 +29,7 @@ export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, 
                     dispatch({ type: 'SIZE_LIST_PROD', payload: currSize });
                     // console.log("currSize pagination => ", currSize);
                 }}
-                onEndReachedThreshold={BORDER_PAGIN_PROD}
+                onEndReachedThreshold={2}
                 refreshing={true}
             />
         </View>

@@ -20,6 +20,7 @@ export const AppNavigator = () => (
     <NavigationContainer>
         <Drawer.Navigator
             drawerStyle = {{width: 100}}
+            //turn off menu
             screenOptions={{swipeEnabled: false}}
         >
             <Drawer.Screen name={MAIN_SCR} component={mainScr} />

@@ -3,6 +3,7 @@ import { URL_GET_PRODUCTS } from "../../constants/urlConst";
 import { middleWareFetch } from './../fetch/middleWareFetch';
 import { OFFSET, LIMIT } from './../../constants/productsConst';
 import { argMiddle } from './../argMiddle';
+import { SPINER_TOGGLE } from "../../reducers/spinerRdc";
 
 // getProductsList - returns products list of a specified category from server. JSON-format.
 // categoryID - "id" produtcts category
@@ -14,7 +15,7 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
     argMiddle.requestUrl = URL_GET_PRODUCTS + categoryID + '/';
     argMiddle.sidAndTime = sidAndTime;
     argMiddle.dispatch = dispatch;
-    dispatch({ type: 'SPINER_TOGGLE', payload: true });
+    dispatch({ type: SPINER_TOGGLE, payload: true });
     do {
         argMiddle.params = '?offset=' + offset+'&limit='+LIMIT;
         // console.log("getProductsList.offset =>", offset);
@@ -31,12 +32,10 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
         // console.log("getProductsList.json.length =>", json.length);
         
         // console.log("getProductsList.arrTemp.json.length =>", json.length);
-        dispatch({ type: 'SPINER_VOLUME', payload: offset });
-        dispatch({ type: 'SPINER_MAX', payload: result.count });
 
     } while (offset <= result.count); //json.result.length)
-    dispatch({ type: 'SPINER_VOLUME', payload: 0 });
-    dispatch({ type: 'SPINER_TOGGLE', payload: false });
+    
+    dispatch({ type: SPINER_TOGGLE, payload: false });
 
     // console.log("getProductsList=>", json);
     return json;

@@ -1,9 +1,9 @@
 
 // categories list (JSON format)
-const  CATEGORY_LIST = 'CATEGORY_LIST';
+export const  CATEGORY_LIST = 'CATEGORY_LIST';
 //
 // view categories list (JSON format)
-const  VIEW_LIST_CAT  = 'VIEW_LIST_CAT';
+export const  VIEW_LIST_CAT  = 'VIEW_LIST_CAT';
 //
 
 //loads product data from the server into State

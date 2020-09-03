@@ -5,7 +5,7 @@ import { SPINER_GIF, SPINER_MES } from './../constants/spinerConst';
 // spinner component
 // volume - current spiner volume
 // max - max spiner volume
-export const SpinerСmp = ({volume, max}) => {
+export const SpinerСmp = () => {
     // console.log("SpinerСmp. volume => ", volume);
     // console.log("SpinerСmp. max => ", max);
     return (
@@ -15,7 +15,6 @@ export const SpinerСmp = ({volume, max}) => {
                 source={SPINER_GIF}
             />
             <Text>{SPINER_MES}</Text>
-            <Text> {~~((volume * 100) / max)}% / 100%</Text>
         </View>)
 }
 

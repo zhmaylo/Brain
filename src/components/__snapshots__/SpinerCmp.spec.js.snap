@@ -27,10 +27,5 @@ exports[`renders correctly 1`] = `
   <Text>
     Загрузка...
   </Text>
-  <Text>
-     
-    0
-    % / 100%
-  </Text>
 </View>
 `;
