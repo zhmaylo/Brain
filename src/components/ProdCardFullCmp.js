@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, Image } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../constants/otherConst';
 import { WARANTY_HOME, WARANTY_END, ID_HOME } from '../constants/productsConst';
 import { ScrollView } from 'react-native-gesture-handler';
-import { PROD_NAME } from './../constants/productsConst';
+import { PROD_NAME, PROD_DESCRIPT } from './../constants/productsConst';
 
 
 // product card
@@ -21,19 +21,16 @@ export const ProdCardFullCmp = ({ item }) => {
             <Image
                 style={styles.image}
                 source={{ uri: (item.large_image) }}
-            // source={require('./../icons/basket.png')}
-
             />
+            <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
+            <Text style={styles.textName}>{''} </Text>
             <Text style={styles.textHeader}>{PROD_NAME} </Text>
             <Text style={styles.textName}>{item.name} </Text>
-            <Text style={styles.PROD_DESCRIPT}>{PROD_DESCRIPT} </Text>
             <Text style={styles.textName}>{''} </Text>
+            <Text style={styles.textHeader}>{PROD_DESCRIPT} </Text>
             <Text style={styles.textName}>{item.brief_description} </Text>
             <Text style={styles.textName}>{''} </Text>
-            <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
             <Text style={styles.textName}>{WARANTY_HOME}{item.warranty}{WARANTY_END} {ID_HOME}{item.productID} </Text>
-
-            {/* </View >  */}
         </ScrollView>
 
     )
