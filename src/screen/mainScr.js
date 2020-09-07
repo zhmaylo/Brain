@@ -103,9 +103,7 @@ export default function mainScr(props) {
 
         else return (
             <View style={styles.container}>
-                <SpinerСmp volume={state.spinerVolumeRdc.spinerVolume}
-                    max={state.spinerMaxRdc.spinerMax}
-                />
+                <SpinerСmp/>
             </View>
         )
 

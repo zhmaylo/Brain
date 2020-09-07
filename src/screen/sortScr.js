@@ -27,13 +27,14 @@ export default function sortScr(props) {
         // prepare switch array 
         predState.forEach((item) =>  (item.switchOn) && (item.switchOn = false));
         predState[item.id].switchOn = item.switchOn;
-
+        dispatch({ type: item.sortNameRdc, payload: predState });
+        
         // start. sorting products
         let productsList = sortBySwitch(clone(state.productsListRdc.productsList), clone(predState));
         dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
         // end. sorting products
 
-        dispatch({ type: item.sortNameRdc, payload: predState });
+        
     }
 
     return (

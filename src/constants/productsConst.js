@@ -27,10 +27,12 @@ export const STEP_PAGIN_PROD = 10;
 /////////////////////////////
 // Start. Section 'product card' - description
 //
+export const PROD_NAME = 'Наименование: ';
+export const PROD_DESCRIPT = 'Описание: ';
+
 export const WARANTY_HOME = 'Гарантия: ';
 export const WARANTY_END = 'мec.';
 export const ID_HOME = 'ID: ';
-
 // header name 
 export const PROD_HEADER_TITLE = 'Детально';
 
