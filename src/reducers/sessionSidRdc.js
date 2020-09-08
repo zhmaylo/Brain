@@ -1,6 +1,6 @@
 
 // SID session 
-const  SESSION_SID  = 'SESSION_SID';
+export const  SESSION_SID  = 'SESSION_SID';
 //
 
 const sessionSidRdc = (state = false, action) => {

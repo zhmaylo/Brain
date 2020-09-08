@@ -8,18 +8,17 @@ import { HeaderCmp } from '../components/header/HeaderCmp';
 import { FooterCmp } from './../components/footer/FooterCmp';
 import { setFieldIsChildren } from './../api/category/symbChildren';
 import { getProductsList } from './../api/products/products';
-
 import { devStub } from './../api/dev';
-
 import { SpinerСmp } from '../components/SpinerCmp';
-
 import { ListProdCmp } from '../components/ListProdCmp';
 import { sortBySwitch } from './../api/sort';
-
+import { PRODUCTS_LIST } from '../reducers/productsListRdc';
+import { CATEGORY_LIST } from '../reducers/categoryListRdc';
+import { IS_APP_INIT } from './../reducers/isAppInitRdc';
 
 let i = 0;
-const devMode = true;
-// const devMode = false;
+// const devMode = true;
+const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -39,7 +38,7 @@ export default function mainScr(props) {
                 data = addFieldChildren(data);
                 data = setFieldIsChildren(data);
 
-                getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
+                getProductsList(1403, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
                     console.log("getProductsList => ", productsList);
                     // productsList = buttonSort(productsList, state.sortSwitchArrRdc.sortSwitchArr);
                     productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);

@@ -4,7 +4,7 @@ import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../constants/otherConst';
 import { BORDER_PAGIN_PROD, STEP_PAGIN_PROD } from '../constants/productsConst';
 import { setSizeListProd } from '../api/products/products';
 import { ProdCardLightCmp } from './ProdCardLightCmp';
-import { PROD_SCR } from '../constants/appNavigatorConst';
+
 
 // current list size 
 let currSize=1;

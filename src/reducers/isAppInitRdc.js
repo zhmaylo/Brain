@@ -1,6 +1,6 @@
 
 // application initialization flag
-const IS_APP_INIT = 'IS_APP_INIT';
+export const IS_APP_INIT = 'IS_APP_INIT';
 //
 
 const isAppInitRdc = (state = false, action) => {

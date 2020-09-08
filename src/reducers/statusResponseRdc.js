@@ -1,5 +1,5 @@
 // status response (error/ok)
-const  STATUS_RESPONSE = 'STATUS_RESPONSE';
+export const  STATUS_RESPONSE = 'STATUS_RESPONSE';
 //
 
 const statusResponseRdc = (state = false, action) => {

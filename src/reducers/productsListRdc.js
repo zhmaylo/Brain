@@ -1,9 +1,9 @@
 
 // products list (JSON format)
-const  PRODUCTS_LIST = 'PRODUCTS_LIST';
+export const  PRODUCTS_LIST = 'PRODUCTS_LIST';
 //
 // size view list products
-const  SIZE_LIST_PROD = 'SIZE_LIST_PROD';
+export const  SIZE_LIST_PROD = 'SIZE_LIST_PROD';
 //
 
 //loads products list from the server into State

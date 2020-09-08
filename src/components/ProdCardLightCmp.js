@@ -2,7 +2,6 @@ import React from 'react';
 import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import { WINDOW_HEIGHT } from '../constants/otherConst';
 import { WARANTY_HOME, WARANTY_END, ID_HOME } from '../constants/productsConst';
-import { ProdCardFullCmp } from './ProdCardFullCmp';
 import { PROD_SCR } from '../constants/appNavigatorConst';
 import { PROD_CURR } from '../reducers/prodCurrentRdc';
 
