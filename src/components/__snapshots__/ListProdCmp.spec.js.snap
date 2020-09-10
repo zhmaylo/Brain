@@ -156,6 +156,18 @@ exports[`renders correctly 1`] = `
                 36
                 мec.
                  
+                Код: 
+                U0033541
+                 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 12,
+                    "paddingHorizontal": 5,
+                  }
+                }
+              >
                 ID: 
                 41681
                  

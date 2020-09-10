@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import { WINDOW_HEIGHT } from '../constants/otherConst';
-import { WARANTY_HOME, WARANTY_END, ID_HOME } from '../constants/productsConst';
+import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../constants/productsConst';
 import { PROD_SCR } from '../constants/appNavigatorConst';
 import { PROD_CURR } from '../reducers/prodCurrentRdc';
 
@@ -24,7 +24,8 @@ export const ProdCardLightCmp = ({item, props, dispatch}) => {
                     />
                     <Text style={styles.textName}>{item.name} </Text>
                     <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
-                    <Text style={styles.text_warranty}>{WARANTY_HOME}{item.warranty}{WARANTY_END} {ID_HOME}{item.productID} </Text>
+                    <Text style={styles.text_warranty}>{WARANTY_HOME}{item.warranty}{WARANTY_END} {CODE_HOME}{item.product_code} </Text>
+                    <Text style={styles.text_warranty}>{ID_HOME}{item.productID} </Text>
                 </View>
             </TouchableOpacity>
         </View>

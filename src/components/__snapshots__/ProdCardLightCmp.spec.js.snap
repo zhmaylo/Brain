@@ -75,6 +75,17 @@ exports[`renders correctly 1`] = `
         Гарантия: 
         мec.
          
+        Код: 
+         
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 12,
+            "paddingHorizontal": 5,
+          }
+        }
+      >
         ID: 
          
       </Text>

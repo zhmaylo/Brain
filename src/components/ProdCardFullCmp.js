@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../constants/otherConst';
-import { WARANTY_HOME, WARANTY_END, ID_HOME } from '../constants/productsConst';
+import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../constants/productsConst';
 import { ScrollView } from 'react-native-gesture-handler';
 import { PROD_NAME, PROD_DESCRIPT } from './../constants/productsConst';
 
@@ -30,7 +30,8 @@ export const ProdCardFullCmp = ({ item }) => {
             <Text style={styles.textHeader}>{PROD_DESCRIPT} </Text>
             <Text style={styles.textName}>{item.brief_description} </Text>
             <Text style={styles.textName}>{''} </Text>
-            <Text style={styles.textName}>{WARANTY_HOME}{item.warranty}{WARANTY_END} {ID_HOME}{item.productID} </Text>
+            <Text style={styles.textName}>{WARANTY_HOME}{item.warranty}{WARANTY_END} {CODE_HOME}{item.product_code} </Text>
+            <Text style={styles.textName}>{ID_HOME}{item.productID} </Text>
         </ScrollView>
 
     )

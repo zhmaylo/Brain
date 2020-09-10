@@ -33,6 +33,7 @@ export const PROD_DESCRIPT = 'Описание: ';
 export const WARANTY_HOME = 'Гарантия: ';
 export const WARANTY_END = 'мec.';
 export const ID_HOME = 'ID: ';
+export const CODE_HOME = 'Код: ';
 // header name 
 export const PROD_HEADER_TITLE = 'Детально';
 
