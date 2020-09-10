@@ -9,6 +9,7 @@ import { PROD_NAME, PROD_DESCRIPT } from './../constants/productsConst';
 // product card
 export const ProdCardFullCmp = ({ item }) => {
 
+
     // console.log("ProdCardFullCmp=>item", item);
     // console.log("ProdCardFullCmp.item.retail_price_uah=> ", item.retail_price_uah);
     // console.log("ProdCardFullCmp=>item.small_image", item.small_image);

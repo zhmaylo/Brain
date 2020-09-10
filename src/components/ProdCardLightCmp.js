@@ -4,6 +4,7 @@ import { WINDOW_HEIGHT } from '../constants/otherConst';
 import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../constants/productsConst';
 import { PROD_SCR } from '../constants/appNavigatorConst';
 import { PROD_CURR } from '../reducers/prodCurrentRdc';
+import { getProdImg } from './../api/products/prodImg';
 
 // product card
 export const ProdCardLightCmp = ({item, props, dispatch}) => {
@@ -15,6 +16,7 @@ export const ProdCardLightCmp = ({item, props, dispatch}) => {
             <TouchableOpacity
                 onPress={() =>  {
                 dispatch({ type: PROD_CURR, payload: item});
+                
                 props.navigation.navigate(PROD_SCR)}}
             >
                 <View>

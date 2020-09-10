@@ -14,6 +14,7 @@ export const getProdImg = async (productID, sidAndTime, dispatch) => {
     argMiddle.requestUrl = URL_GET_PROD_IMG + productID + '/';
     argMiddle.sidAndTime = sidAndTime;
     argMiddle.dispatch = dispatch;
+    argMiddle.params = '';
     // dispatch({ type: SPINER_TOGGLE, payload: true });
          
         
