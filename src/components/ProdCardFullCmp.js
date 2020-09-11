@@ -4,13 +4,15 @@ import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../constants/otherConst';
 import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../constants/productsConst';
 import { ScrollView } from 'react-native-gesture-handler';
 import { PROD_NAME, PROD_DESCRIPT } from './../constants/productsConst';
+import { SLiderBoxCmp } from './SliderBoxCmp';
+import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
 
 
 // product card
-export const ProdCardFullCmp = ({ item }) => {
+export const ProdCardFullCmp = ( item ) => {
+    item=PRODUCTS_FROM_FILE[0].result.list[0];
 
-
-    // console.log("ProdCardFullCmp=>item", item);
+    console.log("ProdCardFullCmp=>item", item);
     // console.log("ProdCardFullCmp.item.retail_price_uah=> ", item.retail_price_uah);
     // console.log("ProdCardFullCmp=>item.small_image", item.small_image);
 
