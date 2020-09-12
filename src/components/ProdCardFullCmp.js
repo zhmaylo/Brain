@@ -4,7 +4,7 @@ import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../constants/otherConst';
 import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../constants/productsConst';
 import { ScrollView } from 'react-native-gesture-handler';
 import { PROD_NAME, PROD_DESCRIPT } from './../constants/productsConst';
-import { SLiderBoxCmp } from './SliderBoxCmp';
+
 import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
 
 

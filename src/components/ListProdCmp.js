@@ -31,6 +31,9 @@ export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, 
                 }}
                 onEndReachedThreshold={2}
                 refreshing={true}
+
+                // viewabilityConfig={viewAreaCoveragePercentThreshold: 100, teamVisiblePercentThreshold: '100'}
+                
             />
         </View>
     );

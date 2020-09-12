@@ -17,8 +17,8 @@ import { CATEGORY_LIST } from '../reducers/categoryListRdc';
 import { IS_APP_INIT } from './../reducers/isAppInitRdc';
 
 let i = 0;
-// const devMode = true;
-const devMode = false;
+const devMode = true;
+// const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);

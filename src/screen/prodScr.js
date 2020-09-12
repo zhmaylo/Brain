@@ -7,7 +7,7 @@ import { FooterBack } from './../components/footer/FooterBackCmp';
 import { FOOTER_BACK_TITLE } from './../constants/footerBackConst';
 import { PROD_HEADER_TITLE } from '../constants/productsConst';
 import { getProdImg } from './../api/products/prodImg';
-import { SLiderBoxCmp } from './../components/SliderBoxCmp';
+import { SwiperBoxCmp } from './../components/SwiperBoxCmp';
 
 
 
@@ -21,7 +21,7 @@ export default function prodScr(props) {
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={PROD_HEADER_TITLE} />
             <View style={styles.item} >
-                <SLiderBoxCmp />
+                <SwiperBoxCmp />
                 <ProdCardFullCmp item={state.prodCurrentRdc.prodCurrent} />
             </View>
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
