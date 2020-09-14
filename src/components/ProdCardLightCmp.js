@@ -3,21 +3,28 @@ import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import { WINDOW_HEIGHT } from '../constants/otherConst';
 import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../constants/productsConst';
 import { PROD_SCR } from '../constants/appNavigatorConst';
-import { PROD_CURR } from '../reducers/prodCurrentRdc';
-import { getProdImg } from './../api/products/prodImg';
+import { PROD_CURR_DESCRIPTION, PROD_CURR_IMAGES } from '../reducers/prodCurrentRdc';
+import { prodImgLoad } from './../api/products/prodImgLoad';
 
 // product card
-export const ProdCardLightCmp = ({item, props, dispatch}) => {
+export const ProdCardLightCmp = ({ item, props, sidAndTime, dispatch }) => {
     // console.log("ProductsCardLightCmp=>props", props);
     // console.log("ProductsCardCmp=>item", item);
     // console.log("ProductsCardCmp=>item.small_image", item.small_image);
     return (
         <View style={styles.itemProd}>
             <TouchableOpacity
-                onPress={() =>  {
-                dispatch({ type: PROD_CURR, payload: item});
-                
-                props.navigation.navigate(PROD_SCR)}}
+                onPress={() => {
+                    dispatch({ type: PROD_CURR_DESCRIPTION, payload: item });
+                    console.log('ProdCardLightCmp.item=> ', item);
+                    prodImgLoad(item.productID, sidAndTime, dispatch).then(currImages => {
+                        dispatch({ type: PROD_CURR_IMAGES, payload: currImages });
+                        console.log('ProdCardLightCmp.currImg=> ', currImages);
+                        props.navigation.navigate(PROD_SCR);
+                    });
+                    
+                    
+                }}
             >
                 <View>
                     <Image

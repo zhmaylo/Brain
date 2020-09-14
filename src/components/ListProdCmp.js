@@ -10,7 +10,7 @@ import { ProdCardLightCmp } from './ProdCardLightCmp';
 let currSize=1;
 
 // view list products
-export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, props }) => {
+export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, sidAndTime, props }) => {
     // console.log("ListProdCmp.productList => ", productList);
     // console.log("ListProdCmp.numCollumns => ", numCollumns);
     return (
@@ -20,7 +20,7 @@ export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, 
                 horizontal={false}
                 data={productList.slice(0,currSize)}
                 // renderItem={({ item }) => console.log('props=> ', props)}
-                renderItem={({ item }) =>(<ProdCardLightCmp item={item} props={props} dispatch={dispatch} />)}
+                renderItem={({ item }) =>(<ProdCardLightCmp item={item} props={props} dispatch={dispatch} sidAndTime = {sidAndTime} />)}
                 keyExtractor={item => item.productID + numCollumns}
                 key={numCollumns}
                 onEndReached={() => {

@@ -6,25 +6,20 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { PROD_NAME, PROD_DESCRIPT } from './../constants/productsConst';
 
 import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
+import { SwiperBoxCmp } from './SwiperBoxCmp';
 
 
 // product card
-export const ProdCardFullCmp = ( item ) => {
-    item=PRODUCTS_FROM_FILE[0].result.list[0];
-
-    console.log("ProdCardFullCmp=>item", item);
-    // console.log("ProdCardFullCmp.item.retail_price_uah=> ", item.retail_price_uah);
-    // console.log("ProdCardFullCmp=>item.small_image", item.small_image);
+export const ProdCardFullCmp = ({item, currImages} ) => {
+    
+    // console.log("ProdCardFullCmp=>item", item);
+    // console.log("ProdCardFullCmp=>currImages", currImages);
 
     return (
 
-        // <View style={styles.itemProd} >
         <ScrollView style={styles.itemProd} >
+            <SwiperBoxCmp style={styles.swipe} currImages={currImages}/>
 
-            <Image
-                style={styles.image}
-                source={{ uri: (item.large_image) }}
-            />
             <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
             <Text style={styles.textName}>{''} </Text>
             <Text style={styles.textHeader}>{PROD_NAME} </Text>
@@ -73,5 +68,11 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "700",
         paddingHorizontal: 5,
-    }
+    },
+
+    swipe: {
+        flex: 1,
+        // flexDirection: "column",
+        backgroundColor: "white",
+    },
 })

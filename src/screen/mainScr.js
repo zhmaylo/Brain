@@ -74,6 +74,7 @@ export default function mainScr(props) {
                         <ListProdCmp productList={state.productsListRdc.productsList}
                             numCollumns={state.numColumProdRdc.numColumProd}
                             currSizeList={state.sizeListProdRdc.sizeListProd}
+                            sidAndTime={state.sessionSidRdc.sessionSid }
                             dispatch={dispatch}
                             props={props}
                         />

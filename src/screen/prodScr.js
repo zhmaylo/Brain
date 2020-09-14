@@ -6,23 +6,25 @@ import { HeaderBack } from './../components/header/HeaderBackCmp';
 import { FooterBack } from './../components/footer/FooterBackCmp';
 import { FOOTER_BACK_TITLE } from './../constants/footerBackConst';
 import { PROD_HEADER_TITLE } from '../constants/productsConst';
-import { getProdImg } from './../api/products/prodImg';
+import { getProdImg } from '../api/products/prodImgLoad';
 import { SwiperBoxCmp } from './../components/SwiperBoxCmp';
 
 
 
 export default function prodScr(props) {
-    // console.log('prodScr');
     const { state, dispatch } = useContext(ContextApp);
-    // getProdImg(state.prodCurrentRdc.prodCurrent.productID, state.sessionSidRdc.sessionSid, dispatch);
-
+    // console.log('prodScr.state.prodCurrentRdc.prodCurrentDescription=> ', state.prodCurrentRdc.prodCurrentDescription);
+    console.log('prodScr.state.prodCurrentRdc.prodCurrentImages=> ', state.prodCurrentRdc.prodCurrentImages);
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={PROD_HEADER_TITLE} />
             <View style={styles.item} >
-                <SwiperBoxCmp />
-                <ProdCardFullCmp item={state.prodCurrentRdc.prodCurrent} />
+
+                <ProdCardFullCmp
+                    item={state.prodCurrentRdc.prodCurrentDescription}
+                    currImages={state.prodCurrentRdc.prodCurrentImages}
+                />
             </View>
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
         </SafeAreaView>
@@ -41,4 +43,5 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor: "white",
     },
+
 });

@@ -77,7 +77,8 @@ export const initialState = {
     ////////////////////////////////
     //Start. Product current
     prodCurrentRdc: {
-        prodCurrent: []
+        prodCurrentDescription: [],
+        prodCurrentImages: []
     }
     //End. Product current
     ////////////////////////////////
