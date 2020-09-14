@@ -5,6 +5,7 @@ import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../constants/prod
 import { PROD_SCR } from '../constants/appNavigatorConst';
 import { PROD_CURR_DESCRIPTION, PROD_CURR_IMAGES } from '../reducers/prodCurrentRdc';
 import { prodImgLoad } from './../api/products/prodImgLoad';
+import { SPINER_TOGGLE } from '../reducers/spinerRdc';
 
 // product card
 export const ProdCardLightCmp = ({ item, props, sidAndTime, dispatch }) => {
@@ -15,15 +16,15 @@ export const ProdCardLightCmp = ({ item, props, sidAndTime, dispatch }) => {
         <View style={styles.itemProd}>
             <TouchableOpacity
                 onPress={() => {
+                    dispatch({ type: SPINER_TOGGLE, payload: true });
                     dispatch({ type: PROD_CURR_DESCRIPTION, payload: item });
                     console.log('ProdCardLightCmp.item=> ', item);
                     prodImgLoad(item.productID, sidAndTime, dispatch).then(currImages => {
                         dispatch({ type: PROD_CURR_IMAGES, payload: currImages });
                         console.log('ProdCardLightCmp.currImg=> ', currImages);
-                        props.navigation.navigate(PROD_SCR);
-                    });
-                    
-                    
+                        dispatch({ type: SPINER_TOGGLE, payload: false });
+                    })
+                    props.navigation.navigate(PROD_SCR);
                 }}
             >
                 <View>

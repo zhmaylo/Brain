@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image, } from 'react-native';
+import { View, StyleSheet, Text, Image, ActivityIndicator } from 'react-native';
 import { SPINER_GIF, SPINER_MES } from './../constants/spinerConst';
 
 // spinner component
@@ -10,10 +10,7 @@ export const SpinerСmp = () => {
     // console.log("SpinerСmp. max => ", max);
     return (
         <View style={styles.container}>
-            <Image
-                style={styles.image}
-                source={SPINER_GIF}
-            />
+            <ActivityIndicator size="large" color="#000000" />
             <Text>{SPINER_MES}</Text>
         </View>)
 }
@@ -24,10 +21,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: "center",
         alignItems: "center",
-    },
-    image: {
-        width: 30,
-        height: 30,
     },
 
 })

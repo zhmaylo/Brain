@@ -1,20 +1,23 @@
 import React, { useContext } from 'react';
-import { Button, StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native';
+import { StyleSheet, View, SafeAreaView, StatusBar } from 'react-native';
 import { ProdCardFullCmp } from './../components/ProdCardFullCmp';
 import { ContextApp } from '../reducers/unionRdc';
 import { HeaderBack } from './../components/header/HeaderBackCmp';
 import { FooterBack } from './../components/footer/FooterBackCmp';
 import { FOOTER_BACK_TITLE } from './../constants/footerBackConst';
 import { PROD_HEADER_TITLE } from '../constants/productsConst';
-import { getProdImg } from '../api/products/prodImgLoad';
-import { SwiperBoxCmp } from './../components/SwiperBoxCmp';
+import { SpinerСmp } from '../components/SpinerCmp';
 
 
 
 export default function prodScr(props) {
     const { state, dispatch } = useContext(ContextApp);
+    let prodCurrDsc = state.prodCurrentRdc.prodCurrentDescription;
+    let prodCurrImg = state.prodCurrentRdc.prodCurrentImages;
+
     // console.log('prodScr.state.prodCurrentRdc.prodCurrentDescription=> ', state.prodCurrentRdc.prodCurrentDescription);
     console.log('prodScr.state.prodCurrentRdc.prodCurrentImages=> ', state.prodCurrentRdc.prodCurrentImages);
+    if (!state.spinerToggleRdc.spinerToggle)
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar hidden={true} />
@@ -22,13 +25,19 @@ export default function prodScr(props) {
             <View style={styles.item} >
 
                 <ProdCardFullCmp
-                    item={state.prodCurrentRdc.prodCurrentDescription}
-                    currImages={state.prodCurrentRdc.prodCurrentImages}
+                    item={prodCurrDsc}
+                    currImages={prodCurrImg}
                 />
             </View>
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
         </SafeAreaView>
-    );
+    )
+
+    return (
+        <View style={styles.container}>
+            <SpinerСmp/>
+        </View>
+    )
 }
 
 
