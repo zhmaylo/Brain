@@ -5,9 +5,10 @@ import { HEADER_BUTTON_SIZE } from '../constants/headerConst';
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from './../constants/otherConst';
 
 
-export const SwiperBoxCmp = ({ currImages }) => {
+export const SwiperBoxCmp = ({ currImages, props }) => {
     // console.log('SwiperBoxCmp.currImages=> ', currImages)
     console.log('SwiperBoxCmp.currImages[0].large_=> ', currImages[0].large_image)
+
 
     return (
         <View style={styles.container} >
@@ -19,11 +20,14 @@ export const SwiperBoxCmp = ({ currImages }) => {
 
             >
                 {currImages.map((x, i) =>
-                    <Image style={styles.prodImage}
-                        source={{ uri: (currImages[i].large_image) }}
-                        // source={{ uri: (item.large_image) }}
-                        key={currImages[i].priority}
-                    />
+                    <TouchableOpacity
+                    onPress={() => { props.navigation.navigate(PROD_GALL_SCR)}}
+                    >
+                        <Image style={styles.prodImage}
+                            source={currImages[i].large_image}
+                            key={currImages[i].priority}
+                        />
+                    </TouchableOpacity>
                 )}
             </ScrollView>
         </View >

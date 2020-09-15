@@ -25,6 +25,15 @@ export const STEP_PAGIN_PROD = 10;
 /////////////////////////////
 
 /////////////////////////////
+// Start. Section 'products list'
+//
+// goods expected
+export const PROD_EXPECTED = "Товар ожидается";
+//
+// End. Section 'products list'
+/////////////////////////////
+
+/////////////////////////////
 // Start. Section 'product card' - description
 //
 export const PROD_NAME = 'Наименование: ';

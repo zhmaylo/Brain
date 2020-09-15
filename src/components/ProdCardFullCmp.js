@@ -18,7 +18,7 @@ export const ProdCardFullCmp = ({item, currImages} ) => {
     return (
 
         <ScrollView style={styles.itemProd} >
-            <SwiperBoxCmp style={styles.swipe} currImages={currImages}/>
+            <SwiperBoxCmp style={styles.swipe} currImages={currImages} props={props} />
 
             <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
             <Text style={styles.textName}>{''} </Text>
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     itemProd: {
         flex: 1,
         flexDirection: 'column',
-        // justifyContent: 'space-around',
         backgroundColor: "white",
         margin: 1,
         padding: 5,
@@ -72,7 +71,6 @@ const styles = StyleSheet.create({
 
     swipe: {
         flex: 1,
-        // flexDirection: "column",
         backgroundColor: "white",
     },
 })
