@@ -41,7 +41,7 @@ export default function prodScr(props) {
     )
 }
 
-
+//
 const styles = StyleSheet.create({
     container: {
         flex: 1,
