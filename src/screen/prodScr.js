@@ -25,7 +25,6 @@ export default function prodScr(props) {
             <View style={styles.item} >
 
                 <ProdCardFullCmp
-                    props={props}
                     item={state.prodCurrentRdc.prodCurrentDescription}
                     currImages={state.prodCurrentRdc.prodCurrentImages}
                 />

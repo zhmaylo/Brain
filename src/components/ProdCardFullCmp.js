@@ -18,7 +18,7 @@ export const ProdCardFullCmp = ({item, currImages} ) => {
     return (
 
         <ScrollView style={styles.itemProd} >
-            <SwiperBoxCmp style={styles.swipe} currImages={currImages} props={props} />
+            <SwiperBoxCmp style={styles.swipe} currImages={currImages} />
 
             <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
             <Text style={styles.textName}>{''} </Text>

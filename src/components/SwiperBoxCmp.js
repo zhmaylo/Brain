@@ -6,8 +6,8 @@ import { WINDOW_HEIGHT, WINDOW_WIDTH } from './../constants/otherConst';
 
 
 export const SwiperBoxCmp = ({ currImages, props }) => {
-    // console.log('SwiperBoxCmp.currImages=> ', currImages)
-    console.log('SwiperBoxCmp.currImages[0].large_=> ', currImages[0].large_image)
+    console.log('SwiperBoxCmp.currImages=> ', currImages)
+    // console.log('SwiperBoxCmp.currImages[0].large_=> ', currImages[0].large_image)
 
 
     return (
@@ -21,12 +21,14 @@ export const SwiperBoxCmp = ({ currImages, props }) => {
             >
                 {currImages.map((x, i) =>
                     <TouchableOpacity
-                    onPress={() => { props.navigation.navigate(PROD_GALL_SCR)}}
+                    // onPress={() => { props.navigation.navigate(PROD_GALL_SCR)}}
                     >
+                        
                         <Image style={styles.prodImage}
                             source={currImages[i].large_image}
-                            key={currImages[i].priority}
+                            // key={currImages[i].priority}
                         />
+                        
                     </TouchableOpacity>
                 )}
             </ScrollView>

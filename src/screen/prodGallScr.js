@@ -11,7 +11,7 @@ import { WINDOW_HEIGHT, WINDOW_WIDTH } from './../constants/otherConst';
 //shows a gallery of product pictures 
 export default function prodGallScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-    // console.log('prodScr.state.prodCurrentRdc.prodCurrentImages=> ', state.prodCurrentRdc.prodCurrentImages);
+    console.log('prodScr.state.prodCurrentRdc.prodCurrentImages=> ', state.prodCurrentRdc.prodCurrentImages);
     let currImages = state.prodCurrentRdc.prodCurrentImages;
     return (
         <SafeAreaView style={styles.container}>
