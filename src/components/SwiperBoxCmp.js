@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
-import { HEADER_BUTTON_SIZE } from '../constants/headerConst';
+import { ScrollView } from 'react-native-gesture-handler';
+
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from './../constants/otherConst';
+import { PROD_GALL_SCR } from './../constants/appNavigatorConst';
+
 
 
 export const SwiperBoxCmp = ({ currImages, props }) => {
@@ -17,22 +19,23 @@ export const SwiperBoxCmp = ({ currImages, props }) => {
                 decelerationRate='fast'
                 showsHorizontalScrollIndicator={true}
                 snapToOffsets={currImages.map((x, i) => (i * WINDOW_WIDTH))}
-
             >
-                {/* <Image source={currImages[0].large_image} /> */}
-                {/* <Image source={currImages[1].large_image} /> */}
-                {currImages.map((x, i) =>
-                    <TouchableOpacity 
-                    //  onPress={() => { props.navigation.navigate(PROD_GALL_SCR)}} 
-                    > 
 
+                {currImages.map((x, i) =>
+
+                    <TouchableOpacity
+                        key={x + currImages[i].priority}
+                        onPress={() => { props.navigation.navigate(PROD_GALL_SCR) }}
+                    >
                         <Image style={styles.prodImage}
-                            source={currImages[i].large_image}
-                            key={currImages[i].priority}
-                        > </Image> 
+                            source={{ uri: currImages[i].large_image }}
+
+                        />
                     </TouchableOpacity>
-                )
-            } 
+
+                )}
+
+
             </ScrollView>
         </View >
     )
@@ -60,3 +63,5 @@ const styles = StyleSheet.create({
     },
 
 })
+
+

@@ -7,18 +7,19 @@ import { PROD_NAME, PROD_DESCRIPT } from './../constants/productsConst';
 
 import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
 import { SwiperBoxCmp } from './SwiperBoxCmp';
+import { PROD_GALL_SCR } from './../constants/appNavigatorConst';
 
 
 // product card
-export const ProdCardFullCmp = ({item, currImages} ) => {
-    
+export const ProdCardFullCmp = ({ item, currImages, props }) => {
+
     // console.log("ProdCardFullCmp=>item", item);
     // console.log("ProdCardFullCmp=>currImages", currImages);
 
     return (
 
         <ScrollView style={styles.itemProd} >
-            <SwiperBoxCmp style={styles.swipe} currImages={currImages} />
+            <SwiperBoxCmp style={styles.swipe} currImages={currImages} props={props} />
 
             <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
             <Text style={styles.textName}>{''} </Text>

@@ -27,6 +27,7 @@ export default function prodScr(props) {
                 <ProdCardFullCmp
                     item={state.prodCurrentRdc.prodCurrentDescription}
                     currImages={state.prodCurrentRdc.prodCurrentImages}
+                    props={props}
                 />
             </View>
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />

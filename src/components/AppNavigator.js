@@ -20,17 +20,19 @@ export const AppNavigator = () => (
 
     <NavigationContainer>
         <Drawer.Navigator
-            drawerStyle = {{width: 100}}
+            drawerStyle={{ width: 0 }}
             //turn off menu
-            screenOptions={{swipeEnabled: false}}
+            screenOptions={{ swipeEnabled: false }}
         >
+
+            <Drawer.Screen name={PROD_GALL_SCR} component={prodGallScr} />
             <Drawer.Screen name={MAIN_SCR} component={mainScr} />
             <Drawer.Screen name={PROD_SCR} component={prodScr} />
             <Drawer.Screen name={CATEG_SCR} component={categoryScr} />
             <Drawer.Screen name={SORT_SCR} component={sortScr} />
-            <Drawer.Screen name={PROD_GALL_SCR} component={prodGallScr} />
-            
-            
+
+
+
             {/* <Drawer.Screen name="MenuScreen" component={menuScr} />
             <Drawer.Screen name="FindScreen" component={findScr} />
             <Drawer.Screen name="ConfigScreen" component={configScr} />
