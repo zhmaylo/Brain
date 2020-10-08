@@ -19,18 +19,20 @@ export const SwiperBoxCmp = ({ currImages, props }) => {
                 snapToOffsets={currImages.map((x, i) => (i * WINDOW_WIDTH))}
 
             >
+                {/* <Image source={currImages[0].large_image} /> */}
+                {/* <Image source={currImages[1].large_image} /> */}
                 {currImages.map((x, i) =>
-                    <TouchableOpacity
-                    // onPress={() => { props.navigation.navigate(PROD_GALL_SCR)}}
-                    >
-                        
+                    <TouchableOpacity 
+                    //  onPress={() => { props.navigation.navigate(PROD_GALL_SCR)}} 
+                    > 
+
                         <Image style={styles.prodImage}
                             source={currImages[i].large_image}
-                            // key={currImages[i].priority}
-                        />
-                        
+                            key={currImages[i].priority}
+                        > </Image> 
                     </TouchableOpacity>
-                )}
+                )
+            } 
             </ScrollView>
         </View >
     )
