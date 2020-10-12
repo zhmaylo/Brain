@@ -5,8 +5,8 @@ import { ContextApp } from '../reducers/unionRdc';
 import { HeaderBack } from './../components/header/HeaderBackCmp';
 import { FooterBack } from './../components/footer/FooterBackCmp';
 import { FOOTER_BACK_TITLE } from './../constants/footerBackConst';
-import { PROD_HEADER_TITLE } from '../constants/productsConst';
 import { SpinerСmp } from '../components/SpinerCmp';
+import { PROD_HEADER_TITLE } from './../constants/headerBackConst';
 
 
 
