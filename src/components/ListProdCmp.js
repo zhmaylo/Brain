@@ -5,6 +5,7 @@ import { STEP_PAGIN_PROD } from '../constants/productsConst';
 import { setSizeListProd } from '../api/products/products';
 import { ProdCardLightCmp } from './ProdCardLightCmp';
 import { PROD_EXPECTED } from './../constants/productsConst';
+import { PROD_SCR } from '../constants/appNavigatorConst';
 
 
 // current list size 
@@ -35,11 +36,12 @@ export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, 
                         currSize = setSizeListProd(currSizeList, STEP_PAGIN_PROD, productList.length);
                         dispatch({ type: 'SIZE_LIST_PROD', payload: currSize });
                         // console.log("currSize pagination => ", currSize);
+                        
                     }}
                     onEndReachedThreshold={2}
                     refreshing={true}
 
-                // viewabilityConfig={viewAreaCoveragePercentThreshold: 100, teamVisiblePercentThreshold: '100'}
+               
 
                 />
             </View>
