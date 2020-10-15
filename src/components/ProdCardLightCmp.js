@@ -22,6 +22,7 @@ export const ProdCardLightCmp = ({ item, props, dispatch, sidAndTime }) => {
                         dispatch({ type: PROD_CURR_IMAGES, payload: currImages });
                         console.log('ProdCardLightCmp.currImg=> ', currImages);
                     })
+                    
                     props.navigation.navigate(PROD_SCR);
                 
                 }}
