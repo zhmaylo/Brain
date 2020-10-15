@@ -8,7 +8,7 @@ import { prodImgLoad } from './../api/products/prodImgLoad';
 import { SPINER_TOGGLE } from '../reducers/spinerRdc';
 
 // product card
-export const ProdCardLightCmp = ({ item, props, sidAndTime, dispatch }) => {
+export const ProdCardLightCmp = ({ item, props, dispatch, sidAndTime }) => {
     // console.log("ProductsCardLightCmp=>props", props);
     // console.log("ProductsCardCmp=>item", item);
     // console.log("ProductsCardCmp=>item.small_image", item.small_image);
@@ -16,15 +16,14 @@ export const ProdCardLightCmp = ({ item, props, sidAndTime, dispatch }) => {
         <View style={styles.itemProd}>
             <TouchableOpacity
                 onPress={() => {
-                    dispatch({ type: SPINER_TOGGLE, payload: true });
                     dispatch({ type: PROD_CURR_DESCRIPTION, payload: item });
                     console.log('ProdCardLightCmp.item=> ', item);
                     prodImgLoad(item.productID, sidAndTime, dispatch).then(currImages => {
                         dispatch({ type: PROD_CURR_IMAGES, payload: currImages });
                         console.log('ProdCardLightCmp.currImg=> ', currImages);
-                        dispatch({ type: SPINER_TOGGLE, payload: false });
                     })
                     props.navigation.navigate(PROD_SCR);
+                
                 }}
             >
                 <View>

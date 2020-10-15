@@ -15,6 +15,7 @@ let currSize = 1;
 export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, sidAndTime, props }) => {
     // console.log("ListProdCmp.productList => ", productList);
     // console.log("ListProdCmp.numCollumns => ", numCollumns);
+
     if (productList.length == 0) return (
         <View style={styles.prodNoneCont}>
             <Text style={styles.prodNoneText} > {PROD_EXPECTED} </Text>
@@ -28,7 +29,12 @@ export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, 
                     horizontal={false}
                     data={productList.slice(0, currSize)}
                     // renderItem={({ item }) => console.log('props=> ', props)}
-                    renderItem={({ item }) => (<ProdCardLightCmp item={item} props={props} dispatch={dispatch} sidAndTime={sidAndTime} />)}
+                    renderItem={({ item }) =>
+                        (<ProdCardLightCmp item={item}
+                            props={props}
+                            dispatch={dispatch}
+                            sidAndTime={sidAndTime}
+                        />)}
                     keyExtractor={item => item.productID + numCollumns}
                     key={numCollumns}
                     onEndReached={() => {
@@ -36,12 +42,12 @@ export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, 
                         currSize = setSizeListProd(currSizeList, STEP_PAGIN_PROD, productList.length);
                         dispatch({ type: 'SIZE_LIST_PROD', payload: currSize });
                         // console.log("currSize pagination => ", currSize);
-                        
+
                     }}
                     onEndReachedThreshold={2}
                     refreshing={true}
 
-               
+
 
                 />
             </View>
