@@ -9,7 +9,6 @@ import { SpinerСmp } from '../components/SpinerCmp';
 import { PROD_HEADER_TITLE } from './../constants/headerBackConst';
 
 
-
 export default function prodScr(props) {
     const { state, dispatch } = useContext(ContextApp);
     let prodCurrDsc = state.prodCurrentRdc.prodCurrentDescription;
