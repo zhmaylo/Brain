@@ -17,8 +17,8 @@ import { CATEGORY_LIST } from '../reducers/categoryListRdc';
 import { IS_APP_INIT } from './../reducers/isAppInitRdc';
 
 let i = 0;
-// const devMode = true;
-const devMode = false;
+const devMode = true;
+// const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -67,43 +67,44 @@ export default function mainScr(props) {
         if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false))
             return (
                 <SafeAreaView style={styles.container}>
-                        <StatusBar hidden={true} />
-                        {HeaderCmp(props)}
-                        {/* <MenuSortCmp sortButtonPress={state.sortButtonPressRdc.sortButtonPress} dispatch={dispatch} /> */}
+                    <StatusBar hidden={true} />
+                    {HeaderCmp(props)}
+                    {/* <MenuSortCmp sortButtonPress={state.sortButtonPressRdc.sortButtonPress} dispatch={dispatch} /> */}
 
-                        <ListProdCmp productList={state.productsListRdc.productsList}
-                            numCollumns={state.numColumProdRdc.numColumProd}
-                            currSizeList={state.sizeListProdRdc.sizeListProd}
-                            sidAndTime={state.sessionSidRdc.sessionSid }
-                            dispatch={dispatch}
-                            props={props}
-                        />
-                   {FooterCmp(props.navigation.toggleDrawer, state, dispatch)}
+                    <ListProdCmp productList={state.productsListRdc.productsList}
+                        numCollumns={state.numColumProdRdc.numColumProd}
+                        currSizeList={state.sizeListProdRdc.sizeListProd}
+                        sidAndTime={state.sessionSidRdc.sessionSid}
+                        dispatch={dispatch}
+                        props={props}
+                    />
+                    {/* {console.log('main.props.navigation.toggleDrawer', props.navigation.toggleDrawer)} */}
+                    {FooterCmp(props, state, dispatch)}
                 </SafeAreaView>
             );
 
-//                        /* <Button
-//                        // onPress={() => props.navigation.navigate('MenuScreen')}
-//                        onPress={() => props.navigation.toggleDrawer()}
-//                        title="MenuScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-//                    /> */
-//                        {/* <Button
-//                    onPress={() => props.navigation.navigate('FindScreen')}
-//                    title="FindScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-//                />
-//                <Button
-//                    onPress={() => props.navigation.navigate('ConfigScreen')}
-//                    title="ConfigScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-//                />
-//                <Button
-//                    onPress={() => props.navigation.navigate('BasketScreen')}
-//                    title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-//                /> */}
+        //                        /* <Button
+        //                        // onPress={() => props.navigation.navigate('MenuScreen')}
+        //                        onPress={() => props.navigation.toggleDrawer()}
+        //                        title="MenuScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+        //                    /> */
+        //                        {/* <Button
+        //                    onPress={() => props.navigation.navigate('FindScreen')}
+        //                    title="FindScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+        //                />
+        //                <Button
+        //                    onPress={() => props.navigation.navigate('ConfigScreen')}
+        //                    title="ConfigScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+        //                />
+        //                <Button
+        //                    onPress={() => props.navigation.navigate('BasketScreen')}
+        //                    title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
+        //                /> */}
 
 
         else return (
             <View style={styles.container}>
-                <SpinerСmp/>
+                <SpinerСmp />
             </View>
         )
 
@@ -113,14 +114,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         // backgroundColor: '#fff',
-        
+
         paddingTop: 10,
     },
-    
+
     spiner: {
         flex: 1,
         backgroundColor: '#fff',
-        
+
         paddingTop: 10,
     },
 

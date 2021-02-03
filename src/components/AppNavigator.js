@@ -8,11 +8,12 @@ import mainScr from "../screen/mainScr";
 // import findScr from "../screen/findScr";
 // import configScr from "../screen/configScr";
 // import basketScr from "../screen/basketScr";
-import { PROD_GALL_SCR, CATEG_SCR, SORT_SCR, PROD_SCR, MAIN_SCR } from '../constants/appNavigatorConst';
+import { PROD_GALL_SCR, CATEG_SCR, SORT_SCR, PROD_SCR, MAIN_SCR, SYNC_DATA_SCR } from '../constants/appNavigatorConst';
 import categoryScr from './../screen/categoryScr';
 import sortScr from './../screen/sortScr';
 import prodScr from './../screen/prodScr';
 import prodGallScr from './../screen/prodGallScr';
+import syncDataScr from './../screen/syncDataScr';
 
 const Drawer = createDrawerNavigator();
 
@@ -30,6 +31,7 @@ export const AppNavigator = () => (
             <Drawer.Screen name={CATEG_SCR} component={categoryScr} />
             <Drawer.Screen name={SORT_SCR} component={sortScr} />
             <Drawer.Screen name={PROD_GALL_SCR} component={prodGallScr} />
+            <Drawer.Screen name={SYNC_DATA_SCR} component={syncDataScr} />
 
 
             {/* <Drawer.Screen name="MenuScreen" component={menuScr} />

@@ -3,9 +3,10 @@ import { View, StyleSheet, Button, Text, TextInput, TouchableOpacity, Image } fr
 import { WINDOW_WIDTH } from '../../constants/otherConst';
 import { ICON_FOOTER } from '../../constants/footerConst';
 import { buttonViewProd } from '../../api/footer/buttonView';
+import { SYNC_DATA_SCR } from '../../constants/appNavigatorConst';
 
 //main screen footer
-const itemFooter = (iconSource, iconName, iconUrl) => {
+const itemFooter = (iconSource, iconName, iconUrl = '') => {
 
     return (
         <View>
@@ -24,8 +25,8 @@ const itemFooter = (iconSource, iconName, iconUrl) => {
 }
 
 
-export const FooterCmp = (menuUrl, state, dispatch) => {
-
+export const FooterCmp = (props, state, dispatch) => {
+    // console.log('FooterCmp.menuUrl', menuUrl);
     return (
         <View style={styles.container}>
             {itemFooter(ICON_FOOTER[2-state.numColumProdRdc.numColumProd].iconSource, ICON_FOOTER[0].iconName, () => {
@@ -34,10 +35,11 @@ export const FooterCmp = (menuUrl, state, dispatch) => {
             })}
             {/* dispatch({ type: 'NUM_COLUM_PROD', payload: buttonViewProd(state.numColumProdRdc.numColumProd) }))} */}
 
-            {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, menuUrl)}
-            {itemFooter(ICON_FOOTER[3].iconSource, ICON_FOOTER[3].iconName, menuUrl)}
-            {itemFooter(ICON_FOOTER[4].iconSource, ICON_FOOTER[4].iconName, menuUrl)}
-            {itemFooter(ICON_FOOTER[5].iconSource, ICON_FOOTER[5].iconName, menuUrl)}
+            {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, () => {props.navigation.navigate(SYNC_DATA_SCR)})}
+            {/* {itemFooter(ICON_FOOTER[3].iconSource, ICON_FOOTER[3].iconName)} */}
+            {/* {itemFooter(ICON_FOOTER[4].iconSource, ICON_FOOTER[4].iconName)} */}
+            {/* {itemFooter(ICON_FOOTER[5].iconSource, ICON_FOOTER[5].iconName)} */}
+            {/* {itemFooter(ICON_FOOTER[6].iconSource, ICON_FOOTER[6].iconName)} */}
         </View >
     )
 }
