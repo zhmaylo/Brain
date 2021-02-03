@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { StyleSheet, View, SafeAreaView, StatusBar } from 'react-native';
-import { ProdCardFullCmp } from './../components/ProdCardFullCmp';
+import { ProdCardFullCmp } from './../components/prodcard/ProdCardFullCmp';
 import { ContextApp } from '../reducers/unionRdc';
 import { HeaderBack } from './../components/header/HeaderBackCmp';
 import { FooterBack } from './../components/footer/FooterBackCmp';

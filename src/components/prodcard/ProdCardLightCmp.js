@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
-import { WINDOW_HEIGHT } from '../constants/otherConst';
-import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../constants/productsConst';
-import { PROD_SCR } from '../constants/appNavigatorConst';
-import { PROD_CURR_DESCRIPTION, PROD_CURR_IMAGES } from '../reducers/prodCurrentRdc';
-import { prodImgLoad } from './../api/products/prodImgLoad';
-import { SPINER_TOGGLE } from '../reducers/spinerRdc';
+import { WINDOW_HEIGHT } from '../../constants/otherConst';
+import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../../constants/productsConst';
+import { PROD_SCR } from '../../constants/appNavigatorConst';
+import { PROD_CURR_DESCRIPTION, PROD_CURR_IMAGES } from '../../reducers/prodCurrentRdc';
+import { prodImgLoad } from '../../api/products/prodImgLoad';
+import { SPINER_TOGGLE } from '../../reducers/spinerRdc';
 
 // product card
 export const ProdCardLightCmp = ({ item, props, dispatch, sidAndTime }) => {
