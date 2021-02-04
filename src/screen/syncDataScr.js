@@ -8,17 +8,21 @@ import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { WINDOW_WIDTH } from '../constants/otherConst';
 import { View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
-import { clone } from '../api/clone';
+import { createDB } from './../api/syncdata/crud';
 
 export default function syncDataScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-
+    createDB();
     return (
 
         <SafeAreaView style={styles.container}>
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={SYNC_DATA_TITLE} />
             <View style={styles.item} >
+                <View style={{ paddingTop: 30, bottom: 20 }}>
+                    <Text></Text>
+                    <Button title='Создать базу' ></Button>
+                </View>
                 <View style={{ paddingTop: 30, bottom: 20 }}>
                     <Text></Text>
                     <Button title='Обнулить базу' ></Button>
