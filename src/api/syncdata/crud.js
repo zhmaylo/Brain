@@ -11,28 +11,24 @@ import { queryСreateBrain } from './../../constants/tblBrainConst';
 export const createDB = () => {
     const db = SQLite.openDatabase('Brain.db');
 
-    console.log('crud.db2', db);
+    // console.log('crud.db2', db);
 
-   
+
     // deleteTableFromDB(db, 'leteTable');
-    createTable(db, queryСreateBrain);
-    insertData(db);
+    // createTable(db, queryСreateBrain);
+    // insertData(db);
+    // console.log('Length before Delete');
     readData(db);
     // updateData(db);
-    deleteTableFromDB(db, 'items');
+    // deleteTableFromDB(db, 'items');   
+    // console.log('Length after Delete');
     readData(db);
-    // deleteData(db);
+    // deleteData(db, 6);
+    deleteAllData(db);
 
 }
 
-// deleteTableFromDB - deleting table from Data base 
-// db - input dataBase
-const deleteTableFromDB = (db, tableName = null) => {
-    if (tableName == null) return false;
-    db.transaction(tx => {
-        tx.executeSql('DROP TABLE items', [] )
-    })
-}
+
 
 // createTable - creating a new Data table 
 const createTable = (db, query = null) => {
@@ -78,7 +74,7 @@ const updateData = (db, id = null, data = null) => {
 const deleteData = (db, id = null) => {
     if (id == null) return false;
     db.transaction(tx => {
-        tx.executeSql('DELETE FROM items WHERE id = ? ', [id],
+        tx.executeSql('DELETE FROM items WHERE id > ? ', [id],
             (txObj, _array) => console.log('crud._array READ', _array),
             (txObj, error) => console.log('Error ', error)
         )
@@ -86,13 +82,25 @@ const deleteData = (db, id = null) => {
 }
 
 
+const deleteAllData = (db) => {
+
+    db.transaction(tx => {
+        tx.executeSql('DELETE FROM items', [],
+            (txObj, _array) => console.log('crud._array Zero Base', _array),
+            (txObj, error) => console.log('Error ', error)
+        )
+    })
+}
+
+
+
 // readData - Readind all Data from Data base 
 // db - input dataBase
 const readData = (db) => {
-    if (id == null) return false;
+    if (db == null) return false;
     db.transaction(tx => {
         tx.executeSql('SELECT * FROM items', null,
-            (txObj, _array) => console.log('crud._array READ (length)', _array.rows.length),
+            (txObj, _array) => console.log('crud._array READ (length)', _array.rows),
             (txObj, error) => console.log('Error ', error)
         )
     });
