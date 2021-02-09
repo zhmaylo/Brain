@@ -12,19 +12,15 @@ export const createDB = () => {
     const db = SQLite.openDatabase('Brain.db');
 
     console.log('crud.db2', db);
-    // db.transaction(tx => {
-    //     tx.executeSql('INSERT INTO items (text, count) values (?, ?)', ['gibberish', 0],
-    //         (txObj, resultSet) => console.log('crud._array INTO', resultSet),
-    //         (txObj, error) => console.log('Error', error))
-    // })
 
-
-    deleteTableFromDB(db, 'brain.db');
-    deleteTableFromDB(db, 'leteTable');
-    // createTable(db, queryСreateBrain);
+   
+    // deleteTableFromDB(db, 'leteTable');
+    createTable(db, queryСreateBrain);
+    insertData(db);
     readData(db);
     // updateData(db);
-
+    deleteTableFromDB(db, 'items');
+    readData(db);
     // deleteData(db);
 
 }
@@ -34,10 +30,7 @@ export const createDB = () => {
 const deleteTableFromDB = (db, tableName = null) => {
     if (tableName == null) return false;
     db.transaction(tx => {
-        tx.executeSql('DROP TABLE ? ', [tableName],
-            (txObj, _array) => console.log('crud._array READ', _array),
-            (txObj, error) => console.log('Error ', error)
-        )
+        tx.executeSql('DROP TABLE items', [] )
     })
 }
 
@@ -45,10 +38,20 @@ const deleteTableFromDB = (db, tableName = null) => {
 const createTable = (db, query = null) => {
     if (query == null) return false;
     db.transaction(tx => {
-        tx.executeSql({query})
+        tx.executeSql(query)
     })
 }
 
+// insertData - updating a row from Data base 
+const insertData = (db, id = null, data = null) => {
+    // if ((id == null) || (data == null)) return false;
+
+    db.transaction(tx => {
+        tx.executeSql('INSERT INTO items (text, count) values (?, ?)', ['gibberish', 0],
+            (txObj, resultSet) => console.log('crud._array INTO', resultSet),
+            (txObj, error) => console.log('Error', error))
+    })
+}
 
 // updateData - updating a row from Data base 
 // db - input dataBase
@@ -86,9 +89,10 @@ const deleteData = (db, id = null) => {
 // readData - Readind all Data from Data base 
 // db - input dataBase
 const readData = (db) => {
+    if (id == null) return false;
     db.transaction(tx => {
         tx.executeSql('SELECT * FROM items', null,
-            (txObj, _array) => console.log('crud._array READ', _array),
+            (txObj, _array) => console.log('crud._array READ (length)', _array.rows.length),
             (txObj, error) => console.log('Error ', error)
         )
     });
