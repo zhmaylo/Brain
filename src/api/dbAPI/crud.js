@@ -1,37 +1,22 @@
 /////////////////////////////
-/////////////////////////////
 //CRUD (local base)
 /////////////////////////////
 
 import * as SQLite from 'expo-sqlite';
-import { queryСreateBrain } from './../../constants/tblBrainConst';
+import { tProviderConst } from './tProviderConst';
 
 
-//base initialization
-export const createDB = () => {
-    const db = SQLite.openDatabase('Brain.db');
 
-    // console.log('crud.db2', db);
-
-
-    // deleteTableFromDB(db, 'leteTable');
-    // createTable(db, queryСreateBrain);
-    // insertData(db);
-    // console.log('Length before Delete');
-    readData(db);
-    // updateData(db);
-    // deleteTableFromDB(db, 'items');   
-    // console.log('Length after Delete');
-    readData(db);
-    // deleteData(db, 6);
-    deleteAllData(db);
-
+//dbCreate - base initialization
+//qCreate - query create table (type: string)
+export const dbCreate = (dbName = '') => {
+    const db = SQLite.openDatabase(dbName);
+    return db;
 }
 
+// tCreate - table creating a new Data table 
+export const tCreate = (db, query = null) => {
 
-
-// createTable - creating a new Data table 
-const createTable = (db, query = null) => {
     if (query == null) return false;
     db.transaction(tx => {
         tx.executeSql(query)
