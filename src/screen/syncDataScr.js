@@ -8,11 +8,12 @@ import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { WINDOW_WIDTH } from '../constants/otherConst';
 import { View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
-import { createDB } from './../api/syncdata/crud';
+import { dbCreate } from './../api/dbAPI/crud';
+
 
 export default function syncDataScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-    createDB();
+     dbCreate();
     return (
 
         <SafeAreaView style={styles.container}>
