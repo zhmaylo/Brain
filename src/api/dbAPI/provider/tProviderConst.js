@@ -4,14 +4,14 @@
 
 
 
-const tNameProvider = "provide.db";
+export const tNameProvider = "provide.db";
 
 export let tProviderConst =
     [{
         // tName - table name
         tName: tNameProvider,
         // qСreate - query create table 
-        qСreate: "CREATE TABLE IF NOT EXISTS " + tNameProvider + "( id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, count INT)"
+        // qСreate: "CREATE TABLE IF NOT EXISTS " + tNameProvider + "( id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, count INT)"
     }]
 
 //

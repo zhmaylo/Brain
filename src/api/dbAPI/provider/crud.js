@@ -3,15 +3,19 @@
 /////////////////////////////
 
 import * as SQLite from 'expo-sqlite';
-import { tProviderConst } from './tProviderConst';
+import { tNameProvider } from './tProviderConst';
 
 
+export class crud {
 
-//dbCreate - base initialization
-//qCreate - query create table (type: string)
-export const dbCreate = (dbName = '') => {
-    const db = SQLite.openDatabase(dbName);
-    return db;
+    constructor (){};
+
+    //dbCreate - base initialization
+    //qCreate - query create table (type: string)
+    dbCreate = (dbName = '') => {
+        const db = SQLite.openDatabase(dbName);
+        return db;
+    }
 }
 
 // tCreate - table creating a new Data table 
@@ -19,7 +23,7 @@ export const tCreate = (db, query = null) => {
 
     if (query == null) return false;
     db.transaction(tx => {
-        tx.executeSql(query)
+        tx.executeSql("CREATE TABLE IF NOT EXISTS " + tNameProvider + "( id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, count INT)")
     })
 }
 

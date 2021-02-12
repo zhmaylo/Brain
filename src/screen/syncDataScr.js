@@ -8,12 +8,14 @@ import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { WINDOW_WIDTH } from '../constants/otherConst';
 import { View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
-import { dbCreate } from './../api/dbAPI/crud';
+import { tProvider } from './../api/dbAPI/provider/tProvider';
 
 
 export default function syncDataScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-     dbCreate();
+    let tBrain = new tProvider();
+    tBrain.toConsole();
+    
     return (
 
         <SafeAreaView style={styles.container}>
@@ -45,7 +47,7 @@ export default function syncDataScr(props) {
                 </View>
                 <View style={{ paddingTop: 50, bottom: 20, alignItems: 'center' }}>
                     <Text>
-                        Выгрузить базу с телефона в облако 
+                        Выгрузить базу с телефона в облако
                         Ссылка (URL) на xls,csv,xlsx,xml,cml документ
                         (напр. Google Disk)
                     </Text>
