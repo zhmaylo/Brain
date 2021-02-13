@@ -12,6 +12,7 @@ import { spinerToggleRdc } from './spinerRdc';
 import { sortSwitchArrRdc } from './sortListProdRdc';
 import { SORT_SWITCHES_ARR } from '../constants/sortConst';
 import { prodCurrentRdc } from './prodCurrentRdc';
+import { dbProdRdc } from './dbProdRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -78,10 +79,20 @@ export const initialState = {
     //Start. Product current
     prodCurrentRdc: {
         prodCurrentDescription: [],
-        prodCurrentImages: []
-    }
+        prodCurrentImages: [],
+    },
     //End. Product current
     ////////////////////////////////
+
+    ////////////////////////////////
+    //Start. DB section
+    dbProdRdc: {
+        dbProd:null,
+    },
+    //End. DB section
+    ////////////////////////////////
+
+
 
 
 };
@@ -115,7 +126,7 @@ export const unionRdc = combineReducers(
         sortSwitchArrRdc: sortSwitchArrRdc,
         //End. Sort list
         ////////////////////////////////
-        
+
         ////////////////////////////////
         //Start. Product current
         prodCurrentRdc: prodCurrentRdc,
@@ -126,6 +137,13 @@ export const unionRdc = combineReducers(
         sessionSidRdc: sessionSidRdc,
         statusResponseRdc: statusResponseRdc,
         numColumProdRdc: numColumProdRdc,
+
+        ////////////////////////////////
+        //Start. DB section
+        dbProdRdc: dbProdRdc,
+        //End. DB section
+        ////////////////////////////////
+
     }
 );
 

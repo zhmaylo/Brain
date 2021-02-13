@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StyleSheet, StatusBar, SafeAreaView, Button, Text } from 'react-native';
 
 import { HeaderBack } from '../components/header/HeaderBackCmp';
@@ -8,14 +8,25 @@ import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { WINDOW_WIDTH } from '../constants/otherConst';
 import { View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
+import { DB_PROD_OBJ } from '../reducers/dbProdRdc';
+import { dbProduct } from './../api/dbAPI/product/dbProduct';
+import { DB_PROD_NAME, T_PROV_NAME } from './../constants/dbConst';
 import { tProvider } from './../api/dbAPI/provider/tProvider';
 
 
 export default function syncDataScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-    let tBrain = new tProvider();
-    tBrain.toConsole();
-    
+
+    useEffect(() => {
+        let dbProd = new dbProduct(DB_PROD_NAME);
+        let tProvide = new tProvider;
+
+        dispatch({ type: DB_PROD_OBJ, payload: dbProd });
+
+        tProvide.tCreate(dbProd, T_PROV_NAME);
+        
+    }, []);
+
     return (
 
         <SafeAreaView style={styles.container}>

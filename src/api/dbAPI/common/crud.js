@@ -2,30 +2,31 @@
 //CRUD (local base)
 /////////////////////////////
 
-import * as SQLite from 'expo-sqlite';
-import { tNameProvider } from './tProviderConst';
-
+// import { tNameProvider } from './provider/tProviderConst';
 
 export class crud {
 
-    constructor (){};
-
-    //dbCreate - base initialization
-    //qCreate - query create table (type: string)
-    dbCreate = (dbName = '') => {
-        const db = SQLite.openDatabase(dbName);
-        return db;
+    constructor(...args){
+        this.args=args;
     }
+
+    // tCreate - table creating a new Data table 
+    tCreate = (db = null, query = null) => {
+        console.log('CRUD.tCreate => started');
+        console.log('CRUD.tCreate db => ', db);
+        console.log('CRUD.tCreate query => ', query);
+
+        if (db==null || query==null) {return false};
+        db.transaction(tx => {
+            tx.executeSql(query)
+        })
+        console.log('CRUD.tCreate => finished');
+    }
+
 }
 
-// tCreate - table creating a new Data table 
-export const tCreate = (db, query = null) => {
 
-    if (query == null) return false;
-    db.transaction(tx => {
-        tx.executeSql("CREATE TABLE IF NOT EXISTS " + tNameProvider + "( id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, count INT)")
-    })
-}
+
 
 // insertData - updating a row from Data base 
 const insertData = (db, id = null, data = null) => {

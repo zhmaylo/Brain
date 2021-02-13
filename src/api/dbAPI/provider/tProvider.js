@@ -1,15 +1,22 @@
-/////////////////////////////
-import { crud } from './crud';
-//download data from supplier
-/////////////////////////////
+import { crud } from '../common/crud';
+
+//API for provider table
 
 export class tProvider extends crud {
+ 
     // constructor(){};
-
-    toConsole() {
-        console.log("tProvider !!!!!!!!!!!!!!!!");
-        console.log("tProvider", this.dbCreate());
-    }
+    constructor(...args) {
+        super(...args);
+      }
+      
+    
+    tCreate (db, tProvName='') {
+        const query = "CREATE TABLE IF NOT EXISTS " + tProvName + "( id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, count INT)";
+        console.log('tProvider.tCreate. db => ', db);
+        console.log('tProvider.tCreate. query => ', query);
+        // super.tCreate(db, query); 
+        console.log('tProvider.tCreate => finished');
+    };
 }
 
 //обнуление локальной базы
