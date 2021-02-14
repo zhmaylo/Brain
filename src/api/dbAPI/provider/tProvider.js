@@ -5,16 +5,16 @@ import { crud } from '../common/crud';
 export class tProvider extends crud {
  
     // constructor(){};
-    constructor(...args) {
-        super(...args);
-      }
+    // constructor(...args) {
+    //     super(...args);
+    //   }
       
     
     tCreate (db, tProvName='') {
         const query = "CREATE TABLE IF NOT EXISTS " + tProvName + "( id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, count INT)";
         console.log('tProvider.tCreate. db => ', db);
         console.log('tProvider.tCreate. query => ', query);
-        // super.tCreate(db, query); 
+        super.tCreate(db, query);
         console.log('tProvider.tCreate => finished');
     };
 }

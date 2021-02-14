@@ -6,12 +6,11 @@
 
 export class crud {
 
-    constructor(...args){
-        this.args=args;
-    }
+    // constructor(...args){
+    //     this.args=args;
+    // }
 
-    // tCreate - table creating a new Data table 
-    tCreate = (db = null, query = null) => {
+    tCreate (db = null, query = null) {
         console.log('CRUD.tCreate => started');
         console.log('CRUD.tCreate db => ', db);
         console.log('CRUD.tCreate query => ', query);
