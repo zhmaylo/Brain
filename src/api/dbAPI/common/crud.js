@@ -10,16 +10,31 @@ export class crud {
     //     this.args=args;
     // }
 
-    tCreate (db = null, query = null) {
+    //tCreate - create new table if odl
+    tCreate(db = null, query = null) {
         console.log('CRUD.tCreate => started');
-        console.log('CRUD.tCreate db => ', db);
+        // console.log('CRUD.tCreate db => ', db);
         console.log('CRUD.tCreate query => ', query);
 
-        if (db==null || query==null) {return false};
+        if (db == null || query == null) { return false };
         db.transaction(tx => {
-            tx.executeSql(query)
+            tx.executeSql(query, [],
+            (txObj, resultSet) => console.log('crud.tCreate - result', resultSet),
+            (txObj, error) => console.log('crud.tCreate - error', error))
+
         })
         console.log('CRUD.tCreate => finished');
+    }
+
+    // tAdd - add row to table
+    tAdd (db, id = null, data = null) {
+        // if ((id == null) || (data == null)) return false;
+
+        db.transaction(tx => {
+            tx.executeSql('INSERT INTO items (text, count) values (?, ?)', ['gibberish', 0],
+                (txObj, resultSet) => console.log('crud._array INTO', resultSet),
+                (txObj, error) => console.log('Error', error))
+        })
     }
 
 }
@@ -27,16 +42,6 @@ export class crud {
 
 
 
-// insertData - updating a row from Data base 
-const insertData = (db, id = null, data = null) => {
-    // if ((id == null) || (data == null)) return false;
-
-    db.transaction(tx => {
-        tx.executeSql('INSERT INTO items (text, count) values (?, ?)', ['gibberish', 0],
-            (txObj, resultSet) => console.log('crud._array INTO', resultSet),
-            (txObj, error) => console.log('Error', error))
-    })
-}
 
 // updateData - updating a row from Data base 
 // db - input dataBase

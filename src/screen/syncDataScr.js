@@ -19,12 +19,10 @@ export default function syncDataScr(props) {
 
     useEffect(() => {
         let dbProd = new dbProduct(DB_PROD_NAME);
-        let tProvide = new tProvider;
-
         dispatch({ type: DB_PROD_OBJ, payload: dbProd });
 
+        let tProvide = new tProvider;
         tProvide.tCreate(dbProd, T_PROV_NAME);
-        
     }, []);
 
     return (
