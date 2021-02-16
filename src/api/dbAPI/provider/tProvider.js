@@ -9,8 +9,8 @@ export class tProvider extends crud {
     //     super(...args);
     //   }
 
-    //tCre
-    tCreate(db, tProvName = '') {
+    //tConnect - connect(create if not exists) to table provider 
+    tConnect(db, tProvName = '') {
         console.log('tProvider.tCreate => started');
         const query =
             "CREATE TABLE IF NOT EXISTS "
@@ -18,9 +18,14 @@ export class tProvider extends crud {
             +" ( id INTEGER PRIMARY KEY AUTOINCREMENT, text TEXT, count INT)";
         // console.log('tProvider.tCreate. db => ', db);
         // console.log('tProvider.tCreate. query => ', query);
-        const tName = super.tCreate(db, query);
+        const tName = super.tConnect(db, query);
         console.log('tProvider.tCreate => finished');
+        return tName;
     };
+
+    tCreate(){
+
+    }
 }
 
 //обнуление локальной базы

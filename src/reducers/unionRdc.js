@@ -12,7 +12,7 @@ import { spinerToggleRdc } from './spinerRdc';
 import { sortSwitchArrRdc } from './sortListProdRdc';
 import { SORT_SWITCHES_ARR } from '../constants/sortConst';
 import { prodCurrentRdc } from './prodCurrentRdc';
-import { dbProdRdc } from './dbProdRdc';
+import { dbProdRdc } from './dbRdc/dbProdRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -142,6 +142,12 @@ export const unionRdc = combineReducers(
         //Start. DB section
         dbProdRdc: dbProdRdc,
         //End. DB section
+        ////////////////////////////////
+     
+        ////////////////////////////////
+        //Start. table Brain section
+        tBrainRefRdc: dbProdRdc,
+        //End. table Brain section
         ////////////////////////////////
 
     }

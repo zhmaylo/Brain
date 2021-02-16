@@ -10,30 +10,34 @@ export class crud {
     //     this.args=args;
     // }
 
-    //tCreate - create new table if odl
-    tCreate(db = null, query = null) {
-        console.log('CRUD.tCreate => started');
-        // console.log('CRUD.tCreate db => ', db);
-        console.log('CRUD.tCreate query => ', query);
+    //tConnect - connect(create if not exists) to table 
+    tConnect(db = null, query = null) {
+        console.log('CRUD.tConnect => started');
+        // console.log('CRUD.tConnect db => ', db);
+        console.log('CRUD.tConnect query => ', query);
 
-        if (db == null || query == null) { return false };
         db.transaction(tx => {
             tx.executeSql(query, [],
-            (txObj, resultSet) => console.log('crud.tCreate - result', resultSet),
-            (txObj, error) => console.log('crud.tCreate - error', error))
-
+                (txObj, resultSet) => {
+                    console.log('crud.tConnect - result', resultSet);
+                    return resultSet;
+                },
+                (txObj, error) => {
+                    console.log('crud.tConnect - error', error);
+                    return error;
+                }
+            )
+            console.log('CRUD.tConnect => finished');
         })
-        console.log('CRUD.tCreate => finished');
     }
 
-    // tAdd - add row to table
-    tAdd (db, id = null, data = null) {
-        // if ((id == null) || (data == null)) return false;
-
+    // tCreate - create new row in table
+    tCreate(db = null, query = null) {
+        if (db == null || query == null) { return false };
         db.transaction(tx => {
             tx.executeSql('INSERT INTO items (text, count) values (?, ?)', ['gibberish', 0],
-                (txObj, resultSet) => console.log('crud._array INTO', resultSet),
-                (txObj, error) => console.log('Error', error))
+                (txObj, resultSet) => console.log('crud.tCreate - result', resultSet),
+                (txObj, error) => console.log('crud.tCreate - error', error))
         })
     }
 

@@ -8,7 +8,7 @@ import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { WINDOW_WIDTH } from '../constants/otherConst';
 import { View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
-import { DB_PROD_OBJ } from '../reducers/dbProdRdc';
+import { DB_PROD_REF } from '../reducers/dbRdc/dbProdRdc';
 import { dbProduct } from './../api/dbAPI/product/dbProduct';
 import { DB_PROD_NAME, T_PROV_NAME } from './../constants/dbConst';
 import { tProvider } from './../api/dbAPI/provider/tProvider';
@@ -19,10 +19,10 @@ export default function syncDataScr(props) {
 
     useEffect(() => {
         let dbProd = new dbProduct(DB_PROD_NAME);
-        dispatch({ type: DB_PROD_OBJ, payload: dbProd });
+        dispatch({ type: DB_PROD_REF, payload: dbProd });
 
         let tProvide = new tProvider;
-        tProvide.tCreate(dbProd, T_PROV_NAME);
+        tProvide.tConnect(dbProd, T_PROV_NAME);
     }, []);
 
     return (
