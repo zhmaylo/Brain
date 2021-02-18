@@ -1,15 +1,15 @@
 
 // reference to table market (Prom.db) 
-export const  T_PROM_REF = 'T_PROM_REF';
+export const  T_PROM = 'T_PROM';
 //
 
 // reference to table market (Prom.db) 
-export const tPromRefRdc = (state = false, action) => {
+export const tPromRdc = (state = false, action) => {
     switch(action.type) {
-        case T_PROM_REF:
+        case T_PROM:
             return {
                 ...state,
-                tPromRef:action.payload
+                tProm:action.payload
             };
         default:
             return state;

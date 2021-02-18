@@ -1,15 +1,15 @@
 
 // reference to table provider (Brain.tbl) 
-export const  T_BRAIN_REF = 'T_BRAIN_REF';
+export const  T_BRAIN = 'T_BRAIN';
 //
 
 // reference to table provider (Brain.tbl) 
-export const tBrainRefRdc = (state = false, action) => {
+export const tBrainRdc = (state = false, action) => {
     switch(action.type) {
-        case T_BRAIN_REF:
+        case T_BRAIN:
             return {
                 ...state,
-                tBrainRef:action.payload
+                tBrain:action.payload
             };
         default:
             return state;
