@@ -14,40 +14,9 @@ export class tProvider extends crud {
         console.log('tProvider.tCreate => started');
         const query =
             "CREATE TABLE IF NOT EXISTS "
-            +tProvName
-            +" (id INTEGER PRIMARY KEY AUTOINCREMENT, productID TEXT,  product_code TEXT, warranty TEXT, is_archive TEXT, is_exclusive TEXT, vendorID TEXT, articul TEXT, volume TEXT, weight TEXT, kbt TEXT, is_new TEXT, categoryID TEXT, EAN TEXT, name TEXT, brief_description TEXT, country TEXT, FOP INTEGER, price TEXT, price_uah TEXT, recommendable_price TEXT, retail_price_uah TEXT, prepayment_amount TEXT, bonus INTEGER, stocks : [
-                  1
-                ],
-                "stocks_expected": {
-                  "19": "2020-07-24 09:00:00",
-                  "29": "2020-07-22 15:00:00",
-                  "42": "2020-07-22 14:30:00",
-                  "58": "2020-07-22 14:30:00",
-                  "73": "2020-07-23 14:00:00",
-                  "94": "2020-07-22 16:30:00",
-                  "121": "2020-07-22 18:00:00",
-                  "144": "2020-07-22 17:30:00",
-                  "168": "2020-07-22 16:30:00",
-                  "172": "2020-07-22 14:00:00",
-                  "225": "2020-07-22 16:00:00",
-                  "245": "2020-07-22 15:15:00",
-                  "258": "2020-07-23 10:30:00",
-                  "259": "2020-07-22 17:00:00",
-                  "1001": "2020-07-21 19:00:00",
-                  "1002": "2020-07-21 20:00:00"
-                },
-                "available": {
-                  "1": 3
-                },
-                "small_image": "http://opt.brain.com.ua/static/images/prod_img/7/1/U0041071_small.jpg",
-                "medium_image": "http://opt.brain.com.ua/static/images/prod_img/7/1/U0041071.jpg",
-                "large_image": "http://opt.brain.com.ua/static/images/prod_img/7/1/U0041071_big.jpg",
-                "full_image": "http://brain.com.ua/static/common/images/no-photo-api.png",
-                "quantity_package_sale": 0
-            
+            + tProvName
+            +" (id INTEGER PRIMARY KEY AUTOINCREMENT, productID TEXT, product_code TEXT, warranty TEXT, is_archive TEXT, is_exclusive TEXT, vendorID TEXT, articul TEXT, volume TEXT, weight TEXT, kbt TEXT, is_new TEXT, categoryID TEXT, EAN TEXT, name TEXT, brief_description TEXT, country TEXT, FOP INTEGER, price TEXT, price_uah TEXT, recommendable_price TEXT, retail_price_uah TEXT, prepayment_amount TEXT, bonus INTEGER, stocks BLOB, stocks_expected BLOB, available BLOB, small_image TEXT, medium_image TEXT, large_image TEXT, full_image TEXT, quantity_package_sale INTEGER)";
 
-                text TEXT, 
-                count INT)";
         // console.log('tProvider.tCreate. db => ', db);
         // console.log('tProvider.tCreate. query => ', query);
         const tName = super.tConnect(db, query);
