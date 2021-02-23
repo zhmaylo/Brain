@@ -2,7 +2,7 @@ import { crud } from '../common/crud';
 
 //API for provider table
 
-export class tProvider extends crud {
+export class TBrain extends crud {
 
     // constructor(){};
     // constructor(...args) {

@@ -11,18 +11,19 @@ import { ContextApp } from "../reducers/unionRdc";
 import { DB_PROD_REF } from '../reducers/dbRdc/dbProdRdc';
 import { dbProduct } from './../api/dbAPI/product/dbProduct';
 import { DB_PROD_NAME, T_PROV_NAME } from './../constants/dbConst';
-import { tBrain } from './../api/dbAPI/provider/tBrain';
+import { TBrain } from './../api/dbAPI/provider/tBrain';
+
 
 
 export default function syncDataScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-
+    let tBrain = new TBrain;
     useEffect(() => {
         let dbProd = new dbProduct(DB_PROD_NAME);
         dispatch({ type: DB_PROD_REF, payload: dbProd });
 
-        let tBrain = new tBrain;
-        tBrain .tConnect(dbProd, T_PROV_NAME);
+  
+        tBrain.tConnect(dbProd, T_PROV_NAME);
     }, []);
 
     return (
