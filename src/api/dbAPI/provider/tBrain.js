@@ -12,7 +12,7 @@ export class TBrain extends crud {
 
   //tConnect - connect(create if not exists) to table provider 
   ConnectToTable(db, tProvName = '') {
-    console.log('tProvider.tCreate => started');
+    console.log('tProvider.ConnectToTable => started');
     const query =
       "CREATE TABLE IF NOT EXISTS "
       + tProvName
@@ -26,10 +26,24 @@ export class TBrain extends crud {
   };
 
   //tCreateRec - create a new record in table
-  tCreateRec(db, tProvName = '', values = []) {
-    const query = 'INSERT INTO' + tProvName + ' (text, count) values (?, ?)';
-    console.log("tCreateRec.tCreateRec. values", values);
-    // super.tCreate(db = db, query = query, values = values);
+  tCreateRec(db, tProvName, values) {
+    console.log('tProvider.tCreateRec. => started');
+    // const query = 'INSERT INTO ' + tProvName + ' (productID, product_code) values (?, ?)';
+    // const query = 'INSERT INTO ' + tProvName + ' (productID, product_code, warranty, is_archive, is_exclusive, vendorID, articul, volume, weight, kbt, is_new, categoryID, EAN, name, brief_description, country, FOP, price, price_uah, recommendable_price, retail_price_uah, prepayment_amount, bonus, stocks, stocks_expected, available, small_image, medium_image, large_image, full_image, quantity_package_sale) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO ' + tProvName + ' (productID, product_code, stocks_expected) values (?, ?, ?)';
+    console.log("tBrain.tCreateRec values to string", String(values))
+    // console.log("tCreateRec.tCreateRec. values", values);
+    console.log("tCreateRec.tCreateRec. query", query);
+    super.tCreate(db, query, [values.productID, values.product_code, values.stocks_expected]);
+    console.log('tProvider.tCreateRec. => finished');
+  }
+
+  tRead(db) {
+    super.tRead(db);
+  }
+
+  tDeleteAll(db) {
+    super.tDeleteAll(db)
   }
 }
 

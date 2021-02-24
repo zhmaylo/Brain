@@ -23,9 +23,11 @@ export default function syncDataScr(props) {
         let dbProd = new dbProduct(DB_PROD_NAME);
         dispatch({ type: DB_PROD_REF, payload: dbProd });
 
-        const values = PRODUCTS_FROM_FILE[0].result.list[0, 0];
-        tBrain.ConnectToTable(dbProd, T_PROV_NAME, values);
-        tBrain.tCreateRec(dbProd);
+        const values = PRODUCTS_FROM_FILE[0].result.list[0, 13];
+        tBrain.ConnectToTable(dbProd, T_PROV_NAME);
+        tBrain.tCreateRec(dbProd, T_PROV_NAME, values);
+        tBrain.tRead(dbProd);
+        // tBrain.tDeleteAll(dbProd);
     }, []);
 
     return (

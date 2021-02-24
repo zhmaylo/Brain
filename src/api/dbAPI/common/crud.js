@@ -2,25 +2,23 @@
 //CRUD (local base)
 /////////////////////////////
 
-// import { tNameProvider } from './provider/tProviderConst';
-
 export class crud {
 
-    // constructor(...args){
-    //     this.args=args;
-    // }
-
-    //tConnect - connect(create if not exists) to table 
-    ConnectToTable(db = null, query = null) {
+    // tConnectToTable - connect(create if not exists) to table 
+    // db - input dataBase
+    // query - query create or join table
+    // return resultSet - table reference
+    // return error - error
+    ConnectToTable(db, query) {
         console.log('CRUD.ConnectToTable => started');
         // console.log('CRUD.tConnect db => ', db);
         console.log('CRUD.ConnectToTable query => ', query);
 
         db.transaction(tx => {
             tx.executeSql(query, [],
-                (txObj, resultSet) => {
-                    console.log('CRUD.ConnectToTable - result', resultSet);
-                    return resultSet;
+                (txObj, resultTable) => {
+                    console.log('CRUD.ConnectToTable - result', resultTable);
+                    return resultTable;
                 },
                 (txObj, error) => {
                     console.log('CRUD.ConnectToTable - error', error);
@@ -32,15 +30,42 @@ export class crud {
     }
 
     // tCreate - create one new row in table
-    tCreate(db = null, query = null, values= [] ) {
-        if (db == null || query == null) { return false };
+    // db - input dataBase
+    // query - table create query 
+    // values - record field values
+    // return - nothing
+    tCreate(db, query, values) {
+        console.log("CRUD.tCreate. values", values)
         db.transaction(tx => {
-            // tx.executeSql('INSERT INTO items (text, count) values (?, ?)', ['gibberish', 0],
+            // tx.executeSql('INSERT INTO brain_tbl (productID, product_code) values (?, ?)', ['gibberish', '0'],
+            // tx.executeSql(query, [values.productID, values.product_code],
             tx.executeSql(query, values,
+            // tx.executeSql(query, values,
                 (txObj, resultSet) => console.log('crud.tCreate - result', resultSet),
                 (txObj, error) => console.log('crud.tCreate - error', error))
         })
     }
+
+    // tRead - Readind all Data from table
+    // db - input dataBase
+    tRead = (db) => {
+        db.transaction(tx => {
+            tx.executeSql('SELECT * FROM brain_tbl', null,
+                (txObj, _array) => console.log('CRUD.tRead READ (length)', _array),
+                (txObj, error) => console.log('Error ', error)
+            )
+        });
+    }
+
+    tDeleteAll = (db) => {
+        db.transaction(tx => {
+            tx.executeSql('DELETE FROM brain_tbl', [],
+                (txObj, _array) => console.log('crud._array Zero Base', _array),
+                (txObj, error) => console.log('Error ', error)
+            )
+        })
+    }
+
 
 }
 
@@ -81,29 +106,10 @@ const deleteData = (db, id = null) => {
 }
 
 
-const deleteAllData = (db) => {
-
-    db.transaction(tx => {
-        tx.executeSql('DELETE FROM items', [],
-            (txObj, _array) => console.log('crud._array Zero Base', _array),
-            (txObj, error) => console.log('Error ', error)
-        )
-    })
-}
 
 
 
-// readData - Readind all Data from Data base 
-// db - input dataBase
-const readData = (db) => {
-    if (db == null) return false;
-    db.transaction(tx => {
-        tx.executeSql('SELECT * FROM items', null,
-            (txObj, _array) => console.log('crud._array READ (length)', _array.rows),
-            (txObj, error) => console.log('Error ', error)
-        )
-    });
-}
+
 
 
 
