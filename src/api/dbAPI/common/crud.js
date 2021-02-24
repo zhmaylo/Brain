@@ -11,31 +11,32 @@ export class crud {
     // }
 
     //tConnect - connect(create if not exists) to table 
-    tConnect(db = null, query = null) {
-        console.log('CRUD.tConnect => started');
+    ConnectToTable(db = null, query = null) {
+        console.log('CRUD.ConnectToTable => started');
         // console.log('CRUD.tConnect db => ', db);
-        console.log('CRUD.tConnect query => ', query);
+        console.log('CRUD.ConnectToTable query => ', query);
 
         db.transaction(tx => {
             tx.executeSql(query, [],
                 (txObj, resultSet) => {
-                    console.log('crud.tConnect - result', resultSet);
+                    console.log('CRUD.ConnectToTable - result', resultSet);
                     return resultSet;
                 },
                 (txObj, error) => {
-                    console.log('crud.tConnect - error', error);
+                    console.log('CRUD.ConnectToTable - error', error);
                     return error;
                 }
             )
-            console.log('CRUD.tConnect => finished');
+            console.log('CRUD.ConnectToTable => finished');
         })
     }
 
-    // tCreate - create new row in table
-    tCreate(db = null, query = null) {
+    // tCreate - create one new row in table
+    tCreate(db = null, query = null, values= [] ) {
         if (db == null || query == null) { return false };
         db.transaction(tx => {
-            tx.executeSql('INSERT INTO items (text, count) values (?, ?)', ['gibberish', 0],
+            // tx.executeSql('INSERT INTO items (text, count) values (?, ?)', ['gibberish', 0],
+            tx.executeSql(query, values,
                 (txObj, resultSet) => console.log('crud.tCreate - result', resultSet),
                 (txObj, error) => console.log('crud.tCreate - error', error))
         })

@@ -9,9 +9,10 @@ import { WINDOW_WIDTH } from '../constants/otherConst';
 import { View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 import { DB_PROD_REF } from '../reducers/dbRdc/dbProdRdc';
-import { dbProduct } from './../api/dbAPI/product/dbProduct';
+import { dbProduct } from '../api/dbAPI/common/dbProduct';
 import { DB_PROD_NAME, T_PROV_NAME } from './../constants/dbConst';
 import { TBrain } from './../api/dbAPI/provider/tBrain';
+import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
 
 
 
@@ -22,8 +23,9 @@ export default function syncDataScr(props) {
         let dbProd = new dbProduct(DB_PROD_NAME);
         dispatch({ type: DB_PROD_REF, payload: dbProd });
 
-  
-        tBrain.tConnect(dbProd, T_PROV_NAME);
+        const values = PRODUCTS_FROM_FILE[0].result.list[0, 0];
+        tBrain.ConnectToTable(dbProd, T_PROV_NAME, values);
+        tBrain.tCreateRec(dbProd);
     }, []);
 
     return (

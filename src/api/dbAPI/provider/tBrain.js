@@ -1,32 +1,36 @@
 import { crud } from '../common/crud';
+import { PRODUCTS_FROM_FILE } from './../../../constants/productsJSON';
 
 //API for provider table
 
 export class TBrain extends crud {
 
-    // constructor(){};
-    // constructor(...args) {
-    //     super(...args);
-    //   }
+  // constructor(){};
+  // constructor(...args) {
+  //     super(...args);
+  //   }
 
-    //tConnect - connect(create if not exists) to table provider 
-    tConnect(db, tProvName = '') {
-        console.log('tProvider.tCreate => started');
-        const query =
-            "CREATE TABLE IF NOT EXISTS "
-            + tProvName
-            +" (id INTEGER PRIMARY KEY AUTOINCREMENT, productID TEXT, product_code TEXT, warranty TEXT, is_archive TEXT, is_exclusive TEXT, vendorID TEXT, articul TEXT, volume TEXT, weight TEXT, kbt TEXT, is_new TEXT, categoryID TEXT, EAN TEXT, name TEXT, brief_description TEXT, country TEXT, FOP INTEGER, price TEXT, price_uah TEXT, recommendable_price TEXT, retail_price_uah TEXT, prepayment_amount TEXT, bonus INTEGER, stocks BLOB, stocks_expected BLOB, available BLOB, small_image TEXT, medium_image TEXT, large_image TEXT, full_image TEXT, quantity_package_sale INTEGER)";
+  //tConnect - connect(create if not exists) to table provider 
+  ConnectToTable(db, tProvName = '') {
+    console.log('tProvider.tCreate => started');
+    const query =
+      "CREATE TABLE IF NOT EXISTS "
+      + tProvName
+      + " (id INTEGER PRIMARY KEY AUTOINCREMENT, productID TEXT, product_code TEXT, warranty TEXT, is_archive TEXT, is_exclusive TEXT, vendorID TEXT, articul TEXT, volume TEXT, weight TEXT, kbt TEXT, is_new TEXT, categoryID TEXT, EAN TEXT, name TEXT, brief_description TEXT, country TEXT, FOP INTEGER, price TEXT, price_uah TEXT, recommendable_price TEXT, retail_price_uah TEXT, prepayment_amount TEXT, bonus INTEGER, stocks BLOB, stocks_expected BLOB, available BLOB, small_image TEXT, medium_image TEXT, large_image TEXT, full_image TEXT, quantity_package_sale INTEGER)";
 
-        // console.log('tProvider.tCreate. db => ', db);
-        // console.log('tProvider.tCreate. query => ', query);
-        const tName = super.tConnect(db, query);
-        console.log('tProvider.tCreate => finished');
-        return tName;
-    };
+    // console.log('tProvider.tCreate. db => ', db);
+    // console.log('tProvider.tCreate. query => ', query);
+    const tName = super.ConnectToTable(db, query);
+    console.log('tProvider.tCreate => finished');
+    return tName;
+  };
 
-    tCreate(){
-
-    }
+  //tCreateRec - create a new record in table
+  tCreateRec(db, tProvName = '', values = []) {
+    const query = 'INSERT INTO' + tProvName + ' (text, count) values (?, ?)';
+    console.log("tCreateRec.tCreateRec. values", values);
+    // super.tCreate(db = db, query = query, values = values);
+  }
 }
 
 //обнуление локальной базы

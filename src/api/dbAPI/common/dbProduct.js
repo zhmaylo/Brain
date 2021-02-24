@@ -1,6 +1,6 @@
 import * as SQLite from 'expo-sqlite';
 
-//base connection
+//connection to base
 export class dbProduct {
 
     //dbName - base name
