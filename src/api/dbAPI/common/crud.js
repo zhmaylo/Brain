@@ -32,7 +32,7 @@ export class crud {
     // tCreate - create one new row in table
     // db - input dataBase
     // query - table create query 
-    // values - record field values
+    // values - variable values in the request 
     // return - nothing
     tCreate(db, query, values) {
         console.log("CRUD.tCreate. values", values)
@@ -46,22 +46,34 @@ export class crud {
         })
     }
 
-    // tRead - Readind all Data from table
+    // tRead - Data reading from table
     // db - input dataBase
-    tRead = (db) => {
+    // query - data read query 
+    // values - variable values in the request 
+    // return - Data from table
+    tRead = (db, query, values = []) => {
         db.transaction(tx => {
-            tx.executeSql('SELECT * FROM brain_tbl', null,
-                (txObj, _array) => console.log('CRUD.tRead READ (length)', _array),
-                (txObj, error) => console.log('Error ', error)
+            // tx.executeSql('SELECT * FROM brain_tbl', null,
+            tx.executeSql(query, values,
+                (txObj, _array) => {
+                    console.log('CRUD.tRead - result', _array);
+                    return _array;
+                },
+
+                (txObj, error) => console.log('CRUD.tRead - Error ', error)
             )
         });
     }
 
-    tDeleteAll = (db) => {
+    // tDelete - Data deleting from table
+    // db - input dataBase
+    // query - data delete query
+    // values - variable values in the request 
+    tDelete = (db, query, values = []) => {
         db.transaction(tx => {
-            tx.executeSql('DELETE FROM brain_tbl', [],
-                (txObj, _array) => console.log('crud._array Zero Base', _array),
-                (txObj, error) => console.log('Error ', error)
+            tx.executeSql(query, values,
+                (txObj, _array) => console.log('crud.tDelete - result', _array),
+                (txObj, error) => console.log('crud.tDelete - Error ', error)
             )
         })
     }
