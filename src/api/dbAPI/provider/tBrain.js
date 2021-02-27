@@ -2,61 +2,69 @@ import { crud } from '../common/crud';
 
 //API for provider table
 
+
+
 export class TBrain extends crud {
 
   // constructor(){};
-  // constructor(...args) {
-  //     super(...args);
-  //   }
+  constructor(...args) {
+    super(...args);
+    //get provider table name
+    this.BRAIN_TBL_NAME = super.getT_PROV_NAME()[0];
+    console.log('this.BRAIN_TBL=', this.BRAIN_TBL_NAME);
+    this.ConnectToTable();
+  }
 
   //tConnect - connect(create if not exists) to table provider 
-  ConnectToTable(db, tProvName = '') {
+  ConnectToTable() {
     console.log('tProvider.ConnectToTable => started');
+
     const query =
       "CREATE TABLE IF NOT EXISTS "
-      + tProvName
+      + this.BRAIN_TBL_NAME
       + " (id INTEGER PRIMARY KEY AUTOINCREMENT, productID TEXT, product_code TEXT, warranty TEXT, is_archive TEXT, is_exclusive TEXT, vendorID TEXT, articul TEXT, volume TEXT, weight TEXT, kbt TEXT, is_new TEXT, categoryID TEXT, EAN TEXT, name TEXT, brief_description TEXT, country TEXT, FOP INTEGER, price TEXT, price_uah TEXT, recommendable_price TEXT, retail_price_uah TEXT, prepayment_amount TEXT, bonus INTEGER, stocks TEXT, stocks_expected TEXT, available TEXT, small_image TEXT, medium_image TEXT, large_image TEXT, full_image TEXT, quantity_package_sale INTEGER)";
 
     // console.log('tProvider.tCreate. db => ', db);
     // console.log('tProvider.tCreate. query => ', query);
-    const tName = super.ConnectToTable(db, query);
+    const tName = super.ConnectToTable(query);
     console.log('tProvider.tCreate => finished');
+    console.log('tProvider.tCreate. this.BRAIN_TBL_NAME => ', this.BRAIN_TBL_NAME);
     return tName;
   };
 
   //tCreateRec - create a new record in table
-  tCreateRec(db, tProvName, values) {
+  tCreateRec(values) {
     console.log('tProvider.tCreateRec. => started');
 
-    const query = 'INSERT INTO ' + tProvName + ' (productID, product_code, warranty, is_archive, is_exclusive, vendorID, articul, volume, weight, kbt, is_new, categoryID, EAN, name, brief_description, country, FOP, price, price_uah, recommendable_price, retail_price_uah, prepayment_amount, bonus, stocks, stocks_expected, available, small_image, medium_image, large_image, full_image, quantity_package_sale) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    const query = 'INSERT INTO ' + this.BRAIN_TBL_NAME + ' (productID, product_code, warranty, is_archive, is_exclusive, vendorID, articul, volume, weight, kbt, is_new, categoryID, EAN, name, brief_description, country, FOP, price, price_uah, recommendable_price, retail_price_uah, prepayment_amount, bonus, stocks, stocks_expected, available, small_image, medium_image, large_image, full_image, quantity_package_sale) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
     // console.log("tBrain.tCreateRec values to string", String(values));
     // console.log("tCreateRec.tCreateRec. values.stocks_expected", String(JSON.stringify(values.stocks_expected)));
     // console.log("tCreateRec.tCreateRec. query", query);
 
-    super.tCreate(db, query, [values.productID, values.product_code, values.warranty, values.is_archive, values.is_exclusive, values.vendorID, values.articul, values.volume, values.weight, values.kbt, values.is_new, values.categoryID, values.EAN, values.name, values.brief_description, values.country, values.FOP, values.price, values.price_uah, values.recommendable_price, values.retail_price_uah, values.prepayment_amount, values.bonus, JSON.stringify(values.stocks), JSON.stringify(values.stocks_expected), JSON.stringify(values.available), values.small_image, values.medium_image, values.large_image, values.full_image, values.quantity_package_sale]);
+    super.tCreateRec(query, [values.productID, values.product_code, values.warranty, values.is_archive, values.is_exclusive, values.vendorID, values.articul, values.volume, values.weight, values.kbt, values.is_new, values.categoryID, values.EAN, values.name, values.brief_description, values.country, values.FOP, values.price, values.price_uah, values.recommendable_price, values.retail_price_uah, values.prepayment_amount, values.bonus, JSON.stringify(values.stocks), JSON.stringify(values.stocks_expected), JSON.stringify(values.available), values.small_image, values.medium_image, values.large_image, values.full_image, values.quantity_package_sale]);
 
     console.log('tProvider.tCreateRec. => finished');
   }
 
-  tRead(db, tProvName) {
-  //   const query = 'SELECT * FROM ' + tProvName + ' WHERE '; 
-  //   super.tRead(db);
+  tRead() {
+    //   const query = 'SELECT * FROM ' + this.BRAIN_TBL + ' WHERE '; 
+    //   super.tRead(db);
   }
 
-  tReadAll(db, tProvName) {
-    const query = 'SELECT * FROM ' + tProvName; 
-    super.tRead(db, query);
+  tReadAll() {
+    const query = 'SELECT * FROM ' + this.BRAIN_TBL_NAME;
+    super.tRead(query);
   }
 
-  tDelete(db, tProvName, product_code) {
-    const query = 'DELETE FROM ' + tProvName + ' WHERE product_code = ?';
+  tDelete(product_code) {
+    const query = 'DELETE FROM ' + this.BRAIN_TBL_NAME + ' WHERE product_code = ?';
     super.tDelete(db, query, values = product_code);
   }
 
-  tDeleteAll(db, tProvName) {
-    const query = 'DELETE FROM ' + tProvName;
-    super.tDelete(db, query);
+  tDeleteAll() {
+    const query = 'DELETE FROM ' + this.BRAIN_TBL_NAME;
+    super.tDelete(query);
   }
 
 }

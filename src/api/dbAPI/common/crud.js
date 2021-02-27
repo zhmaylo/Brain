@@ -2,22 +2,33 @@
 //CRUD (local base)
 /////////////////////////////
 
-export class crud {
+import { dbProduct } from './dbProduct';
+import { dbConst } from './dbConst';
+
+let dbProd;
+
+export class crud extends dbConst {
+    constructor(...args) {
+        super(...args);
+        dbProd = new dbProduct();
+
+        console.log("class CRUD. constructor - finished");
+    }
 
     // tConnectToTable - connect(create if not exists) to table 
-    // db - input dataBase
     // query - query create or join table
     // return resultSet - table reference
     // return error - error
-    ConnectToTable(db, query) {
+    ConnectToTable(query) {
         console.log('CRUD.ConnectToTable => started');
         // console.log('CRUD.tConnect db => ', db);
         console.log('CRUD.ConnectToTable query => ', query);
 
-        db.transaction(tx => {
+        dbProd.transaction(tx => {
             tx.executeSql(query, [],
                 (txObj, resultTable) => {
                     console.log('CRUD.ConnectToTable - result', resultTable);
+                    console.log('CRUD.ConnectToTable - txObj', txObj);
                     return resultTable;
                 },
                 (txObj, error) => {
@@ -30,29 +41,30 @@ export class crud {
     }
 
     // tCreate - create one new row in table
-    // db - input dataBase
     // query - table create query 
     // values - variable values in the request 
     // return - nothing
-    tCreate(db, query, values) {
+    tCreateRec(query, values) {
         console.log("CRUD.tCreate. values", values)
-        db.transaction(tx => {
+        dbProd.transaction(tx => {
             // tx.executeSql('INSERT INTO brain_tbl (productID, product_code) values (?, ?)', ['gibberish', '0'],
             // tx.executeSql(query, [values.productID, values.product_code],
             tx.executeSql(query, values,
-            // tx.executeSql(query, values,
-                (txObj, resultSet) => console.log('crud.tCreate - result', resultSet),
+                // tx.executeSql(query, values,
+                (txObj, resultSet) => {
+                    console.log('crud.tCreate - result', resultSet);
+                    console.log('crud.tCreate - txObj', txObj);
+                },
                 (txObj, error) => console.log('crud.tCreate - error', error))
         })
     }
 
     // tRead - Data reading from table
-    // db - input dataBase
     // query - data read query 
     // values - variable values in the request 
     // return - Data from table
-    tRead = (db, query, values = []) => {
-        db.transaction(tx => {
+    tRead(query, values = []) {
+        dbProd.transaction(tx => {
             // tx.executeSql('SELECT * FROM brain_tbl', null,
             tx.executeSql(query, values,
                 (txObj, _array) => {
@@ -66,11 +78,10 @@ export class crud {
     }
 
     // tDelete - Data deleting from table
-    // db - input dataBase
     // query - data delete query
     // values - variable values in the request 
-    tDelete = (db, query, values = []) => {
-        db.transaction(tx => {
+    tDelete(query, values = []) {
+        dbProd.transaction(tx => {
             tx.executeSql(query, values,
                 (txObj, _array) => console.log('crud.tDelete - result', _array),
                 (txObj, error) => console.log('crud.tDelete - Error ', error)
@@ -86,13 +97,12 @@ export class crud {
 
 
 // updateData - updating a row from Data base 
-// db - input dataBase
 // id - id of item (number)
 // data - data for update
 // return false - not data for processing
 const updateData = (db, id = null, data = null) => {
     if ((id == null) || (data == null)) return false;
-    db.transaction(tx => {
+    dbProd.transaction(tx => {
         tx.executeSql('UPDATE items SET count = ? WHERE id = ?', [data, id],
             (txObj, _array) => console.log('crud._array UPDATE', _array),
             (txObj, error) => console.log('Error ', error)

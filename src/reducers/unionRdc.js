@@ -12,9 +12,6 @@ import { spinerToggleRdc } from './spinerRdc';
 import { sortSwitchArrRdc } from './sortListProdRdc';
 import { SORT_SWITCHES_ARR } from '../constants/sortConst';
 import { prodCurrentRdc } from './prodCurrentRdc';
-import { dbProdRdc } from './dbRdc/dbProdRdc';
-import { tPromRdc } from './dbRdc/tPromRdc';
-import { tBrainRdc } from './dbRdc/tBrainRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -86,32 +83,6 @@ export const initialState = {
     //End. Product current
     ////////////////////////////////
 
-    ////////////////////////////////
-    //Start. DB section
-    dbProdRdc: {
-        dbProd: null,
-    },
-    //End. DB section
-    ////////////////////////////////
-
-    ////////////////////////////////
-    //Start. table Brain section
-    tBrainRdc: {
-        tBrain: null,
-    },
-    //End. table Brain section
-    ////////////////////////////////
-
-    ////////////////////////////////
-    //Start. table Prom section
-    tPromRdc: {
-        tProm: null,
-    },
-    //End. table Prom section
-    ////////////////////////////////
-
-
-
 
 };
 
@@ -156,23 +127,6 @@ export const unionRdc = combineReducers(
         statusResponseRdc: statusResponseRdc,
         numColumProdRdc: numColumProdRdc,
 
-        ////////////////////////////////
-        //Start. DB section
-        dbProdRdc: dbProdRdc,
-        //End. DB section
-        ////////////////////////////////
-
-        ////////////////////////////////
-        //Start. table Brain section
-        tBrainRdc: tBrainRdc,
-        //End. table Brain section
-        ////////////////////////////////
-
-        ////////////////////////////////
-        //Start. table Prom section
-        tPromRdc: tPromRdc,
-        //End. table Prom section
-        ////////////////////////////////
 
     }
 );
