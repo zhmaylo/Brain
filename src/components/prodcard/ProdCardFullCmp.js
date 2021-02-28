@@ -14,7 +14,7 @@ import { PROD_GALL_SCR } from '../../constants/appNavigatorConst';
 export const ProdCardFullCmp = ({ item, currImages, props }) => {
 
     // console.log("ProdCardFullCmp=>item", item);
-    // console.log("ProdCardFullCmp=>currImages", currImages);
+    console.log("ProdCardFullCmp=>currImages", currImages);
 
     return (
 

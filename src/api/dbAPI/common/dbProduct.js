@@ -1,4 +1,5 @@
-import * as SQLite from 'expo-sqlite';
+// import * as SQLite from 'expo-sqlite';
+import { SQLite } from 'expo-sqlite';
 import { dbConst } from './dbConst';
 
 //connection to base
@@ -15,6 +16,5 @@ export class dbProduct extends dbConst {
         return db;
     }
 
-    
 }
 

@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.61% </span>
+                <span class="strong">55.17% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/31</span>
+                <span class='fraction'>16/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.85% </span>
+                <span class="strong">56% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/27</span>
+                <span class='fraction'>14/25</span>
             </div>
         
             
@@ -130,8 +130,8 @@
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
 <a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,11 +164,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,7 +177,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -210,6 +208,7 @@ import { URL_GET_PRODUCTS } from "../../constants/urlConst";
 import { middleWareFetch } from './../fetch/middleWareFetch';
 import { OFFSET, LIMIT } from './../../constants/productsConst';
 import { argMiddle } from './../argMiddle';
+import { SPINER_TOGGLE } from "../../reducers/spinerRdc";
 &nbsp;
 // getProductsList - returns products list of a specified category from server. JSON-format.
 // categoryID - "id" produtcts category
@@ -221,7 +220,7 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) =&gt; {
     argMiddle.requestUrl = URL_GET_PRODUCTS + categoryID + '/';
     argMiddle.sidAndTime = sidAndTime;
     argMiddle.dispatch = dispatch;
-    dispatch({ type: 'SPINER_TOGGLE', payload: true });
+    dispatch({ type: SPINER_TOGGLE, payload: true });
     do {
         argMiddle.params = '?offset=' + offset+'&amp;limit='+LIMIT;
         // console.log("getProductsList.offset =&gt;", offset);
@@ -238,12 +237,10 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) =&gt; {
         // console.log("getProductsList.json.length =&gt;", json.length);
         
         // console.log("getProductsList.arrTemp.json.length =&gt;", json.length);
-<span class="cstat-no" title="statement not covered" >        dispatch({ type: 'SPINER_VOLUME', payload: offset });</span>
-<span class="cstat-no" title="statement not covered" >        dispatch({ type: 'SPINER_MAX', payload: result.count });</span>
 &nbsp;
     } while (offset &lt;= result.count); //json.result.length)
-<span class="cstat-no" title="statement not covered" >    dispatch({ type: 'SPINER_VOLUME', payload: 0 });</span>
-<span class="cstat-no" title="statement not covered" >    dispatch({ type: 'SPINER_TOGGLE', payload: false });</span>
+    
+<span class="cstat-no" title="statement not covered" >    dispatch({ type: SPINER_TOGGLE, payload: false });</span>
 &nbsp;
     // console.log("getProductsList=&gt;", json);
 <span class="cstat-no" title="statement not covered" >    return json;</span>
@@ -253,10 +250,10 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) =&gt; {
 // data - entering array
 // arr - compressed array
 export const removeProductAbsence = <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
-    // console.log("removeProductAbsence. data =&gt;", data);
+<span class="cstat-no" title="statement not covered" >    console.log("removeProductAbsence. data =&gt;", data);</span>
     let arr=<span class="cstat-no" title="statement not covered" >[];</span>
 <span class="cstat-no" title="statement not covered" >    data.forEach(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if (item.stocks_expected.length != 0) <span class="cstat-no" title="statement not covered" >arr.push(item);</span></span>
+<span class="cstat-no" title="statement not covered" >        if ((item.stocks_expected.length != 0) &amp;&amp; (item.available.length !=0)) <span class="cstat-no" title="statement not covered" >arr.push(item);</span></span>
     });
     // console.log("removeProductAbsence. arr =&gt;", arr);
 <span class="cstat-no" title="statement not covered" >    return arr;</span>
@@ -286,7 +283,7 @@ export const setSizeListProd = <span class="fstat-no" title="function not covere
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Aug 27 2020 15:44:43 GMT+0300 (Восточная Европа, летнее время)
+                at Sun Feb 28 2021 17:05:20 GMT+0200 (Восточная Европа, стандартное время)
             </div>
         </div>
         <script src="../../prettify.js"></script>
