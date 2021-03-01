@@ -17,9 +17,11 @@ export default function syncDataScr(props) {
     let tBrain = new TBrain;
     useEffect(() => {
         const values = PRODUCTS_FROM_FILE[0].result.list[0, 13];
-        tBrain.tCreateRec(values);
+        tBrain.tCreate(values);
+        // tBrain.tDrop();
         tBrain.tReadAll();
         // tBrain.tDeleteAll();
+       
     }, []);
 
     return (
