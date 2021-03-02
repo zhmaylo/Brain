@@ -27,7 +27,8 @@ export class TBrain extends crud {
     super.ConnectToTable(query);
   };
 
-  //tCreateRec - create a new record in table
+  //tCreateRec - create one new record
+  // values - contains all the values of one row of the table
   tCreate(values) {
     // console.log('tProvider.tCreateRec. => started');
 
@@ -44,38 +45,44 @@ export class TBrain extends crud {
 
   // tRead - Data reading from table
   tRead() {
-      const query = 'SELECT * FROM ' + this.BRAIN_TBL + ' WHERE product_code = ?'; 
-      super.tRead(db);
+    const query = 'SELECT * FROM ' + this._BRAIN_TBL_NAME + ' WHERE product_code = ?';
+    super.tRead(db);
   }
 
+  // tReadAll - reading the entire table
   tReadAll() {
     const query = 'SELECT * FROM ' + this._BRAIN_TBL_NAME;
     super.tRead(query);
   }
 
-  tUpdate() {
-    // const query = 'UPDATE items SET count = ? WHERE id = ?', [data, id]';
-    const query = 'UPDATE ' + this._BRAIN_TBL_NAME + ' SET  WHERE product_code = ?'; 
-    super.tUpdate(query);
-  }
-
+  // tDelete - deleting one line
   tDelete(product_code) {
     const query = 'DELETE FROM ' + this._BRAIN_TBL_NAME + ' WHERE product_code = ?';
     super.tDelete(db, query, values = product_code);
   }
 
+  // tDeleteAll - clearing the table
   tDeleteAll() {
     const query = 'DELETE FROM ' + this._BRAIN_TBL_NAME;
     super.tDelete(query);
   }
 
+  // tDrop - deleting a table
   tDrop() {
     const query = 'DROP TABLE ' + this._BRAIN_TBL_NAME;
     super.tDrop(query);
+  }
 
+  // tReplace - replaycing an old record with a new one
+  // 1. Deleting old entry. 2. Add a new record to the end of the table.
+  // values - contains all the values of one row of the table
+  tReplace(values) {
+    tDelete(values.product_code);
+    tCreate(values);
   }
 
 }
+
 
 //обнуление локальной базы
 
