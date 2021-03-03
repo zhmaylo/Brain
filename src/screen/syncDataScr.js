@@ -13,6 +13,8 @@ import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
 import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { LogCmp } from '../components/syncdata/LogCmp';
 import { ScrollView } from 'react-native-gesture-handler';
+import { MenuItemCmp } from '../components/syncdata/MenuItemCmp';
+
 
 // syncDataScr - work with tables. 
 // zeroing, reloading all data, synchronization, unloading for the trading platform
@@ -33,35 +35,43 @@ export default function syncDataScr(props) {
         <SafeAreaView style={styles.container}>
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={SYNC_DATA_TITLE} />
-            
+
+
+
+
             <View style={styles.logcmp}>
                 <ScrollView ><LogCmp /> </ScrollView >
             </View>
-            
-            <View style={styles.item} >
 
-                <ScrollView >
-                    {/* <Text></Text> */}
-                    <Button title='Пересоздать таблицу Brain' ></Button>
-                    {/* <Text></Text> */}
-                    <Button styles={{ padding: 9, margin: 9 }} title='Обнулить базу' ></Button>
-                    {/* <Text></Text> */}
-                    {/* <Button title='Перезагрузить с Brain все данные' ></Button> */}
-                    {/* <Text>Синхронизация базы телефона с Brain</Text> */}
-                    <Button title='Синхр c Brain' ></Button>
-                    {/* <Text>
+
+            <View style={styles.menuItem} >
+                <MenuItemCmp />
+            </View>
+
+            {/* <View style={styles.item} > */}
+
+                {/* <View> */}
+                {/* <Text></Text> */}
+                {/* <Button title='Пересоздать таблицу Brain' ></Button> */}
+                {/* <Text></Text> */}
+                {/* <Button styles={{ color: 'gainsboro' }} title='Обнулить базу' ></Button> */}
+                {/* <Text></Text> */}
+                {/* <Button title='Перезагрузить с Brain все данные' ></Button> */}
+                {/* <Text>Синхронизация базы телефона с Brain</Text> */}
+                {/* <Button title='Синхр c Brain' ></Button> */}
+                {/* <Text>
                         Выгрузить базу с телефона в файл в
                         локальное хранилище (xls,csv,xlsx,xml,cml документ)
                     </Text> */}
-                    <Button title='Выгрузить Prom в ФАЙЛ' ></Button>
-                    {/* <Text>
+                {/* <Button title='Выгрузить Prom в ФАЙЛ' ></Button> */}
+                {/* <Text>
                         Выгрузить базу с телефона в облако
                         Ссылка (URL) на xls,csv,xlsx,xml,cml документ
                         (напр. Google Disk)
                     </Text> */}
-                    <Button title='Выгрузить Prom в URL' ></Button>
-                </ScrollView>
-            </View>
+                {/* <Button title='Выгрузить Prom в URL' ></Button> */}
+                {/* </View> */}
+            {/* </View> */}
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
         </SafeAreaView >
 
@@ -70,24 +80,30 @@ export default function syncDataScr(props) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 4,
         flexDirection: "column",
         backgroundColor: "#F0F0F0",
         width: WINDOW_WIDTH,
     },
 
     logcmp: {
-        // flex: 1,
+        flex: 3,
+        paddingBottom: 5,
         backgroundColor: 'white',
-        height: WINDOW_HEIGHT/3*2,
     },
 
-    item: {
-        // flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: "white",
-        paddingTop: 20,
-        height: WINDOW_HEIGHT/3*1
-    },
+
+
+    menuItem: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        backgroundColor: 'white',
+        padding: 5,
+        // borderRadius: 10,
+        borderTopWidth: 1,
+        //  alignItems: 'flex-start',
+        // width: 100,
+    }
 });
+
