@@ -14,6 +14,8 @@ import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { LogCmp } from '../components/syncdata/LogCmp';
 import { ScrollView } from 'react-native-gesture-handler';
 import { MenuItemCmp } from '../components/syncdata/MenuItemCmp';
+import { clearBrainTbl } from './../api/category/syncData';
+
 
 
 // syncDataScr - work with tables. 
@@ -40,38 +42,28 @@ export default function syncDataScr(props) {
 
 
             <View style={styles.logcmp}>
-                <ScrollView ><LogCmp /> </ScrollView >
+                <ScrollView >
+                    <LogCmp />
+                     </ScrollView >
             </View>
 
 
             <View style={styles.menuItem} >
-                <MenuItemCmp />
+
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <MenuItemCmp title='Очистить таблицу Brain' callback={clearBrainTbl} />
+                    <MenuItemCmp title='Очистить таблицу Prom' />
+                </View>
+
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                    <MenuItemCmp title='Синхр Brain vs Provider' />
+                    <MenuItemCmp title='Конверт Brain в Prom' />
+                </View>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <MenuItemCmp title='Выгрузить Prom в файл'/>
+                    <MenuItemCmp title='Выгрузить Prom в URL' />
+                </View>
             </View>
-
-            {/* <View style={styles.item} > */}
-
-                {/* <View> */}
-                {/* <Text></Text> */}
-                {/* <Button title='Пересоздать таблицу Brain' ></Button> */}
-                {/* <Text></Text> */}
-                {/* <Button styles={{ color: 'gainsboro' }} title='Обнулить базу' ></Button> */}
-                {/* <Text></Text> */}
-                {/* <Button title='Перезагрузить с Brain все данные' ></Button> */}
-                {/* <Text>Синхронизация базы телефона с Brain</Text> */}
-                {/* <Button title='Синхр c Brain' ></Button> */}
-                {/* <Text>
-                        Выгрузить базу с телефона в файл в
-                        локальное хранилище (xls,csv,xlsx,xml,cml документ)
-                    </Text> */}
-                {/* <Button title='Выгрузить Prom в ФАЙЛ' ></Button> */}
-                {/* <Text>
-                        Выгрузить базу с телефона в облако
-                        Ссылка (URL) на xls,csv,xlsx,xml,cml документ
-                        (напр. Google Disk)
-                    </Text> */}
-                {/* <Button title='Выгрузить Prom в URL' ></Button> */}
-                {/* </View> */}
-            {/* </View> */}
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
         </SafeAreaView >
 
@@ -88,7 +80,7 @@ const styles = StyleSheet.create({
 
     logcmp: {
         flex: 3,
-        paddingBottom: 5,
+        // paddingBottom: 5,
         backgroundColor: 'white',
     },
 

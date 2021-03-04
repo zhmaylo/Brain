@@ -67,5 +67,12 @@ export class crud extends dbConst {
     tDrop(query) {
         this._tQuery(query, [], super.DEV_LOG[0].tDropResult, super.DEV_LOG[0].tDropError);
       }
+
+    //
+    getLenghtTbl(){
+        this._tQuery(query, [], super.DEV_LOG[0].tDropResult, super.DEV_LOG[0].tDropError);
+        // SELECT COUNT(*) FROM имя таблицы WHERE  условие
+
+    }
 }
 

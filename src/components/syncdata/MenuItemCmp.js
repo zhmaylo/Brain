@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, View } from 'react-native';
 
 
 
-export const MenuItemCmp = ({backColor = 'white', textColor='black', textAlign='center'}) => {
+export const MenuItemCmp = ({callback=null, title='Empty', backColor = 'white', textColor='black', textAlign='center'}) => {
     return (
         <View>
             <TouchableOpacity 
@@ -17,7 +17,7 @@ export const MenuItemCmp = ({backColor = 'white', textColor='black', textAlign='
                                 
             }}
                 key='1'
-                onPress={() => { console.log('button press') }}
+                onPress={() => { console.log('button press'); callback() }}
             >
                 <Text style={{ 
                         margin: 5,
@@ -25,7 +25,7 @@ export const MenuItemCmp = ({backColor = 'white', textColor='black', textAlign='
                         fontSize: 18,
                         color: textColor,
                 }} >
-                 Очистить базу Brain</Text>
+                 {title}</Text>
             </TouchableOpacity>
         </View>
     )
