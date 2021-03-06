@@ -1,19 +1,17 @@
 import React, { useContext, useEffect } from 'react';
-import { StyleSheet, StatusBar, SafeAreaView, Button, Text, FlatList } from 'react-native';
+import { StyleSheet, StatusBar, SafeAreaView } from 'react-native';
 
 import { HeaderBack } from '../components/header/HeaderBackCmp';
 import { FooterBack } from '../components/footer/FooterBackCmp';
-import { SYNC_DATA_TITLE } from './../constants/syncDataConst';
+import { MENU_TITLE_LIST, SYNC_DATA_TITLE } from './../constants/syncDataConst';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
-import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../constants/otherConst';
+import { WINDOW_WIDTH } from '../constants/otherConst';
 import { View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 import { TBrain } from './../api/dbAPI/provider/tBrain';
-import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
-import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { LogCmp } from '../components/syncdata/LogCmp';
 import { ScrollView } from 'react-native-gesture-handler';
-import { MenuItemCmp } from '../components/syncdata/MenuItemCmp';
+import { SyncMenuCmp } from '../components/syncdata/SyncMenuCmp';
 import { clearBrainTbl } from './../api/category/syncData';
 
 
@@ -31,42 +29,21 @@ export default function syncDataScr(props) {
         // tBrain.tDeleteAll();
 
     }, []);
-    // console.log("sycDataScr. CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
+    console.log('syncDataScr.MENU_TITLE_LIST=>',MENU_TITLE_LIST)
     return (
-
         <SafeAreaView style={styles.container}>
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={SYNC_DATA_TITLE} />
-
-
-
-
             <View style={styles.logcmp}>
                 <ScrollView >
                     <LogCmp />
-                     </ScrollView >
+                </ScrollView >
             </View>
-
-
             <View style={styles.menuItem} >
-
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <MenuItemCmp title='Очистить таблицу Brain' callback={clearBrainTbl} />
-                    <MenuItemCmp title='Очистить таблицу Prom' />
-                </View>
-
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-                    <MenuItemCmp title='Синхр Brain vs Provider' />
-                    <MenuItemCmp title='Конверт Brain в Prom' />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <MenuItemCmp title='Выгрузить Prom в файл'/>
-                    <MenuItemCmp title='Выгрузить Prom в URL' />
-                </View>
+                <SyncMenuCmp callback={clearBrainTbl} menuTitleList={MENU_TITLE_LIST} />
             </View>
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
         </SafeAreaView >
-
     );
 }
 
@@ -80,22 +57,12 @@ const styles = StyleSheet.create({
 
     logcmp: {
         flex: 3,
-        // paddingBottom: 5,
         backgroundColor: 'white',
     },
-
-
-
     menuItem: {
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        backgroundColor: 'white',
-        padding: 5,
-        // borderRadius: 10,
-        borderTopWidth: 1,
-        //  alignItems: 'flex-start',
-        // width: 100,
+        borderColor: 'lightgray',
+        borderTopWidth: 3,
     }
 });
 

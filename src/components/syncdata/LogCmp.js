@@ -2,42 +2,15 @@ import React from 'react';
 import { View, FlatList, StatusBar, StyleSheet, Text } from 'react-native';
 
 const DATA = [
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba1',
-        title: 'First Item',
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f631',
-        title: 'Second Item',
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d721',
-        title: 'Third Item',
-    },
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba2',
-        title: 'First Item',
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f632',
-        title: 'Second Item',
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d722',
-        title: 'Third Item',
-    },
-    {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
-    },
-    {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
-    },
-    {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
-    },
+    { id: '1', title: 'First Item' },
+    { id: '2', title: 'Second Item' },
+    { id: '3', title: 'Third Item' },
+    { id: '4', title: 'First Item' },
+    { id: '5', title: 'Second Item' },
+    { id: '6', title: 'Third Item' },
+    { id: '7', title: 'First Item' },
+    { id: '8', title: 'Second Item' },
+    { id: '9', title: 'Third Item' },
 ];
 
 const Item = ({ title }) => (
@@ -46,12 +19,11 @@ const Item = ({ title }) => (
     </View>
 );
 
-export const LogCmp = () => {
 
+export const LogCmp = () => {
     const renderItem = ({ item }) => (
         <Item title={item.title} />
     );
-
     return (
         <View>
             <FlatList
@@ -65,17 +37,16 @@ export const LogCmp = () => {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-    //   marginTop: StatusBar.currentHeight || 0,
-        // backgroundColor: 'white',
+        flex: 1,
     },
     item: {
-      backgroundColor: '#f9c2ff',
-      padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 16,
+        backgroundColor: 'white',
+        padding: 20,
+        borderColor: 'lightgray',
+        borderBottomWidth: 2,
+        marginHorizontal: 2,
     },
     title: {
-      fontSize: 12,
+        fontSize: 12,
     },
-  });
+});
