@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, FlatList, StatusBar, StyleSheet, Text } from 'react-native';
 
+
+
+
 const DATA = [
     { id: '1', title: 'First Item' },
     { id: '2', title: 'Second Item' },
@@ -19,7 +22,7 @@ const Item = ({ title }) => (
     </View>
 );
 
-
+//LogCmp - output logs for SyncDataScr
 export const LogCmp = () => {
     const renderItem = ({ item }) => (
         <Item title={item.title} />

@@ -11,15 +11,27 @@ export class crud extends dbConst {
     constructor(...args) {
         super(...args);
         this._dbProd = new dbProduct();
+        this._crudLog = 'I am empty';
         // console.log("class CRUD. constructor - finished");
     }
 
     //_tQuery - query universal 
-    _tQuery (query, values, logResult, logError) {
+    _tQuery(query, values, logResult, logError) {
+        this._crudLog = 'Oh, no no!!';
         this._dbProd.transaction(tx => {
             tx.executeSql(query, values,
-                (txObj, resultTable) => console.log(logResult, resultTable),
-                (txObj, error) => console.log(logError, error))
+                (txObj, resultTable) => {
+                    console.log(logResult, resultTable);
+                    this._crudLog = logResult + 
+                    ' \n=> InsertId=' + resultTable.insertId + 
+                    ' \n=> LenghtTable='+ resultTable.rows.length + 
+                    ' \n=> RowsAffected='+ resultTable.rowsAffected + '';
+                },
+                (txObj, error) => {
+                    console.log(logError, error);
+                    this._crudLog = logError + '<>' + error + '';
+                }
+            )
         })
     }
 
@@ -66,13 +78,21 @@ export class crud extends dbConst {
     // query - table delete request
     tDrop(query) {
         this._tQuery(query, [], super.DEV_LOG[0].tDropResult, super.DEV_LOG[0].tDropError);
-      }
+    }
 
     //
-    getLenghtTbl(){
+    getLenghtTbl() {
         this._tQuery(query, [], super.DEV_LOG[0].tDropResult, super.DEV_LOG[0].tDropError);
         // SELECT COUNT(*) FROM имя таблицы WHERE  условие
 
+    }
+
+    getCrudLog() {
+        return this._crudLog;
+    }
+
+    setCrudLog(mes) {
+        return this._crudLog=mes;
     }
 }
 

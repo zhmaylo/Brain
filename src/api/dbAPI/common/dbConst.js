@@ -1,5 +1,5 @@
 
-
+// constants for DB clasess
 export class dbConst {
 
     constructor(...args) {

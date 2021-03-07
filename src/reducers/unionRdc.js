@@ -12,6 +12,7 @@ import { spinerToggleRdc } from './spinerRdc';
 import { sortSwitchArrRdc } from './sortListProdRdc';
 import { SORT_SWITCHES_ARR } from '../constants/sortConst';
 import { prodCurrentRdc } from './prodCurrentRdc';
+import { syncDataRdc } from './synDataRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -83,6 +84,14 @@ export const initialState = {
     //End. Product current
     ////////////////////////////////
 
+    ////////////////////////////////
+    //Start. SyncData
+    syncDataRdc: {
+        syncDataCrudLog: [],
+    },
+    //End. SyncData
+    ////////////////////////////////
+
 
 };
 
@@ -120,6 +129,12 @@ export const unionRdc = combineReducers(
         //Start. Product current
         prodCurrentRdc: prodCurrentRdc,
         //End. Product current
+        ////////////////////////////////
+
+        ////////////////////////////////
+        //Start. SyncData
+        syncDataRdc: syncDataRdc,
+        //End. SyncData
         ////////////////////////////////
 
         isAppInitRdc: isAppInitRdc,

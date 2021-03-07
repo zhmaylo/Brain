@@ -3,6 +3,7 @@ import { TouchableOpacity, Text, View } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import { Dimensions } from 'react-native';
 
+
 // const DATA = [
 //     { id: '1', title: 'Очистить табл Brain' },
 //     { id: '2', title: 'Очистить табл Prom' },
@@ -14,8 +15,9 @@ import { Dimensions } from 'react-native';
 const WINDOW_WIDTH = Dimensions.get('window').width;
 const NUM_COLUMN = 2;
 
-const MenuItem = ({ callback, title = 'Empty' }) => {
-    console.log('menuItem.title', title);
+const MenuItem = ({ menuFunc, title = 'Empty', onLog} ) => {
+    // console.log('menuItem.title', title);
+    // console.log('menuItem.getlogCrud', getlogCrud);
 
     return (
         <TouchableOpacity
@@ -27,7 +29,15 @@ const MenuItem = ({ callback, title = 'Empty' }) => {
                 justifyContent: 'center',
                 width: WINDOW_WIDTH / NUM_COLUMN,
             }}
-            onPress={() => { console.log('button press'); callback() }}
+         
+            onPress={() => {
+                menuFunc;
+                console.log('button press');
+                onLog();
+                // console.log('button press. Callback', callback);
+                // console.log('MenuItem.getCrudLog=>', tBrain.getCrudLog());
+                
+            }}
         >
             <Text style={{
                 margin: 8,
@@ -40,8 +50,10 @@ const MenuItem = ({ callback, title = 'Empty' }) => {
     )
 }
 
-export const SyncMenuCmp = (callback = null, menuTitleList = [{id: 1, title: 'Empty title'}]) => {
-    console.log('SyncMenuCmp.menuTitleList=>',menuTitleList );
+// SyncMenuCmp - menu output for SyncDataScr
+// menuTitleList = [{id: 1, title: 'Empty title', callback: null }]
+export const SyncMenuCmp = ({ menuTitleList, onLog }) => {
+    console.log('SyncMenuCmp.menuTitleList=>', menuTitleList);
     return (
         <View style={{
             flex: 1,
@@ -51,7 +63,7 @@ export const SyncMenuCmp = (callback = null, menuTitleList = [{id: 1, title: 'Em
             <ScrollView>
                 <FlatList
                     data={menuTitleList}
-                    renderItem={(item) => <MenuItem callback={callback} title={item.item.title} />}
+                    renderItem={(item) => <MenuItem callback={item.item.callback} title={item.item.title} onLog={onLog}/>}
                     keyExtractor={item => item.id}
                     numColumns={NUM_COLUMN}
                     horizontal={false}
