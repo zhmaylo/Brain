@@ -65,6 +65,7 @@ export class TBrain extends crud {
   tDeleteAll() {
     const query = 'DELETE FROM ' + this._BRAIN_TBL_NAME;
     super.tDelete(query);
+    // console.log('tBrain.tDeleteAll finished'); 
   }
 
   // tDrop - deleting a table

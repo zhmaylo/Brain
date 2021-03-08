@@ -11,17 +11,29 @@ import { ContextApp } from "../reducers/unionRdc";
 import { LogCmp } from '../components/syncdata/LogCmp';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SyncMenuCmp } from '../components/syncdata/SyncMenuCmp';
-import { clearBrainTbl, getCrudLog } from '../api/category/syncDataController';
+import { clearBrainTbl, getCrudLog, setCrudLogFunc } from '../api/category/syncDataController';
 import { CRUD_LOG } from '../reducers/synDataRdc';
 
 // syncDataScr - work with tables. 
 // zeroing, reloading all data, synchronization, unloading for the trading platform
 export default function syncDataScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-    useEffect(() => {
 
+    const getLog = () => {
+        let syncDataCrudLog = getCrudLog(state.syncDataRdc.syncDataCrudLog)
+        dispatch({ type: CRUD_LOG, payload: syncDataCrudLog })
+        console.log('syncDataScr.state', state.syncDataRdc);
+    }
+    setCrudLogFunc(getLog);
+    useEffect(() => {
+        getLog();
+ 
     }, []);
     // console.log('syncDataScr.MENU_TITLE_LIST=>', MENU_TITLE_LIST)
+    // console.log('syncDataScr.state.SyncDataRdc.syncDataCrudLog=>', state.syncDataRdc.syncDataCrudLog);
+    // console.log('syncDataScr.typeof clearBrainTbl', typeof clearBrainTbl);
+
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -29,35 +41,31 @@ export default function syncDataScr(props) {
             <HeaderBack props={props} headerName={SYNC_DATA_TITLE} />
             <View style={styles.logcmp}>
                 <ScrollView >
-                    <LogCmp />
+                    <LogCmp logArr={state.syncDataRdc.syncDataCrudLog} />
                 </ScrollView >
             </View>
             <View style={styles.menuItem} >
                 {/* <SyncMenuCmp callback={clearBrainTbl} menuTitleList={MENU_TITLE_LIST} /> */}
                 {/* dispatch({ type: CRUD_LOG, payload: tBrain.getCrudLog() })} */}
-                <SyncMenuCmp menuFunc={clearBrainTbl}
-                    onLog={() => {
-                        let syncDataLog = getCrudLog()
-                        dispatch({ type: CRUD_LOG, payload: syncDataLog })
-                        console.log('syncDataScr.state', state.syncDataRdc);
-                    }
-                    }
+                <SyncMenuCmp
                     menuTitleList={[
-                        { id: '1', title: CLEAR_TABLE_BRAIN, callback: clearBrainTbl },
-                        { id: '2', title: CLEAR_TABLE_PROM, callback: null },
-                        { id: '3', title: SYNC_BRAIN_VS_ORIGINAL, callback: null },
-                        { id: '4', title: TRANS_BRAIN_TO_PROM, callback: null },
-                        { id: '5', title: UNLOAD_PROM_TO_FILE, callback: null },
-                        { id: '6', title: UNLOAD_PROM_TO_URL, callback: null }]
-
+                        { id: '1', title: CLEAR_TABLE_BRAIN, menuFunc: clearBrainTbl },
+                        { id: '2', title: CLEAR_TABLE_PROM, menuFunc: clearBrainTbl },
+                        { id: '3', title: SYNC_BRAIN_VS_ORIGINAL, menuFunc: clearBrainTbl },
+                        { id: '4', title: TRANS_BRAIN_TO_PROM, menuFunc: clearBrainTbl },
+                        { id: '5', title: UNLOAD_PROM_TO_FILE, menuFunc: clearBrainTbl },
+                        { id: '6', title: UNLOAD_PROM_TO_URL, menuFunc: clearBrainTbl }]
                     }
+                    getCrudLog={getLog}
+
                 />
 
             </View>
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
         </SafeAreaView >
     );
-}
+};
+
 
 const styles = StyleSheet.create({
     container: {

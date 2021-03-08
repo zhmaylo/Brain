@@ -1,38 +1,24 @@
 import React from 'react';
-import { View, FlatList, StatusBar, StyleSheet, Text } from 'react-native';
-
-
-
-
-const DATA = [
-    { id: '1', title: 'First Item' },
-    { id: '2', title: 'Second Item' },
-    { id: '3', title: 'Third Item' },
-    { id: '4', title: 'First Item' },
-    { id: '5', title: 'Second Item' },
-    { id: '6', title: 'Third Item' },
-    { id: '7', title: 'First Item' },
-    { id: '8', title: 'Second Item' },
-    { id: '9', title: 'Third Item' },
-];
-
+import { View, FlatList, StyleSheet, Text } from 'react-native';
+import { clone } from './../../api/clone';
 const Item = ({ title }) => (
     <View style={styles.item}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{title.log}</Text>
     </View>
 );
 
 //LogCmp - output logs for SyncDataScr
-export const LogCmp = () => {
-    const renderItem = ({ item }) => (
-        <Item title={item.title} />
-    );
+export const LogCmp = ({ logArr }) => {
+    // console.log('LogCmp.logArr', logArr);
+
     return (
         <View>
             <FlatList
-                data={DATA}
-                renderItem={renderItem}
+                data={logArr}
+                renderItem={(item) => <Item title={item.item} />}
                 keyExtractor={item => item.id}
+                refreshing={true}
+
             />
         </View>
     )
@@ -44,7 +30,7 @@ const styles = StyleSheet.create({
     },
     item: {
         backgroundColor: 'white',
-        padding: 20,
+        padding: 2,
         borderColor: 'lightgray',
         borderBottomWidth: 2,
         marginHorizontal: 2,

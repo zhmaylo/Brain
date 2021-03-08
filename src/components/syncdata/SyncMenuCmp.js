@@ -15,10 +15,36 @@ import { Dimensions } from 'react-native';
 const WINDOW_WIDTH = Dimensions.get('window').width;
 const NUM_COLUMN = 2;
 
-const MenuItem = ({ menuFunc, title = 'Empty', onLog} ) => {
-    // console.log('menuItem.title', title);
-    // console.log('menuItem.getlogCrud', getlogCrud);
+// SyncMenuCmp - menu output for SyncDataScr
+// menuTitleList = [{id: 1, title: 'Empty title', callback: null }]
+export const SyncMenuCmp = ({ menuTitleList, getCrudLog }) => {
+    // console.log('SyncMenuCmp.menuTitleList=>', menuTitleList);
+    // console.log('SyncMenuCmp.menuTitleList.menuFunc=>', menuTitleList[0].menuFunc);
+    return (
+        <View style={{
+            flex: 1,
+            fontSize: 12,
+            backgroundColor: 'white'
+        }}>
+            <ScrollView>
+                <FlatList
+                    data={menuTitleList}
+                    renderItem={(item) =>  <MenuItem menuFunc={item.item.menuFunc} title={item.item.title} getCrudLog={getCrudLog} />}
+                    keyExtractor={item => item.id}
+                    numColumns={NUM_COLUMN}
+                    horizontal={false}
+                />
+            </ScrollView>
+        </View>
+    )
+}
 
+const MenuItem = ({ menuFunc, title, getCrudLog }) => {
+    // console.log('menuItem.title', title);
+    // console.log('MenuItem.getCrudLog', getCrudLog);
+    // console.log('MenuItem.menuFunc', menuFunc);
+    // console.log('MenuItem.arg', arguments);
+    // console.log('MenuItem.typeof clearBrainTbl', typeof clearBrainTbl);
     return (
         <TouchableOpacity
             style={{
@@ -29,14 +55,17 @@ const MenuItem = ({ menuFunc, title = 'Empty', onLog} ) => {
                 justifyContent: 'center',
                 width: WINDOW_WIDTH / NUM_COLUMN,
             }}
-         
+
             onPress={() => {
-                menuFunc;
-                console.log('button press');
-                onLog();
+                // menuFunc().then(()=>{ getCrudLog(); console.log('MenuItem.getCrudLog. Promise finished')});
+                menuFunc();
+                getCrudLog();
+                // console.log('MenuItem.getCrudLog finished');
+                // console.log('button press');
+                // getCrudLog();
                 // console.log('button press. Callback', callback);
                 // console.log('MenuItem.getCrudLog=>', tBrain.getCrudLog());
-                
+
             }}
         >
             <Text style={{
@@ -49,27 +78,3 @@ const MenuItem = ({ menuFunc, title = 'Empty', onLog} ) => {
         </TouchableOpacity>
     )
 }
-
-// SyncMenuCmp - menu output for SyncDataScr
-// menuTitleList = [{id: 1, title: 'Empty title', callback: null }]
-export const SyncMenuCmp = ({ menuTitleList, onLog }) => {
-    console.log('SyncMenuCmp.menuTitleList=>', menuTitleList);
-    return (
-        <View style={{
-            flex: 1,
-            fontSize: 12,
-            backgroundColor: 'white'
-        }}>
-            <ScrollView>
-                <FlatList
-                    data={menuTitleList}
-                    renderItem={(item) => <MenuItem callback={item.item.callback} title={item.item.title} onLog={onLog}/>}
-                    keyExtractor={item => item.id}
-                    numColumns={NUM_COLUMN}
-                    horizontal={false}
-                />
-            </ScrollView>
-        </View>
-    )
-}
-

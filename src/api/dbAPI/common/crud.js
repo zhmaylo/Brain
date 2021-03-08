@@ -5,34 +5,50 @@
 import { dbProduct } from './dbProduct';
 import { dbConst } from './dbConst';
 
-// let _dbProd;
-
 export class crud extends dbConst {
     constructor(...args) {
         super(...args);
         this._dbProd = new dbProduct();
-        this._crudLog = 'I am empty';
+        this._crudLog = 'Database opened';
         // console.log("class CRUD. constructor - finished");
+        // callback for logging
+        this._crudLogFunc;
     }
 
     //_tQuery - query universal 
     _tQuery(query, values, logResult, logError) {
-        this._crudLog = 'Oh, no no!!';
         this._dbProd.transaction(tx => {
-            tx.executeSql(query, values,
+            (tx.executeSql(query, values,
                 (txObj, resultTable) => {
-                    console.log(logResult, resultTable);
-                    this._crudLog = logResult + 
-                    ' \n=> InsertId=' + resultTable.insertId + 
-                    ' \n=> LenghtTable='+ resultTable.rows.length + 
-                    ' \n=> RowsAffected='+ resultTable.rowsAffected + '';
+                    // console.log(logResult, resultTable);
+                    this._crudLog = this._crudLog + '\n' + logResult +
+                        ' \n=> LenghtTable=' + resultTable.rows.length +
+                        ' \n=> RowsAffected=' + resultTable.rowsAffected;
+                    try {
+                        this._crudLog = this._crudLog + ' \n=> InsertId=' + resultTable.insertId.length;
+                    }
+                    catch {
+                        this._crudLog = this._crudLog + ' \n=> InsertId= Empty or Error'
+                    }
+                    this._crudLogFunc();
+                    console.log('CRUD(tx.executeSql) Finished')
                 },
                 (txObj, error) => {
                     console.log(logError, error);
-                    this._crudLog = logError + '<>' + error + '';
+                    this._crudLog = this._crudLog + logError + '> code:' + error.code + " " + error.message;
                 }
             )
+            )
+            // })
+
+            console.log('CRUD(transaction) Finished');
+            // promise1.then((value) => {
+            //     console.log(value, 'promise finished');
+            // })
         })
+
+        console.log('CRUD(_tQuery) Finished');
+
     }
 
     // tConnectToTable - connect(create if not exists) to table 
@@ -72,6 +88,7 @@ export class crud extends dbConst {
     // values - variable values in the request 
     tDelete(query, values = []) {
         this._tQuery(query, values, super.DEV_LOG[0].tDeleteResult, super.DEV_LOG[0].tDeleteError);
+        console.log('tDelete.this._tQuery - finished');
     }
 
     // tDrop - Drop table from data base
@@ -80,19 +97,18 @@ export class crud extends dbConst {
         this._tQuery(query, [], super.DEV_LOG[0].tDropResult, super.DEV_LOG[0].tDropError);
     }
 
-    //
-    getLenghtTbl() {
-        this._tQuery(query, [], super.DEV_LOG[0].tDropResult, super.DEV_LOG[0].tDropError);
-        // SELECT COUNT(*) FROM имя таблицы WHERE  условие
-
-    }
-
     getCrudLog() {
-        return this._crudLog;
+        let mes = this._crudLog;
+        this.setCrudLog('');
+        return mes;
     }
 
     setCrudLog(mes) {
-        return this._crudLog=mes;
+        this._crudLog = mes;
+    }
+
+    setCrudLogFunc(func) {
+        this._crudLogFunc = func;
     }
 }
 
