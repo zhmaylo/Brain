@@ -31,17 +31,18 @@ export class crud extends dbConst {
                         this._crudLog = this._crudLog + ' \n=> InsertId= Empty or Error'
                     }
                     this._crudLogFunc();
-                    console.log('CRUD(tx.executeSql) Finished')
+                    // console.log('CRUD(tx.executeSql) Finished')
                 },
                 (txObj, error) => {
                     console.log(logError, error);
                     this._crudLog = this._crudLog + logError + '> code:' + error.code + " " + error.message;
+                    this._crudLogFunc();
                 }
             )
             )
             // })
 
-            console.log('CRUD(transaction) Finished');
+            // console.log('CRUD(transaction) Finished');
             // promise1.then((value) => {
             //     console.log(value, 'promise finished');
             // })
@@ -88,7 +89,7 @@ export class crud extends dbConst {
     // values - variable values in the request 
     tDelete(query, values = []) {
         this._tQuery(query, values, super.DEV_LOG[0].tDeleteResult, super.DEV_LOG[0].tDeleteError);
-        console.log('tDelete.this._tQuery - finished');
+        // console.log('tDelete.this._tQuery - finished');
     }
 
     // tDrop - Drop table from data base

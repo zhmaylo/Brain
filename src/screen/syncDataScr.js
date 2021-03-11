@@ -22,11 +22,11 @@ export default function syncDataScr(props) {
     const getLog = () => {
         let syncDataCrudLog = getCrudLog(state.syncDataRdc.syncDataCrudLog)
         dispatch({ type: CRUD_LOG, payload: syncDataCrudLog })
-        console.log('syncDataScr.state', state.syncDataRdc);
+        // console.log('syncDataScr.state', state.syncDataRdc);
     }
     setCrudLogFunc(getLog);
     useEffect(() => {
-        getLog();
+        // getLog();
  
     }, []);
     // console.log('syncDataScr.MENU_TITLE_LIST=>', MENU_TITLE_LIST)
@@ -40,9 +40,9 @@ export default function syncDataScr(props) {
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={SYNC_DATA_TITLE} />
             <View style={styles.logcmp}>
-                <ScrollView >
+                {/* <ScrollView > */}
                     <LogCmp logArr={state.syncDataRdc.syncDataCrudLog} />
-                </ScrollView >
+                {/* </ScrollView > */}
             </View>
             <View style={styles.menuItem} >
                 {/* <SyncMenuCmp callback={clearBrainTbl} menuTitleList={MENU_TITLE_LIST} /> */}
