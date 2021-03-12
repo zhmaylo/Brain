@@ -15,7 +15,7 @@ export const LogCmp = ({ logArr }) => {
     let flatList;
     const ListToEnd = () => {
         flatList.scrollToEnd({ animated: true });
-        console.log('LogCmp.ListToEnd>>>flatList', flatList);
+        // console.log('LogCmp.ListToEnd>>>flatList', flatList);
     }
     return (
         <ScrollView

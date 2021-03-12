@@ -9,9 +9,8 @@ import { WINDOW_WIDTH } from '../constants/otherConst';
 import { View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 import { LogCmp } from '../components/syncdata/LogCmp';
-import { ScrollView } from 'react-native-gesture-handler';
 import { SyncMenuCmp } from '../components/syncdata/SyncMenuCmp';
-import { clearBrainTbl, getCrudLog, setCrudLogFunc } from '../api/category/syncDataController';
+import { syncBrainVsOrigContr, clearBrainTblContr, getCrudLogContr, setCrudLogFuncContr } from '../api/syncdata/syncDataController';
 import { CRUD_LOG } from '../reducers/synDataRdc';
 
 // syncDataScr - work with tables. 
@@ -20,11 +19,11 @@ export default function syncDataScr(props) {
     const { state, dispatch } = useContext(ContextApp);
 
     const getLog = () => {
-        let syncDataCrudLog = getCrudLog(state.syncDataRdc.syncDataCrudLog)
+        let syncDataCrudLog = getCrudLogContr(state.syncDataRdc.syncDataCrudLog)
         dispatch({ type: CRUD_LOG, payload: syncDataCrudLog })
         // console.log('syncDataScr.state', state.syncDataRdc);
     }
-    setCrudLogFunc(getLog);
+    setCrudLogFuncContr(getLog);
     useEffect(() => {
         // getLog();
  
@@ -49,15 +48,16 @@ export default function syncDataScr(props) {
                 {/* dispatch({ type: CRUD_LOG, payload: tBrain.getCrudLog() })} */}
                 <SyncMenuCmp
                     menuTitleList={[
-                        { id: '1', title: CLEAR_TABLE_BRAIN, menuFunc: clearBrainTbl },
-                        { id: '2', title: CLEAR_TABLE_PROM, menuFunc: clearBrainTbl },
-                        { id: '3', title: SYNC_BRAIN_VS_ORIGINAL, menuFunc: clearBrainTbl },
-                        { id: '4', title: TRANS_BRAIN_TO_PROM, menuFunc: clearBrainTbl },
-                        { id: '5', title: UNLOAD_PROM_TO_FILE, menuFunc: clearBrainTbl },
-                        { id: '6', title: UNLOAD_PROM_TO_URL, menuFunc: clearBrainTbl }]
+                        { id: '1', title: CLEAR_TABLE_BRAIN, menuFunc: clearBrainTblContr },
+                        { id: '2', title: CLEAR_TABLE_PROM, menuFunc: clearBrainTblContr },
+                        { id: '3', title: SYNC_BRAIN_VS_ORIGINAL, menuFunc: syncBrainVsOrigContr },
+                        { id: '4', title: TRANS_BRAIN_TO_PROM, menuFunc: clearBrainTblContr },
+                        { id: '5', title: UNLOAD_PROM_TO_FILE, menuFunc: clearBrainTblContr },
+                        { id: '6', title: UNLOAD_PROM_TO_URL, menuFunc: clearBrainTblContr }]
                     }
                     getCrudLog={getLog}
-
+                    state={state}
+                    dispatch={dispatch}
                 />
 
             </View>
