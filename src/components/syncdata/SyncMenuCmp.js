@@ -36,6 +36,7 @@ const MenuItem = ({ menuFunc, title, getCrudLog, state, dispatch }) => {
     // console.log('MenuItem.getCrudLog', getCrudLog);
     // console.log('MenuItem.menuFunc', menuFunc);
     // console.log('MenuItem.arg', arguments);
+    // console.log('MenuItem.dispatch', dispatch);
     // console.log('MenuItem.typeof clearBrainTbl', typeof clearBrainTbl);
     return (
         <TouchableOpacity
@@ -50,7 +51,7 @@ const MenuItem = ({ menuFunc, title, getCrudLog, state, dispatch }) => {
 
             onPress={() => {
            
-                menuFunc(state = {state}, dispatch = {dispatch} );
+                menuFunc(state = state, dispatch = dispatch );
                 getCrudLog();
                 // console.log('MenuItem.getCrudLog finished');
                 // console.log('button press');

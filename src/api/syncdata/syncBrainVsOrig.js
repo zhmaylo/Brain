@@ -1,39 +1,40 @@
 
 import { CATEGORY_LIST } from '../../reducers/categoryListRdc';
+import { PRODUCTS_LIST } from '../../reducers/productsListRdc';
 import { getCategoryList, addFieldChildren } from './../category/category';
 import { setFieldIsChildren } from './../category/symbChildren';
 import { getProductsList } from './../products/products';
 
+export class SyncBrainVsOrig {
 
-export const syncBrainVsOrig = (state, dispatch, tBrain) => {
-    console.log('SynBrainVsOrig.state', state);
-    state=state.state; 
-    dispatch=dispatch.dispatch;
-    // console.log('SynBrainVsOrig.dispatch', dispatch);
- 
-    getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
-        // console.log("mainScr.getCategoryList(data)", data);
-        // console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
-        // console.log("mainScr.state 2 => ", state);
-        data = addFieldChildren(data);
-        data = setFieldIsChildren(data);
-        dispatch({ type: CATEGORY_LIST, payload: data });
+    // constructor(){};
+    constructor(...args) {
+    }
 
-        getProductsList(1403, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
-            console.log("getProductsList => ", productsList);
-            // productsList = buttonSort(productsList, state.sortSwitchArrRdc.sortSwitchArr);
-            productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);
-            tBrain.tReplace();
-            dispatch({ type: PRODUCTS_LIST, payload: productsList });
+    async getCategoryListUpdate(state, dispatch) {
+        // console.log('SynBrainVsOrig.state', state);
+        // console.log('SynBrainVsOrig.dispatch', dispatch);
+        let categoryList = getCategoryList(state.sessionSidRdc.sessionSid, dispatch).then((data) => {
+            console.log("syncBrainVsOrig.state  => ", state);
+            data = addFieldChildren(data);
+            data = setFieldIsChildren(data);
             dispatch({ type: CATEGORY_LIST, payload: data });
-            dispatch({ type: IS_APP_INIT, payload: true });
+            return data;
+        })
+        return categoryList;
+    }
+
+
+    async getProductListUpdate(state, dispatch) {
+        let productsList = getProductsList(1403, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
+            console.log("getProductListUpdate => ", productsList);
+            // productsList = buttonSort(productsList, state.sortSwitchArrRdc.sortSwitchArr);
+            // productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);
+            dispatch({ type: PRODUCTS_LIST, payload: productsList });
+            return productsList;
         });
-    })
-    // i++;
-}
+        return productsList;
 
-
-
-export const getProductByCategory= () => {
+    }
 
 }

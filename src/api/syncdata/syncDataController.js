@@ -1,11 +1,11 @@
+import React from 'react';
 
-import { v1 as timeStamp } from 'uuid';
 import { TBrain } from '../dbAPI/provider/tBrain';
-import { clone } from '../clone';
 import { logItemAdd } from './syncDataLog';
-import { syncBrainVsOrig } from './syncBrainVsOrig';
-import { TBrain } from './../dbAPI/provider/tBrain';
+import { SyncBrainVsOrig } from './syncBrainVsOrig';
+
 const tBrain = new TBrain;
+const syncBrainVsOrig = new SyncBrainVsOrig;
 
 // Brain table clear
 export async function clearBrainTblContr() {
@@ -27,7 +27,15 @@ export const setCrudLogFuncContr = (func) => {
     tBrain.setCrudLogFunc(func);
 }
 
-export const syncBrainVsOrigContr = (state, dispatch, TBrain) => {
-    syncBrainVsOrig(state, dispatch);
+export const syncBrainVsOrigContr = (state, dispatch) => {
+    // console.log('syncBrainVsOrigContr.dispatch', dispatch);
+    syncBrainVsOrig.getCategoryListUpdate(state, dispatch).then(() => {
+        // console.log('data', data);
+        syncBrainVsOrig.getProductListUpdate (state, dispatch).then(()=>{
+            tBrain.tReplace();
+        });
+    });
+
+
 }
 
