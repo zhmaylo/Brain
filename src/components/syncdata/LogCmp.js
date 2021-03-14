@@ -12,14 +12,17 @@ const Item = ({ title }) => (
 //LogCmp - output logs for SyncDataScr
 export const LogCmp = ({ logArr }) => {
     // console.log('LogCmp.logArr', logArr);
-    let flatList;
+    let flatList=0;
     const ListToEnd = () => {
-        flatList.scrollToEnd({ animated: true });
-        // console.log('LogCmp.ListToEnd>>>flatList', flatList);
+        if (flatList != 0) flatList.scrollToEnd({ animated: true });
+        console.log('LogCmp.ListToEnd>>>flatList', flatList);
     }
     return (
         <ScrollView
-            ref={(ref) => { flatList = ref }}
+            ref={(ref) => { 
+                flatList = ref;
+                // console.log('flatlist', flatList);
+              }}
         >
             <FlatList
                 data={logArr}
@@ -27,7 +30,7 @@ export const LogCmp = ({ logArr }) => {
                 keyExtractor={item => item.id}
                 refreshing={true}
                 onContentSizeChange={() => {
-                    ListToEnd();
+                    ListToEnd(flatList);
                 }}
             />
         </ScrollView>

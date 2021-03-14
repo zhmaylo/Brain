@@ -16,26 +16,28 @@ export class crud extends dbConst {
     }
 
     //_tQuery - query universal 
-    _tQuery(query, values, logResult, logError) {
+    _tQuery(query, values, logResult, logError, logOn=false) {
+        // console.log('_tQuery.values', values )
         this._dbProd.transaction(tx => {
             (tx.executeSql(query, values,
                 (txObj, resultTable) => {
                     // console.log(logResult, resultTable);
                     this._crudLog = this._crudLog + '\n' + logResult +
-                        ' \n=> LenghtTable=' + resultTable.rows.length +
-                        ' \n=> RowsAffected=' + resultTable.rowsAffected;
+                    super.DEV_LOG[0].nLenghtTable + resultTable.rows.length +
+                    super.DEV_LOG[0].nRowsAffectedAdd + resultTable.rowsAffected;
                     try {
-                        this._crudLog = this._crudLog + ' \n=> InsertId=' + resultTable.insertId.length;
+                        this._crudLog = this._crudLog + super.DEV_LOG[0].nInsertId + resultTable.insertId.length;
                     }
                     catch {
                         this._crudLog = this._crudLog + ' \n=> InsertId= Empty or Error'
                     }
-                    this._crudLogFunc();
+                    // restriction of logging
+                    logOn ? this._crudLogFunc() : this.getCrudLog();
                     // console.log('CRUD(tx.executeSql) Finished')
                 },
                 (txObj, error) => {
                     console.log(logError, error);
-                    this._crudLog = this._crudLog + logError + '> code:' + error.code + " " + error.message;
+                    this._crudLog = this._crudLog + logError + super.DEV_LOG[0].code + error.code + super.DEV_LOG[0].space + error.message;
                     this._crudLogFunc();
                 }
             )
@@ -48,7 +50,7 @@ export class crud extends dbConst {
             // })
         })
 
-        console.log('CRUD(_tQuery) Finished');
+        // console.log('CRUD(_tQuery) Finished');
 
     }
 
@@ -59,7 +61,7 @@ export class crud extends dbConst {
         // console.log('CRUD.ConnectToTable super.logResult => ', super.logResult[0].tConnect);
         // this._tQuery(query, [], 'CRUD.ConnectToTable - result', 'CRUD.ConnectToTable - error');
 
-        this._tQuery(query, [], super.DEV_LOG[0].tConnectResult, super.DEV_LOG[0].tConnectError);
+        this._tQuery(query, [], super.DEV_LOG[0].tConnectResult, super.DEV_LOG[0].tConnectError, true);
     }
 
     // tCreate - create one new row in table
@@ -74,7 +76,7 @@ export class crud extends dbConst {
     // query - data read request 
     // values - variable values in the request 
     tRead(query, values = []) {
-        this._tQuery(query, values, super.DEV_LOG[0].tReadResult, super.DEV_LOG[0].tReadError);
+        this._tQuery(query, values, super.DEV_LOG[0].tReadResult, super.DEV_LOG[0].tReadError, true);
     }
 
     // updateData - updating a row from Data base 
@@ -87,7 +89,8 @@ export class crud extends dbConst {
     // tDelete - Data deleting from table
     // query - data delete request
     // values - variable values in the request 
-    tDelete(query, values = []) {
+    tDelete(query, values = [] ) {
+        // console.log('tDelete.values', values);
         this._tQuery(query, values, super.DEV_LOG[0].tDeleteResult, super.DEV_LOG[0].tDeleteError);
         // console.log('tDelete.this._tQuery - finished');
     }

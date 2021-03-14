@@ -63,7 +63,7 @@ const MenuItem = ({ menuFunc, title, getCrudLog, state, dispatch }) => {
         >
             <Text style={{
                 margin: 8,
-                fontWeight: 400,
+                // weight: 400,
                 fontSize: 14,
                 color: 'black',
             }} >

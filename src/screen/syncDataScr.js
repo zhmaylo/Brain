@@ -24,10 +24,9 @@ export default function syncDataScr(props) {
         // console.log('syncDataScr.state', state.syncDataRdc);
     }
     setCrudLogFuncContr(getLog);
-    useEffect(() => {
-        // getLog();
- 
-    }, []);
+
+    // useEffect(() => {       // getLog();    }, []);
+    
     // console.log('syncDataScr.MENU_TITLE_LIST=>', MENU_TITLE_LIST)
     // console.log('syncDataScr.state.SyncDataRdc.syncDataCrudLog=>', state.syncDataRdc.syncDataCrudLog);
     // console.log('syncDataScr.typeof clearBrainTbl', typeof clearBrainTbl);
@@ -39,13 +38,9 @@ export default function syncDataScr(props) {
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={SYNC_DATA_TITLE} />
             <View style={styles.logcmp}>
-                {/* <ScrollView > */}
                     <LogCmp logArr={state.syncDataRdc.syncDataCrudLog} />
-                {/* </ScrollView > */}
             </View>
             <View style={styles.menuItem} >
-                {/* <SyncMenuCmp callback={clearBrainTbl} menuTitleList={MENU_TITLE_LIST} /> */}
-                {/* dispatch({ type: CRUD_LOG, payload: tBrain.getCrudLog() })} */}
                 <SyncMenuCmp
                     menuTitleList={[
                         { id: '1', title: CLEAR_TABLE_BRAIN, menuFunc: clearBrainTblContr },

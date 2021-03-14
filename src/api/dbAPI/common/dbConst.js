@@ -33,10 +33,20 @@ export class dbConst {
 
             tDropResult: 'CRUD.Drop table - result',
             tDropError: 'CRUD.Drop table - error',
-        }];
 
+            nLenghtTable: ' \n=> LenghtTable=', 
+            nRowsAffectedAdd: ' \n=> RowsAffected(Add) =',
+
+            nInsertId: '\n=> InsertId=',
+            code: 'code',
+
+            space: ' ',
+
+        }];
         // End. Developer section. Console logs
         ////////////////////////////////
+
+
     };
 
     get DB_PROD_NAME() {

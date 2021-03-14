@@ -46,7 +46,7 @@ export class TBrain extends crud {
   // tRead - Data reading from table
   tRead() {
     const query = 'SELECT * FROM ' + this._BRAIN_TBL_NAME + ' WHERE product_code = ?';
-    super.tRead(db);
+    super.tRead();
   }
 
   // tReadAll - reading the entire table
@@ -56,9 +56,12 @@ export class TBrain extends crud {
   }
 
   // tDelete - deleting one line
+  // Sample => values.product_code="U0087633" 
   tDelete(product_code) {
     const query = 'DELETE FROM ' + this._BRAIN_TBL_NAME + ' WHERE product_code = ?';
-    super.tDelete(db, query, values = product_code);
+    let values = [];
+    values[0] = product_code;
+    super.tDelete(query, values);
   }
 
   // tDeleteAll - clearing the table
@@ -77,12 +80,15 @@ export class TBrain extends crud {
   // tReplace - replaycing an old record with a new one
   // 1. Deleting old entry. 2. Add a new record to the end of the table.
   // values - contains all the values of one row of the table
-  tReplace(values) {
-    tDelete(values.product_code);
-    tCreate(values);
+  async tReplace(values) {
+    // console.log('tBrain.tReplace.values.product_code ', values.product_code);
+    //Sample values.product_code="U0087633"
+    this.tDelete(values.product_code);
+    // this.tDelete("U0087633");
+    this.tCreate(values);
   }
 
-  
+
 
 }
 
