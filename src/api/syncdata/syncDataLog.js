@@ -7,10 +7,11 @@ const LOG_MAX_LENGTH = 1000;
 // logFromState - log from state
 // logToBeAdded - log to be added to the site
 export const logItemAdd = (logFromState, logToBeAdded) => {
-    let logClone = logTrim(clone(logFromState));
+    let logClone = clone(logFromState);
+    logClone = logTrim(logClone);
     if (logToBeAdded.length > 0) logClone.push({ id: timeStamp() + '', log: logToBeAdded });
     return logClone;
-    // return logTrim(logClone);
+    
 }
 
 
@@ -21,7 +22,7 @@ const logTrim = (currLog = [], logMaxLength = LOG_MAX_LENGTH) => {
     let logClone = clone(currLog);
     // console.log('logTrim.logClone', logClone);
     while (logClone.length >= logMaxLength) {
-        logClone.shift();
+        // logClone.shift();
         // console.log('logTrim.logClone', logClone);
     };
     return logClone;

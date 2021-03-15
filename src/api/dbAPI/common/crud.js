@@ -12,7 +12,7 @@ export class crud extends dbConst {
         this._crudLog = 'Database opened';
         // console.log("class CRUD. constructor - finished");
         // callback for logging
-        this._crudLogFunc;
+        this._crudLogFunc=null;
     }
 
     //_tQuery - query universal 

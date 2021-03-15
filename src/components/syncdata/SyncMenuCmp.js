@@ -18,15 +18,15 @@ export const SyncMenuCmp = ({ menuTitleList, getCrudLog, state, dispatch }) => {
             fontSize: 12,
             backgroundColor: 'white'
         }}>
-            <ScrollView>
-                <FlatList
-                    data={menuTitleList}
-                    renderItem={(item) =>  <MenuItem menuFunc={item.item.menuFunc} title={item.item.title} getCrudLog={getCrudLog} state={state} dispatch={dispatch} />}
-                    keyExtractor={item => item.id}
-                    numColumns={NUM_COLUMN}
-                    horizontal={false}
-                />
-            </ScrollView>
+
+            <FlatList
+                data={menuTitleList}
+                renderItem={(item) => <MenuItem menuFunc={item.item.menuFunc} title={item.item.title} getCrudLog={getCrudLog} state={state} dispatch={dispatch} />}
+                keyExtractor={item => item.id}
+                numColumns={NUM_COLUMN}
+                horizontal={false}
+            />
+
         </View>
     )
 }
@@ -50,8 +50,8 @@ const MenuItem = ({ menuFunc, title, getCrudLog, state, dispatch }) => {
             }}
 
             onPress={() => {
-           
-                menuFunc(state = state, dispatch = dispatch );
+
+                menuFunc(state = state, dispatch = dispatch);
                 getCrudLog();
                 // console.log('MenuItem.getCrudLog finished');
                 // console.log('button press');

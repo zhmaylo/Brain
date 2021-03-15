@@ -12,28 +12,27 @@ const Item = ({ title }) => (
 //LogCmp - output logs for SyncDataScr
 export const LogCmp = ({ logArr }) => {
     // console.log('LogCmp.logArr', logArr);
-    let flatList=0;
+    let flatList = 0;
     const ListToEnd = () => {
         if (flatList != 0) flatList.scrollToEnd({ animated: true });
-        console.log('LogCmp.ListToEnd>>>flatList', flatList);
+        // console.log('LogCmp.ListToEnd>>>flatList', flatList);
     }
     return (
-        <ScrollView
-            ref={(ref) => { 
+
+        <FlatList
+            data={logArr}
+            ref={(ref) => {
                 flatList = ref;
                 // console.log('flatlist', flatList);
-              }}
-        >
-            <FlatList
-                data={logArr}
-                renderItem={(item) => <Item title={item.item} />}
-                keyExtractor={item => item.id}
-                refreshing={true}
-                onContentSizeChange={() => {
-                    ListToEnd(flatList);
-                }}
-            />
-        </ScrollView>
+            }}
+
+            renderItem={(item) => <Item title={item.item} />}
+            keyExtractor={item => item.id}
+            refreshing={true}
+            onContentSizeChange={() => {
+                ListToEnd(flatList);
+            }}
+        />
     )
 }
 

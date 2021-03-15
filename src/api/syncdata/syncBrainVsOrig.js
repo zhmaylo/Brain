@@ -25,7 +25,8 @@ import { getProductsList } from './../products/products';
 
 
     export const getProductListUpdate = async (categoryID, state, dispatch) => {
-        let productsList = getProductsList(categoryID, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
+            console.log("getProductListUpdate.categoryID => ", categoryID);
+            let productsList = getProductsList(categoryID, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
             // console.log("getProductListUpdate => ", productsList);
             // productsList = buttonSort(productsList, state.sortSwitchArrRdc.sortSwitchArr);
             // productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);

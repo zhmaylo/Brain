@@ -3,7 +3,7 @@ import { StyleSheet, StatusBar, SafeAreaView } from 'react-native';
 
 import { HeaderBack } from '../components/header/HeaderBackCmp';
 import { FooterBack } from '../components/footer/FooterBackCmp';
-import { SYNC_BRAIN_VS_ORIGINAL, UNLOAD_PROM_TO_FILE, CLEAR_TABLE_BRAIN, SYNC_DATA_TITLE, CLEAR_TABLE_PROM, TRANS_BRAIN_TO_PROM, UNLOAD_PROM_TO_URL } from './../constants/syncDataConst';
+import { SYNC_BRAIN_VS_ORIGINAL, UNLOAD_PROM_TO_FILE, CLEAR_TABLE_BRAIN, SYNC_DATA_TITLE, CLEAR_TABLE_PROM, TRANS_BRAIN_TO_PROM, UNLOAD_PROM_TO_URL, READ_TABLE_INFO } from './../constants/syncDataConst';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { WINDOW_WIDTH } from '../constants/otherConst';
 import { View } from 'react-native';
@@ -12,6 +12,7 @@ import { LogCmp } from '../components/syncdata/LogCmp';
 import { SyncMenuCmp } from '../components/syncdata/SyncMenuCmp';
 import { syncBrainVsOrigContr, clearBrainTblContr, getCrudLogContr, setCrudLogFuncContr } from '../api/syncdata/syncDataController';
 import { CRUD_LOG } from '../reducers/synDataRdc';
+import { readTableInfo } from './../api/syncdata/syncDataController';
 
 // syncDataScr - work with tables. 
 // zeroing, reloading all data, synchronization, unloading for the trading platform
@@ -48,12 +49,13 @@ export default function syncDataScr(props) {
                         { id: '3', title: SYNC_BRAIN_VS_ORIGINAL, menuFunc: syncBrainVsOrigContr },
                         { id: '4', title: TRANS_BRAIN_TO_PROM, menuFunc: clearBrainTblContr },
                         { id: '5', title: UNLOAD_PROM_TO_FILE, menuFunc: clearBrainTblContr },
-                        { id: '6', title: UNLOAD_PROM_TO_URL, menuFunc: clearBrainTblContr }]
+                        { id: '6', title: UNLOAD_PROM_TO_URL, menuFunc: clearBrainTblContr },
+                        { id: '7', title: READ_TABLE_INFO, menuFunc: readTableInfo }]
                     }
                     getCrudLog={getLog}
                     state={state}
                     dispatch={dispatch}
-                />
+                /> 
 
             </View>
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
