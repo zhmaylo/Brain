@@ -11,7 +11,7 @@ export class TBrain extends crud {
     super(...args);
     //get provider table name
     this._BRAIN_TBL_NAME = super.T_PROV_NAME[0].tBrainTblName;
-    console.log('this._BRAIN_TBL=', this._BRAIN_TBL_NAME);
+    // console.log('this._BRAIN_TBL=', this._BRAIN_TBL_NAME);
     this.ConnectToTable();
   }
 

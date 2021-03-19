@@ -5,6 +5,7 @@ import { logItemAdd } from './syncDataLog';
 import * as syncBrainVsOrig from './syncBrainVsOrig';
 import { CATEGORY_LIST } from '../../reducers/categoryListRdc';
 import { CRUD_LOG } from '../../reducers/synDataRdc';
+import { clone } from './../clone';
 
 const tBrain = new TBrain;
 // const syncBrainVsOrig = new SyncBrainVsOrig;
@@ -19,7 +20,7 @@ export async function clearBrainTblContr() {
 // getCrudLog - Crud log
 // currCrudLog - current array og CRUD log
 export const getCrudLogContr = (currLog) => {
-    // console.log('getCrudLog.currCrudLog', currCrudLog[0]);
+    // console.log('getCrudLog.currCrudLog', currLog);
     // console.log('getCrudLog Finished');
     let logFromCrud = tBrain.getCrudLog();
     return logItemAdd(currLog, logFromCrud);
@@ -33,19 +34,21 @@ export const setCrudLogFuncContr = (func) => {
 export const syncBrainVsOrigContr = async (state, dispatch) => {
     // console.log('syncBrainVsOrigContr.dispatch', dispatch);
     let category = [];
-    await sendToLog(state.syncDataRdc.syncDataCrudLog, 'Колич. катег. до загрузки' + category.length + '', dispatch);
-    tBrain.tReadAll();
+    let log = sendToLog(state.syncDataRdc.syncDataCrudLog, 'Текущее колич. категорий: ' + category.length, dispatch);
     category = await syncBrainVsOrig.getCategoryListUpdate(state, dispatch);
+    //  console.log('syncBrainVsOrigContr.state.syncDataRdc.syncDataCrudLog',  state.syncDataRdc.syncDataCrudLog);
+    //  console.log('syncBrainVsOrigContr. log',  log);
     // console.log('syncBrainVsOrig.category', category[0].categoryID);
     // console.log('syncBrainVsOrig,state', state);
     await dispatch({ type: CATEGORY_LIST, payload: category });
+
     // console.log('syncBrainVsOrigContr.category.length', category.length);
     //// log section
-    //  await sendToLog(state.syncDataRdc.syncDataCrudLog, "Загружено категорий" + category.length, dispatch);
+    log = sendToLog(log, "Загружено категорий: " + category.length, dispatch);
     ///
-    let i=0;
+    let i = 0;
     console.log('syncBrainVsOrig.category before While');
-    
+
     // while (i < category.length && i < 2) {
     //     let prod = await syncBrainVsOrig.getProductListUpdate(category[i].categoryID, state, dispatch);
     //     console.log('syncBrainVsOrig.prod', prod);
@@ -56,7 +59,7 @@ export const syncBrainVsOrigContr = async (state, dispatch) => {
     //     // prod.forEach((element) => {
     //     //     console.log('syncBrainVsOrig.element', element);
     //     //     tBrain.tReplace(element);
-            
+
     //     // });
     //     // console.log('syncBrainVsOrig.prod', prod[0]);
     //     // tBrain.tReadAll();
@@ -65,33 +68,19 @@ export const syncBrainVsOrigContr = async (state, dispatch) => {
 
 
 }
+
 // readTableInfo - return records number
 export const readTableInfo = () => {
-    tBrain.tReadAll();  
-} 
+    tBrain.tReadAll();
+}
 
 // sentToLog
 // logFromState - log from state
 // logToBeAdded - log to be added to the site
 // dispatch
-
-const sendToLog = async (logFromState, logToBeAdded, dispatch) => {
-    let log = logItemAdd (logFromState, logToBeAdded);
+const sendToLog = (logFromState, logToBeAdded, dispatch) => {
+    let log = logItemAdd(logFromState, logToBeAdded);
     console.log('sendToLog.log', log);
-    await dispatch({ type: CRUD_LOG, payload: log });
+    dispatch({ type: CRUD_LOG, payload: log });
+    return log;
 }
-
-    // category.forEach(async (categ) => {
-    //     console.log('syncBrainVsOrig.categ.categoryID', categ.categoryID);
-    //     // syncBrainVsOrig.getProductListUpdate(categ.categoryID, state, dispatch).then((prod) => {
-    //     let prod = await syncBrainVsOrig.getProductListUpdate('1235', state, dispatch);
-    //     prod.forEach(element => {
-    //         console.log('syncBrainVsOrig.element', element);
-    //         tBrain.tReplace(element);
-    //     });
-    //     console.log('syncBrainVsOrig.prod', prod[0]);
-    //     tBrain.tReadAll();
-
-    // });
-    // console.log('syncBrainVsOrig.categ', categ[0]);
-    // // });

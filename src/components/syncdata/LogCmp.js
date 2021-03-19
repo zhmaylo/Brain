@@ -1,10 +1,27 @@
 import React from 'react';
 import { View, FlatList, StyleSheet, Text } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+
+const getDate = (id) => {
+    let date = new Date(Number(id));
+    let minute = date.getMinutes();
+    if (minute < 10 ) minute = '0' + minute;
+
+    let dateOut = date.getFullYear() + '-'
+        + String(Number(date.getMonth())+1) + '-'
+        + date.getDate() + ' '
+        + date.getHours() + ':'
+        + minute + ':'
+        + date.getSeconds() + '\n'; 
+
+    // console.log('dateOut', dateOut);
+    // console.log('id', id);
+    // console.log('date', date.toString('yyyy MM dd'));
+    return dateOut;
+}
 
 const Item = ({ title }) => (
     <View style={styles.item}>
-        <Text style={styles.title}>{title.log}</Text>
+        <Text style={styles.title}>{getDate(title.id)} {title.log}</Text>
     </View>
 );
 
@@ -14,7 +31,8 @@ export const LogCmp = ({ logArr }) => {
     // console.log('LogCmp.logArr', logArr);
     let flatList = 0;
     const ListToEnd = () => {
-        if (flatList != 0) flatList.scrollToEnd({ animated: true });
+        // if (flatList != 0) flatList.scrollToEnd({ animated: true });
+        if (flatList != 0) flatList.scrollToEnd();
         // console.log('LogCmp.ListToEnd>>>flatList', flatList);
     }
     return (

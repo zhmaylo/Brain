@@ -50,9 +50,7 @@ const MenuItem = ({ menuFunc, title, getCrudLog, state, dispatch }) => {
             }}
 
             onPress={() => {
-
                 menuFunc(state = state, dispatch = dispatch);
-                getCrudLog();
                 // console.log('MenuItem.getCrudLog finished');
                 // console.log('button press');
                 // getCrudLog();

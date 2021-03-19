@@ -11,7 +11,7 @@ export class dbProduct extends dbConst {
         //db - reference to database
         this._db = SQLite.openDatabase(super.DB_PROD_NAME);
         // console.log('Database opened. super.DB_PROD_NAME', super.getDB_PROD_NAME());
-        console.log('Database opened');
+        // console.log('Database opened');
         return this._db;
     }
 

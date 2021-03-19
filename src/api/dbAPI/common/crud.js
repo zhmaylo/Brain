@@ -9,7 +9,7 @@ export class crud extends dbConst {
     constructor(...args) {
         super(...args);
         this._dbProd = new dbProduct();
-        this._crudLog = 'Database opened';
+        this._crudLog = 'Database opened \n';
         // console.log("class CRUD. constructor - finished");
         // callback for logging
         this._crudLogFunc=null;
@@ -22,7 +22,7 @@ export class crud extends dbConst {
             (tx.executeSql(query, values,
                 (txObj, resultTable) => {
                     // console.log(logResult, resultTable);
-                    this._crudLog = this._crudLog + '\n' + logResult +
+                    this._crudLog = this._crudLog +  logResult +
                     super.DEV_LOG[0].nLenghtTable + resultTable.rows.length +
                     super.DEV_LOG[0].nRowsAffectedAdd + resultTable.rowsAffected;
                     try {

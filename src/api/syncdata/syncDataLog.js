@@ -1,5 +1,4 @@
 import { clone } from './../clone';
-import { v1 as timeStamp } from 'uuid';
 
 const LOG_MAX_LENGTH = 1000;
 
@@ -7,9 +6,15 @@ const LOG_MAX_LENGTH = 1000;
 // logFromState - log from state
 // logToBeAdded - log to be added to the site
 export const logItemAdd = (logFromState, logToBeAdded) => {
+
     let logClone = clone(logFromState);
     logClone = logTrim(logClone);
-    if (logToBeAdded.length > 0) logClone.push({ id: timeStamp() + '', log: logToBeAdded });
+    // console.log('logItemAdd.logClone', logClone);
+    console.log('logToBeAdded', logToBeAdded);
+    console.log('logToBeAdded.length', logToBeAdded.length);
+    if (logToBeAdded.length > 0) logClone.push({ id: `${Date.now()}`, log: logToBeAdded });
+
+    console.log('logItemAdd.logClone', logClone)
     return logClone;
     
 }

@@ -22,7 +22,7 @@ export default function syncDataScr(props) {
     const getLog = () => {
         let syncDataCrudLog = getCrudLogContr(state.syncDataRdc.syncDataCrudLog)
         dispatch({ type: CRUD_LOG, payload: syncDataCrudLog })
-        // console.log('syncDataScr.state', state.syncDataRdc);
+        console.log('syncDataScr.state', state.syncDataRdc);
     }
     setCrudLogFuncContr(getLog);
 
