@@ -10,10 +10,14 @@ import { clone } from './../clone';
 const tBrain = new TBrain;
 // const syncBrainVsOrig = new SyncBrainVsOrig;
 
-// Brain table clear
-export async function clearBrainTblContr() {
+// clearBrainTblContr - Brain table clear
+export async function clearBrainTblContr(state, dispatch) {
     tBrain.tDeleteAll();
-    tBrain.tReadAll();
+    let logFromState = state.syncDataRdc.syncDataCrudLog;
+    let logToBeAdd = tBrain.tReadAll();
+    let log = sendToLog(logFromState, logToBeAdd, dispatch);
+    // console.log('log', log);
+
     // console.log('clearBrainTbl finished',)
 }
 
@@ -31,56 +35,48 @@ export const setCrudLogFuncContr = (func) => {
     tBrain.setCrudLogFunc(func);
 }
 
+// syncBrainVsOrigContr - controller for synchro tBrain with base Original
 export const syncBrainVsOrigContr = async (state, dispatch) => {
-    // console.log('syncBrainVsOrigContr.dispatch', dispatch);
+    let logFromState = state.syncDataRdc.syncDataCrudLog;
     let category = [];
-    let log = sendToLog(state.syncDataRdc.syncDataCrudLog, 'Текущее колич. категорий: ' + category.length, dispatch);
+    logFromState = sendToLog(logFromState, 'Загрузка списка категорий из сервера ', dispatch);
     category = await syncBrainVsOrig.getCategoryListUpdate(state, dispatch);
-    //  console.log('syncBrainVsOrigContr.state.syncDataRdc.syncDataCrudLog',  state.syncDataRdc.syncDataCrudLog);
-    //  console.log('syncBrainVsOrigContr. log',  log);
-    // console.log('syncBrainVsOrig.category', category[0].categoryID);
-    // console.log('syncBrainVsOrig,state', state);
     await dispatch({ type: CATEGORY_LIST, payload: category });
+    logFromState = sendToLog(logFromState, "Загружено категорий: " + category.length, dispatch);
+    let i = 0; let prod = [];
+    // console.log('syncBrainVsOrig.category before While');
+    while (i < category.length && i < 20) {
+        prod = await syncBrainVsOrig.getProductListUpdate(category[i].categoryID, state, dispatch);
+        logFromState = sendToLog(logFromState,
+            'Загружено: ID> ' + `${category[i].categoryID}` + ' | имя> ' + `${category[i].name}` + ' | позиций> ' + `${String(prod.length)}` +
+            '\nВсего загружено категорий: ' + `${i + 1}` + ' из ' + `${category.length}`, dispatch);
+        // console.log('syncBrainVsOrig.prod', prod);
 
-    // console.log('syncBrainVsOrigContr.category.length', category.length);
-    //// log section
-    log = sendToLog(log, "Загружено категорий: " + category.length, dispatch);
-    ///
-    let i = 0;
-    console.log('syncBrainVsOrig.category before While');
-
-    // while (i < category.length && i < 2) {
-    //     let prod = await syncBrainVsOrig.getProductListUpdate(category[i].categoryID, state, dispatch);
-    //     console.log('syncBrainVsOrig.prod', prod);
-    //     console.log('syncBrainVsOrig.category[i].categoryID', category[i].categoryID);
-    //     sendToLog(state.syncDataRdc.syncDataCrudLog, "Загрузка продуктов по категориям", dispatch);
-    //     sendToLog(state.syncDataRdc.syncDataCrudLog, "Загружено категорий => " + i, dispatch);
-    //     // tBrain.tReadAll();
-    //     // prod.forEach((element) => {
-    //     //     console.log('syncBrainVsOrig.element', element);
-    //     //     tBrain.tReplace(element);
-
-    //     // });
-    //     // console.log('syncBrainVsOrig.prod', prod[0]);
-    //     // tBrain.tReadAll();
-    //     i++;
-    // }
+        prod.forEach((element) => {
+            tBrain.tReplace(element);
+        });
+    
+        i++;
+    }
 
 
 }
 
 // readTableInfo - return records number
-export const readTableInfo = () => {
-    tBrain.tReadAll();
+export const readTableInfoContr = (state, dispatch) => {
+    let logFromState = state.syncDataRdc.syncDataCrudLog;
+    let logToBeAdd = tBrain.tReadAll();
+    let log = sendToLog(logFromState, logToBeAdd, dispatch);
+    // console.log ('log', log);
 }
 
 // sentToLog
 // logFromState - log from state
-// logToBeAdded - log to be added to the site
+// logToBeAdd - log to be added to the site
 // dispatch
-const sendToLog = (logFromState, logToBeAdded, dispatch) => {
-    let log = logItemAdd(logFromState, logToBeAdded);
-    console.log('sendToLog.log', log);
+const sendToLog = (logFromState, logToBeAdd, dispatch) => {
+    let log = logItemAdd(logFromState, logToBeAdd);
+    // console.log('sendToLog.log', log);
     dispatch({ type: CRUD_LOG, payload: log });
     return log;
 }

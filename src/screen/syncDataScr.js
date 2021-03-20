@@ -12,21 +12,13 @@ import { LogCmp } from '../components/syncdata/LogCmp';
 import { SyncMenuCmp } from '../components/syncdata/SyncMenuCmp';
 import { syncBrainVsOrigContr, clearBrainTblContr, getCrudLogContr, setCrudLogFuncContr } from '../api/syncdata/syncDataController';
 import { CRUD_LOG } from '../reducers/synDataRdc';
-import { readTableInfo } from './../api/syncdata/syncDataController';
+import { readTableInfoContr } from './../api/syncdata/syncDataController';
 
 // syncDataScr - work with tables. 
 // zeroing, reloading all data, synchronization, unloading for the trading platform
 export default function syncDataScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-
-    const getLog = () => {
-        let syncDataCrudLog = getCrudLogContr(state.syncDataRdc.syncDataCrudLog)
-        dispatch({ type: CRUD_LOG, payload: syncDataCrudLog })
-        console.log('syncDataScr.state', state.syncDataRdc);
-    }
-    setCrudLogFuncContr(getLog);
-
-    // useEffect(() => {       // getLog();    }, []);
+   
     
     // console.log('syncDataScr.MENU_TITLE_LIST=>', MENU_TITLE_LIST)
     // console.log('syncDataScr.state.SyncDataRdc.syncDataCrudLog=>', state.syncDataRdc.syncDataCrudLog);
@@ -45,14 +37,14 @@ export default function syncDataScr(props) {
                 <SyncMenuCmp
                     menuTitleList={[
                         { id: '1', title: CLEAR_TABLE_BRAIN, menuFunc: clearBrainTblContr },
-                        { id: '2', title: CLEAR_TABLE_PROM, menuFunc: clearBrainTblContr },
+                        // { id: '2', title: CLEAR_TABLE_PROM, menuFunc: clearBrainTblContr },
                         { id: '3', title: SYNC_BRAIN_VS_ORIGINAL, menuFunc: syncBrainVsOrigContr },
-                        { id: '4', title: TRANS_BRAIN_TO_PROM, menuFunc: clearBrainTblContr },
-                        { id: '5', title: UNLOAD_PROM_TO_FILE, menuFunc: clearBrainTblContr },
-                        { id: '6', title: UNLOAD_PROM_TO_URL, menuFunc: clearBrainTblContr },
-                        { id: '7', title: READ_TABLE_INFO, menuFunc: readTableInfo }]
+                        // { id: '4', title: TRANS_BRAIN_TO_PROM, menuFunc: clearBrainTblContr },
+                        // { id: '5', title: UNLOAD_PROM_TO_FILE, menuFunc: clearBrainTblContr },
+                        // { id: '6', title: UNLOAD_PROM_TO_URL, menuFunc: clearBrainTblContr },
+                        { id: '7', title: READ_TABLE_INFO, menuFunc: readTableInfoContr }
+                    ]
                     }
-                    getCrudLog={getLog}
                     state={state}
                     dispatch={dispatch}
                 /> 
@@ -66,18 +58,20 @@ export default function syncDataScr(props) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 4,
+        flex: 1,
         flexDirection: "column",
+        // justifyContent: "flex-start",    
+        // alignContent: 'flex-end',    
         backgroundColor: "#F0F0F0",
         width: WINDOW_WIDTH,
     },
 
     logcmp: {
-        flex: 3,
+        flex: 1,
         backgroundColor: 'white',
     },
     menuItem: {
-        flex: 1,
+        height: 100,
         borderColor: 'lightgray',
         borderTopWidth: 3,
     }

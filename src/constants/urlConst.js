@@ -9,7 +9,8 @@ let proxy_url_pc, http;
 if  (Platform.OS === 'android') {proxy_url_pc = "", http="http"}
 //
 // proxy for PC Chrome if  (Platform.OS === 'web') 
-else {proxy_url_pc = "https://cors-anywhere.herokuapp.com/", http="https"};
+// else {proxy_url_pc = "https://cors-anywhere.herokuapp.com/", http="https"};
+else {proxy_url_pc = "", http="https"};
 //
 export const PROXY_URL_PC = proxy_url_pc;
 const HTTP = http;

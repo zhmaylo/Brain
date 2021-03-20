@@ -11,45 +11,28 @@ export class crud extends dbConst {
         this._dbProd = new dbProduct();
         this._crudLog = 'Database opened \n';
         // console.log("class CRUD. constructor - finished");
-        // callback for logging
-        this._crudLogFunc=null;
     }
 
     //_tQuery - query universal 
-    _tQuery(query, values, logResult, logError, logOn=false) {
+    _tQuery(query, values, logResult, logError) {
         // console.log('_tQuery.values', values )
         this._dbProd.transaction(tx => {
             (tx.executeSql(query, values,
                 (txObj, resultTable) => {
-                    // console.log(logResult, resultTable);
-                    this._crudLog = this._crudLog +  logResult +
-                    super.DEV_LOG[0].nLenghtTable + resultTable.rows.length +
-                    super.DEV_LOG[0].nRowsAffectedAdd + resultTable.rowsAffected;
-                    try {
-                        this._crudLog = this._crudLog + super.DEV_LOG[0].nInsertId + resultTable.insertId.length;
-                    }
-                    catch {
-                        this._crudLog = this._crudLog + ' \n=> InsertId= Empty or Error'
-                    }
-                    // restriction of logging
-                    logOn ? this._crudLogFunc() : this.getCrudLog();
+                    console.log(logResult, resultTable);
+                    // this._crudLog = this._crudLog + logResult +
+                    this._crudLog = logResult +
+                        super.DEV_LOG[0].nLenghtTable + resultTable.rows.length +
+                        super.DEV_LOG[0].nRowsAffectedAdd + resultTable.rowsAffected + '\n';
                     // console.log('CRUD(tx.executeSql) Finished')
                 },
                 (txObj, error) => {
                     console.log(logError, error);
-                    this._crudLog = this._crudLog + logError + super.DEV_LOG[0].code + error.code + super.DEV_LOG[0].space + error.message;
-                    this._crudLogFunc();
+                    this._crudLog = this._crudLog + error;
                 }
-            )
-            )
-            // })
+            ))
 
-            // console.log('CRUD(transaction) Finished');
-            // promise1.then((value) => {
-            //     console.log(value, 'promise finished');
-            // })
         })
-
         // console.log('CRUD(_tQuery) Finished');
 
     }
@@ -61,7 +44,7 @@ export class crud extends dbConst {
         // console.log('CRUD.ConnectToTable super.logResult => ', super.logResult[0].tConnect);
         // this._tQuery(query, [], 'CRUD.ConnectToTable - result', 'CRUD.ConnectToTable - error');
 
-        this._tQuery(query, [], super.DEV_LOG[0].tConnectResult, super.DEV_LOG[0].tConnectError, true);
+        this._tQuery(query, [], super.DEV_LOG[0].tConnectResult, super.DEV_LOG[0].tConnectError);
     }
 
     // tCreate - create one new row in table
@@ -76,7 +59,7 @@ export class crud extends dbConst {
     // query - data read request 
     // values - variable values in the request 
     tRead(query, values = []) {
-        this._tQuery(query, values, super.DEV_LOG[0].tReadResult, super.DEV_LOG[0].tReadError, true);
+        this._tQuery(query, values, super.DEV_LOG[0].tReadResult, super.DEV_LOG[0].tReadError);
     }
 
     // updateData - updating a row from Data base 
@@ -89,7 +72,7 @@ export class crud extends dbConst {
     // tDelete - Data deleting from table
     // query - data delete request
     // values - variable values in the request 
-    tDelete(query, values = [] ) {
+    tDelete(query, values = []) {
         // console.log('tDelete.values', values);
         this._tQuery(query, values, super.DEV_LOG[0].tDeleteResult, super.DEV_LOG[0].tDeleteError);
         // console.log('tDelete.this._tQuery - finished');
@@ -101,18 +84,17 @@ export class crud extends dbConst {
         this._tQuery(query, [], super.DEV_LOG[0].tDropResult, super.DEV_LOG[0].tDropError);
     }
 
+    // getCrudLog - getter for this._crudLog
     getCrudLog() {
         let mes = this._crudLog;
         this.setCrudLog('');
         return mes;
     }
 
+    // setCrudLog - setter for this._crudLog
     setCrudLog(mes) {
         this._crudLog = mes;
     }
 
-    setCrudLogFunc(func) {
-        this._crudLogFunc = func;
-    }
 }
 

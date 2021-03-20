@@ -9,7 +9,7 @@ const NUM_COLUMN = 2;
 
 // SyncMenuCmp - menu output for SyncDataScr
 // menuTitleList = [{id: 1, title: 'Empty title', callback: null }]
-export const SyncMenuCmp = ({ menuTitleList, getCrudLog, state, dispatch }) => {
+export const SyncMenuCmp = ({ menuTitleList, state, dispatch }) => {
     // console.log('SyncMenuCmp.menuTitleList=>', menuTitleList);
     // console.log('SyncMenuCmp.menuTitleList.menuFunc=>', menuTitleList[0].menuFunc);
     return (
@@ -21,7 +21,7 @@ export const SyncMenuCmp = ({ menuTitleList, getCrudLog, state, dispatch }) => {
 
             <FlatList
                 data={menuTitleList}
-                renderItem={(item) => <MenuItem menuFunc={item.item.menuFunc} title={item.item.title} getCrudLog={getCrudLog} state={state} dispatch={dispatch} />}
+                renderItem={(item) => <MenuItem menuFunc={item.item.menuFunc} title={item.item.title} state={state} dispatch={dispatch} />}
                 keyExtractor={item => item.id}
                 numColumns={NUM_COLUMN}
                 horizontal={false}
@@ -31,7 +31,7 @@ export const SyncMenuCmp = ({ menuTitleList, getCrudLog, state, dispatch }) => {
     )
 }
 
-const MenuItem = ({ menuFunc, title, getCrudLog, state, dispatch }) => {
+const MenuItem = ({ menuFunc, title, state, dispatch }) => {
     // console.log('menuItem.title', title);
     // console.log('MenuItem.getCrudLog', getCrudLog);
     // console.log('MenuItem.menuFunc', menuFunc);

@@ -53,6 +53,7 @@ export class TBrain extends crud {
   tReadAll() {
     const query = 'SELECT * FROM ' + this._BRAIN_TBL_NAME;
     super.tRead(query);
+    return super.getCrudLog();;
   }
 
   // tDelete - deleting one line
