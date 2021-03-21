@@ -1,6 +1,6 @@
 import { clone } from './../clone';
 
-const LOG_MAX_LENGTH = 1000;
+const LOG_MAX_LENGTH = 1400;
 
 // logItemAdd - add item to log
 // logFromState - log from state

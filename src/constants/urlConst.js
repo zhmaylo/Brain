@@ -52,6 +52,20 @@ export const URL_GET_CAT_IMG = HTTP + "://api.brain.com.ua/products_pictures/";
 // [&search=search] [&filterID=filterID] [&filters[]=filterID] [&limit=limit]
 // [&offset=offset] [&sortby=field_name] [&order=order] [&lang=lang]
 // ==========================
+// URL returns a link to the current price list in the specified format
+// Метод возвращает ссылку на текущий прайслист в заданном формате
+// GET
+export const URL_GET_PRICE_LIST = HTTP + "://api.brain.com.ua/pricelists/"; 
+// http://api.brain.com.ua/pricelists/targetID/format/SID [?lang=lang] [&full=full]
+// targetID	- идентификатор пункта выдачи (обязательно)
+// format -	да	формат прайслиста, возможные значения: xml, xlsx, xls, json, php (обязательно)
+// SID -да идентификатор сессии (обязательно)
+// lang	нет	язык, возможные значения - ru и ua, по умолчанию ru (не обязательно)
+// full	нет	Наличие: по умолчанию 0. (не обязательно)
+//      0 (только локальный склад, полный прайс);
+//      1 (все наличие, полный прайс);
+//      2 (все наличие, короткий прайс)
+// ==========================
 //
 // End. Section 'URL for request'
 /////////////////////////////
