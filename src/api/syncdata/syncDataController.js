@@ -4,11 +4,9 @@ import { TBrain } from '../dbAPI/provider/tBrain';
 import { logItemAdd } from './syncDataLog';
 import * as syncBrainVsOrig from './syncBrainVsOrig';
 import { CATEGORY_LIST } from '../../reducers/categoryListRdc';
-// import { CRUD_LOG } from '../../reducers/synDataRdc';
 import { getPriceList } from './../priceList/priceList';
-import { CRUD_LOG } from '../../reducers/synDataRdc';
+import { DB_LOG } from '../../reducers/synDataRdc';
 import * as storage from '../storage';
-import { Alert } from 'react-native';
 // import * as asyncStorage from './../storage';
 
 
@@ -41,10 +39,10 @@ export const syncBrainVsOrigContr = async (state, dispatch) => {
     logFromState = sendToLog(logFromState, "Загружено категорий: " + category.length, dispatch);
     let prod = [];
     let i = await getCurrCateg(category.length);
-    console.log('syncBrainVsOrig. i', i);
+    // console.log('syncBrainVsOrig. i', i);
     // console.log('syncBrainVsOrig.category before While');
 
-    while (i < category.length ) {
+    while (i < category.length) {
         prod = await syncBrainVsOrig.getProductListUpdate(category[i].categoryID, state, dispatch);
         logFromState = sendToLog(logFromState,
             'Загружено: ID> ' + `${category[i].categoryID}` + ' | имя> ' + `${category[i].name}` + ' | позиций> ' + `${String(prod.length)}` + '\nВсего загружено категорий: ' + `${i + 1}` + ' из ' + `${category.length}`, dispatch);
@@ -56,18 +54,19 @@ export const syncBrainVsOrigContr = async (state, dispatch) => {
     }
 }
 
-const getCurrCateg = async (categLength) => {
+// getCurrCateg - return current download category
+// catDownloadMax - maximum number of categories to download
+const getCurrCateg = async (catDownloadMax, state, dispatch) => {
 
     let i = 0;
     let currCateg = await storage.getData('currCateg')
-    console.log('currCateg', currCateg);
+    // console.log('currCateg', currCateg);
     if (currCateg == null) storage.storeData('currCateg', i);
-    // if (currCateg < categLength) { i = currCateg } else { i = categoryLength };
-    if (currCateg < categLength) { return currCateg }
-    // else 
+    // if (currCateg < catDownloadMax) { i = currCateg } else { i = categoryLength };
+    if (currCateg < catDownloadMax) { return currCateg }
+    else dispatch({ type: ALERT_SHOW, payload: true });
     // console.log('syncBrainVsOrig.categoryID', category[0].categoryID);
     // console.log('syncBrainVsOrig. i', i);
-    //return currCateg;
 }
 
 // readTableInfo - return records number
@@ -85,6 +84,6 @@ export const readTableInfoContr = (state, dispatch) => {
 const sendToLog = (logFromState, logToBeAdd, dispatch) => {
     let log = logItemAdd(logFromState, logToBeAdd);
     // console.log('sendToLog.log', log);
-    dispatch({ type: CRUD_LOG, payload: log });
+    dispatch({ type: DB_LOG, payload: log });
     return log;
 }

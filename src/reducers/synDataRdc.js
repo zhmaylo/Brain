@@ -1,8 +1,11 @@
 /////////////////////////////
 //Start. SyncData section
 //
-// CRUD work log
-export const  CRUD_LOG = 'CRUD_LOG';
+// DB work log
+export const  DB_LOG = 'DB_LOG';
+// 
+// Alert box show 
+export const  ALERT_SHOW = 'ALERT_SHOW';
 // 
 //End. SyncData section
 /////////////////////////////
@@ -10,14 +13,21 @@ export const  CRUD_LOG = 'CRUD_LOG';
 // CRUD work log
 export const syncDataRdc = (state = false, action) => {
     switch(action.type) {
-        case CRUD_LOG:
+        case DB_LOG:
             return {
                 ...state,
                 syncDataCrudLog:action.payload
+            };
+        case ALERT_SHOW:
+            return {
+                ...state,
+                syncDataAlertShow:action.payload
             };
         default:
             return state;
     }
 }
+
+
 
 

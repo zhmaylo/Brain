@@ -88,6 +88,7 @@ export const initialState = {
     //Start. SyncData
     syncDataRdc: {
         syncDataCrudLog: [],
+        syncDataAlertShow: false,
     },
     //End. SyncData
     ////////////////////////////////

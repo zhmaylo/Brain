@@ -12,6 +12,7 @@ import { LogCmp } from '../components/syncdata/LogCmp';
 import { SyncMenuCmp } from '../components/syncdata/SyncMenuCmp';
 import { syncBrainVsOrigContr, clearBrainTblContr, getPriceBrain} from '../api/syncdata/syncDataController';
 import { readTableInfoContr } from './../api/syncdata/syncDataController';
+import { AlertCmp } from './../components/syncdata/AlertCmp';
 
 // syncDataScr - work with tables. 
 // zeroing, reloading all data, synchronization, unloading for the trading platform
@@ -29,9 +30,12 @@ export default function syncDataScr(props) {
         <SafeAreaView style={styles.container}>
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={SYNC_DATA_TITLE} />
+            
             <View style={styles.logcmp}>
                     <LogCmp logArr={state.syncDataRdc.syncDataCrudLog} />
+                    {/* state.syncDataRdc.syncDataAlertShow <AlertCmp/> */}
             </View>
+  
             <View style={styles.menuItem} >
                 <SyncMenuCmp
                     menuTitleList={[
