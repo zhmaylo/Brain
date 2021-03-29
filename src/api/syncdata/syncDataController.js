@@ -7,6 +7,8 @@ import { CATEGORY_LIST } from '../../reducers/categoryListRdc';
 // import { CRUD_LOG } from '../../reducers/synDataRdc';
 import { getPriceList } from './../priceList/priceList';
 import { CRUD_LOG } from '../../reducers/synDataRdc';
+import * as storage from '../storage';
+import { Alert } from 'react-native';
 // import * as asyncStorage from './../storage';
 
 
@@ -31,36 +33,41 @@ export const getPriceBrain = (state, dispatch) => {
 // syncBrainVsOrigContr - controller for synchro tBrain with base Original
 export const syncBrainVsOrigContr = async (state, dispatch) => {
 
-    // asyncStorage.storeData('q', '12345');
-    // asyncStorage.storeData('w', 'edfger');
-    // let res = asyncStorage.getData('q');
-    // console.log(res);
-    // res = asyncStorage.getData('w');
-    // console.log(res);
-
-
     let logFromState = state.syncDataRdc.syncDataCrudLog;
     let category = [];
     logFromState = sendToLog(logFromState, 'Загрузка списка категорий из сервера ', dispatch);
     category = await syncBrainVsOrig.getCategoryListUpdate(state, dispatch);
     await dispatch({ type: CATEGORY_LIST, payload: category });
     logFromState = sendToLog(logFromState, "Загружено категорий: " + category.length, dispatch);
-    let i = 0; let prod = [];
+    let prod = [];
+    let i = await getCurrCateg(category.length);
+    console.log('syncBrainVsOrig. i', i);
     // console.log('syncBrainVsOrig.category before While');
 
-    while (i < category.length && i < 1) {
+    while (i < category.length ) {
         prod = await syncBrainVsOrig.getProductListUpdate(category[i].categoryID, state, dispatch);
         logFromState = sendToLog(logFromState,
-            'Загружено: ID> ' + `${category[i].categoryID}` + ' | имя> ' + `${category[i].name}` + ' | позиций> ' + `${String(prod.length)}` +
-            '\nВсего загружено категорий: ' + `${i + 1}` + ' из ' + `${category.length}`, dispatch);
+            'Загружено: ID> ' + `${category[i].categoryID}` + ' | имя> ' + `${category[i].name}` + ' | позиций> ' + `${String(prod.length)}` + '\nВсего загружено категорий: ' + `${i + 1}` + ' из ' + `${category.length}`, dispatch);
         // console.log('syncBrainVsOrig.prod', prod);
 
-        prod.forEach((element) => {
-            tBrain.tReplace(element);
-        });
-
+        prod.forEach((element) => { tBrain.tReplace(element) });
         i++;
+        storage.storeData('currCateg', i);
     }
+}
+
+const getCurrCateg = async (categLength) => {
+
+    let i = 0;
+    let currCateg = await storage.getData('currCateg')
+    console.log('currCateg', currCateg);
+    if (currCateg == null) storage.storeData('currCateg', i);
+    // if (currCateg < categLength) { i = currCateg } else { i = categoryLength };
+    if (currCateg < categLength) { return currCateg }
+    // else 
+    // console.log('syncBrainVsOrig.categoryID', category[0].categoryID);
+    // console.log('syncBrainVsOrig. i', i);
+    //return currCateg;
 }
 
 // readTableInfo - return records number

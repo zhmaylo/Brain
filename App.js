@@ -10,7 +10,6 @@ import {ContextApp, initialState, unionRdc} from "./src/reducers/unionRdc";
 export default function App(props) {
     const [state, dispatch] = useReducer(unionRdc, initialState);
 
-
     // const {state, dispatch} = React.useContext(ContextApp);
 
     // console.log("state", state)

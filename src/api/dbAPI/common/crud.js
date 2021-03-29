@@ -19,7 +19,7 @@ export class crud extends dbConst {
         this._dbProd.transaction(tx => {
             (tx.executeSql(query, values,
                 (txObj, resultTable) => {
-                    console.log(logResult, resultTable);
+                    // console.log(logResult, resultTable);
                     // this._crudLog = this._crudLog + logResult +
                     this._crudLog = logResult +
                         super.DEV_LOG[0].nLenghtTable + resultTable.rows.length +
