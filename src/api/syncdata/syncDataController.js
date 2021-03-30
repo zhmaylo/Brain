@@ -8,6 +8,7 @@ import { getPriceList } from './../priceList/priceList';
 import { DB_LOG } from '../../reducers/synDataRdc';
 import * as storage from '../storage';
 // import * as asyncStorage from './../storage';
+import { CAT_ID_DB_KEY } from './../../constants/storageConst';
 
 
 const tBrain = new TBrain;
@@ -50,7 +51,7 @@ export const syncBrainVsOrigContr = async (state, dispatch) => {
 
         prod.forEach((element) => { tBrain.tReplace(element) });
         i++;
-        storage.storeData('currCateg', i);
+        storage.storeData(CAT_ID_DB_KEY, i);
     }
 }
 
@@ -59,9 +60,9 @@ export const syncBrainVsOrigContr = async (state, dispatch) => {
 const getCurrCateg = async (catDownloadMax, state, dispatch) => {
 
     let i = 0;
-    let currCateg = await storage.getData('currCateg')
+    let currCateg = await storage.getData(CAT_ID_DB_KEY)
     // console.log('currCateg', currCateg);
-    if (currCateg == null) storage.storeData('currCateg', i);
+    if (currCateg == null) storage.storeData(CAT_ID_DB_KEY, i);
     // if (currCateg < catDownloadMax) { i = currCateg } else { i = categoryLength };
     if (currCateg < catDownloadMax) { return currCateg }
     else dispatch({ type: ALERT_SHOW, payload: true });

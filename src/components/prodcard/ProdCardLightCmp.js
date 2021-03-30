@@ -32,9 +32,10 @@ export const ProdCardLightCmp = ({ item, props, dispatch, sidAndTime }) => {
                         source={{ uri: (item.large_image) }}
                     />
                     <Text style={styles.textName}>{item.name} </Text>
-                    <Text style={styles.textPrice}>{item.retail_price_uah} грн </Text>
-                    <Text style={styles.text_warranty}>{WARANTY_HOME}{item.warranty}{WARANTY_END} {CODE_HOME}{item.product_code} </Text>
-                    <Text style={styles.text_warranty}>{ID_HOME}{item.productID} </Text>
+                    <Text style={styles.textPrice}>{item.price_uah + ' / ' + item.retail_price_uah} грн </Text>
+                    <Text style={styles.textPrice}>{(item.price_uah / item.retail_price_uah).toFixed(2)} % / {item.retail_price_uah - item.price_uah} грн</Text>
+                    <Text style={styles.text_warranty}>{WARANTY_HOME}{item.warranty}{WARANTY_END} {CODE_HOME}{item.product_code} {ID_HOME}{item.productID}</Text>
+                    <Text style={styles.text_warranty}></Text>
                 </View>
             </TouchableOpacity>
         </View>
@@ -68,8 +69,8 @@ const styles = StyleSheet.create({
     },
 
     textPrice: {
-        fontSize: 16,
-        fontWeight: "700",
+        fontSize: 15,
+        fontWeight: "500",
         paddingHorizontal: 5,
     }
 })

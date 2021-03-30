@@ -26,8 +26,8 @@ export const AppNavigator = () => (
             screenOptions={{ swipeEnabled: false }}
         >
             
-            <Drawer.Screen name={SYNC_DATA_SCR} component={syncDataScr} />
             <Drawer.Screen name={MAIN_SCR} component={mainScr} />
+            <Drawer.Screen name={SYNC_DATA_SCR} component={syncDataScr} />
             <Drawer.Screen name={PROD_SCR} component={prodScr} />
             <Drawer.Screen name={CATEG_SCR} component={categoryScr} />
             <Drawer.Screen name={SORT_SCR} component={sortScr} />

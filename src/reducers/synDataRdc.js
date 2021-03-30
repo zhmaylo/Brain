@@ -4,8 +4,6 @@
 // DB work log
 export const  DB_LOG = 'DB_LOG';
 // 
-// Alert box show 
-export const  ALERT_SHOW = 'ALERT_SHOW';
 // 
 //End. SyncData section
 /////////////////////////////
@@ -17,11 +15,6 @@ export const syncDataRdc = (state = false, action) => {
             return {
                 ...state,
                 syncDataCrudLog:action.payload
-            };
-        case ALERT_SHOW:
-            return {
-                ...state,
-                syncDataAlertShow:action.payload
             };
         default:
             return state;

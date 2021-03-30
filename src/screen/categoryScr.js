@@ -11,6 +11,9 @@ import { getProductsList } from './../api/products/products';
 import { sortBySwitch } from './../api/sort';
 import { clone } from './../api/clone';
 import { HeaderBack } from './../components/header/HeaderBackCmp';
+import * as storage from '../api/storage';
+import { RECENT_CATEG_KEY } from './../constants/storageConst';
+import { SpinerСmp } from '../components/SpinerCmp';
 
 
 export default function categoryScr(props) {
@@ -21,10 +24,17 @@ export default function categoryScr(props) {
     let viewList = state.viewListCatRdc.viewListCat;
 
     // console.log("viewList", viewList);
+    let cleanupFunction = true;
     useEffect(() => {
         dataCat = getMainListCategory(catList);
-        dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
-    }, []);
+        console.log('dataCat', dataCat);
+        if (cleanupFunction) {
+            dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
+            cleanupFunction = false;
+            console.log('cleanupFunction', cleanupFunction);
+        };
+        // return () => cleanupFunction = true;
+    }, [cleanupFunction]);
 
     const ItemCat = ({ item }) => {
         return (
@@ -36,16 +46,19 @@ export default function categoryScr(props) {
                         dataCat = getListCategory(catList, item);
 
                         if (!dataCat) {
+                            // save ID current category
+                            storage.storeData(RECENT_CATEG_KEY, item.categoryID);
+                            //
                             getProductsList(item.categoryID, state.sessionSidRdc.sessionSid, dispatch)
                                 .then((productsList) => {
                                     console.log("getProductsList => ", productsList);
                                     productsList = sortBySwitch(productsList, clone(state.sortSwitchArrRdc.sortSwitchArr));
                                     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
-
+                                    // storage.storeData('')
                                 })
                             props.navigation.navigate("MainScreen");
                         };
-                        // console.log(dataCat);
+                        // console.log('dataCat', dataCat);
                         // console.log(catList);
                         if (dataCat) dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
                     }
@@ -63,26 +76,31 @@ export default function categoryScr(props) {
 
 
     const ListCategory = (state) => {
+        if (!cleanupFunction) {
+            return (
 
-        return (
-
+                <View style={styles.container}>
+                    {/* <HeaderBack props={props} headerName={CATEG_HEADER_TITLE} /> */}
+                    <HeaderBack props={props} headerName="" />
+                    <FlatList
+                        numColumns={NUM_COLUMN}
+                        horizontal={false}
+                        data={viewList}
+                        // onRefresh={() => onRefresh}
+                        // refreshing={true}
+                        renderItem={({ item }) => <ItemCat item={item} />}
+                        keyExtractor={item => item.categoryID + ""}
+                    />
+                    {/* <FooterBack props={props} headerName={CATEG_HEADER_TITLE} /> */}
+                </View>
+            )
+        }
+        else return (
             <View style={styles.container}>
-                {/* <HeaderBack props={props} headerName={CATEG_HEADER_TITLE} /> */}
-                <HeaderBack props={props} headerName=""/>
-                <FlatList
-                    numColumns={NUM_COLUMN}
-                    horizontal={false}
-                    data={viewList}
-                    // onRefresh={() => onRefresh}
-                    // refreshing={true}
-                    renderItem={({ item }) => <ItemCat item={item} />}
-                    keyExtractor={item => item.categoryID + ""}
-                />
-                {/* <FooterBack props={props} headerName={CATEG_HEADER_TITLE} /> */}
+                <SpinerСmp />
             </View>
         )
     }
-
     return (
         <View style={styles.container}>
             <ListCategory />

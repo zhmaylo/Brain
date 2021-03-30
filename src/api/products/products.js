@@ -11,30 +11,32 @@ import { SPINER_TOGGLE } from "../../reducers/spinerRdc";
 // dispatch - this is callback
 export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
     let json = [], offset = 0, arrTemp = 0, result;
-    
+
     argMiddle.requestUrl = URL_GET_PRODUCTS + categoryID + '/';
+    // console.log("getProductsList.categoryID =>", categoryID);
     argMiddle.sidAndTime = sidAndTime;
     argMiddle.dispatch = dispatch;
     dispatch({ type: SPINER_TOGGLE, payload: true });
     do {
-        argMiddle.params = '?offset=' + offset+'&limit='+LIMIT;
+        argMiddle.params = '?offset=' + offset + '&limit=' + LIMIT;
         // console.log("getProductsList.offset =>", offset);
+        // console.log("getProductsList.argMiddle =>", argMiddle);
         arrTemp = await middleWareFetch(argMiddle);
         // console.log("getProductsList.arrTemp =>", arrTemp);
 
         result = await arrTemp.json.result;
         argMiddle.sidAndTime = arrTemp.sidAndTime;
         removeProductAbsence(result.list).forEach((item) => json.push(item));
-       
+
         offset += OFFSET;
 
         // console.log("getProductsList.result.count =>", result.count);
         // console.log("getProductsList.json.length =>", json.length);
-        
+
         // console.log("getProductsList.arrTemp.json.length =>", json.length);
 
     } while (offset <= result.count); //json.result.length)
-    
+
     dispatch({ type: SPINER_TOGGLE, payload: false });
 
     // console.log("getProductsList=>", json);
@@ -46,9 +48,9 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
 // arr - compressed array
 export const removeProductAbsence = (data) => {
     // console.log("removeProductAbsence. data =>", data);
-    let arr=[];
+    let arr = [];
     data.forEach((item) => {
-        if ((item.stocks_expected.length != 0) && (item.available.length !=0)) arr.push(item);
+        if ((item.stocks_expected.length != 0) && (item.available.length != 0)) arr.push(item);
     });
     // console.log("removeProductAbsence. arr =>", arr);
     return arr;
@@ -61,8 +63,8 @@ export const removeProductAbsence = (data) => {
 export const setSizeListProd = (currSize, stepPagin, maxSize) => {
     // console.log("setSizeListProd. currSize =>", currSize);
     // console.log("setSizeListProd. maxSize =>", cumaxSizerrSize);
-    currSize+=stepPagin;
-    (currSize>=maxSize) && (currSize=maxSize);
+    currSize += stepPagin;
+    (currSize >= maxSize) && (currSize = maxSize);
     // console.log("setSizeListProd. newSize =>", newSize);
     return currSize;
 }
