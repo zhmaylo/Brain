@@ -24,17 +24,18 @@ export default function categoryScr(props) {
     let viewList = state.viewListCatRdc.viewListCat;
 
     // console.log("viewList", viewList);
-    let cleanupFunction = true;
+   
     useEffect(() => {
+        let cleanupFunction = true;
         dataCat = getMainListCategory(catList);
         console.log('dataCat', dataCat);
         if (cleanupFunction) {
             dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
-            cleanupFunction = false;
+            // cleanupFunction = false;
             console.log('cleanupFunction', cleanupFunction);
         };
-        // return () => cleanupFunction = true;
-    }, [cleanupFunction]);
+        return () => cleanupFunction = false;
+    }, [!state.isAppInitRdc.isAppInit]);
 
     const ItemCat = ({ item }) => {
         return (
@@ -76,30 +77,25 @@ export default function categoryScr(props) {
 
 
     const ListCategory = (state) => {
-        if (!cleanupFunction) {
-            return (
 
-                <View style={styles.container}>
-                    {/* <HeaderBack props={props} headerName={CATEG_HEADER_TITLE} /> */}
-                    <HeaderBack props={props} headerName="" />
-                    <FlatList
-                        numColumns={NUM_COLUMN}
-                        horizontal={false}
-                        data={viewList}
-                        // onRefresh={() => onRefresh}
-                        // refreshing={true}
-                        renderItem={({ item }) => <ItemCat item={item} />}
-                        keyExtractor={item => item.categoryID + ""}
-                    />
-                    {/* <FooterBack props={props} headerName={CATEG_HEADER_TITLE} /> */}
-                </View>
-            )
-        }
-        else return (
+        return (
+
             <View style={styles.container}>
-                <SpinerСmp />
+                {/* <HeaderBack props={props} headerName={CATEG_HEADER_TITLE} /> */}
+                <HeaderBack props={props} headerName="" />
+                <FlatList
+                    numColumns={NUM_COLUMN}
+                    horizontal={false}
+                    data={viewList}
+                    // onRefresh={() => onRefresh}
+                    // refreshing={true}
+                    renderItem={({ item }) => <ItemCat item={item} />}
+                    keyExtractor={item => item.categoryID + ""}
+                />
+                {/* <FooterBack props={props} headerName={CATEG_HEADER_TITLE} /> */}
             </View>
         )
+
     }
     return (
         <View style={styles.container}>

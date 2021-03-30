@@ -1,13 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../../constants/otherConst';
+import { StyleSheet, Text } from 'react-native';
+import { WINDOW_HEIGHT } from '../../constants/otherConst';
 import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../../constants/productsConst';
 import { ScrollView } from 'react-native-gesture-handler';
 import { PROD_NAME, PROD_DESCRIPT } from '../../constants/productsConst';
-
-import { PRODUCTS_FROM_FILE } from '../../constants/productsJSON';
 import { SwiperBoxCmp } from '../SwiperBoxCmp';
-import { PROD_GALL_SCR } from '../../constants/appNavigatorConst';
+
 
 
 // product card
@@ -67,7 +65,7 @@ const styles = StyleSheet.create({
 
     textPrice: {
         fontSize: 15,
-        fontWeight: "500",
+        fontWeight: "700",
         paddingHorizontal: 5,
     },
 

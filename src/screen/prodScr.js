@@ -8,11 +8,11 @@ import { FOOTER_BACK_TITLE } from './../constants/footerBackConst';
 import { SpinerСmp } from '../components/SpinerCmp';
 import { PROD_HEADER_TITLE } from './../constants/headerBackConst';
 
-
+//shows a product pictures 
 export default function prodScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-    let prodCurrDsc = state.prodCurrentRdc.prodCurrentDescription;
-    let prodCurrImg = state.prodCurrentRdc.prodCurrentImages;
+    // let prodCurrDsc = state.prodCurrentRdc.prodCurrentDescription;
+    // let prodCurrImg = state.prodCurrentRdc.prodCurrentImages;
 
     // console.log('prodScr.state.prodCurrentRdc.prodCurrentDescription=> ', state.prodCurrentRdc.prodCurrentDescription);
     console.log('prodScr.state.prodCurrentRdc.prodCurrentImages=> ', state.prodCurrentRdc.prodCurrentImages);

@@ -5,7 +5,7 @@ import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../../constants/p
 import { PROD_SCR } from '../../constants/appNavigatorConst';
 import { PROD_CURR_DESCRIPTION, PROD_CURR_IMAGES } from '../../reducers/prodCurrentRdc';
 import { prodImgLoad } from '../../api/products/prodImgLoad';
-import { SPINER_TOGGLE } from '../../reducers/spinerRdc';
+
 
 // product card
 export const ProdCardLightCmp = ({ item, props, dispatch, sidAndTime }) => {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 
     textPrice: {
         fontSize: 15,
-        fontWeight: "500",
+        fontWeight: "700",
         paddingHorizontal: 5,
     }
 })

@@ -1,33 +1,25 @@
 import React from '../../../node_modules/react';
 import { View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../../constants/otherConst';
+import { WINDOW_WIDTH } from '../../constants/otherConst';
 import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from '../../constants/headerConst';
 
-// import { MenuSortCmp } from './MenuSortCmp';
-// import { SORT_BUTTON_PRESS } from '../../reducers/sortListProdRdc';
 import { CATEG_SCR } from '../../constants/appNavigatorConst';
+import { SORT_SCR, FILTER_SCR } from './../../constants/appNavigatorConst';
 
-export const HeaderCmp = ( props ) => {
+export const HeaderCmp = (props) => {
 
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                onPress={() => { props.navigation.navigate(CATEG_SCR)}}
-                // onPress={() => { props.navigation.toggleDrawer() }}
+                onPress={() => { props.navigation.navigate(CATEG_SCR) }}
+  
             >
                 <Image
                     style={styles.menuImage}
-                    // style={{ width: 26, height: 26, marginRight: 20 }}
                     source={ICON_HEADER[0].iconSource}
                 />
             </TouchableOpacity>
 
-            {/* <Image
-                style={styles.imageFind}
-                // style={{ backgroundColor: "green" }}
-                source={require('./../icons/Search-icon.png')}
-            >
-            </Image> */}
             <TextInput
                 style={styles.search}
                 placeholder={TEXT_INPUT_PLACEHOLDER}
@@ -36,7 +28,8 @@ export const HeaderCmp = ( props ) => {
 
 
             <TouchableOpacity className="button_sort"
-                onPress={() => {props.navigation.navigate('SortScreen');
+                onPress={() => {
+                    props.navigation.navigate(SORT_SCR);
                     console.log(' onPress=>MenuSortCmp called');
                 }}
             >
@@ -50,7 +43,10 @@ export const HeaderCmp = ( props ) => {
 
 
             <TouchableOpacity
-                onPress={() => { menuUrl() }}
+                onPress={() => {
+                    props.navigation.navigate(FILTER_SCR);
+                    console.log(' onPress=>FilterCmp called');
+                }}
             >
                 <Image
                     style={styles.menuImage}
