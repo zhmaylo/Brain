@@ -1,6 +1,6 @@
 import { clone } from './../clone';
 
-const LOG_MAX_LENGTH = 1400;
+const LOG_MAX_LENGTH = 2000;
 
 // logItemAdd - add item to log
 // logFromState - log from state
@@ -35,7 +35,7 @@ const logTrim = (currLog = [], logMaxLength = LOG_MAX_LENGTH) => {
     let logClone = clone(currLog);
     // console.log('logTrim.logClone', logClone);
     while (logClone.length >= logMaxLength) {
-        // logClone.shift();
+        logClone.shift();
         // console.log('logTrim.logClone', logClone);
     };
     return logClone;

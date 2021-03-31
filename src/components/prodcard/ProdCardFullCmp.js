@@ -11,8 +11,8 @@ import { SwiperBoxCmp } from '../SwiperBoxCmp';
 // product card
 export const ProdCardFullCmp = ({ item, currImages, props }) => {
 
-    // console.log("ProdCardFullCmp=>item", item);
-    console.log("ProdCardFullCmp=>currImages", currImages);
+    console.log("ProdCardFullCmp=>item", item);
+    // console.log("ProdCardFullCmp=>currImages", currImages);
 
     return (
 

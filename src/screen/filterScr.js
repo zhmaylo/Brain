@@ -10,7 +10,7 @@ import { FILTER_HEADER_TITLE } from './../constants/filterConst';
 
 export default function filterScr(props) {
     const { state, dispatch } = useContext(ContextApp);
- 
+    // getFilterProd()
     return (
 
         <SafeAreaView style={styles.container}>

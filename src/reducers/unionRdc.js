@@ -13,6 +13,7 @@ import { sortSwitchArrRdc } from './sortListProdRdc';
 import { SORT_SWITCHES_ARR } from '../constants/sortConst';
 import { prodCurrentRdc } from './prodCurrentRdc';
 import { syncDataRdc } from './synDataRdc';
+import { filterAllRdc } from './filterRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -93,6 +94,14 @@ export const initialState = {
     //End. SyncData
     ////////////////////////////////
 
+    ////////////////////////////////
+    //Start. Filter
+    filterAllRdc: {
+        filterAll: [],
+    },
+    //End. Filter
+    ////////////////////////////////
+
 
 };
 
@@ -138,11 +147,16 @@ export const unionRdc = combineReducers(
         //End. SyncData
         ////////////////////////////////
 
+        ////////////////////////////////
+        //Start. Filter
+        filterAllRdc: filterAllRdc,
+        //End. Filter
+        ////////////////////////////////
+
         isAppInitRdc: isAppInitRdc,
         sessionSidRdc: sessionSidRdc,
         statusResponseRdc: statusResponseRdc,
         numColumProdRdc: numColumProdRdc,
-
 
     }
 );

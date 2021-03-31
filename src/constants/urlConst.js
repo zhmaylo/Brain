@@ -66,6 +66,14 @@ export const URL_GET_PRICE_LIST = HTTP + "://api.brain.com.ua/pricelists/";
 //      1 (все наличие, полный прайс);
 //      2 (все наличие, короткий прайс)
 // ==========================
+// URL returns a list of filters for each category with names ("name") 
+// and unique tools ("filterID"), grouped by product characteristics
+// Метод возвращает полный список фильтров для указанной категории с названиями ("name") 
+// и уникальными идентификаторами ("filterID"), сгруппированных по характеристикам товаров
+// GET
+export const URL_GET_FILTER_ALL = HTTP + "://api.brain.com.ua/filters_all/"; 
+//  http://api.brain.com.ua/filters_all/categoryID/SID [?lang=lang]
+// ==========================
 //
 // End. Section 'URL for request'
 /////////////////////////////

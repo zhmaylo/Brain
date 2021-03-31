@@ -40,16 +40,20 @@ export const syncBrainVsOrigContr = async (state, dispatch) => {
     logFromState = sendToLog(logFromState, "Загружено категорий: " + category.length, dispatch);
     let prod = [];
     let i = await getCurrCateg(category.length);
-    // console.log('syncBrainVsOrig. i', i);
+    
+    console.log('syncBrainVsOrig. i', i);
+    // console.log('syncBrainVsOrig. category[0]', category[0]);
     // console.log('syncBrainVsOrig.category before While');
 
     while (i < category.length) {
-        prod = await syncBrainVsOrig.getProductListUpdate(category[i].categoryID, state, dispatch);
+        if (category[i].parentID == 1) {
+            prod = await syncBrainVsOrig.getProductListUpdate(category[i].categoryID, state, dispatch);
+            prod.forEach((element) => { tBrain.tReplace(element) });
+        }
         logFromState = sendToLog(logFromState,
             'Загружено: ID> ' + `${category[i].categoryID}` + ' | имя> ' + `${category[i].name}` + ' | позиций> ' + `${String(prod.length)}` + '\nВсего загружено категорий: ' + `${i + 1}` + ' из ' + `${category.length}`, dispatch);
-        // console.log('syncBrainVsOrig.prod', prod);
-
-        prod.forEach((element) => { tBrain.tReplace(element) });
+        console.log('syncBrainVsOrig.prod', prod);
+        prod = [];
         i++;
         storage.storeData(CAT_ID_DB_KEY, i);
     }
@@ -57,17 +61,12 @@ export const syncBrainVsOrigContr = async (state, dispatch) => {
 
 // getCurrCateg - return current download category
 // catDownloadMax - maximum number of categories to download
-const getCurrCateg = async (catDownloadMax, state, dispatch) => {
-
+const getCurrCateg = async (catDownloadMax) => {
     let i = 0;
     let currCateg = await storage.getData(CAT_ID_DB_KEY)
     // console.log('currCateg', currCateg);
-    if (currCateg == null) storage.storeData(CAT_ID_DB_KEY, i);
-    // if (currCateg < catDownloadMax) { i = currCateg } else { i = categoryLength };
-    if (currCateg < catDownloadMax) { return currCateg }
-    else dispatch({ type: ALERT_SHOW, payload: true });
-    // console.log('syncBrainVsOrig.categoryID', category[0].categoryID);
-    // console.log('syncBrainVsOrig. i', i);
+    if ((currCateg == null) || (currCateg >= catDownloadMax )) {currCateg = i};
+    return currCateg;
 }
 
 // readTableInfo - return records number
