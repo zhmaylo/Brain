@@ -1,6 +1,7 @@
 
 // getFilterProd - return filters for categoryID. JSON-format
 import { URL_GET_FILTER_ALL } from "../constants/urlConst";
+import { FILTER_ALL } from "../reducers/filterRdc";
 import { argMiddle } from './argMiddle';
 import { middleWareFetch } from './fetch/middleWareFetch';
 
@@ -23,7 +24,7 @@ export const getFilterProd = async (sidAndTime, dispatch, categoryID) => {
     let arrTemp = await middleWareFetch(argMiddle);
     console.log("getFilterProd.arrTemp =>", arrTemp.json.result);
     //
-    // dispatch({ type: FILTER_ALL, payload: false });
+    dispatch({ type: FILTER_ALL, payload:  arrTemp.json.result });
 
     // return json;
 }
