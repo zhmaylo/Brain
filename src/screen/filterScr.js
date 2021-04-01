@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { View, StyleSheet, StatusBar, SafeAreaView, Text } from 'react-native';
+import React, { useCallback, useContext } from 'react';
+import { View, StyleSheet, StatusBar, SafeAreaView, Text, TextInput } from 'react-native';
 
 import { HeaderBack } from '../components/header/HeaderBackCmp';
 import { FooterBack } from '../components/footer/FooterBackCmp';
@@ -10,6 +10,7 @@ import { FILTER_HEADER_TITLE } from './../constants/filterConst';
 
 export default function filterScr(props) {
     const { state, dispatch } = useContext(ContextApp);
+
     // getFilterProd()
     return (
 
@@ -17,8 +18,9 @@ export default function filterScr(props) {
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={FILTER_HEADER_TITLE} />
             <View style={styles.item} >
-                <Text></Text>
+                <TextInput keyboardType='number-pad' defaultValue='input number' />
             </View>
+
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
         </SafeAreaView>
 
