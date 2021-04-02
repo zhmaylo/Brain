@@ -17,7 +17,6 @@ import { CATEGORY_LIST } from '../reducers/categoryListRdc';
 import { IS_APP_INIT } from './../reducers/isAppInitRdc';
 import * as storage from '../api/storage';
 import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from './../constants/storageConst';
-import { getFilterProd } from './../api/filter';
 import { FILTER_SCR } from './../constants/appNavigatorConst';
 
 let i = 0;
@@ -42,7 +41,7 @@ export default function mainScr(props) {
             if (catID == null) catID = RECENT_CATEG_KEY_DEFAULT;
             // get fiters for catID
 
-            await getFilterProd(state.sessionSidRdc.sessionSid, dispatch, catID);
+
 
             let productsList = await getProductsList(catID, state.sessionSidRdc.sessionSid, dispatch);
             // console.log("getProductsList => ", productsList);
