@@ -1,9 +1,9 @@
 
 // getFilterProd - return filters for categoryID. JSON-format
-import { URL_GET_FILTER_ALL } from "../constants/urlConst";
-import { FILTER_ALL } from "../reducers/filterRdc";
-import { argMiddle } from './argMiddle';
-import { middleWareFetch } from './fetch/middleWareFetch';
+import { URL_GET_FILTER_ALL } from "../../constants/urlConst";
+import { FILTER_ALL } from "../../reducers/filterRdc";
+import { argMiddle } from '../argMiddle';
+import { middleWareFetch } from '../fetch/middleWareFetch';
 
 
 // sidAndTime - session SID and TimeStamp 

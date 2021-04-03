@@ -51,12 +51,6 @@ const MenuItem = ({ menuFunc, title, state, dispatch }) => {
 
             onPress={() => {
                 menuFunc(state = state, dispatch = dispatch);
-                // console.log('MenuItem.getCrudLog finished');
-                // console.log('button press');
-                // getCrudLog();
-                // console.log('button press. Callback', callback);
-                // console.log('MenuItem.getCrudLog=>', tBrain.getCrudLog());
-
             }}
         >
             <Text style={{
