@@ -20,7 +20,7 @@ export default function filterScr(props) {
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={FILTER_HEADER_TITLE} />
             <View style={styles.inputRange} >
-                <InputRangeCmp />
+                <InputRangeCmp onPress={(val) => console.log('val', val) } />
             </View>
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
         </SafeAreaView>

@@ -56,13 +56,28 @@ exports[`renders correctly 1`] = `
       <Text
         style={
           Object {
-            "fontSize": 16,
+            "fontSize": 15,
             "fontWeight": "700",
             "paddingHorizontal": 5,
           }
         }
       >
+        undefined / undefined
          грн 
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 15,
+            "fontWeight": "700",
+            "paddingHorizontal": 5,
+          }
+        }
+      >
+        NaN
+         % / 
+        NaN
+         грн
       </Text>
       <Text
         style={
@@ -77,6 +92,7 @@ exports[`renders correctly 1`] = `
          
         Код: 
          
+        ID: 
       </Text>
       <Text
         style={
@@ -85,10 +101,7 @@ exports[`renders correctly 1`] = `
             "paddingHorizontal": 5,
           }
         }
-      >
-        ID: 
-         
-      </Text>
+      />
     </View>
   </View>
 </View>

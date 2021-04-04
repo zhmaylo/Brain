@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, TextInput, Pressable } from 'react-native';
 import { inputLeftButton, inputRightButton } from './../../api/filter/filter';
 
@@ -10,18 +10,24 @@ import { inputLeftButton, inputRightButton } from './../../api/filter/filter';
 // maxValue - upper range limit
 // stepPercent - percentage change step
 // curValue - current value
+// resetValue - dafault
 
 export const InputRangeCmp = ({
-
-    nameLeftButton = ' - ',
-    nameMiddleButton = 'res',
-    nameRightButton = ' + ',
     minValue = 0,
     maxValue = 1000000,
     stepPercent = 20,
-    curValue = minValue,
-    resetValue = minValue,
+    // if 'false' - then this is the minimum component
+    // if 'true' - then this is the maximum component
+    minCmp = false, 
+    onPress,
 }) => {
+
+    const nameLeftButton = ' - ';
+    const nameMiddleButton = 'res';
+    const nameRightButton = ' + ';
+    const resetValue = 0;
+        
+    const [curValue, setCurValue] = useState(minCmp ? maxValue : minValue);
 
     return (
         <View style={styles.container}>
@@ -29,20 +35,21 @@ export const InputRangeCmp = ({
             <View style={styles.butonGroup}>
                 <ButtonRange title={nameLeftButton}
                     onPress={() => {
-                        curValue = inputLeftButton(curValue, stepPercent, minValue);
+                        setCurValue(inputLeftButton(curValue, stepPercent, minValue));
                         console.log('curValue', curValue);
+                        onPress(curValue);
                     }}
                 />
                 < ButtonRange title={nameMiddleButton}
                     onPress={() => {
-                        curValue = resetValue;
+                        setCurValue(resetValue);
                         console.log('curValue', curValue);
                     }}
                 />
                 <ButtonRange
                     title={nameRightButton}
                     onPress={() => {
-                        curValue = inputRightButton(curValue, stepPercent, maxValue);
+                        setCurValue(inputRightButton(curValue, stepPercent, maxValue));
                         console.log('curValue', curValue);
                     }}
                 />
@@ -56,13 +63,9 @@ export const InputRangeCmp = ({
 // onPress - callback, click handling 
 const ButtonRange = ({ title, onPress }) => {
     return (
-        // <TouchableOpacity
-        //     onPress={() => { onPress() }}
-        // >
-        <Pressable onPressIn={() => { onPress() }}>
+        <TouchableOpacity onPress={() => { onPress() }} >
             <Text style={styles.priceButton}> {title} </Text>
-        </Pressable>
-        // </TouchableOpacity>
+        </TouchableOpacity>
     );
 
 };

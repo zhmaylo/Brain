@@ -135,14 +135,28 @@ exports[`renders correctly 1`] = `
               <Text
                 style={
                   Object {
-                    "fontSize": 16,
+                    "fontSize": 15,
                     "fontWeight": "700",
                     "paddingHorizontal": 5,
                   }
                 }
               >
-                666.00
+                637.00 / 666.00
                  грн 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "fontSize": 15,
+                    "fontWeight": "700",
+                    "paddingHorizontal": 5,
+                  }
+                }
+              >
+                0.96
+                 % / 
+                29
+                 грн
               </Text>
               <Text
                 style={
@@ -159,6 +173,8 @@ exports[`renders correctly 1`] = `
                 Код: 
                 U0033541
                  
+                ID: 
+                41681
               </Text>
               <Text
                 style={
@@ -167,11 +183,7 @@ exports[`renders correctly 1`] = `
                     "paddingHorizontal": 5,
                   }
                 }
-              >
-                ID: 
-                41681
-                 
-              </Text>
+              />
             </View>
           </View>
         </View>
