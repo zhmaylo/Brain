@@ -32,7 +32,7 @@ export const InputRangeCmp = ({
 
     return (
         <View style={styles.container}>
-            <InputNumberCmp  />
+            <InputNumberCmp curValue={curValue} />
             <View style={styles.butonGroup}>
                 <ButtonRange title={nameLeftButton}
                     onPress={() => {

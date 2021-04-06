@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import React from 'react';
+import { TextInput, StyleSheet } from 'react-native';
 
-export const InputNumberCmp = (val) => {
+export const InputNumberCmp = (curValue) => {
     return (
         <TextInput style={styles.input}
             keyboardType='number-pad'
-            defaultValue='0'
-            onChangeText={(val) => { console.log("val", val) }}
+            // defaultValue='0'
+            onChange={(value) => {
+                console.log("value2", value.nativeEvent.text);
+            } }
+            value={'1234'}
         />
+        
+        
     )
 }
 
