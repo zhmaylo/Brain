@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, TextInput, Pressable } from 'react-native';
 import { inputLeftButton, inputRightButton } from './../../api/filter/filter';
+import { inputNumberCmp } from './inputNumberCmp';
 
 // InputRangeCmp - input range down or up
 // nameLeftButton - left button name
@@ -18,7 +19,7 @@ export const InputRangeCmp = ({
     stepPercent = 20,
     // if 'false' - then this is the minimum component
     // if 'true' - then this is the maximum component
-    minCmp = false, 
+    minCmp = false,
     onPress,
 }) => {
 
@@ -26,12 +27,12 @@ export const InputRangeCmp = ({
     const nameMiddleButton = 'res';
     const nameRightButton = ' + ';
     const resetValue = 0;
-        
+
     const [curValue, setCurValue] = useState(minCmp ? maxValue : minValue);
 
     return (
         <View style={styles.container}>
-            <TextInput style={styles.input} keyboardType='number-pad' defaultValue='0' />
+            <inputNumberCmp />
             <View style={styles.butonGroup}>
                 <ButtonRange title={nameLeftButton}
                     onPress={() => {
@@ -75,13 +76,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: 160,
-    },
-
-    input: {
-        height: 50,
-        borderColor: 'lightgrey',
-        borderWidth: 1,
-        textAlign: 'right',
     },
 
     butonGroup: {
