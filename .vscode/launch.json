@@ -5,6 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Attach to Chrome",
+            "port": 19006,
+            "request": "attach",
+            "type": "pwa-chrome",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "pwa-chrome",
+            "url": "http://localhost:19006",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
             "name": "Debug in Exponent",
             "request": "launch",
             "type": "reactnative",
@@ -14,3 +28,11 @@
         },
     ]
 }
+
+// {
+//     "type": "chrome",
+//     "request": "attach",
+//     "name": "Attach to Chrome",
+//     "port": 19006,
+//     "webRoot": "${workspaceFolder}"
+// },

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, TextInput, Pressable } from 'react-native';
 import { inputLeftButton, inputRightButton } from './../../api/filter/filter';
-import { inputNumberCmp } from './inputNumberCmp';
+import { InputNumberCmp } from './InputNumberCmp';
 
 // InputRangeCmp - input range down or up
 // nameLeftButton - left button name
@@ -32,7 +32,7 @@ export const InputRangeCmp = ({
 
     return (
         <View style={styles.container}>
-            <inputNumberCmp />
+            <InputNumberCmp  />
             <View style={styles.butonGroup}>
                 <ButtonRange title={nameLeftButton}
                     onPress={() => {
@@ -71,12 +71,12 @@ const ButtonRange = ({ title, onPress }) => {
 
 };
 
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: 160,
     },
+
 
     butonGroup: {
         flexDirection: 'row',
