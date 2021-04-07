@@ -23,18 +23,3 @@
     ]
 }
 
-// {
-//     "type": "chrome",
-//     "request": "attach",
-//     "name": "Attach to Chrome",
-//     "port": 19006,
-//     "webRoot": "${workspaceFolder}"
-// },
-
-// {
-//     "name": "Attach to Chrome",
-//     "port": 19006,
-//     "request": "attach",
-//     "type": "pwa-chrome",
-//     "webRoot": "${workspaceFolder}"
-// },

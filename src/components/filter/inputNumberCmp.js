@@ -1,18 +1,24 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-export const InputNumberCmp = (curValue) => {
+export const InputNumberCmp = ({ curValue, onChange, minValue, maxValue }) => {
     return (
         <TextInput style={styles.input}
             keyboardType='number-pad'
             // defaultValue='0'
             onChange={(value) => {
-                console.log("value2", value.nativeEvent.text);
-            } }
-            value={'1234'}
+                let text = value.nativeEvent.text;
+                if (isNaN(text)) text=curValue;
+                let num = Number(text);
+                if ((num<0) || (num>maxValue)) num=curValue;
+                console.log('🚀 ~ file: inputNumberCmp.js ~ line 12 ~ InputNumberCmp ~ text', text);
+                onChange(num);
+            }}
+
+            value={curValue}
         />
-        
-        
+
+
     )
 }
 

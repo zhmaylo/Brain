@@ -7,11 +7,12 @@ import { InputNumberCmp } from './InputNumberCmp';
 // nameLeftButton - left button name
 // nameMiddleButton - middle button name
 // nameRightButton - right button name
+// resetValue - dafault
 // minValue -  lower range limit
 // maxValue - upper range limit
 // stepPercent - percentage change step
-// curValue - current value
-// resetValue - dafault
+// minCmp - flag: 'false' minimum component
+// minCmp - flag: 'true' maximum component
 
 export const InputRangeCmp = ({
     minValue = 0,
@@ -20,7 +21,7 @@ export const InputRangeCmp = ({
     // if 'false' - then this is the minimum component
     // if 'true' - then this is the maximum component
     minCmp = false,
-    onPress,
+    onChangeCmp,
 }) => {
 
     const nameLeftButton = ' - ';
@@ -28,30 +29,39 @@ export const InputRangeCmp = ({
     const nameRightButton = ' + ';
     const resetValue = 0;
 
-    const [curValue, setCurValue] = useState(minCmp ? maxValue : minValue);
-
+    // curValue - current value
+    const [_curValue, setCurValue] = useState(minCmp ? maxValue : minValue);
     return (
         <View style={styles.container}>
-            <InputNumberCmp curValue={curValue} />
+            <InputNumberCmp curValue={_curValue}
+                minValue={minValue}
+                maxValue={maxValue}
+                onChange={(_curValue) => {
+                    setCurValue(_curValue);
+                    onChangeCmp(_curValue);
+                }}
+            />
+
             <View style={styles.butonGroup}>
                 <ButtonRange title={nameLeftButton}
                     onPress={() => {
-                        setCurValue(inputLeftButton(curValue, stepPercent, minValue));
-                        console.log('curValue', curValue);
-                        onPress(curValue);
+                        let curValue = inputLeftButton(_curValue, stepPercent, minValue);
+                        setCurValue(curValue);
+                        onChangeCmp(curValue);
                     }}
                 />
                 < ButtonRange title={nameMiddleButton}
                     onPress={() => {
                         setCurValue(resetValue);
-                        console.log('curValue', curValue);
+                        onChangeCmp(resetValue);
                     }}
                 />
                 <ButtonRange
                     title={nameRightButton}
                     onPress={() => {
-                        setCurValue(inputRightButton(curValue, stepPercent, maxValue));
-                        console.log('curValue', curValue);
+                        let curValue = inputRightButton(_curValue, stepPercent, maxValue);
+                        setCurValue(curValue);
+                        onChangeCmp(curValue);
                     }}
                 />
             </View>
