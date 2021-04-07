@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, TextInput, Pressable } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 import { inputLeftButton, inputRightButton } from './../../api/filter/filter';
 import { InputNumberCmp } from './InputNumberCmp';
+
 
 // InputRangeCmp - input range down or up
 // nameLeftButton - left button name
@@ -33,15 +34,15 @@ export const InputRangeCmp = ({
     const [_curValue, setCurValue] = useState(minCmp ? maxValue : minValue);
     return (
         <View style={styles.container}>
-            <InputNumberCmp curValue={_curValue}
+            <InputNumberCmp
+                curValue={_curValue}
                 minValue={minValue}
                 maxValue={maxValue}
-                onChange={(_curValue) => {
-                    setCurValue(_curValue);
-                    onChangeCmp(_curValue);
+                onChange={(curValue) => {
+                    setCurValue(curValue);
+                    onChangeCmp(curValue);
                 }}
             />
-
             <View style={styles.butonGroup}>
                 <ButtonRange title={nameLeftButton}
                     onPress={() => {
