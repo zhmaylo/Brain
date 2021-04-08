@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
-import { inputLeftButton, inputRightButton } from './../../api/filter/filter';
+import { inputLeftButton, inputMiddleButton, inputRightButton } from './../../api/filter/filter';
 import { InputNumberCmp } from './InputNumberCmp';
 
 
@@ -19,19 +19,19 @@ export const InputRangeCmp = ({
     minValue = 0,
     maxValue = 1000000,
     stepPercent = 20,
-    // if 'false' - then this is the minimum component
-    // if 'true' - then this is the maximum component
-    minCmp = false,
+    // if 'false' - then this is the maximum component
+    // if 'true' - then this is the minimum component
+    minFlag = true,
     onChangeCmp,
 }) => {
-
+    
     const nameLeftButton = ' - ';
-    const nameMiddleButton = 'res';
+    const nameMiddleButton = 'R';
     const nameRightButton = ' + ';
     const resetValue = 0;
-
+    
     // curValue - current value
-    const [_curValue, setCurValue] = useState(minCmp ? maxValue : minValue);
+    const [_curValue, setCurValue] = useState(minFlag ? minValue : maxValue);
     return (
         <View style={styles.container}>
             <InputNumberCmp
@@ -42,7 +42,7 @@ export const InputRangeCmp = ({
                     setCurValue(curValue);
                     onChangeCmp(curValue);
                 }}
-            />
+                />
             <View style={styles.butonGroup}>
                 <ButtonRange title={nameLeftButton}
                     onPress={() => {
@@ -50,13 +50,14 @@ export const InputRangeCmp = ({
                         setCurValue(curValue);
                         onChangeCmp(curValue);
                     }}
-                />
+                    />
                 < ButtonRange title={nameMiddleButton}
                     onPress={() => {
-                        setCurValue(resetValue);
-                        onChangeCmp(resetValue);
+                        let curValue = inputMiddleButton(_curValue, minValue, maxValue, minFlag);
+                        setCurValue(curValue);
+                        onChangeCmp(curValue);
                     }}
-                />
+                    />
                 <ButtonRange
                     title={nameRightButton}
                     onPress={() => {
@@ -64,7 +65,7 @@ export const InputRangeCmp = ({
                         setCurValue(curValue);
                         onChangeCmp(curValue);
                     }}
-                />
+                    />
             </View>
         </View>
     )
@@ -84,13 +85,14 @@ const ButtonRange = ({ title, onPress }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
         width: 160,
     },
 
 
     butonGroup: {
         flexDirection: 'row',
+        width:160,
         justifyContent: 'space-between',
     },
 

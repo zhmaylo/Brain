@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.17% </span>
+                <span class="strong">57.14% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/29</span>
+                <span class='fraction'>16/28</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">56% </span>
+                <span class="strong">58.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/25</span>
+                <span class='fraction'>14/24</span>
             </div>
         
             
@@ -130,7 +130,9 @@
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
 <a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -145,11 +147,13 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,7 +181,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -216,30 +220,32 @@ import { SPINER_TOGGLE } from "../../reducers/spinerRdc";
 // dispatch - this is callback
 export const getProductsList = async (categoryID, sidAndTime, dispatch) =&gt; {
     let json = [], offset = 0, arrTemp = 0, result;
-    
+&nbsp;
     argMiddle.requestUrl = URL_GET_PRODUCTS + categoryID + '/';
+    // console.log("getProductsList.categoryID =&gt;", categoryID);
     argMiddle.sidAndTime = sidAndTime;
     argMiddle.dispatch = dispatch;
     dispatch({ type: SPINER_TOGGLE, payload: true });
     do {
-        argMiddle.params = '?offset=' + offset+'&amp;limit='+LIMIT;
+        argMiddle.params = '?offset=' + offset + '&amp;limit=' + LIMIT;
         // console.log("getProductsList.offset =&gt;", offset);
+        // console.log("getProductsList.argMiddle =&gt;", argMiddle);
         arrTemp = await middleWareFetch(argMiddle);
         // console.log("getProductsList.arrTemp =&gt;", arrTemp);
 &nbsp;
         result = await arrTemp.json.result;
         argMiddle.sidAndTime = arrTemp.sidAndTime;
         removeProductAbsence(result.list).forEach(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; <span class="cstat-no" title="statement not covered" >json.push(item))</span>;
-       
+&nbsp;
 <span class="cstat-no" title="statement not covered" >        offset += OFFSET;</span>
 &nbsp;
         // console.log("getProductsList.result.count =&gt;", result.count);
         // console.log("getProductsList.json.length =&gt;", json.length);
-        
+&nbsp;
         // console.log("getProductsList.arrTemp.json.length =&gt;", json.length);
 &nbsp;
     } while (offset &lt;= result.count); //json.result.length)
-    
+&nbsp;
 <span class="cstat-no" title="statement not covered" >    dispatch({ type: SPINER_TOGGLE, payload: false });</span>
 &nbsp;
     // console.log("getProductsList=&gt;", json);
@@ -250,10 +256,10 @@ export const getProductsList = async (categoryID, sidAndTime, dispatch) =&gt; {
 // data - entering array
 // arr - compressed array
 export const removeProductAbsence = <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
-<span class="cstat-no" title="statement not covered" >    console.log("removeProductAbsence. data =&gt;", data);</span>
-    let arr=<span class="cstat-no" title="statement not covered" >[];</span>
+    // console.log("removeProductAbsence. data =&gt;", data);
+    let arr = <span class="cstat-no" title="statement not covered" >[];</span>
 <span class="cstat-no" title="statement not covered" >    data.forEach(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if ((item.stocks_expected.length != 0) &amp;&amp; (item.available.length !=0)) <span class="cstat-no" title="statement not covered" >arr.push(item);</span></span>
+<span class="cstat-no" title="statement not covered" >        if ((item.stocks_expected.length != 0) &amp;&amp; (item.available.length != 0)) <span class="cstat-no" title="statement not covered" >arr.push(item);</span></span>
     });
     // console.log("removeProductAbsence. arr =&gt;", arr);
 <span class="cstat-no" title="statement not covered" >    return arr;</span>
@@ -266,8 +272,8 @@ export const removeProductAbsence = <span class="fstat-no" title="function not c
 export const setSizeListProd = <span class="fstat-no" title="function not covered" >(c</span>urrSize, stepPagin, maxSize) =&gt; {
     // console.log("setSizeListProd. currSize =&gt;", currSize);
     // console.log("setSizeListProd. maxSize =&gt;", cumaxSizerrSize);
-<span class="cstat-no" title="statement not covered" >    currSize+=stepPagin;</span>
-<span class="cstat-no" title="statement not covered" >    (currSize&gt;=maxSize) &amp;&amp; (currSize=maxSize);</span>
+<span class="cstat-no" title="statement not covered" >    currSize += stepPagin;</span>
+<span class="cstat-no" title="statement not covered" >    (currSize &gt;= maxSize) &amp;&amp; (currSize = maxSize);</span>
     // console.log("setSizeListProd. newSize =&gt;", newSize);
 <span class="cstat-no" title="statement not covered" >    return currSize;</span>
 }
@@ -283,7 +289,7 @@ export const setSizeListProd = <span class="fstat-no" title="function not covere
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Feb 28 2021 17:05:20 GMT+0200 (Восточная Европа, стандартное время)
+                at Thu Apr 08 2021 15:32:35 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
         <script src="../../prettify.js"></script>

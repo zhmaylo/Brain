@@ -20,9 +20,24 @@ export default function filterScr(props) {
             <StatusBar hidden={true} />
             <HeaderBack props={props} headerName={FILTER_HEADER_TITLE} />
             <View style={styles.inputRange} >
-                <InputRangeCmp onChangeCmp={(val) => {
-                    console.log('🚀 ~ file: filterScr.js ~ line 26 ~ filterScr ~ val', val);
-                }}
+                <InputRangeCmp
+                    minValue={0} 
+                    maxValue={1000000}
+                    stepPercent={20}
+                    minFlag={true}
+                    onChangeCmp={(val) => {
+                        console.log('🚀 ~ file: filterScr.js ~ line 26 ~ filterScr ~ val', val);
+                    }}
+                />
+
+                <InputRangeCmp
+                    minValue={0}
+                    maxValue={1000000}
+                    stepPercent={20}
+                    minFlag={false}
+                    onChangeCmp={(val) => {
+                        console.log('🚀 ~ file: filterScr.js ~ line 26 ~ filterScr ~ val', val);
+                    }}
                 />
             </View>
             <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
@@ -39,6 +54,11 @@ const styles = StyleSheet.create({
     },
     inputRange: {
         flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
         backgroundColor: 'white',
+        // alignItem: 'center',
+        padding: 10,
+
     }
 });

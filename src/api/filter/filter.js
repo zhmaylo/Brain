@@ -4,8 +4,14 @@ export const inputLeftButton = (value, step, minValue) => {
     // round down
     value = Math.floor(value - value * step / 100);
     value = roundNumber(value, false);
-
     (value < minValue) && (value = minValue);
+    return value;
+
+};
+
+// inputMiddleButton - left button processing - decrease by percentage and round down
+export const inputMiddleButton = (value, minValue, maxValue, minFlag) => {
+    minFlag ? value = minValue : value = maxValue;
     return value;
 
 };
@@ -24,6 +30,8 @@ export const inputRightButton = (value, step, maxValue) => {
 
 // roundNumber - round number
 // value - rounding number
+// flag - if 'true' then round Up
+// flag - if 'false' then round Down
 const roundNumber = (value, flag) => {
     let valueLength = getNumLen(value);
     if (valueLength <= 3) { value = roundUpDown(value, 10, flag) }
@@ -43,7 +51,7 @@ const roundUpDown = (value, rank, flag) => {
 
 }
 
-// getNumLen - number length
+// getNumLen - get number length
 const getNumLen = (num) => {
     num = num + '';
     return num.length;
