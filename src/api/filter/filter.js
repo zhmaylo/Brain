@@ -1,3 +1,4 @@
+import clone from "clone";
 
 // inputLeftButton - left button processing - decrease by percentage and round down
 export const inputLeftButton = (value, step, minValue) => {
@@ -56,3 +57,34 @@ const getNumLen = (num) => {
     num = num + '';
     return num.length;
 };
+
+// inputNumberCheck - number input check
+// value - string to check
+// curValue - pred value
+// minValue - minimum range value
+// maxValue - maximum range value
+export const inputNumberCheck = (value, curValue, minValue, maxValue) => {
+    value = value.nativeEvent.text;
+    if (isNaN(value)) value = curValue;
+    value = Number(value);
+    if ((value < minValue) || (value > maxValue)) value = curValue;
+    return value;
+}
+
+// getDealerPriceRange - return min and max price for price filter
+// products - products list. JSON-format
+export const getDealerPriceRange = (products) => {
+    // if array is empty
+    if (products.length == 0) return ({ minDealerPrice: 0, maxDealerPrice: 0 })
+    // initial value
+    let minDealerPrice = Number(products[0].price_uah);
+    let maxDealerPrice = Number(products[0].price_uah);
+    let cur =0;
+    // find min price and max price 
+    products.forEach(element => {
+        cur = Number (element.price_uah);
+        if (cur < minDealerPrice)  minDealerPrice = cur;
+        if (element.price_uah > maxDealerPrice) maxDealerPrice = cur;
+    });
+    return ({ minDealerPrice, maxDealerPrice })
+}

@@ -1,4 +1,4 @@
-import { inputLeftButton, inputMiddleButton, inputRightButton } from "./filter";
+import { inputLeftButton, inputMiddleButton, inputNumberCheck, inputRightButton } from "./filter";
 
 describe('inputLeftButton', () => {
     test('"inputLeftButton - return number rounded down', () => {
@@ -34,6 +34,35 @@ describe('inputRightButton', () => {
         outdata = inputRightButton(50, 10, 50);
         expect(outdata).toBe(50);
     });
+    test('"inputRightButton - test: value=0 ', () => {
+        outdata = inputRightButton(0, 10, 500000);
+        expect(outdata).toBe(1);
+    });
+    test('"inputRightButton - test: rank=4 ', () => {
+        outdata = inputRightButton(5000, 10, 500000);
+        expect(outdata).toBe(5500);
+    });
+    test('"inputRightButton - test: rank=5 ', () => {
+        outdata = inputRightButton(50000, 10, 500000);
+        expect(outdata).toBe(55000);
+    });
 });
 
+describe('inputNumberCheck', () => {
+    test('"inputNumberCheck - testing string for synbol ', () => {
+        let value = { nativeEvent: { text: '123t' } };
+        outdata = inputNumberCheck(value, 123, 5, 5000);
+        expect(outdata).toBe(123);
+    });
+    test('"inputNumberCheck - testing string for out of range (below minimum) ', () => {
+        let value = { nativeEvent: { text: '4' } };
+        outdata = inputNumberCheck(value, 123, 5, 5000);
+        expect(outdata).toBe(123);
+    });
+    test('"inputNumberCheck - testing string for out of range (above the maximum) ', () => {
+        let value = { nativeEvent: { text: '5001' } };
+        outdata = inputNumberCheck(value, 123, 5, 5000);
+        expect(outdata).toBe(123);
+    });
+});
 

@@ -10,6 +10,7 @@ import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
 // import { buttonSort } from './header/sort';
 import { sortBySwitch } from './sort';
+import { getDealerPriceRange } from "./filter/filter";
 
 // devStub - stub for developer
 export const devStub = (state, dispatch) => {
@@ -25,6 +26,11 @@ export const devStub = (state, dispatch) => {
     // getProductsList(1484, state.sessionSidRdc.sessionSid, dispatch).then((productsList) => {
     let productsList = removeProductAbsence(PRODUCTS_FROM_FILE[0].result.list);
     productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);
+
+    ////////////
+    let minmax = getDealerPriceRange(productsList);
+    console.log("🚀 ~ file: categoryScr.js ~ line 58 ~ .then ~ minmax", minmax);
+    ////////////
 
     // console.log("PRODUCTS_FROM_FILE.result => ", PRODUCTS_FROM_FILE[0].result.list);
     // productsList = buttonSort(productsList, state.sortListProdRdc.sortListProd);

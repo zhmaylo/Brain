@@ -25,14 +25,9 @@ const devMode = true;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-
     useEffect(() => {
-
-
         const initApp = async () => {
             let data = await getCategoryList(state.sessionSidRdc.sessionSid, dispatch)
-            // console.log("mainScr.CATEGORY_FROM_FILE", CATEGORY_FROM_FILE);
-            // console.log("mainScr.state 2 => ", state);
             data = addFieldChildren(data);
             data = setFieldIsChildren(data);
 
@@ -44,8 +39,6 @@ export default function mainScr(props) {
 
 
             let productsList = await getProductsList(catID, state.sessionSidRdc.sessionSid, dispatch);
-            // console.log("getProductsList => ", productsList);
-            // productsList = buttonSort(productsList, state.sortSwitchArrRdc.sortSwitchArr);
             productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);
             dispatch({ type: PRODUCTS_LIST, payload: productsList });
             dispatch({ type: CATEGORY_LIST, payload: data });
@@ -53,8 +46,6 @@ export default function mainScr(props) {
             dispatch({ type: IS_APP_INIT, payload: true });
         }
 
-        // console.log("mainScr. sid=>");//.sessionSid.sid);
-        // console.log("mainScr.state 1 => ", state);
         // Start Stub. Section Dev. .
         if (devMode) devStub(state, dispatch);
         //End Stub. Section Dev.
@@ -62,19 +53,13 @@ export default function mainScr(props) {
             initApp();
             i++;
         }
-        // console.log("mainScr.state 3 => ", state);
+
         // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        props.navigation.navigate(FILTER_SCR);
+        // props.navigation.navigate(FILTER_SCR);
         // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     }, [!state.isAppInitRdc.isAppInit]);
 
-
-    // console.log('mainScr. state.statusResponseRdc.code', state.statusResponseRdc.statusResponse.code);
-    // console.log('mainScr. state', state);
-
-    // console.log(getMainCategory(categoryFromFile));
-    // console.log("state.isAppInitRdc.isAppInit", state.isAppInitRdc.isAppInit);
 
     if ((state.statusResponseRdc.statusResponse.code !== -1) &&
         (state.statusResponseRdc.statusResponse.code !== undefined))
@@ -86,7 +71,6 @@ export default function mainScr(props) {
                 <SafeAreaView style={styles.container}>
                     <StatusBar hidden={true} />
                     {HeaderCmp(props)}
-                    {/* <MenuSortCmp sortButtonPress={state.sortButtonPressRdc.sortButtonPress} dispatch={dispatch} /> */}
 
                     <ListProdCmp productList={state.productsListRdc.productsList}
                         numCollumns={state.numColumProdRdc.numColumProd}
@@ -95,29 +79,9 @@ export default function mainScr(props) {
                         dispatch={dispatch}
                         props={props}
                     />
-                    {/* {console.log('main.props.navigation.toggleDrawer', props.navigation.toggleDrawer)} */}
                     {FooterCmp(props, state, dispatch)}
                 </SafeAreaView>
             );
-
-        //                        /* <Button
-        //                        // onPress={() => props.navigation.navigate('MenuScreen')}
-        //                        onPress={() => props.navigation.toggleDrawer()}
-        //                        title="MenuScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-        //                    /> */
-        //                        {/* <Button
-        //                    onPress={() => props.navigation.navigate('FindScreen')}
-        //                    title="FindScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-        //                />
-        //                <Button
-        //                    onPress={() => props.navigation.navigate('ConfigScreen')}
-        //                    title="ConfigScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-        //                />
-        //                <Button
-        //                    onPress={() => props.navigation.navigate('BasketScreen')}
-        //                    title="BasketScreen" color="#841584" accessibilityLabel="Learn more about this purple button"
-        //                /> */}
-
 
         else return (
             <View style={styles.container}>
@@ -130,15 +94,12 @@ export default function mainScr(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundColor: '#fff',
-
         paddingTop: 10,
     },
 
     spiner: {
         flex: 1,
         backgroundColor: '#fff',
-
         paddingTop: 10,
     },
 

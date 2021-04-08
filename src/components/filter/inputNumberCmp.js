@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
+import { inputNumberCheck } from '../../api/filter/filter';
 
 
 // InputNumberCmp - number input
@@ -10,10 +11,7 @@ export const InputNumberCmp = ({ curValue = 0, onChange, minValue, maxValue }) =
             keyboardType='number-pad'
             value={curValue + ''}
             onChange={(value) => {
-                value = value.nativeEvent.text;
-                if (isNaN(value)) value = curValue;
-                value = Number(value);
-                if ((value < minValue) || (value > maxValue)) value = curValue;
+                value = inputNumberCheck(value, curValue, minValue, maxValue);
                 onChange(value);
             }}
         />

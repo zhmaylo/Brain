@@ -53,6 +53,8 @@ export const InputRangeCmp = ({
                     />
                 < ButtonRange title={nameMiddleButton}
                     onPress={() => {
+
+
                         let curValue = inputMiddleButton(_curValue, minValue, maxValue, minFlag);
                         setCurValue(curValue);
                         onChangeCmp(curValue);

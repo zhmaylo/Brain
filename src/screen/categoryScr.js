@@ -13,25 +13,19 @@ import { clone } from './../api/clone';
 import { HeaderBack } from './../components/header/HeaderBackCmp';
 import * as storage from '../api/storage';
 import { RECENT_CATEG_KEY } from './../constants/storageConst';
-import { SpinerСmp } from '../components/SpinerCmp';
-
 
 export default function categoryScr(props) {
-    // console.log("Start categoryScr");
     const { state, dispatch } = useContext(ContextApp);
     let dataCat;
     let catList = state.categoryListRdc.categoryList;
     let viewList = state.viewListCatRdc.viewListCat;
 
-    // console.log("viewList", viewList);
-   
     useEffect(() => {
         let cleanupFunction = true;
         dataCat = getMainListCategory(catList);
         console.log('dataCat', dataCat);
         if (cleanupFunction) {
             dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
-            // cleanupFunction = false;
             console.log('cleanupFunction', cleanupFunction);
         };
         return () => cleanupFunction = false;
@@ -43,7 +37,6 @@ export default function categoryScr(props) {
                 <TouchableOpacity style={styles.item}
                     onPress={() => {
 
-                        // console.log(item);
                         dataCat = getListCategory(catList, item);
 
                         if (!dataCat) {
@@ -54,13 +47,11 @@ export default function categoryScr(props) {
                                 .then((productsList) => {
                                     console.log("getProductsList => ", productsList);
                                     productsList = sortBySwitch(productsList, clone(state.sortSwitchArrRdc.sortSwitchArr));
+
                                     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
-                                    // storage.storeData('')
                                 })
                             props.navigation.navigate("MainScreen");
                         };
-                        // console.log('dataCat', dataCat);
-                        // console.log(catList);
                         if (dataCat) dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });
                     }
                     }
