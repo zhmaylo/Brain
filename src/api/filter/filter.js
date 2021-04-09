@@ -44,6 +44,8 @@ const roundNumber = (value, flag) => {
 // roundUpDown - round up/down to the comma
 // value - rounding number
 // rank - number of digits to round
+// flag = true - round up
+// flag = false - round down
 const roundUpDown = (value, rank, flag) => {
     // round up
     if (flag) return Math.ceil(value / rank) * rank;
@@ -86,5 +88,7 @@ export const getDealerPriceRange = (products) => {
         if (cur < minDealerPrice)  minDealerPrice = cur;
         if (element.price_uah > maxDealerPrice) maxDealerPrice = cur;
     });
-    return ({ minDealerPrice, maxDealerPrice })
+    minDealerPrice=roundUpDown(minDealerPrice, 1, false);
+    maxDealerPrice=roundUpDown(maxDealerPrice, 1, true);
+    return ({ minDealerPrice, maxDealerPrice });
 }

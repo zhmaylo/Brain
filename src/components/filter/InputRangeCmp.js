@@ -24,14 +24,32 @@ export const InputRangeCmp = ({
     minFlag = true,
     onChangeCmp,
 }) => {
-    
+
     const nameLeftButton = ' - ';
     const nameMiddleButton = 'R';
     const nameRightButton = ' + ';
-    const resetValue = 0;
-    
+   
+
     // curValue - current value
     const [_curValue, setCurValue] = useState(minFlag ? minValue : maxValue);
+
+
+    // let minPred = 0; let maxPred= 1000000;
+    // let flag = false;
+    // if (minPred != minValue) { minPred = minValue; flag = true };
+    // if (maxPred != maxValue) { maxPred = maxValue; flag = true };
+    // if (flag) setCurValue(minFlag ? minValue : maxValue);
+
+    
+    //isNewFilter - check "is new filter range?"
+    const [_minPred, setMinPred] = useState(0);
+    const [_maxPred, setMaxPred] = useState(1000000);
+    let flag = false;
+    if (_minPred != minValue) { setMinPred(minValue); flag = true };
+    if (_maxPred != maxValue) { setMaxPred(maxValue); flag = true };
+    if (flag) setCurValue(minFlag ? minValue : maxValue);
+    //////
+
     return (
         <View style={styles.container}>
             <InputNumberCmp
@@ -42,7 +60,7 @@ export const InputRangeCmp = ({
                     setCurValue(curValue);
                     onChangeCmp(curValue);
                 }}
-                />
+            />
             <View style={styles.butonGroup}>
                 <ButtonRange title={nameLeftButton}
                     onPress={() => {
@@ -50,7 +68,7 @@ export const InputRangeCmp = ({
                         setCurValue(curValue);
                         onChangeCmp(curValue);
                     }}
-                    />
+                />
                 < ButtonRange title={nameMiddleButton}
                     onPress={() => {
 
@@ -59,7 +77,7 @@ export const InputRangeCmp = ({
                         setCurValue(curValue);
                         onChangeCmp(curValue);
                     }}
-                    />
+                />
                 <ButtonRange
                     title={nameRightButton}
                     onPress={() => {
@@ -67,10 +85,12 @@ export const InputRangeCmp = ({
                         setCurValue(curValue);
                         onChangeCmp(curValue);
                     }}
-                    />
+                />
             </View>
         </View>
     )
+
+
 };
 
 // ButtonRange - range change button
@@ -94,7 +114,7 @@ const styles = StyleSheet.create({
 
     butonGroup: {
         flexDirection: 'row',
-        width:160,
+        width: 160,
         justifyContent: 'space-between',
     },
 

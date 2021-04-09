@@ -13,7 +13,7 @@ import { sortSwitchArrRdc } from './sortListProdRdc';
 import { SORT_SWITCHES_ARR } from '../constants/sortConst';
 import { prodCurrentRdc } from './prodCurrentRdc';
 import { syncDataRdc } from './synDataRdc';
-import { filterAllRdc } from './filterRdc';
+import { filterRdc } from './filterRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -96,8 +96,8 @@ export const initialState = {
 
     ////////////////////////////////
     //Start. Filter
-    filterAllRdc: {
-        filterAll: [],
+    filterRdc: {
+        filterDealPrice: [0,0],
     },
     //End. Filter
     ////////////////////////////////
@@ -149,7 +149,7 @@ export const unionRdc = combineReducers(
 
         ////////////////////////////////
         //Start. Filter
-        filterAllRdc: filterAllRdc,
+        filterRdc: filterRdc,
         //End. Filter
         ////////////////////////////////
 

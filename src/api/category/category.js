@@ -17,6 +17,7 @@ export const getCategoryList = async (sidAndTime, dispatch) => {
     // console.log("getCategoryList, argMiddle", json);
     json = await json.json.result;
     json = await sortListbyName(json);
+    
     // console.log("getCategoryList=>", json);
 
 

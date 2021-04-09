@@ -17,11 +17,12 @@ import { CATEGORY_LIST } from '../reducers/categoryListRdc';
 import { IS_APP_INIT } from './../reducers/isAppInitRdc';
 import * as storage from '../api/storage';
 import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from './../constants/storageConst';
-import { FILTER_SCR } from './../constants/appNavigatorConst';
+import { getDealerPriceRange } from '../api/filter/filter';
+import { FILTER_DEAL_PRICE } from '../reducers/filterRdc';
 
 let i = 0;
-const devMode = true;
-// const devMode = false;
+// const devMode = true;
+const devMode = false;
 
 export default function mainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -40,9 +41,11 @@ export default function mainScr(props) {
 
             let productsList = await getProductsList(catID, state.sessionSidRdc.sessionSid, dispatch);
             productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);
+            let minmax = getDealerPriceRange(productsList);
+            dispatch({ type: FILTER_DEAL_PRICE, payload: minmax });
             dispatch({ type: PRODUCTS_LIST, payload: productsList });
             dispatch({ type: CATEGORY_LIST, payload: data });
-                console.log("mainScr.getCategoryList(data)", data);
+            console.log("mainScr.getCategoryList(data)", data);
             dispatch({ type: IS_APP_INIT, payload: true });
         }
 

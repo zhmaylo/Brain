@@ -1,4 +1,4 @@
-import { inputLeftButton, inputMiddleButton, inputNumberCheck, inputRightButton } from "./filter";
+import { getDealerPriceRange, inputLeftButton, inputMiddleButton, inputNumberCheck, inputRightButton } from "./filter";
 
 describe('inputLeftButton', () => {
     test('"inputLeftButton - return number rounded down', () => {
@@ -63,6 +63,24 @@ describe('inputNumberCheck', () => {
         let value = { nativeEvent: { text: '5001' } };
         outdata = inputNumberCheck(value, 123, 5, 5000);
         expect(outdata).toBe(123);
+    });
+});
+
+describe('getDealerPriceRange', () => {
+    test('"getDealerPriceRange - testing min/max Dealer Price + round ', () => {
+        let products = [
+            {"price_uah": "3.00"}, {"price_uah": "2.00"}, {"price_uah": "6.01"},
+            {"price_uah": "0.99"}, {"price_uah": "1.00"}, {"price_uah": "2.99"},
+        ]
+        outdata = getDealerPriceRange (products);
+        expect(outdata.maxDealerPrice).toBe(7);
+        expect(outdata.minDealerPrice).toBe(0);
+    });
+    test('"getDealerPriceRange - products.length =0 ', () => {
+        let products2 = [];
+        outdata = getDealerPriceRange (products2);
+        expect(outdata.maxDealerPrice).toBe(0);
+        expect(outdata.minDealerPrice).toBe(0);
     });
 });
 

@@ -2,18 +2,18 @@
 //Start. Filter section
 //
 // filter all 
-export const  FILTER_ALL = 'FILTER_ALL';
+export const  FILTER_DEAL_PRICE = 'FILTER_DEAL_PRICE';
 // 
 //End. Filter section
 /////////////////////////////
 
 //
-export const filterAllRdc = (state = false, action) => {
+export const filterRdc = (state = false, action) => {
     switch(action.type) {
-        case FILTER_ALL:
+        case FILTER_DEAL_PRICE:
             return {
                 ...state,
-                filterAll:action.payload
+                filterDealPrice:action.payload
             };
         default:
             return state;

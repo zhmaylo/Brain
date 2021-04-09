@@ -12,7 +12,10 @@ import { InputRangeCmp } from '../components/filter/InputRangeCmp';
 // filterScr
 export default function filterScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-
+    console.log('🚀 ~ file: filterScr.js ~ line 15 ~ filterScr ~ state.filterRdc.filterDealPrice', state.filterRdc.filterDealPrice);
+    
+    let maxValue=state.filterRdc.filterDealPrice.maxDealerPrice;
+    let minValue=state.filterRdc.filterDealPrice.minDealerPrice;
     // getFilterProd()
     return (
 
@@ -21,8 +24,8 @@ export default function filterScr(props) {
             <HeaderBack props={props} headerName={FILTER_HEADER_TITLE} />
             <View style={styles.inputRange} >
                 <InputRangeCmp
-                    minValue={0} 
-                    maxValue={1000000}
+                    minValue={minValue} 
+                    maxValue={maxValue}
                     stepPercent={20}
                     minFlag={true}
                     onChangeCmp={(val) => {
@@ -31,8 +34,8 @@ export default function filterScr(props) {
                 />
 
                 <InputRangeCmp
-                    minValue={0}
-                    maxValue={1000000}
+                    minValue={minValue}
+                    maxValue={maxValue}
                     stepPercent={20}
                     minFlag={false}
                     onChangeCmp={(val) => {

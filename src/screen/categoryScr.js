@@ -13,6 +13,8 @@ import { clone } from './../api/clone';
 import { HeaderBack } from './../components/header/HeaderBackCmp';
 import * as storage from '../api/storage';
 import { RECENT_CATEG_KEY } from './../constants/storageConst';
+import { getDealerPriceRange } from '../api/filter/filter';
+import { FILTER_DEAL_PRICE } from '../reducers/filterRdc';
 
 export default function categoryScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -47,8 +49,12 @@ export default function categoryScr(props) {
                                 .then((productsList) => {
                                     console.log("getProductsList => ", productsList);
                                     productsList = sortBySwitch(productsList, clone(state.sortSwitchArrRdc.sortSwitchArr));
-
+                                    
+                                    let minmax = getDealerPriceRange(productsList);
+                                    dispatch({ type: FILTER_DEAL_PRICE, payload: minmax });
+                                    
                                     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
+                                    console.log('🚀 ~ file: categoryScr.js ~ line 50 ~ .then ~ state', state);
                                 })
                             props.navigation.navigate("MainScreen");
                         };
