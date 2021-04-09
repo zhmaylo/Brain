@@ -97,7 +97,9 @@ export const initialState = {
     ////////////////////////////////
     //Start. Filter
     filterRdc: {
-        filterDealPrice: [0,0],
+        filterDealPrice: [],
+        minShowLimit: 0,
+        maxShowLimit: 10000000,
     },
     //End. Filter
     ////////////////////////////////

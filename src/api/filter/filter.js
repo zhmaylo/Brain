@@ -81,14 +81,29 @@ export const getDealerPriceRange = (products) => {
     // initial value
     let minDealerPrice = Number(products[0].price_uah);
     let maxDealerPrice = Number(products[0].price_uah);
-    let cur =0;
+    let cur = 0;
     // find min price and max price 
     products.forEach(element => {
-        cur = Number (element.price_uah);
-        if (cur < minDealerPrice)  minDealerPrice = cur;
+        cur = Number(element.price_uah);
+        if (cur < minDealerPrice) minDealerPrice = cur;
         if (element.price_uah > maxDealerPrice) maxDealerPrice = cur;
     });
-    minDealerPrice=roundUpDown(minDealerPrice, 1, false);
-    maxDealerPrice=roundUpDown(maxDealerPrice, 1, true);
+    minDealerPrice = roundUpDown(minDealerPrice, 1, false);
+    maxDealerPrice = roundUpDown(maxDealerPrice, 1, true);
     return ({ minDealerPrice, maxDealerPrice });
+}
+
+// getFilteredProducts - return filtered lst products
+// productsList - products list
+// minShowLimit - lower price limit
+// maxShowLimit - uper price limit
+export const getFilteredProducts = (productsList = [], minShowLimit, maxShowLimit) => {
+    if (productsList === undefined) return productsList;
+    let filteredProd = [];
+    productsList.forEach(element => {
+        if ((element.price_uah >= minShowLimit) && (element.price_uah <= maxShowLimit)) {
+            filteredProd.push(element);
+        }
+    });
+    return filteredProd;
 }

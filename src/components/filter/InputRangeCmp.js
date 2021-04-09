@@ -32,18 +32,10 @@ export const InputRangeCmp = ({
 
     // curValue - current value
     const [_curValue, setCurValue] = useState(minFlag ? minValue : maxValue);
-
-
-    // let minPred = 0; let maxPred= 1000000;
-    // let flag = false;
-    // if (minPred != minValue) { minPred = minValue; flag = true };
-    // if (maxPred != maxValue) { maxPred = maxValue; flag = true };
-    // if (flag) setCurValue(minFlag ? minValue : maxValue);
-
     
     //isNewFilter - check "is new filter range?"
     const [_minPred, setMinPred] = useState(0);
-    const [_maxPred, setMaxPred] = useState(1000000);
+    const [_maxPred, setMaxPred] = useState(10000000);
     let flag = false;
     if (_minPred != minValue) { setMinPred(minValue); flag = true };
     if (_maxPred != maxValue) { setMaxPred(maxValue); flag = true };
@@ -71,8 +63,6 @@ export const InputRangeCmp = ({
                 />
                 < ButtonRange title={nameMiddleButton}
                     onPress={() => {
-
-
                         let curValue = inputMiddleButton(_curValue, minValue, maxValue, minFlag);
                         setCurValue(curValue);
                         onChangeCmp(curValue);

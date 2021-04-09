@@ -7,6 +7,7 @@ import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { ContextApp } from "../reducers/unionRdc";
 import { FILTER_HEADER_TITLE } from './../constants/filterConst';
 import { InputRangeCmp } from '../components/filter/InputRangeCmp';
+import { MAX_SHOW_LIMIT, MIN_SHOW_LIMIT } from '../reducers/filterRdc';
 
 
 // filterScr
@@ -28,8 +29,9 @@ export default function filterScr(props) {
                     maxValue={maxValue}
                     stepPercent={20}
                     minFlag={true}
-                    onChangeCmp={(val) => {
-                        console.log('🚀 ~ file: filterScr.js ~ line 26 ~ filterScr ~ val', val);
+                    onChangeCmp={(minShowLimit) => {
+                        dispatch({ type: MIN_SHOW_LIMIT, payload: minShowLimit });
+                        console.log('🚀 ~ file: filterScr.js ~ line 26 ~ filterScr ~ minShowLimit', minShowLimit);
                     }}
                 />
 
@@ -38,8 +40,9 @@ export default function filterScr(props) {
                     maxValue={maxValue}
                     stepPercent={20}
                     minFlag={false}
-                    onChangeCmp={(val) => {
-                        console.log('🚀 ~ file: filterScr.js ~ line 26 ~ filterScr ~ val', val);
+                    onChangeCmp={(maxShowLimit) => {
+                        dispatch({ type: MAX_SHOW_LIMIT, payload: maxShowLimit});
+                        console.log('🚀 ~ file: filterScr.js ~ line 26 ~ filterScr ~ maxShowLimit', maxShowLimit);
                     }}
                 />
             </View>
