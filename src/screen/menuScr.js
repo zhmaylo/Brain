@@ -3,7 +3,7 @@ import {Button, StyleSheet, Text, View} from 'react-native';
 import {ContextApp} from "../reducers/unionRdc";
 
 
-export default function menuScr(props) {
+export default function MenuScr(props) {
     const {state, dispatch} = useContext(ContextApp);
 
     return (

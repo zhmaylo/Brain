@@ -12,6 +12,7 @@ export const  MAX_SHOW_LIMIT = 'MAX_SHOW_LIMIT';
 //
 export const filterRdc = (state = false, action) => {
     switch(action.type) {
+        // dealer price range
         case MINMAX_DEAL_PRICE:
             return {
                 ...state,
@@ -20,11 +21,13 @@ export const filterRdc = (state = false, action) => {
                 minShowLimit:action.payload.minDealerPrice,
                 maxShowLimit:action.payload.maxDealerPrice,
             };
+        // minimum show limit
         case MIN_SHOW_LIMIT:
             return {
                 ...state,
                 minShowLimit:action.payload
             };
+        // maximum show limit
         case MAX_SHOW_LIMIT:
             return {
                 ...state,

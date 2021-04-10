@@ -5,15 +5,15 @@ import { HeaderBack } from '../components/header/HeaderBackCmp';
 import { FooterBack } from '../components/footer/FooterBackCmp';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 
-import { WINDOW_HEIGHT, WINDOW_WIDTH } from './../constants/otherConst';
+import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../constants/otherConst';
 import { ScrollView } from 'react-native-gesture-handler';
-import { prodGallImages } from './../constants/prodGallConst';
-import { HEADER_BUTTON_SIZE } from './../constants/headerConst';
+import { prodGallImages } from '../constants/prodGallConst';
+import { HEADER_BUTTON_SIZE } from '../constants/headerConst';
 import { PROD_GALL_HEADER_TITLE } from '../constants/headerBackConst';
 
 
 //shows a gallery of product pictures 
-export default function prodGallScr(props) {
+export default function ProdGallScr(props) {
     const { state, dispatch } = useContext(ContextApp);
     console.log('prodGallScr.state.prodCurrentRdc.prodCurrentImages=> ', state.prodCurrentRdc.prodCurrentImages);
     let currImages = state.prodCurrentRdc.prodCurrentImages;

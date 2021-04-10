@@ -5,13 +5,13 @@ import { HeaderBack } from '../components/header/HeaderBackCmp';
 import { FooterBack } from '../components/footer/FooterBackCmp';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { ContextApp } from "../reducers/unionRdc";
-import { FILTER_HEADER_TITLE } from './../constants/filterConst';
+import { FILTER_HEADER_TITLE } from '../constants/filterConst';
 import { InputRangeCmp } from '../components/filter/InputRangeCmp';
 import { MAX_SHOW_LIMIT, MIN_SHOW_LIMIT } from '../reducers/filterRdc';
 
 
 // filterScr
-export default function filterScr(props) {
+export default function FilterScr(props) {
     const { state, dispatch } = useContext(ContextApp);
     console.log('🚀 ~ file: filterScr.js ~ line 15 ~ filterScr ~ state.filterRdc.filterDealPrice', state.filterRdc.filterDealPrice);
     

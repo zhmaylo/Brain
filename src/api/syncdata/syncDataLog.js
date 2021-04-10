@@ -1,4 +1,4 @@
-import { clone } from './../clone';
+import { clone } from '../clone';
 
 const LOG_MAX_LENGTH = 2000;
 

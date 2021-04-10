@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.79% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>46/53</span>
+                <span class='fraction'>51/51</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.07% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>20/27</span>
+                <span class='fraction'>25/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>8/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.36% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>38/44</span>
+                <span class='fraction'>43/43</span>
             </div>
         
             
@@ -150,9 +150,7 @@
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a>
-<a name='L95'></a><a href='#L95'>95</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -237,16 +235,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import clone from "clone";
-&nbsp;
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 // inputLeftButton - left button processing - decrease by percentage and round down
 export const inputLeftButton = (value, step, minValue) =&gt; {
     // round down
@@ -324,29 +321,29 @@ export const getDealerPriceRange = (products) =&gt; {
     minDealerPrice = roundUpDown(minDealerPrice, 1, false);
     maxDealerPrice = roundUpDown(maxDealerPrice, 1, true);
     return ({ minDealerPrice, maxDealerPrice });
-}
+};
 &nbsp;
-// getFilteredProducts - return filtered lst products
+// getFilteredProducts - return filtered list products
 // productsList - products list
 // minShowLimit - lower price limit
 // maxShowLimit - uper price limit
-export const getFilteredProducts = <span class="fstat-no" title="function not covered" >(p</span>roductsList = <span class="branch-0 cbranch-no" title="branch not covered" >[],</span> minShowLimit, maxShowLimit) =&gt; {
-<span class="cstat-no" title="statement not covered" >    if (productsList === undefined) <span class="cstat-no" title="statement not covered" >return productsList;</span></span>
-    let filteredProd = <span class="cstat-no" title="statement not covered" >[];</span>
-<span class="cstat-no" title="statement not covered" >    productsList.forEach(<span class="fstat-no" title="function not covered" >el</span>ement =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if ((element.price_uah &gt;= minShowLimit) &amp;&amp; (element.price_uah &lt;= maxShowLimit)) {</span>
-<span class="cstat-no" title="statement not covered" >            filteredProd.push(element);</span>
+export const getFilteredProducts = (productsList=[], minShowLimit, maxShowLimit) =&gt; {
+    let filteredProd = [];
+    productsList.forEach(element =&gt; {
+        if ((element.price_uah &gt;= minShowLimit) &amp;&amp; (element.price_uah &lt;= maxShowLimit)) {
+            filteredProd.push(element);
         }
     });
-<span class="cstat-no" title="statement not covered" >    return filteredProd;</span>
-}</pre></td></tr></table></pre>
+    return filteredProd;
+};
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Apr 10 2021 17:31:48 GMT+0300 (Восточная Европа, летнее время)
+                at Sat Apr 10 2021 18:24:23 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
         <script src="prettify.js"></script>

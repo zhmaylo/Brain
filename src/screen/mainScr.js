@@ -2,21 +2,21 @@ import React, { useContext, useEffect } from 'react';
 import { SafeAreaView, View, StatusBar, StyleSheet } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
-import { getCategoryList, addFieldChildren } from './../api/category/category';
+import { getCategoryList, addFieldChildren } from '../api/category/category';
 import { AlertMessageCmp } from '../components/AlertMessageCmp';
 import { HeaderCmp } from '../components/header/HeaderCmp';
-import { FooterCmp } from './../components/footer/FooterCmp';
-import { setFieldIsChildren } from './../api/category/symbChildren';
-import { getProductsList } from './../api/products/products';
-import { devStub } from './../api/dev';
+import { FooterCmp } from '../components/footer/FooterCmp';
+import { setFieldIsChildren } from '../api/category/symbChildren';
+import { getProductsList } from '../api/products/products';
+import { devStub } from '../api/dev';
 import { SpinerСmp } from '../components/SpinerCmp';
 import { ListProdCmp } from '../components/ListProdCmp';
-import { sortBySwitch } from './../api/sort';
+import { sortBySwitch } from '../api/sort';
 import { PRODUCTS_LIST } from '../reducers/productsListRdc';
 import { CATEGORY_LIST } from '../reducers/categoryListRdc';
-import { IS_APP_INIT } from './../reducers/isAppInitRdc';
+import { IS_APP_INIT } from '../reducers/isAppInitRdc';
 import * as storage from '../api/storage';
-import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from './../constants/storageConst';
+import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from '../constants/storageConst';
 import { getDealerPriceRange, getFilteredProducts } from '../api/filter/filter';
 import { MINMAX_DEAL_PRICE } from '../reducers/filterRdc';
 
@@ -25,7 +25,7 @@ let i = 0;
 // const devMode = true;
 const devMode = false;
 
-export default function mainScr(props) {
+export default function MainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
     useEffect(() => {
         const initApp = async () => {
@@ -72,16 +72,13 @@ export default function mainScr(props) {
     else
     if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false)) {
         //apply filterRdc 
-        console.log("🚀 ~ file: mainScr.js ~ line 1 ~ mainScr ~ state.filterRdc", state.filterRdc);
         let filteredProducts = getFilteredProducts(state.productsListRdc.productsList, state.filterRdc.minShowLimit, state.filterRdc.maxShowLimit);
         
-        console.log("🚀 ~ file: mainScr.js ~ line 73 ~ mainScr ~ filteredProducts", filteredProducts);
         // 
         return (
             <SafeAreaView style={styles.container}>
                     <StatusBar hidden={true} />
                     {HeaderCmp(props)}
-                    {/* <ListProdCmp productList={state.productsListRdc.productsList} */}
                     <ListProdCmp productList={filteredProducts}
                         numCollumns={state.numColumProdRdc.numColumProd}
                         currSizeList={state.sizeListProdRdc.sizeListProd}

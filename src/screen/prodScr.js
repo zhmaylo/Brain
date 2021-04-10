@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { StyleSheet, View, SafeAreaView, StatusBar } from 'react-native';
-import { ProdCardFullCmp } from './../components/prodcard/ProdCardFullCmp';
+import { ProdCardFullCmp } from '../components/prodcard/ProdCardFullCmp';
 import { ContextApp } from '../reducers/unionRdc';
-import { HeaderBack } from './../components/header/HeaderBackCmp';
-import { FooterBack } from './../components/footer/FooterBackCmp';
-import { FOOTER_BACK_TITLE } from './../constants/footerBackConst';
+import { HeaderBack } from '../components/header/HeaderBackCmp';
+import { FooterBack } from '../components/footer/FooterBackCmp';
+import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { SpinerСmp } from '../components/SpinerCmp';
-import { PROD_HEADER_TITLE } from './../constants/headerBackConst';
+import { PROD_HEADER_TITLE } from '../constants/headerBackConst';
 
 //shows a product pictures 
-export default function prodScr(props) {
+export default function ProdScr(props) {
     const { state, dispatch } = useContext(ContextApp);
     // let prodCurrDsc = state.prodCurrentRdc.prodCurrentDescription;
     // let prodCurrImg = state.prodCurrentRdc.prodCurrentImages;

@@ -1,4 +1,3 @@
-import clone from "clone";
 
 // inputLeftButton - left button processing - decrease by percentage and round down
 export const inputLeftButton = (value, step, minValue) => {
@@ -77,14 +76,13 @@ export const getDealerPriceRange = (products) => {
     minDealerPrice = roundUpDown(minDealerPrice, 1, false);
     maxDealerPrice = roundUpDown(maxDealerPrice, 1, true);
     return ({ minDealerPrice, maxDealerPrice });
-}
+};
 
 // getFilteredProducts - return filtered list products
 // productsList - products list
 // minShowLimit - lower price limit
 // maxShowLimit - uper price limit
-export const getFilteredProducts = (productsList = [], minShowLimit, maxShowLimit) => {
-    if (productsList === undefined) return productsList;
+export const getFilteredProducts = (productsList=[], minShowLimit, maxShowLimit) => {
     let filteredProd = [];
     productsList.forEach(element => {
         if ((element.price_uah >= minShowLimit) && (element.price_uah <= maxShowLimit)) {
@@ -92,4 +90,4 @@ export const getFilteredProducts = (productsList = [], minShowLimit, maxShowLimi
         }
     });
     return filteredProd;
-}
+};

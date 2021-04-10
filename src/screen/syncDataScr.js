@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import { StyleSheet, StatusBar, SafeAreaView } from 'react-native';
+import { StyleSheet, StatusBar, SafeAreaView, Text } from 'react-native';
 
 import { HeaderBack } from '../components/header/HeaderBackCmp';
 import { FooterBack } from '../components/footer/FooterBackCmp';
-import { SYNC_BRAIN_VS_ORIGINAL, CLEAR_TABLE_BRAIN, SYNC_DATA_TITLE, READ_TABLE_INFO, GET_PRICE_BRAIN } from './../constants/syncDataConst';
+import { SYNC_BRAIN_VS_ORIGINAL, CLEAR_TABLE_BRAIN, SYNC_DATA_TITLE, READ_TABLE_INFO, GET_PRICE_BRAIN } from '../constants/syncDataConst';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { WINDOW_WIDTH } from '../constants/otherConst';
 import { View } from 'react-native';
@@ -11,11 +11,12 @@ import { ContextApp } from "../reducers/unionRdc";
 import { LogCmp } from '../components/syncdata/LogCmp';
 import { SyncMenuCmp } from '../components/syncdata/SyncMenuCmp';
 import { syncBrainVsOrigContr, clearBrainTblContr, getPriceBrain} from '../api/syncdata/syncDataController';
-import { readTableInfoContr } from './../api/syncdata/syncDataController';
+import { readTableInfoContr } from '../api/syncdata/syncDataController';
+import { getProgBar } from '../api/syncdata/syncProgBar';
 
 // syncDataScr - work with tables. 
 // zeroing, reloading all data, synchronization, unloading for the trading platform
-export default function syncDataScr(props) {
+export default function SyncDataScr(props) {
     const { state, dispatch } = useContext(ContextApp);
    
     
@@ -32,7 +33,7 @@ export default function syncDataScr(props) {
             
             <View style={styles.logcmp}>
                     <LogCmp logArr={state.syncDataRdc.syncDataCrudLog} />
-
+                    <Text style={styles.progress} > {getProgBar(state.progBarRdc.progBarCurVol, state.progBarRdc.progBarMaxVol)} </Text>
             </View>
   
             <View style={styles.menuItem} >
@@ -69,6 +70,10 @@ const styles = StyleSheet.create({
     logcmp: {
         flex: 1,
         backgroundColor: 'white',
+    },
+    progress: {
+        borderColor: 'lightgray',
+        borderTopWidth: 3,
     },
     menuItem: {
         height: 100,

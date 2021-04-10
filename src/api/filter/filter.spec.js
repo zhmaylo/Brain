@@ -51,16 +51,16 @@ describe('inputRightButton', () => {
 describe('getDealerPriceRange', () => {
     test('"getDealerPriceRange - testing min/max Dealer Price + round ', () => {
         let products = [
-            {"price_uah": "3.00"}, {"price_uah": "2.00"}, {"price_uah": "6.01"},
-            {"price_uah": "0.99"}, {"price_uah": "1.00"}, {"price_uah": "2.99"},
+            { "price_uah": "3.00" }, { "price_uah": "2.00" }, { "price_uah": "6.01" },
+            { "price_uah": "0.99" }, { "price_uah": "1.00" }, { "price_uah": "2.99" },
         ]
-        outdata = getDealerPriceRange (products);
+        outdata = getDealerPriceRange(products);
         expect(outdata.maxDealerPrice).toBe(7);
         expect(outdata.minDealerPrice).toBe(0);
     });
     test('"getDealerPriceRange - products.length =0 ', () => {
         let products2 = [];
-        outdata = getDealerPriceRange (products2);
+        outdata = getDealerPriceRange(products2);
         expect(outdata.maxDealerPrice).toBe(0);
         expect(outdata.minDealerPrice).toBe(0);
     });
@@ -69,14 +69,28 @@ describe('getDealerPriceRange', () => {
 describe('getFilteredProducts', () => {
     test('"getFilteredProducts - testing return filtered list products ', () => {
         let inProducts = [
-            {"price_uah": "3.00"}, {"price_uah": "2.00"}, {"price_uah": "6.01"},
-            {"price_uah": "0.99"}, {"price_uah": "1.00"}, {"price_uah": "2.99"},
+            { "price_uah": "3.00" }, { "price_uah": "2.00" }, { "price_uah": "6.01" },
+            { "price_uah": "0.99" }, { "price_uah": "1.00" }, { "price_uah": "2.99" },
         ]
         let outProducts = [
-            {"price_uah": "3.00"}, {"price_uah": "2.00"}, 
-            {"price_uah": "1.00"}, {"price_uah": "2.99"},
+            { "price_uah": "3.00" }, { "price_uah": "2.00" },
+            { "price_uah": "1.00" }, { "price_uah": "2.99" },
         ]
-        outdata = getFilteredProducts (inProducts, 1, 3);
+        outdata = getFilteredProducts(inProducts, 1, 3);
+        expect(outdata).toStrictEqual(outProducts);
+        expect(outdata).toEqual(outProducts);
+    });
+    test('"getFilteredProducts - testing "products list = 0" ', () => {
+        let inProducts = [];
+        let outProducts = [];
+        outdata = getFilteredProducts(inProducts, 1, 3);
+        expect(outdata).toStrictEqual(outProducts);
+        expect(outdata).toEqual(outProducts);
+    });
+    test('"getFilteredProducts - testing "products list = undefined" ', () => {
+        let inProducts = undefined;
+        let outProducts = [];
+        outdata = getFilteredProducts(inProducts, 1, 3);
         expect(outdata).toStrictEqual(outProducts);
         expect(outdata).toEqual(outProducts);
     });

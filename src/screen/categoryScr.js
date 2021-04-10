@@ -3,20 +3,20 @@ import React, { useContext, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, SafeAreaView } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
 
-import { NUM_COLUMN, SIGN_DEEP } from './../constants/categoryConst';
-import { WINDOW_WIDTH } from './../constants/otherConst';
+import { NUM_COLUMN, SIGN_DEEP } from '../constants/categoryConst';
+import { WINDOW_WIDTH } from '../constants/otherConst';
 
-import { getMainListCategory, getListCategory } from './../api/category/catView';
-import { getProductsList } from './../api/products/products';
-import { sortBySwitch } from './../api/sort';
-import { clone } from './../api/clone';
-import { HeaderBack } from './../components/header/HeaderBackCmp';
+import { getMainListCategory, getListCategory } from '../api/category/catView';
+import { getProductsList } from '../api/products/products';
+import { sortBySwitch } from '../api/sort';
+import { clone } from '../api/clone';
+import { HeaderBack } from '../components/header/HeaderBackCmp';
 import * as storage from '../api/storage';
-import { RECENT_CATEG_KEY } from './../constants/storageConst';
+import { RECENT_CATEG_KEY } from '../constants/storageConst';
 import { getDealerPriceRange } from '../api/filter/filter';
 import { MINMAX_DEAL_PRICE } from '../reducers/filterRdc';
 
-export default function categoryScr(props) {
+export default function CategoryScr(props) {
     const { state, dispatch } = useContext(ContextApp);
     let dataCat;
     let catList = state.categoryListRdc.categoryList;

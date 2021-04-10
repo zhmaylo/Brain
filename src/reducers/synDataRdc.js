@@ -4,7 +4,6 @@
 // DB work log
 export const  DB_LOG = 'DB_LOG';
 // 
-// 
 //End. SyncData section
 /////////////////////////////
 
@@ -20,7 +19,6 @@ export const syncDataRdc = (state = false, action) => {
             return state;
     }
 }
-
 
 
 

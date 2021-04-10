@@ -2,17 +2,17 @@ import React, { useContext } from 'react';
 import { StyleSheet, StatusBar, SafeAreaView, FlatList, Text } from 'react-native';
 
 import { HeaderBack } from '../components/header/HeaderBackCmp';
-import { SORT_HEADER_TITLE } from './../constants/sortConst';
-import { FooterBack } from './../components/footer/FooterBackCmp';
-import { FOOTER_BACK_TITLE } from './../constants/footerBackConst';
-import { WINDOW_WIDTH } from './../constants/otherConst';
-import { SortItemCmp } from './../components/SortItemCmp';
+import { SORT_HEADER_TITLE } from '../constants/sortConst';
+import { FooterBack } from '../components/footer/FooterBackCmp';
+import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
+import { WINDOW_WIDTH } from '../constants/otherConst';
+import { SortItemCmp } from '../components/SortItemCmp';
 import { View } from 'react-native';
 import { ContextApp } from "../reducers/unionRdc";
-import { sortBySwitch } from './../api/sort';
-import { clone } from './../api/clone';
+import { sortBySwitch } from '../api/sort';
+import { clone } from '../api/clone';
 
-export default function sortScr(props) {
+export default function SortScr(props) {
     const { state, dispatch } = useContext(ContextApp);
  
     let predState = clone(state.sortSwitchArrRdc.sortSwitchArr);

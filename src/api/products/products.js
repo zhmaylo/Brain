@@ -4,42 +4,46 @@ import { middleWareFetch } from './../fetch/middleWareFetch';
 import { OFFSET, LIMIT } from './../../constants/productsConst';
 import { argMiddle } from './../argMiddle';
 import { SPINER_TOGGLE } from "../../reducers/spinerRdc";
+import { PROG_BAR_CUR_VOL, PROG_BAR_MAX_VOL } from "../../reducers/progBarRdc";
+import * as storage from '../storage';
+import { SYNC_OFFSET_KEY } from "../../constants/storageConst";
+
 
 // getProductsList - returns products list of a specified category from server. JSON-format.
 // categoryID - "id" produtcts category
 // sidAndTime - session SID and TimeStamp 
 // dispatch - this is callback
-export const getProductsList = async (categoryID, sidAndTime, dispatch) => {
+export const getProductsList = async (categoryID, sidAndTime, dispatch, flagSync=false) => {
     let json = [], offset = 0, arrTemp = 0, result;
+    offset = await loadOffset(flagSync);   
+    
+    dispatch({ type: PROG_BAR_CUR_VOL, payload: offset});
 
     argMiddle.requestUrl = URL_GET_PRODUCTS + categoryID + '/';
-    // console.log("getProductsList.categoryID =>", categoryID);
+    
     argMiddle.sidAndTime = sidAndTime;
     argMiddle.dispatch = dispatch;
     dispatch({ type: SPINER_TOGGLE, payload: true });
+
     do {
         argMiddle.params = '?offset=' + offset + '&limit=' + LIMIT;
-        // console.log("getProductsList.offset =>", offset);
-        // console.log("getProductsList.argMiddle =>", argMiddle);
         arrTemp = await middleWareFetch(argMiddle);
-        // console.log("getProductsList.arrTemp =>", arrTemp);
 
         result = await arrTemp.json.result;
         argMiddle.sidAndTime = arrTemp.sidAndTime;
         removeProductAbsence(result.list).forEach((item) => json.push(item));
-
+       
         offset += OFFSET;
-
-        // console.log("getProductsList.result.count =>", result.count);
-        // console.log("getProductsList.json.length =>", json.length);
-
-        // console.log("getProductsList.arrTemp.json.length =>", json.length);
-
+        storeOffset(offset, flagSync);
+        setProgBar(offset, result.count, dispatch);
+        
     } while (offset <= result.count); //json.result.length)
 
-    dispatch({ type: SPINER_TOGGLE, payload: false });
+    storeOffset(0, flagSync);
+    setProgBar(0, 0, dispatch);
 
-    // console.log("getProductsList=>", json);
+    dispatch({ type: SPINER_TOGGLE, payload: false });
+    
     return json;
 }
 
@@ -52,7 +56,6 @@ export const removeProductAbsence = (data) => {
     data.forEach((item) => {
         if ((item.stocks_expected.length != 0) && (item.available.length != 0)) arr.push(item);
     });
-    // console.log("removeProductAbsence. arr =>", arr);
     return arr;
 }
 
@@ -61,15 +64,29 @@ export const removeProductAbsence = (data) => {
 // stepPagin - step pagination
 // maxSize - lenght list of products
 export const setSizeListProd = (currSize, stepPagin, maxSize) => {
-    // console.log("setSizeListProd. currSize =>", currSize);
-    // console.log("setSizeListProd. maxSize =>", cumaxSizerrSize);
     currSize += stepPagin;
     (currSize >= maxSize) && (currSize = maxSize);
-    // console.log("setSizeListProd. newSize =>", newSize);
     return currSize;
 }
 
+// setProgBar - set state
+// curVol - the current value of the progress bar
+// maxVol - the maximum value of the progress bar
+const setProgBar = (curVol, maxVol, dispatch) => {
+    dispatch({ type: PROG_BAR_CUR_VOL, payload: curVol });
+    dispatch({ type: PROG_BAR_MAX_VOL, payload: maxVol });
+}
 
-// let json = await middleWareFetch( 'https://api.brain.com.ua/filters_all/'+categoryID+'/', null, sidAndTime, filterID, dispatch);
-// let filterID = "?filterID='a'";
-// let filterID ='?sortby=articul&order=desc&offset=0'';
+// loadOffset - get 'offset'
+const loadOffset = async (flagSync) => {
+    if (!flagSync) return 0;
+    let offset = await storage.getData(SYNC_OFFSET_KEY);
+    if (offset == null) offset=0;
+    return offset;
+}
+
+// storeOffset - storage 'offset'
+const storeOffset = (offset, flagSync) => {
+    if (!flagSync) return;
+    storage.storeData(SYNC_OFFSET_KEY, offset);
+}

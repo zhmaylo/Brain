@@ -3,18 +3,18 @@ import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import mainScr from "../screen/mainScr";
+import MainScr from "../screen/MainScr";
+import SearchScr from "../screen/SearchScr";
+import { FILTER_SCR, PROD_GALL_SCR, CATEG_SCR, SORT_SCR, PROD_SCR, MAIN_SCR, SYNC_DATA_SCR, SEARCH_SCR } from '../constants/appNavigatorConst';
+import CategoryScr from '../screen/CategoryScr';
+import SortScr from '../screen/SortScr';
+import ProdScr from '../screen/ProdScr';
+import ProdGallScr from '../screen/ProdGallScr';
+import SyncDataScr from '../screen/SyncDataScr';
+import FilterScr from '../screen/FilterScr';
 // import menuScr from "../screen/menuScr";
-// import findScr from "../screen/findScr";
 // import configScr from "../screen/configScr";
 // import basketScr from "../screen/basketScr";
-import { FILTER_SCR, PROD_GALL_SCR, CATEG_SCR, SORT_SCR, PROD_SCR, MAIN_SCR, SYNC_DATA_SCR } from '../constants/appNavigatorConst';
-import categoryScr from './../screen/categoryScr';
-import sortScr from './../screen/sortScr';
-import prodScr from './../screen/prodScr';
-import prodGallScr from './../screen/prodGallScr';
-import syncDataScr from './../screen/syncDataScr';
-import filterScr from './../screen/filterScr';
 
 const Drawer = createDrawerNavigator();
 
@@ -27,17 +27,16 @@ export const AppNavigator = () => (
             screenOptions={{ swipeEnabled: false }}
         >
 
-            <Drawer.Screen name={MAIN_SCR} component={mainScr} />
-            <Drawer.Screen name={FILTER_SCR} component={filterScr} />
-            <Drawer.Screen name={SYNC_DATA_SCR} component={syncDataScr} />
-            <Drawer.Screen name={PROD_SCR} component={prodScr} />
-            <Drawer.Screen name={CATEG_SCR} component={categoryScr} />
-            <Drawer.Screen name={SORT_SCR} component={sortScr} />
-            <Drawer.Screen name={PROD_GALL_SCR} component={prodGallScr} />
-
+            <Drawer.Screen name={MAIN_SCR} component={MainScr} />
+            <Drawer.Screen name={FILTER_SCR} component={FilterScr} />
+            <Drawer.Screen name={SYNC_DATA_SCR} component={SyncDataScr} />
+            <Drawer.Screen name={PROD_SCR} component={ProdScr} />
+            <Drawer.Screen name={CATEG_SCR} component={CategoryScr} />
+            <Drawer.Screen name={SORT_SCR} component={SortScr} />
+            <Drawer.Screen name={PROD_GALL_SCR} component={ProdGallScr} />
+            <Drawer.Screen name={SEARCH_SCR} component={SearchScr} />
 
             {/* <Drawer.Screen name="MenuScreen" component={menuScr} />
-            <Drawer.Screen name="FindScreen" component={findScr} />
             <Drawer.Screen name="ConfigScreen" component={configScr} />
             <Drawer.Screen name="BasketScreen" component={basketScr} /> */}
 

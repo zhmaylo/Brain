@@ -14,6 +14,7 @@ import { SORT_SWITCHES_ARR } from '../constants/sortConst';
 import { prodCurrentRdc } from './prodCurrentRdc';
 import { syncDataRdc } from './synDataRdc';
 import { filterRdc } from './filterRdc';
+import { progBarRdc } from './progBarRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -105,6 +106,15 @@ export const initialState = {
     },
     //End. Filter
     ////////////////////////////////
+   
+    ////////////////////////////////
+    //Start. Progress Bar
+    progBarRdc: {
+        progBarMaxVol: 0,
+        progBarCurVol: 0,
+    },
+    //End. Progress Bar
+    ////////////////////////////////
 
 
 };
@@ -155,6 +165,12 @@ export const unionRdc = combineReducers(
         //Start. Filter
         filterRdc: filterRdc,
         //End. Filter
+        ////////////////////////////////
+
+        ////////////////////////////////
+        //Start. Progress Bar
+        progBarRdc: progBarRdc,
+        //End. Progress Bar
         ////////////////////////////////
 
         isAppInitRdc: isAppInitRdc,

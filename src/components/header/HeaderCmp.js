@@ -5,6 +5,7 @@ import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from '../../c
 
 import { CATEG_SCR } from '../../constants/appNavigatorConst';
 import { SORT_SCR, FILTER_SCR } from './../../constants/appNavigatorConst';
+import SearchScr from '../../screen/SearchScr';
 
 export const HeaderCmp = (props) => {
 
@@ -20,12 +21,13 @@ export const HeaderCmp = (props) => {
                 />
             </TouchableOpacity>
 
-            <TextInput
+            {/* <TextInput
                 style={styles.search}
                 placeholder={TEXT_INPUT_PLACEHOLDER}
             >
-            </TextInput>
+            </TextInput> */}
 
+            <SearchScr/>
 
             <TouchableOpacity className="button_sort"
                 onPress={() => {
@@ -66,14 +68,7 @@ const styles = StyleSheet.create({
         height: HEADER_BUTTON_SIZE,
     },
 
-    search: {
-        width: WINDOW_WIDTH - 3 * HEADER_BUTTON_SIZE - 20,
-        height: HEADER_BUTTON_SIZE,
-        borderWidth: 2,
-        paddingLeft: 4,
-        marginHorizontal: 5,
 
-    },
     container: {
         flex: 1,
         flexDirection: "row",

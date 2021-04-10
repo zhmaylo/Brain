@@ -6,7 +6,7 @@ export const  PRODUCTS_LIST = 'PRODUCTS_LIST';
 export const  SIZE_LIST_PROD = 'SIZE_LIST_PROD';
 //
 
-//loads products list from the server into State
+// loads products list from the server into State
 export const productsListRdc = (state = false, action) => {
     switch(action.type) {
         case PRODUCTS_LIST:
@@ -19,7 +19,7 @@ export const productsListRdc = (state = false, action) => {
     }
 }
 
-//lenght view list products
+// lenght view list products
 export const sizeListProdRdc = (state = false, action) => {
     switch(action.type) {
         case SIZE_LIST_PROD:
@@ -31,3 +31,4 @@ export const sizeListProdRdc = (state = false, action) => {
             return state;
     }
 }
+
