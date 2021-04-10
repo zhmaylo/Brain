@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 import { inputLeftButton, inputMiddleButton, inputRightButton } from './../../api/filter/filter';
-import { InputNumberCmp } from './InputNumberCmp';
+import { ShowNumberCmp } from './ShowNumberCmp';
 
 
 // InputRangeCmp - input range down or up
@@ -9,18 +9,17 @@ import { InputNumberCmp } from './InputNumberCmp';
 // nameMiddleButton - middle button name
 // nameRightButton - right button name
 // resetValue - dafault
-// minValue -  lower range limit
-// maxValue - upper range limit
+// minDealerPrice -  lower range limit
+// maxDealerPrice - upper range limit
 // stepPercent - percentage change step
 // minCmp - flag: 'false' minimum component
 // minCmp - flag: 'true' maximum component
 
 export const InputRangeCmp = ({
-    minValue = 0,
-    maxValue = 1000000,
+    minDealerPrice = 0,
+    maxDealerPrice = 1000000,
+    curValue = 0,
     stepPercent = 20,
-    // if 'false' - then this is the maximum component
-    // if 'true' - then this is the minimum component
     minFlag = true,
     onChangeCmp,
 }) => {
@@ -30,50 +29,27 @@ export const InputRangeCmp = ({
     const nameRightButton = ' + ';
    
 
-    // curValue - current value
-    const [_curValue, setCurValue] = useState(minFlag ? minValue : maxValue);
-    
-    //isNewFilter - check "is new filter range?"
-    const [_minPred, setMinPred] = useState(0);
-    const [_maxPred, setMaxPred] = useState(10000000);
-    let flag = false;
-    if (_minPred != minValue) { setMinPred(minValue); flag = true };
-    if (_maxPred != maxValue) { setMaxPred(maxValue); flag = true };
-    if (flag) setCurValue(minFlag ? minValue : maxValue);
-    //////
-
     return (
         <View style={styles.container}>
-            <InputNumberCmp
-                curValue={_curValue}
-                minValue={minValue}
-                maxValue={maxValue}
-                onChange={(curValue) => {
-                    setCurValue(curValue);
-                    onChangeCmp(curValue);
-                }}
+            <ShowNumberCmp
+                curValue={curValue}
             />
             <View style={styles.butonGroup}>
                 <ButtonRange title={nameLeftButton}
                     onPress={() => {
-                        let curValue = inputLeftButton(_curValue, stepPercent, minValue);
-                        setCurValue(curValue);
-                        onChangeCmp(curValue);
+                        onChangeCmp(inputLeftButton(curValue, stepPercent, minDealerPrice));
                     }}
                 />
                 < ButtonRange title={nameMiddleButton}
                     onPress={() => {
-                        let curValue = inputMiddleButton(_curValue, minValue, maxValue, minFlag);
-                        setCurValue(curValue);
-                        onChangeCmp(curValue);
+                        onChangeCmp(inputMiddleButton(minDealerPrice, maxDealerPrice, minFlag));
                     }}
                 />
                 <ButtonRange
                     title={nameRightButton}
                     onPress={() => {
-                        let curValue = inputRightButton(_curValue, stepPercent, maxValue);
-                        setCurValue(curValue);
-                        onChangeCmp(curValue);
+                        onChangeCmp(inputRightButton(curValue, stepPercent, maxDealerPrice));
+                        
                     }}
                 />
             </View>

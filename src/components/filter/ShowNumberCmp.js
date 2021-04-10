@@ -1,19 +1,14 @@
 import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
-import { inputNumberCheck } from '../../api/filter/filter';
 
-
-// InputNumberCmp - number input
-export const InputNumberCmp = ({ curValue = 0, onChange, minValue, maxValue }) => {
+// ShowNumberCmp - number input
+export const ShowNumberCmp = ({ curValue = 0 }) => {
 
     return (
         <TextInput style={styles.input}
             keyboardType='number-pad'
             value={curValue + ''}
-            onChange={(value) => {
-                value = inputNumberCheck(value, curValue, minValue, maxValue);
-                onChange(value);
-            }}
+            editable={false}
         />
     )
 }
@@ -25,5 +20,7 @@ const styles = StyleSheet.create({
         borderColor: 'lightgrey',
         borderWidth: 1,
         textAlign: 'center',
+        fontSize: 18,
+        fontWeight: "700",
     }
 })

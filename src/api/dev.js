@@ -8,7 +8,7 @@ import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
 import { sortBySwitch } from './sort';
 import { getDealerPriceRange } from "./filter/filter";
-import { FILTER_DEAL_PRICE } from "../reducers/filterRdc";
+import { MINMAX_DEAL_PRICE } from "../reducers/filterRdc";
 
 // devStub - stub for developer
 export const devStub = (state, dispatch) => {
@@ -23,7 +23,8 @@ export const devStub = (state, dispatch) => {
 
     ////////////
     let minmax = getDealerPriceRange(productsList);
-    dispatch({type: FILTER_DEAL_PRICE, payload: minmax});
+    //Note minmax[{minDealerPrice, maxDealerPrice}]
+    dispatch({type: MINMAX_DEAL_PRICE, payload: minmax});
     ////////////
 
     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });

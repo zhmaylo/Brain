@@ -18,7 +18,7 @@ import { IS_APP_INIT } from './../reducers/isAppInitRdc';
 import * as storage from '../api/storage';
 import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from './../constants/storageConst';
 import { getDealerPriceRange, getFilteredProducts } from '../api/filter/filter';
-import { FILTER_DEAL_PRICE } from '../reducers/filterRdc';
+import { MINMAX_DEAL_PRICE } from '../reducers/filterRdc';
 
 let i = 0;
 
@@ -39,9 +39,11 @@ export default function mainScr(props) {
             // get fiters for catID
             let productsList = await getProductsList(catID, state.sessionSidRdc.sessionSid, dispatch);
             productsList = sortBySwitch(productsList, state.sortSwitchArrRdc.sortSwitchArr);
+
             let minmax = getDealerPriceRange(productsList);
-            await dispatch({ type: FILTER_DEAL_PRICE, payload: minmax });
-            console.log("🚀 ~ file: mainScr.js ~ line 44 ~ initApp ~ minmax", minmax);
+            //Note minmax[{minDealerPrice, maxDealerPrice}]
+            dispatch({ type: MINMAX_DEAL_PRICE, payload: minmax});
+
             dispatch({ type: PRODUCTS_LIST, payload: productsList });
             dispatch({ type: CATEGORY_LIST, payload: data });
             // console.log("mainScr.getCategoryList(data)", data);
@@ -70,7 +72,7 @@ export default function mainScr(props) {
     else
     if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false)) {
         //apply filterRdc 
-        console.log("🚀 ~ file: mainScr.js ~ line 1 ~ mainScr ~ state.filterRdc.maxShowLimit", state.filterRdc.maxShowLimit);
+        console.log("🚀 ~ file: mainScr.js ~ line 1 ~ mainScr ~ state.filterRdc", state.filterRdc);
         let filteredProducts = getFilteredProducts(state.productsListRdc.productsList, state.filterRdc.minShowLimit, state.filterRdc.maxShowLimit);
         
         console.log("🚀 ~ file: mainScr.js ~ line 73 ~ mainScr ~ filteredProducts", filteredProducts);

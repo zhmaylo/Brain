@@ -1,4 +1,4 @@
-import { getDealerPriceRange, inputLeftButton, inputMiddleButton, inputNumberCheck, inputRightButton } from "./filter";
+import { getFilteredProducts, getDealerPriceRange, inputLeftButton, inputMiddleButton, inputRightButton } from "./filter";
 
 describe('inputLeftButton', () => {
     test('"inputLeftButton - return number rounded down', () => {
@@ -14,12 +14,12 @@ describe('inputLeftButton', () => {
 
 describe('inputMiddleButton', () => {
     test('"inputMiddleButton - return minimum range value ', () => {
-        outdata = inputMiddleButton(15, 5, true, 50);
+        outdata = inputMiddleButton(5, 50, true);
         expect(outdata).toBe(5);
     });
 
     test('"inputMiddleButton - return maximum range value ', () => {
-        outdata = inputMiddleButton(15, 5, 50, false);
+        outdata = inputMiddleButton(5, 50, false);
         expect(outdata).toBe(50);
     });
 });
@@ -48,24 +48,6 @@ describe('inputRightButton', () => {
     });
 });
 
-describe('inputNumberCheck', () => {
-    test('"inputNumberCheck - testing string for synbol ', () => {
-        let value = { nativeEvent: { text: '123t' } };
-        outdata = inputNumberCheck(value, 123, 5, 5000);
-        expect(outdata).toBe(123);
-    });
-    test('"inputNumberCheck - testing string for out of range (below minimum) ', () => {
-        let value = { nativeEvent: { text: '4' } };
-        outdata = inputNumberCheck(value, 123, 5, 5000);
-        expect(outdata).toBe(123);
-    });
-    test('"inputNumberCheck - testing string for out of range (above the maximum) ', () => {
-        let value = { nativeEvent: { text: '5001' } };
-        outdata = inputNumberCheck(value, 123, 5, 5000);
-        expect(outdata).toBe(123);
-    });
-});
-
 describe('getDealerPriceRange', () => {
     test('"getDealerPriceRange - testing min/max Dealer Price + round ', () => {
         let products = [
@@ -81,6 +63,22 @@ describe('getDealerPriceRange', () => {
         outdata = getDealerPriceRange (products2);
         expect(outdata.maxDealerPrice).toBe(0);
         expect(outdata.minDealerPrice).toBe(0);
+    });
+});
+
+describe('getFilteredProducts', () => {
+    test('"getFilteredProducts - testing return filtered list products ', () => {
+        let inProducts = [
+            {"price_uah": "3.00"}, {"price_uah": "2.00"}, {"price_uah": "6.01"},
+            {"price_uah": "0.99"}, {"price_uah": "1.00"}, {"price_uah": "2.99"},
+        ]
+        let outProducts = [
+            {"price_uah": "3.00"}, {"price_uah": "2.00"}, 
+            {"price_uah": "1.00"}, {"price_uah": "2.99"},
+        ]
+        outdata = getFilteredProducts (inProducts, 1, 3);
+        expect(outdata).toStrictEqual(outProducts);
+        expect(outdata).toEqual(outProducts);
     });
 });
 

@@ -11,10 +11,8 @@ export const inputLeftButton = (value, step, minValue) => {
 };
 
 // inputMiddleButton - left button processing - decrease by percentage and round down
-export const inputMiddleButton = (value, minValue, maxValue, minFlag) => {
-    minFlag ? value = minValue : value = maxValue;
-    return value;
-
+export const inputMiddleButton = (minValue, maxValue, minFlag) => {
+    if (minFlag) {return(minValue)} else {return(maxValue)};
 };
 
 // inputRightButton - right button processing -  percentage increase and round up
@@ -60,18 +58,6 @@ const getNumLen = (num) => {
     return num.length;
 };
 
-// inputNumberCheck - number input check
-// value - string to check
-// curValue - pred value
-// minValue - minimum range value
-// maxValue - maximum range value
-export const inputNumberCheck = (value, curValue, minValue, maxValue) => {
-    value = value.nativeEvent.text;
-    if (isNaN(value)) value = curValue;
-    value = Number(value);
-    if ((value < minValue) || (value > maxValue)) value = curValue;
-    return value;
-}
 
 // getDealerPriceRange - return min and max price for price filter
 // products - products list. JSON-format
@@ -93,7 +79,7 @@ export const getDealerPriceRange = (products) => {
     return ({ minDealerPrice, maxDealerPrice });
 }
 
-// getFilteredProducts - return filtered lst products
+// getFilteredProducts - return filtered list products
 // productsList - products list
 // minShowLimit - lower price limit
 // maxShowLimit - uper price limit

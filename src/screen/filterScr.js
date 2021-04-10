@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, StyleSheet, StatusBar, SafeAreaView, Text, TextInput, Button, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, StatusBar, SafeAreaView } from 'react-native';
 
 import { HeaderBack } from '../components/header/HeaderBackCmp';
 import { FooterBack } from '../components/footer/FooterBackCmp';
@@ -15,9 +15,10 @@ export default function filterScr(props) {
     const { state, dispatch } = useContext(ContextApp);
     console.log('🚀 ~ file: filterScr.js ~ line 15 ~ filterScr ~ state.filterRdc.filterDealPrice', state.filterRdc.filterDealPrice);
     
-    let maxValue=state.filterRdc.filterDealPrice.maxDealerPrice;
-    let minValue=state.filterRdc.filterDealPrice.minDealerPrice;
-    // getFilterProd()
+    let maxDealerPrice=state.filterRdc.maxDealerPrice;
+    let minDealerPrice=state.filterRdc.minDealerPrice;
+    let maxShowLimit=state.filterRdc.maxShowLimit;
+    let minShowLimit=state.filterRdc.minShowLimit;
     return (
 
         <SafeAreaView style={styles.container}>
@@ -25,24 +26,24 @@ export default function filterScr(props) {
             <HeaderBack props={props} headerName={FILTER_HEADER_TITLE} />
             <View style={styles.inputRange} >
                 <InputRangeCmp
-                    minValue={minValue} 
-                    maxValue={maxValue}
+                    minDealerPrice={minDealerPrice} 
+                    maxDealerPrice={maxDealerPrice}
+                    curValue={minShowLimit}
                     stepPercent={20}
                     minFlag={true}
                     onChangeCmp={(minShowLimit) => {
                         dispatch({ type: MIN_SHOW_LIMIT, payload: minShowLimit });
-                        console.log('🚀 ~ file: filterScr.js ~ line 26 ~ filterScr ~ minShowLimit', minShowLimit);
                     }}
                 />
 
                 <InputRangeCmp
-                    minValue={minValue}
-                    maxValue={maxValue}
+                    minDealerPrice={minDealerPrice}
+                    maxDealerPrice={maxDealerPrice}
+                    curValue={maxShowLimit}
                     stepPercent={20}
                     minFlag={false}
                     onChangeCmp={(maxShowLimit) => {
                         dispatch({ type: MAX_SHOW_LIMIT, payload: maxShowLimit});
-                        console.log('🚀 ~ file: filterScr.js ~ line 26 ~ filterScr ~ maxShowLimit', maxShowLimit);
                     }}
                 />
             </View>
@@ -63,8 +64,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         backgroundColor: 'white',
-        // alignItem: 'center',
         padding: 10,
-
     }
 });
