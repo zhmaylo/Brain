@@ -1,4 +1,7 @@
-import React from 'react';
+// jest.mock - mockAsyncStorage
+import mockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
+jest.mock('@react-native-async-storage/async-storage', () => mockAsyncStorage);
+//
 import renderer from 'react-test-renderer';
 import { ListProdCmp } from './ListProdCmp';
 import {PRODUCTS_FROM_FILE} from '../constants/productsJSON';
@@ -22,9 +25,6 @@ test('renders correctly', () => {
                 currSizeList : 20,
                 dispatch : callback }
         ))
-        // ListProdCmp ({productsList, 1, 20, callback}))
-        // ListProdCmp (productsList, 1, 20, callback))
-        // ListProdCmp ({productsList, 1}))
         .toJSON();
     expect(tree).toMatchSnapshot();
 });
