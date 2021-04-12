@@ -5,9 +5,10 @@ export const storeData = async (key, value) => {
   try {
     const jsonValue = JSON.stringify(value)
     await asyncStorage.setItem(key, jsonValue)
+    console.log('🚀 ~ file: storage.js ~ line 13 ~ storeData ~ true', true);
+    
     return true;
   } catch (e) {
-    console.log("🚀 ~ file: storage.js ~ line 9 ~ storeData ~ e", e);
     // saving error
   }
 }
@@ -18,7 +19,6 @@ export const getData = async (key) => {
     const jsonValue = await asyncStorage.getItem(key)
     return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch (e) {
-    console.log("🚀 ~ file: storage.js ~ line 20 ~ getData ~ e", e);
     // error reading value
   }
 }

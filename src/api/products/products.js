@@ -58,7 +58,6 @@ export const removeProductAbsence = (data) => {
     data.forEach((item) => {
         if ((item.stocks_expected.length != 0) && (item.available.length != 0)) arr.push(item);
     });
-    console.log("🚀 ~ file: products.js ~ line 57 ~ removeProductAbsence ~ arr", arr);
     return clone(arr);
 }
 
@@ -90,7 +89,10 @@ export const loadOffset = async (flagSync) => {
 }
 
 // storeOffset - storage 'offset'
-export const storeOffset = (offset, flagSync) => {
-    if (!flagSync) return;
-    storage.storeData(SYNC_OFFSET_KEY, offset);
+export const storeOffset = async (offset, flagSync) => {
+    if (!flagSync) return false;
+    let outdata = await storage.storeData(SYNC_OFFSET_KEY, offset);
+    console.log('🚀 ~ file: products.js ~ line 96 ~ storeOffset ~ outdata', outdata);
+    
+    return outdata;
 }

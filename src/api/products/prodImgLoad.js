@@ -15,19 +15,13 @@ export const prodImgLoad = async (productID, sidAndTime, dispatch) => {
     argMiddle.sidAndTime = sidAndTime;
     argMiddle.dispatch = dispatch;
     argMiddle.params = '';
+    console.log('🚀 ~ file: prodImgLoad.js ~ line 18 ~ prodImgLoad ~ argMiddle', argMiddle);
          
         
         let arrTemp = await middleWareFetch(argMiddle);
-        // console.log("prodImgLoad.arrTemp =>", arrTemp);
+        console.log('🚀 ~ file: prodImgLoad.js ~ line 21 ~ prodImgLoad ~ arrTemp', arrTemp);
 
         let result = await arrTemp.json.result;
-        // argMiddle.sidAndTime = arrTemp.sidAndTime;
         
-        console.log("getProdImg.result =>", result);
-        // console.log("prodImgLoad.json.length =>", json.length);
-        
-        // console.log("prodImgLoad.arrTemp.json.length =>", json.length);
-
-    // console.log("prodImgLoad=>", json);
     return result;
 }
