@@ -92,7 +92,5 @@ export const loadOffset = async (flagSync) => {
 export const storeOffset = async (offset, flagSync) => {
     if (!flagSync) return false;
     let outdata = await storage.storeData(SYNC_OFFSET_KEY, offset);
-    console.log('🚀 ~ file: products.js ~ line 96 ~ storeOffset ~ outdata', outdata);
-    
     return outdata;
 }

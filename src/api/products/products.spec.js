@@ -1,18 +1,12 @@
 import mockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
-
 jest.mock('@react-native-async-storage/async-storage', () => mockAsyncStorage);
 
-// import fetch from 'node-fetch';
-jest.mock('node-fetch');
-const { Response } = jest.requireActual('node-fetch');
-
-import { getProductsList, removeProductAbsence, storeOffset } from './products';
+import { getProductsList, loadOffset, removeProductAbsence, setSizeListProd, storeOffset } from './products';
 // import { PROXY_URL_PC, URL_GET_PRODUCTS } from '../../constants/urlConst';
 // import { PRODUCTS_FROM_FILE } from '../../constants/productsJSON';
 import { SYNC_OFFSET_KEY } from '../../constants/storageConst';
 
 const dispatch = (data) => {
-    // console.log("Test 'getProductsList'. dispatch data ", data);
     expect(data.type).toMatch('_');
     return;
 }
@@ -20,8 +14,6 @@ const dispatch = (data) => {
 test('"getProductsList" returns products list of a specified category from server. JSON-format. => ',
     async () => {
         let sidAndTime = { sid: "11helsfokhm2d475ennf4em1p1", timeStamp: "1234567890123456789" };
-
-        // console.log('json2.result.list[0] => ', json2);
 
         let listOut = [{
             "result": {
@@ -31,22 +23,16 @@ test('"getProductsList" returns products list of a specified category from serve
                 ]
             }
         }];
-
         // console.log('Test getProductsList. result', json.result.list[0] );
 
         // let data;
         storeOffset(SYNC_OFFSET_KEY, 0);
 
-        // fetch.mockReturnValue(Promise.resolve(new Response(json)));
         getProductsList(1235, sidAndTime, dispatch, false).then((productsList) => {
             let data = productsList;
             console.log('data=>', data);
             expect(data).toMatchObject(listOut);
         })
-
-        // expect(fetch).toHaveBeenCalledWith(PROXY_URL_PC + URL_GET_PRODUCTS +
-        //     '1235/11helsfokhm2d475ennf4em1p1?offset=0&limit=1000');
-
     });
 
 test('removeProductAbsence - remove product absence ', () => {
@@ -115,9 +101,47 @@ test('removeProductAbsence - remove product absence ', () => {
     }];
 
     let outdata = removeProductAbsence(json[0].result.list);
-    console.log("🚀 ~ file: products.spec.js ~ line 118 ~ test ~ outdata", outdata);
-    console.log("🚀 ~ file: products.spec.js ~ line 121 ~ test ~ jsonOut.result", jsonOut[0].result);
-    
     expect(outdata).toStrictEqual(jsonOut[0].result.list);
     expect(outdata).toEqual(jsonOut[0].result.list);
 });
+
+
+describe('setSizeListProd - set size view list products (pagination) ', () => {
+
+    test('setSizeListProd - continuation of pagination  ', () => {
+        let outdata = setSizeListProd(0, 2, 10);
+        expect(outdata).toBe(2);
+    });
+
+    test('setSizeListProd - end of pagination ', () => {
+        let outdata = setSizeListProd(10, 2, 10);
+        expect(outdata).toBe(10);
+    });
+});
+
+describe('loadOffset + storeOffset - testing storage ', () => {
+
+    test('storeOffset - flagSync=false ', async () => {
+        let flagSync = false;
+        let outdata = await storeOffset(0, flagSync);
+        expect(outdata).toBe(false);
+    });
+
+    test('storeOffset - flagSync=true ', async () => {
+        let flagSync = true;
+        let outdata = await storeOffset(0, flagSync);
+        expect(outdata).toBe(true);
+    });
+
+    test('loadOffset - flagSync=false ', async () => {
+        let flagSync = false;
+        let outdata = await loadOffset(flagSync);
+        expect(outdata).toBe(0);
+
+    });
+    test('loadOffset - flagSync=false ', async () => {
+        let flagSync = true;
+        let outdata = await loadOffset(flagSync);
+        expect(outdata).toBe(0);
+    });
+})
