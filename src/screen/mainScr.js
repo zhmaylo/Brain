@@ -15,7 +15,7 @@ import { sortBySwitch } from '../api/sort';
 import { PRODUCTS_LIST } from '../reducers/productsListRdc';
 import { CATEGORY_LIST } from '../reducers/categoryListRdc';
 import { IS_APP_INIT } from '../reducers/isAppInitRdc';
-import * as storage from '../api/storage';
+import * as storage from '../api/storage/storage';
 import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from '../constants/storageConst';
 import { getDealerPriceRange, getFilteredProducts } from '../api/filter/filter';
 import { MINMAX_DEAL_PRICE } from '../reducers/filterRdc';

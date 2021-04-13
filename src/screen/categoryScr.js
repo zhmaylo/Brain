@@ -11,7 +11,7 @@ import { getProductsList } from '../api/products/products';
 import { sortBySwitch } from '../api/sort';
 import { clone } from '../api/clone';
 import { HeaderBack } from '../components/header/HeaderBackCmp';
-import * as storage from '../api/storage';
+import * as storage from '../api/storage/storage';
 import { RECENT_CATEG_KEY } from '../constants/storageConst';
 import { getDealerPriceRange } from '../api/filter/filter';
 import { MINMAX_DEAL_PRICE } from '../reducers/filterRdc';

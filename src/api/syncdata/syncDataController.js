@@ -5,7 +5,7 @@ import * as syncBrainVsOrig from './syncBrainVsOrig';
 import { CATEGORY_LIST } from '../../reducers/categoryListRdc';
 import { getPriceList } from './../priceList/priceList';
 import { DB_LOG } from '../../reducers/synDataRdc';
-import * as storage from '../storage';
+import * as storage from '../storage/storage';
 import { CAT_ID_DB_KEY } from './../../constants/storageConst';
 
 

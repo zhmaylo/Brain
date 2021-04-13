@@ -13,7 +13,6 @@ import { MAX_SHOW_LIMIT, MIN_SHOW_LIMIT } from '../reducers/filterRdc';
 // filterScr
 export default function FilterScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-    console.log('🚀 ~ file: filterScr.js ~ line 15 ~ filterScr ~ state.filterRdc.filterDealPrice', state.filterRdc.filterDealPrice);
     
     let maxDealerPrice=state.filterRdc.maxDealerPrice;
     let minDealerPrice=state.filterRdc.minDealerPrice;

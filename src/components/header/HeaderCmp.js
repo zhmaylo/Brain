@@ -32,7 +32,6 @@ export const HeaderCmp = (props) => {
             <TouchableOpacity className="button_sort"
                 onPress={() => {
                     props.navigation.navigate(SORT_SCR);
-                    console.log(' onPress=>MenuSortCmp called');
                 }}
             >
 
@@ -47,7 +46,6 @@ export const HeaderCmp = (props) => {
             <TouchableOpacity
                 onPress={() => {
                     props.navigation.navigate(FILTER_SCR);
-                    console.log(' onPress=>FilterCmp called');
                 }}
             >
                 <Image
