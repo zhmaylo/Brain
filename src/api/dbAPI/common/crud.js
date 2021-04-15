@@ -2,13 +2,13 @@
 //CRUD (local base)
 /////////////////////////////
 
-import { dbProduct } from './dbProduct';
+import { dbConnect } from './dbConnect';
 import { dbConst } from './dbConst';
 
 export class crud extends dbConst {
     constructor(...args) {
         super(...args);
-        this._dbProd = new dbProduct();
+        this._dbProd = new dbConnect();
         this._crudLog = 'Database opened \n';
         // console.log("class CRUD. constructor - finished");
     }
