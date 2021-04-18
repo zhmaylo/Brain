@@ -1,28 +1,25 @@
-const sqlite3 = require('sqlite3').verbose();
+// const sqlite3 = require('sqlite3').verbose();
 
-import {
-    dbClose
-} from "./dbCrud";
-// let db;
-
-// const dbOpen = () => {
-//     db = new sqlite3.Database(':memory:');
-//     console.log('🚀 ~ file: dbMemo.spec.js ~ line 10 ~ dbOpen ~ db', db);
-    
-// }
-
+import { dbConnect } from "./dbConnect";
+_dbConnect = new dbConnect(':memory:');
 
 // beforeEach(() => {
 //     db = dbOpen(db);
 // });
 
-test(' db close in memory ', async () => {
-    let db = new sqlite3.Database(':memory:');
-    console.log('🚀 ~ file: dbConnect.spec.js ~ line 13 ~ test ~ db', db);
-    let outdata = await dbClose(db);
-    expect(outdata).toBe(true);
-});
+
+describe('disconect', () => {
+    test(' db close in memory ', async () => {
+
+        let outdata = _dbConnect;
+        console.log("🚀 ~ file: dbMemo.spec.js ~ line 15 ~ test ~ outdata", outdata._DB_PROD_NAME);
+        
+        // let outdata = await connect(db);
+        expect(outdata._DB_PROD_NAME).toBe("Product.db");
+        _dbConnect.disConnect(_dbConnect);
+    });
+})
 
 // afterAll(() => {
-//     dbClose(db);
+// dbClose(db);
 // });
