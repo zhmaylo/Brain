@@ -2,7 +2,7 @@
 //CRUD (local base)
 /////////////////////////////
 
-import { dbConnect } from './dbConnect';
+import { dbAccess } from './dbAccess';
 import { dbConst } from './dbConst';
 
 
@@ -11,26 +11,13 @@ export class crud extends dbConst {
     }
 
     //_tQuery - query universal 
-    _tQuery(query, values, logResult, logError) {
-        //Retrieving Data Based on Placeholder
-db.all("SELECT EmployeeId, FirstName FROM employees where title=$title", {
-    $title: 'Sales Support Agent'
-},
-(error, rows) => {rows.forEach((row) => {
-    console.log(row.EmployeeId + " " + row.FirstName);
-})
-});
+    _tQuery(query, values) {
+        db.run(query, values, (error) => {
+            console.log(error);
+        })
         // console.log('CRUD(_tQuery) Finished');
+    };
 
-    }
-
-    //Executing run() Method
-// db.run(`INSERT INTO playlists(Name) VALUES(?)`, 
-// ['Rock'],
-// function(error){
-//     console.log("New playlist added with id " + this.lastID);
-// }
-// );
 
     // tConnectToTable - connect(create if not exists) to table 
     // query - query create or join table
@@ -39,7 +26,7 @@ db.all("SELECT EmployeeId, FirstName FROM employees where title=$title", {
         // console.log('CRUD.ConnectToTable super.logResult => ', super.logResult[0].tConnect);
         // this._tQuery(query, [], 'CRUD.ConnectToTable - result', 'CRUD.ConnectToTable - error');
 
-        this._tQuery(query, [], super.DEV_LOG[0].tConnectResult, super.DEV_LOG[0].tConnectError);
+        this._tQuery(query, []);
     }
 
     // tCreate - create one new row in table
@@ -47,21 +34,21 @@ db.all("SELECT EmployeeId, FirstName FROM employees where title=$title", {
     // values - variable values in the request 
     tCreate(query, values) {
         // console.log("CRUD.tCreate. values", values)
-        this._tQuery(query, values, super.DEV_LOG[0].tCreateResult, super.DEV_LOG[0].tCreateError);
+        this._tQuery(query, values);
     }
 
     // tRead - Data reading from table
     // query - data read request 
     // values - variable values in the request 
     tRead(query, values = []) {
-        this._tQuery(query, values, super.DEV_LOG[0].tReadResult, super.DEV_LOG[0].tReadError);
+        this._tQuery(query, values);
     }
 
     // updateData - updating a row from Data base 
     // query - data update request
     // values - variable values in the request 
     tUpdate = (query, values = []) => {
-        this._tQuery(query, values, super.DEV_LOG[0].tUpdateResult, super.DEV_LOG[0].tUpdateError);
+        this._tQuery(query, values);
     }
 
     // tDelete - Data deleting from table
@@ -69,14 +56,14 @@ db.all("SELECT EmployeeId, FirstName FROM employees where title=$title", {
     // values - variable values in the request 
     tDelete(query, values = []) {
         // console.log('tDelete.values', values);
-        this._tQuery(query, values, super.DEV_LOG[0].tDeleteResult, super.DEV_LOG[0].tDeleteError);
+        this._tQuery(query, values);
         // console.log('tDelete.this._tQuery - finished');
     }
 
     // tDrop - Drop table from data base
     // query - table delete request
     tDrop(query) {
-        this._tQuery(query, [], super.DEV_LOG[0].tDropResult, super.DEV_LOG[0].tDropError);
+        this._tQuery(query, []);
     }
 
     // getCrudLog - getter for this._crudLog

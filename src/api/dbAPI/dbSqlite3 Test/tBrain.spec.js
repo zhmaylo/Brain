@@ -1,7 +1,7 @@
 // const sqlite3 = require('sqlite3').verbose();
 
-import { dbConnect } from "./dbConnect";
-_dbConnect = new dbConnect(':memory:');
+import { dbAccess } from "./dbAccess";
+_dbAccess = new dbAccess(':memory:');
 
 // beforeEach(() => {
 //     db = dbOpen(db);
@@ -11,9 +11,9 @@ _dbConnect = new dbConnect(':memory:');
 describe('disconect', () => {
     test(' db close in memory ', async () => {
 
-        let outdata = _dbConnect;
+        let outdata = _dbAccess;
         expect(outdata._DB_PROD_NAME).toBe("Product.db");
-        _dbConnect.disConnect(_dbConnect);
+        _dbAccess.dbClose(_dbAccess);
     });
 })
 
