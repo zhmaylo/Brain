@@ -12,27 +12,25 @@ export class crud extends dbConst {
 
     //_tQuery - query universal 
     _tQuery(query, values, logResult, logError) {
-        // console.log('_tQuery.values', values )
-        this._dbProd.transaction(tx => {
-            (tx.executeSql(query, values,
-                (txObj, resultTable) => {
-                    // console.log(logResult, resultTable);
-                    // this._crudLog = this._crudLog + logResult +
-                    this._crudLog = logResult +
-                        super.DEV_LOG[0].nLenghtTable + resultTable.rows.length +
-                        super.DEV_LOG[0].nRowsAffectedAdd + resultTable.rowsAffected + '\n';
-                    // console.log('CRUD(tx.executeSql) Finished')
-                },
-                (txObj, error) => {
-                    console.log(logError, error);
-                    this._crudLog = this._crudLog + error;
-                }
-            ))
-
-        })
+        //Retrieving Data Based on Placeholder
+db.all("SELECT EmployeeId, FirstName FROM employees where title=$title", {
+    $title: 'Sales Support Agent'
+},
+(error, rows) => {rows.forEach((row) => {
+    console.log(row.EmployeeId + " " + row.FirstName);
+})
+});
         // console.log('CRUD(_tQuery) Finished');
 
     }
+
+    //Executing run() Method
+// db.run(`INSERT INTO playlists(Name) VALUES(?)`, 
+// ['Rock'],
+// function(error){
+//     console.log("New playlist added with id " + this.lastID);
+// }
+// );
 
     // tConnectToTable - connect(create if not exists) to table 
     // query - query create or join table
