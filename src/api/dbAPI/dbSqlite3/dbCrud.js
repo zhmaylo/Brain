@@ -2,12 +2,14 @@
 //CRUD (local base)
 /////////////////////////////
 
-import { dbAccess } from './dbAccess';
+import { dbOpen } from './dbOpen';
 import { dbConst } from './dbConst';
+
 
 
 export class crud extends dbConst {
     constructor() {
+        this.db = new dbOpen.open();
     }
 
     //_tQuery - query universal 
@@ -22,10 +24,6 @@ export class crud extends dbConst {
     // tConnectToTable - connect(create if not exists) to table 
     // query - query create or join table
     ConnectToTable(query) {
-        // console.log('CRUD.ConnectToTable query => ', query);
-        // console.log('CRUD.ConnectToTable super.logResult => ', super.logResult[0].tConnect);
-        // this._tQuery(query, [], 'CRUD.ConnectToTable - result', 'CRUD.ConnectToTable - error');
-
         this._tQuery(query, []);
     }
 

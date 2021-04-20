@@ -1,17 +1,18 @@
-import { dbConst } from '../common/dbConst';
-
+import {dbConst} from "./dbConst";
 const sqlite3 = require('sqlite3').verbose();
-// let db;
+import 'aws-sdk/dist/aws-sdk';
+const AWS = window.AWS;
+
 
 //connection to base
-export class dbAccess extends dbConst {
+export class dbOpen extends dbConst {
     constructor(...args) {
         super(...args);
         // this.dbName = dbName;
     }
 
     //db - reference to database
-    async dbOpen(dbName = super._DB_PROD_NAME) {
+    async open(dbName = super._DB_PROD_NAME) {
         let db = new sqlite3.Database(dbName, (err) => {
             // if connect error
             if (err) {
@@ -22,15 +23,16 @@ export class dbAccess extends dbConst {
         });
         return db;
     }
-    async dbClose(db) {
-        // close the database connection
-        await db.close((err) => {
-            console.log(err.message);
-            return (err.message);
-        });
-        console.log('Close the database connection.');
-        return true;
-    };
+    
+    // async dbClose(db) {
+    //     // close the database connection
+    //     await db.close((err) => {
+    //         console.log(err.message);
+    //         return (err.message);
+    //     });
+    //     console.log('Close the database connection.');
+    //     return true;
+    // };
 
 }
 

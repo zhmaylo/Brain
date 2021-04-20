@@ -1,5 +1,6 @@
 
-import { TBrain } from '../dbAPI/provider/tBrain';
+// import { TBrain } from '../dbAPI/provider/tBrain';
+import { TBrain } from '../dbAPI/dbSqlite3/tBrain';
 import { logItemAdd } from './syncDataLog';
 import * as syncBrainVsOrig from './syncBrainVsOrig';
 import { CATEGORY_LIST } from '../../reducers/categoryListRdc';
