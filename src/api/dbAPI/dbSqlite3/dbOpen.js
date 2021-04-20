@@ -1,8 +1,5 @@
 import {dbConst} from "./dbConst";
 const sqlite3 = require('sqlite3').verbose();
-import 'aws-sdk/dist/aws-sdk';
-const AWS = window.AWS;
-
 
 //connection to base
 export class dbOpen extends dbConst {
