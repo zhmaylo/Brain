@@ -1,5 +1,5 @@
-import {dbConst} from "./dbConst";
-const sqlite3 = require('sqlite3').verbose();
+import { dbConst } from "./dbConst";
+import {SQLite} from 'react-native-sqlite-storage';
 
 //connection to base
 export class dbOpen extends dbConst {
@@ -9,18 +9,27 @@ export class dbOpen extends dbConst {
     }
 
     //db - reference to database
-    async open(dbName = super._DB_PROD_NAME) {
-        let db = new sqlite3.Database(dbName, (err) => {
-            // if connect error
-            if (err) {
-                return console.error(err.message);
+    open(dbName = super._DB_PROD_NAME) {
+        
+        global.db = SQLite.openDatabase(
+            {
+              name: 'SQLite',
+              location: 'default',
+              createFromLocation: '~SQLite.db',
+            },
+            () => { },
+            error => {
+              console.log("ERROR: " + error);
             }
-            // connect complete
-            // console.log('Database opened');
-        });
-        return db;
+          );
+
+        // var db = SQLite.openDatabase("test.db", "1.0", "Test Database", 200000,
+        //     () => { console.log("Database OPENED") },
+        //     (err) => { console.log("SQL Error: " + err )});
+        // return db;
+        return (':memory:');
     }
-    
+
     // async dbClose(db) {
     //     // close the database connection
     //     await db.close((err) => {
