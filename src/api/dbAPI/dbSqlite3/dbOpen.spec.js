@@ -1,7 +1,7 @@
 // const sqlite3 = require('sqlite3').verbose();
 
 import { dbOpen } from "./dbOpen";
-let dbOp = new dbOpen();
+// let dbOp = new dbOpen();
 
 
 // beforeEach(() => {
@@ -10,9 +10,10 @@ let dbOp = new dbOpen();
     
     
     describe('Testing open/close', () => {
-        test(' db close in memory ',  () => {
+        test(' db close in memory ', async (dpOp=dpOp)  => {
             
-            let db =  dbOp.open();
+            // let db = await dbOp.open();
+            let db = await dbOpen.open();
 
             console.log('🚀 ~ file: dbOpen.spec.js ~ line 16 ~ test ~ db', db);
             

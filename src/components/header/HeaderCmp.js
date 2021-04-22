@@ -1,4 +1,4 @@
-import React from '../../../node_modules/react';
+import React from 'react';
 import { View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 import { WINDOW_WIDTH } from '../../constants/otherConst';
 import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from '../../constants/headerConst';
