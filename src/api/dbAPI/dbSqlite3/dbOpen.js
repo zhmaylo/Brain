@@ -20,20 +20,20 @@ export class dbOpen extends dbConst {
     // var db =  openDatabase({ name: "db.sqlite", location: 'default' }).then(db => { return db });
     let db = await openDatabase({ name: 'UserDatabase.db' }).then(db => { return db });
     console.log('🚀 ~ file: dbOpen.js ~ line 18 ~ dbOpen ~ open ~  db', db);
-
-    db.transaction(function (txn) {
-      txn.executeSql(
-        "SELECT * FROM users WHERE userName=?",  //Query to execute as prepared statement
-        ['user1'],  //Argument to pass for the prepared statement
-        //Callback function to handle the result
-        (results) => {
-          console.log(results);
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-    });
+    
+    // db.transaction(function (txn) {
+    //   txn.executeSql(
+    //     "SELECT * FROM users WHERE userName=?",  //Query to execute as prepared statement
+    //     ['user1'],  //Argument to pass for the prepared statement
+    //     //Callback function to handle the result
+    //     (results) => {
+    //       console.log(results);
+    //     },
+    //     (err) => {
+    //       console.log(err);
+    //     }
+    //   );
+    // });
 
     return (db);
 
