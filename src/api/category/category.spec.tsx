@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 const { Response } = jest.requireActual('node-fetch');
 
 import { PROXY_URL_PC, URL_GET_CATEGORY } from '../../constants/urlConst';
-import { getCategoryList, addFieldChildren, getMainListCategory, getUnderListCategory, sortListbyName } from './category';
+import { getCategoryList, addFieldChildren, sortListbyName } from './category';
 import { SIGN_LEVEL_UP } from '../../constants/categoryConst';
 
 function dispatch(data) {

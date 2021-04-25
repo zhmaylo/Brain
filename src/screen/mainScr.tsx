@@ -22,8 +22,8 @@ import { MINMAX_DEAL_PRICE } from '../reducers/filterRdc';
 
 let i = 0;
 
-const devMode = true;
-// const devMode = false;
+// const devMode = true;
+const devMode = false;
 
 export default function MainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
