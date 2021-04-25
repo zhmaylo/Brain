@@ -13,9 +13,7 @@ exports[`renders correctly 1`] = `
   <Text>
     Alert
   </Text>
-  <Text
-    id="errMes"
-  >
+  <Text>
     Test message
      
   </Text>

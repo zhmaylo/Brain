@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, Button, Text } from 'react-native';
 
-export const AlertMessageCmp = ({message}) => {
+export const AlertMessageCmp = ({ message }) => {
     return (
         <View style={styles.container}>
             <Text>Alert</Text>
-            <Text id="errMes">{message} </Text>
+            <Text>{message} </Text>
         </View>
     )
 }

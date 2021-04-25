@@ -5,6 +5,7 @@ import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../../constants/p
 import { PROD_SCR } from '../../constants/appNavigatorConst';
 import { PROD_CURR_DESCRIPTION, PROD_CURR_IMAGES } from '../../reducers/prodCurrentRdc';
 import { prodImgLoad } from '../../api/products/prodImgLoad';
+import { getDealerPercent, getDealerUAH } from '../../api/prodCard/prodCard';
 
 
 // product card
@@ -23,7 +24,7 @@ export const ProdCardLightCmp = ({ item, props, dispatch, sidAndTime }) => {
                         console.log('ProdCardLightCmp.currImg=> ', currImages);
                     })
                     props.navigation.navigate(PROD_SCR);
-                
+
                 }}
             >
                 <View>
@@ -33,7 +34,7 @@ export const ProdCardLightCmp = ({ item, props, dispatch, sidAndTime }) => {
                     />
                     <Text style={styles.textName}>{item.name} </Text>
                     <Text style={styles.textPrice}>{item.price_uah + ' / ' + item.retail_price_uah} грн </Text>
-                    <Text style={styles.textPrice}>{(item.price_uah / item.retail_price_uah).toFixed(2)} % / {item.retail_price_uah - item.price_uah} грн</Text>
+                    <Text style={styles.textPrice}>{getDealerPercent(item.price_uah, item.retail_price_uah,)} % / {getDealerUAH(item.price_uah, item.retail_price_uah)} грн</Text>
                     <Text style={styles.text_warranty}>{WARANTY_HOME}{item.warranty}{WARANTY_END} {CODE_HOME}{item.product_code} {ID_HOME}{item.productID}</Text>
                     <Text style={styles.text_warranty}></Text>
                 </View>
