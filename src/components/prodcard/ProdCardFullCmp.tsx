@@ -1,26 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { WINDOW_HEIGHT } from '../../constants/otherConst';
 import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../../constants/productsConst';
 import { ScrollView } from 'react-native-gesture-handler';
 import { PROD_NAME, PROD_DESCRIPT } from '../../constants/productsConst';
-import { SwiperBoxCmp } from '../SwiperBoxCmp';
+import { SwiperBoxCmp } from './SwiperBoxCmp/SwiperBoxCmp';
+import { getDealerPercent, getDealerUAH } from '../../api/prodCard/prodCard';
 
 
 
 // product card
 export const ProdCardFullCmp = ({ item, currImages, props }) => {
 
-    console.log("ProdCardFullCmp=>item", item);
-    // console.log("ProdCardFullCmp=>currImages", currImages);
+    // console.log("ProdCardFullCmp=>item", item);
+    console.log("ProdCardFullCmp=>currImages", currImages);
 
     return (
 
         <ScrollView style={styles.itemProd} >
-            <SwiperBoxCmp style={styles.swipe} currImages={currImages} props={props} />
-
+            <View style={styles.swipe}>
+            <SwiperBoxCmp  currImages={currImages} props={props} />
+            </View>
             <Text style={styles.textPrice}>{item.price_uah + ' / ' + item.retail_price_uah} грн </Text>
-            <Text style={styles.textPrice}>{(item.price_uah / item.retail_price_uah).toFixed(2)} % / {item.retail_price_uah - item.price_uah} грн </Text>
+            <Text style={styles.textPrice}>{getDealerPercent(item.price_uah, item.retail_price_uah,)} % / {getDealerUAH(item.price_uah, item.retail_price_uah)} грн </Text>
             <Text style={styles.textName}>{''} </Text>
             <Text style={styles.textHeader}>{PROD_NAME} </Text>
             <Text style={styles.textName}>{item.name} </Text>

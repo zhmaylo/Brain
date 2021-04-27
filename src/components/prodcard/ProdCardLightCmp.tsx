@@ -10,6 +10,9 @@ import { getDealerPercent, getDealerUAH } from '../../api/prodCard/prodCard';
 
 // product card
 export const ProdCardLightCmp = ({ item, props, dispatch, sidAndTime }) => {
+    console.log('🚀 ~ file: ProdCardLightCmp.tsx ~ line 13 ~ ProdCardLightCmp ~ sidAndTime', sidAndTime);
+    console.log('🚀 ~ file: ProdCardLightCmp.tsx ~ line 13 ~ ProdCardLightCmp ~ props', props.navigation.navigate(PROD_SCR));
+    console.log('🚀 ~ file: ProdCardLightCmp.tsx ~ line 13 ~ ProdCardLightCmp ~ item', item);
     // console.log("ProductsCardLightCmp=>props", props);
     // console.log("ProductsCardCmp=>item", item);
     // console.log("ProductsCardCmp=>item.small_image", item.small_image);

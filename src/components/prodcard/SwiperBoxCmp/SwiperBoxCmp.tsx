@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
-import { WINDOW_HEIGHT, WINDOW_WIDTH } from './../constants/otherConst';
-import { PROD_GALL_SCR } from './../constants/appNavigatorConst';
+import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../../constants/otherConst';
+import { PROD_GALL_SCR } from '../../../constants/appNavigatorConst';
 
 
 

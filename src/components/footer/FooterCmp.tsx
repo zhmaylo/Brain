@@ -6,7 +6,7 @@ import { buttonViewProd } from '../../api/footer/buttonView';
 import { SYNC_DATA_SCR } from '../../constants/appNavigatorConst';
 
 //main screen footer
-const itemFooter = (iconSource, iconName, iconUrl = '') => {
+const itemFooter = (iconSource: any, iconName: string, iconUrl: any) => {
 
     return (
         <View>
@@ -29,13 +29,13 @@ export const FooterCmp = (props, state, dispatch) => {
     // console.log('FooterCmp.menuUrl', menuUrl);
     return (
         <View style={styles.container}>
-            {itemFooter(ICON_FOOTER[2-state.numColumProdRdc.numColumProd].iconSource, ICON_FOOTER[0].iconName, () => {
+            {itemFooter(ICON_FOOTER[2 - state.numColumProdRdc.numColumProd].iconSource, ICON_FOOTER[0].iconName, () => {
                 let num = buttonViewProd(state.numColumProdRdc.numColumProd);
                 dispatch({ type: 'NUM_COLUM_PROD', payload: num });
             })}
             {/* dispatch({ type: 'NUM_COLUM_PROD', payload: buttonViewProd(state.numColumProdRdc.numColumProd) }))} */}
 
-            {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, () => {props.navigation.navigate(SYNC_DATA_SCR)})}
+            {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, () => { props.navigation.navigate(SYNC_DATA_SCR) })}
             {/* {itemFooter(ICON_FOOTER[3].iconSource, ICON_FOOTER[3].iconName)} */}
             {/* {itemFooter(ICON_FOOTER[4].iconSource, ICON_FOOTER[4].iconName)} */}
             {/* {itemFooter(ICON_FOOTER[5].iconSource, ICON_FOOTER[5].iconName)} */}
