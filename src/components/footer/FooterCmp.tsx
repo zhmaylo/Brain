@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { View, StyleSheet, Button, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { WINDOW_WIDTH } from '../../constants/otherConst';
 import { ICON_FOOTER } from '../../constants/footerConst';
 import { buttonViewProd } from '../../api/footer/buttonView';
-import { SYNC_DATA_SCR } from '../../constants/appNavigatorConst';
+import { SETTING_SCR, SYNC_DATA_SCR } from '../../constants/appNavigatorConst';
 
 //main screen footer
 const itemFooter = (iconSource: any, iconName: string, iconUrl: any) => {
@@ -33,13 +33,8 @@ export const FooterCmp = (props, state, dispatch) => {
                 let num = buttonViewProd(state.numColumProdRdc.numColumProd);
                 dispatch({ type: 'NUM_COLUM_PROD', payload: num });
             })}
-            {/* dispatch({ type: 'NUM_COLUM_PROD', payload: buttonViewProd(state.numColumProdRdc.numColumProd) }))} */}
-
-            {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, () => { props.navigation.navigate(SYNC_DATA_SCR) })}
-            {/* {itemFooter(ICON_FOOTER[3].iconSource, ICON_FOOTER[3].iconName)} */}
-            {/* {itemFooter(ICON_FOOTER[4].iconSource, ICON_FOOTER[4].iconName)} */}
-            {/* {itemFooter(ICON_FOOTER[5].iconSource, ICON_FOOTER[5].iconName)} */}
-            {/* {itemFooter(ICON_FOOTER[6].iconSource, ICON_FOOTER[6].iconName)} */}
+            {/* {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, () => { props.navigation.navigate(SYNC_DATA_SCR) })} */}
+            {itemFooter(ICON_FOOTER[3].iconSource, ICON_FOOTER[3].iconName, () => { props.navigation.navigate(SETTING_SCR) })}
         </View >
     )
 }

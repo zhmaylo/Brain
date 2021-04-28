@@ -18,9 +18,7 @@ export const ProdCardFullCmp = ({ item, currImages, props }) => {
     return (
 
         <ScrollView style={styles.itemProd} >
-            <View style={styles.swipe}>
-            <SwiperBoxCmp  currImages={currImages} props={props} />
-            </View>
+            <SwiperBoxCmp currImages={currImages} props={props} />
             <Text style={styles.textPrice}>{item.price_uah + ' / ' + item.retail_price_uah} грн </Text>
             <Text style={styles.textPrice}>{getDealerPercent(item.price_uah, item.retail_price_uah,)} % / {getDealerUAH(item.price_uah, item.retail_price_uah)} грн </Text>
             <Text style={styles.textName}>{''} </Text>
@@ -71,8 +69,4 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
     },
 
-    swipe: {
-        flex: 1,
-        backgroundColor: "white",
-    },
 })

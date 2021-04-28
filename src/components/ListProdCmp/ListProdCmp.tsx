@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, Text } from 'react-native';
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../constants/otherConst';
-import { STEP_PAGIN_PROD } from '../constants/productsConst';
-import { setSizeListProd } from '../api/products/products';
-import { ProdCardLightCmp } from './prodcard/ProdCardLightCmp';
-import { PROD_EXPECTED } from './../constants/productsConst';
-import { PROD_SCR } from '../constants/appNavigatorConst';
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../../constants/otherConst';
+import { STEP_PAGIN_PROD } from '../../constants/productsConst';
+import { setSizeListProd } from '../../api/products/products';
+import { ProdCardLightCmp } from '../prodcard/ProdCardLightCmp';
+import { PROD_EXPECTED } from '../../constants/productsConst';
+import { PROD_SCR } from '../../constants/appNavigatorConst';
 
 
 // current list size 

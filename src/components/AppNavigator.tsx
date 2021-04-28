@@ -4,14 +4,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import MainScr from "../screen/mainScr";
-import SearchScr from "../screen/SearchScr";
-import { FILTER_SCR, PROD_GALL_SCR, CATEG_SCR, SORT_SCR, PROD_SCR, MAIN_SCR, SYNC_DATA_SCR, SEARCH_SCR } from '../constants/appNavigatorConst';
+import SearchScr from "../screen/searchScr";
+import { FILTER_SCR, PROD_GALL_SCR, CATEG_SCR, SORT_SCR, PROD_SCR, MAIN_SCR, SYNC_DATA_SCR, SEARCH_SCR, SETTING_SCR } from '../constants/appNavigatorConst';
 import CategoryScr from '../screen/categoryScr';
 import SortScr from '../screen/sortScr';
 import ProdScr from '../screen/prodScr';
 import ProdGallScr from '../screen/prodGallScr';
 import SyncDataScr from '../screen/syncDataScr';
 import FilterScr from '../screen/filterScr';
+import SettingScr from '../screen/settingScr';
 // import menuScr from "../screen/menuScr";
 // import configScr from "../screen/configScr";
 // import basketScr from "../screen/basketScr";
@@ -27,6 +28,7 @@ export const AppNavigator = () => (
             screenOptions={{ swipeEnabled: false }}
         >
 
+            <Drawer.Screen name={SETTING_SCR} component={SettingScr} />
             <Drawer.Screen name={MAIN_SCR} component={MainScr} />
             <Drawer.Screen name={FILTER_SCR} component={FilterScr} />
             <Drawer.Screen name={SYNC_DATA_SCR} component={SyncDataScr} />

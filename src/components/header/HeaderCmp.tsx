@@ -5,7 +5,7 @@ import { TEXT_INPUT_PLACEHOLDER, ICON_HEADER, HEADER_BUTTON_SIZE } from '../../c
 
 import { CATEG_SCR } from '../../constants/appNavigatorConst';
 import { SORT_SCR, FILTER_SCR } from './../../constants/appNavigatorConst';
-import SearchScr from '../../screen/SearchScr';
+import SearchScr from '../../screen/searchScr';
 
 export const HeaderCmp = (props) => {
 

@@ -4,7 +4,7 @@ jest.mock('@react-native-async-storage/async-storage', () => mockAsyncStorage);
 //
 import renderer from 'react-test-renderer';
 import { ListProdCmp } from './ListProdCmp';
-import {PRODUCTS_FROM_FILE} from '../constants/productsJSON';
+import {PRODUCTS_FROM_FILE} from '../../constants/productsJSON';
 
 
 let productsList = PRODUCTS_FROM_FILE[0].result.list;
@@ -15,6 +15,15 @@ const callback = () => {
     // expect(data).toMatch('Test Ok');
     return;
 };
+let sidAndTime = {
+    sid: "m8a0ja0dbelrdbaossblnl4a40",
+    timeStamp: 1619522162997
+};
+const navigate = () => {
+    return true;
+};
+let navigation = { navigate };
+let props = { navigation };
 
 test('renders correctly', () => {
     
@@ -23,7 +32,10 @@ test('renders correctly', () => {
                 productList : productsList,
                 numCollumns : 1,
                 currSizeList : 20,
-                dispatch : callback }
+                dispatch : callback,
+                sidAndTime: sidAndTime,
+                props:props
+             }
         ))
         .toJSON();
     expect(tree).toMatchSnapshot();

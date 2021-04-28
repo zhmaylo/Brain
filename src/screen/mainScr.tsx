@@ -10,7 +10,7 @@ import { setFieldIsChildren } from '../api/category/symbChildren';
 import { getProductsList } from '../api/products/products';
 import { devStub } from '../api/dev';
 import { SpinerСmp } from '../components/SpinerCmp';
-import { ListProdCmp } from '../components/ListProdCmp';
+import { ListProdCmp } from '../components/ListProdCmp/ListProdCmp';
 import { sortBySwitch } from '../api/sort';
 import { PRODUCTS_LIST } from '../reducers/productsListRdc';
 import { CATEGORY_LIST } from '../reducers/categoryListRdc';
