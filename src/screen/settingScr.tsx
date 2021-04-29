@@ -1,27 +1,25 @@
 import React from 'react';
-import { Button, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 import { FooterBack } from '../components/footer/FooterBackCmp';
 import { HeaderBack } from '../components/header/HeaderBackCmp';
-import { SETTING_HEADER_TITLE } from '../constants/settingConst';
+import { API_KEY_TITLE, SETTING_HEADER_TITLE } from '../constants/settingConst';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
-import { WINDOW_HEIGHT } from '../constants/otherConst';
+import { SettingApiKey } from '../components/setting/SettingApiKey';
+
 
 export default function SettingScr(props) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar hidden={true} />
-            <HeaderBack props={props} headerName={SETTING_HEADER_TITLE} />
-            <View style={styles.itemApiKey}>
-                <Text>SettingScreen</Text>
-                <TextInput
-                    style={styles.inputApiKey}
-                    // keyboardType='default'
-                    value={'Input ApiKey'}
-
-                />
+            <View style={styles.headerFooter}>
+                <HeaderBack props={props} headerName={SETTING_HEADER_TITLE} />
             </View>
-            <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
+            <View style={styles.itemGroup}>
+                <SettingApiKey title={API_KEY_TITLE} />
+            </View>
+            <View style={styles.headerFooter}>
+                <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />
+            </View>
         </SafeAreaView>
     );
 }
@@ -29,31 +27,18 @@ export default function SettingScr(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // backgroundColor: "#f0f0f0",
-        // backgroundColor: 'white',
+        backgroundColor: 'white',
         flexDirection: 'column',
         justifyContent: 'space-between',
     },
 
-    itemApiKey: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+    headerFooter: {
+        backgroundColor: "#f0f0f0",
+    },
 
-        backgroundColor: 'white',
-        paddingHorizontal: 5,
-        height: 50,
+    itemGroup: {
+        flex: 1,
+        justifyContent: 'flex-start',
     },
-    inputApiKey: {
-        borderColor: "#f0f0f0",
-        color: 'black',
-        // backgroundColor: '',
-        borderWidth: 1,
-        height: 50,
-        width: 250,
-        backgroundColor: 'white',
-        textAlign: 'center',
-        textAlignVertical: 'center',
-    },
+
 });
