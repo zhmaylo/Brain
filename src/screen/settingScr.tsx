@@ -4,7 +4,7 @@ import { FooterBack } from '../components/footer/FooterBackCmp';
 import { HeaderBack } from '../components/header/HeaderBackCmp';
 import { API_KEY_TITLE, SETTING_HEADER_TITLE } from '../constants/settingConst';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
-import { SettingApiKey } from '../components/setting/SettingApiKey';
+import { SetValueCmp } from '../components/setting/SetValueCmp';
 
 
 export default function SettingScr(props) {
@@ -15,7 +15,7 @@ export default function SettingScr(props) {
                 <HeaderBack props={props} headerName={SETTING_HEADER_TITLE} />
             </View>
             <View style={styles.itemGroup}>
-                <SettingApiKey title={API_KEY_TITLE} />
+                <SetValueCmp title={API_KEY_TITLE} />
             </View>
             <View style={styles.headerFooter}>
                 <FooterBack props={props} footerName={FOOTER_BACK_TITLE} />

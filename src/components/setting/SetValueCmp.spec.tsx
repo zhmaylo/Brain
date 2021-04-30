@@ -1,15 +1,12 @@
 
-import React from 'react';
 import renderer from 'react-test-renderer';
-import { SpinerСmp } from './SpinerCmp'
+import { SetValueCmp } from './SetValueCmp';
+
 
 test('renders correctly', () => {
-    
+   let title =  'test title';
     const tree = renderer.create(
-        SpinerСmp ())
+        SetValueCmp ({title}))
         .toJSON();
     expect(tree).toMatchSnapshot();
 });
-
-
-
