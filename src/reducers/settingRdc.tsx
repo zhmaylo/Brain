@@ -1,10 +1,10 @@
 // status response (error/ok)
-export const  STATUS_RESPONSE = 'STATUS_RESPONSE';
+export const  API_KEY = 'API_KEY';
 //
 
-const statusResponseRdc = (state = [], action: any) => {
+const settingRdc = (state = [], action: any) => {
     switch(action.type) {
-        case STATUS_RESPONSE:
+        case API_KEY:
             return {
                 ...state,
                 statusResponse:action.payload
@@ -13,4 +13,4 @@ const statusResponseRdc = (state = [], action: any) => {
             return state;
     }
 }
-export default statusResponseRdc;
+export default settingRdc;

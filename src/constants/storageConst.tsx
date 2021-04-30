@@ -27,7 +27,7 @@ export const SYNC_OFFSET_KEY = 'syncOffsetKey';
 /////////////////////////////
 // Start. Section 'Setiing'
 //
-export const API_KEY_STORAGE = API_KEY_DEFAULT;
+export const API_KEY_KEY = 'apiKeyKey';
 //
 // End. Section 'Category View'
 /////////////////////////////
