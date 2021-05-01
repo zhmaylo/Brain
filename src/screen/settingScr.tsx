@@ -8,7 +8,7 @@ import { SetValueCmp } from '../components/setting/SetValueCmp';
 import { API_KEY_KEY } from '../constants/storageConst';
 import { API_KEY_DEFAULT } from '../constants/authorizConst';
 import { ContextApp } from '../reducers/unionRdc';
-import { API_KEY } from '../reducers/settingRdc';
+import { API_KEY_RDC } from '../reducers/settingRdc';
 
 
 export default function SettingScr(props: any) {
@@ -23,10 +23,10 @@ export default function SettingScr(props: any) {
             <View style={styles.itemGroup}>
                 <SetValueCmp
                     title={API_KEY_TITLE}
-                    key={API_KEY_KEY}
+                    keyStore={API_KEY_KEY}
                     valueDef={API_KEY_DEFAULT}
                     onChange={(value: string) => {
-                        dispatch({ type: API_KEY, payload: value });
+                        dispatch({ type: API_KEY_RDC, payload: value });
                     }}
                 />
             </View>

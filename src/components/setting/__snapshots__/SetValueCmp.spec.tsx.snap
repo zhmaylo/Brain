@@ -26,6 +26,8 @@ exports[`renders correctly 1`] = `
   </Text>
   <TextInput
     allowFontScaling={true}
+    defaultValue=""
+    onChangeText={[Function]}
     rejectResponderTermination={true}
     style={
       Object {
@@ -38,7 +40,7 @@ exports[`renders correctly 1`] = `
         "height": 50,
         "textAlign": "center",
         "textAlignVertical": "center",
-        "width": 443.7869822485207,
+        "width": 330,
       }
     }
     underlineColorAndroid="transparent"

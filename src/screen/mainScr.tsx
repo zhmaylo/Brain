@@ -19,6 +19,7 @@ import * as storage from '../api/storage/storage';
 import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from '../constants/storageConst';
 import { getDealerPriceRange, getFilteredProducts } from '../api/filter/filter';
 import { MINMAX_DEAL_PRICE } from '../reducers/filterRdc';
+import { SETTING_SCR } from '../constants/appNavigatorConst';
 
 let i = 0;
 
@@ -29,7 +30,7 @@ export default function MainScr(props) {
     const { state, dispatch } = useContext(ContextApp);
     useEffect(() => {
         const initApp = async () => {
-            let data = await getCategoryList(state.sessionSidRdc.sessionSid, dispatch)
+            let data: any = await getCategoryList(state.sessionSidRdc.sessionSid, dispatch)
             data = addFieldChildren(data);
             data = setFieldIsChildren(data);
             
@@ -59,7 +60,7 @@ export default function MainScr(props) {
         }
         
         // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        // props.navigation.navigate(FILTER_SCR);
+        // props.navigation.navigate(SETTING_SCR);
         // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         
     }, [!state.isAppInitRdc.isAppInit]);

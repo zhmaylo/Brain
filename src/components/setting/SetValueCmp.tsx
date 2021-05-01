@@ -5,9 +5,10 @@ import { WINDOW_WIDTH } from '../../constants/otherConst';
 
 
 
-export const SetValueCmp = ({ title, key, valueDef, onChange }) => {
+export const SetValueCmp = ({ title, keyStore, valueDef, onChange }) => {
     const [value, setValue] = useState('');
-    getValueStore(key, valueDef).then((value: string) => { setValue(value) });
+    getValueStore(keyStore, valueDef).then((value: string) => { setValue(value) });
+
     return (
         <View style={styles.itemValue}>
             <Text style={styles.titleValue}> {title}  </Text>
@@ -15,7 +16,7 @@ export const SetValueCmp = ({ title, key, valueDef, onChange }) => {
                 style={styles.inputValue}
                 defaultValue={value}
                 onChangeText={(value) => {
-                    setValueStore(key, value);
+                    setValueStore(keyStore, value);
                     onChange(value);
                 }}
             />
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
         color: 'black',
         borderWidth: 2,
         height: 50,
-        width: WINDOW_WIDTH / 1.66,
+        width: 330,
         backgroundColor: 'white',
         textAlign: 'center',
         textAlignVertical: 'center',

@@ -2,8 +2,9 @@
 /////////////////////////////
 // Start. Section 'User authorization data'
 //
-// API_KEY
-export const API_KEY_DEFAULT = "7408fbfbded5974d9b625d05237f6a6f";
+// API_KEY_DEFAULT
+// export const API_KEY_DEFAULT = "7408fbfbded5974d9b625d05237f6a6f";
+export const API_KEY_DEFAULT = "asdfsda";
 //
 // user login/password
 export const LOGIN = "dzhmaylo@gmail.com";
