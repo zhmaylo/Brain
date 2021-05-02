@@ -16,10 +16,12 @@ import { PRODUCTS_LIST } from '../reducers/productsListRdc';
 import { CATEGORY_LIST } from '../reducers/categoryListRdc';
 import { IS_APP_INIT } from '../reducers/isAppInitRdc';
 import * as storage from '../api/storage/storage';
-import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from '../constants/storageConst';
+import { LOGIN_KEY, RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from '../constants/storageConst';
 import { getDealerPriceRange, getFilteredProducts } from '../api/filter/filter';
 import { MINMAX_DEAL_PRICE } from '../reducers/filterRdc';
-import { SETTING_SCR } from '../constants/appNavigatorConst';
+import { LOGIN_SCR, SETTING_SCR } from '../constants/appNavigatorConst';
+import { getValueStore } from '../api/setting/setting';
+import { getLogin, LOGIN_DEFAULT } from '../constants/authorizConst';
 
 let i = 0;
 
@@ -33,7 +35,7 @@ export default function MainScr(props) {
             let data: any = await getCategoryList(state.sessionSidRdc.sessionSid, dispatch)
             data = addFieldChildren(data);
             data = setFieldIsChildren(data);
-            
+
             //get category recent ID
             let catID = await storage.getData(RECENT_CATEG_KEY);
             if (catID == null) catID = RECENT_CATEG_KEY_DEFAULT;
@@ -43,14 +45,14 @@ export default function MainScr(props) {
 
             let minmax = getDealerPriceRange(productsList);
             //Note minmax[{minDealerPrice, maxDealerPrice}]
-            dispatch({ type: MINMAX_DEAL_PRICE, payload: minmax});
+            dispatch({ type: MINMAX_DEAL_PRICE, payload: minmax });
 
             dispatch({ type: PRODUCTS_LIST, payload: productsList });
             dispatch({ type: CATEGORY_LIST, payload: data });
             // console.log("mainScr.getCategoryList(data)", data);
             dispatch({ type: IS_APP_INIT, payload: true });
         }
-        
+
         // Start Stub. Section Dev. .
         if (devMode) devStub(state, dispatch);
         //End Stub. Section Dev.
@@ -58,26 +60,27 @@ export default function MainScr(props) {
             initApp();
             i++;
         }
-        
+
         // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         // props.navigation.navigate(SETTING_SCR);
+        // props.navigation.navigate(LOGIN_SCR);
         // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        
+
     }, [!state.isAppInitRdc.isAppInit]);
-    
-    
+
+
     if ((state.statusResponseRdc.statusResponse.code !== -1) &&
-    (state.statusResponseRdc.statusResponse.code !== undefined))
-    return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
-    
+        (state.statusResponseRdc.statusResponse.code !== undefined))
+        return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
+
     else
-    if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false)) {
-        //apply filterRdc 
-        let filteredProducts = getFilteredProducts(state.productsListRdc.productsList, state.filterRdc.minShowLimit, state.filterRdc.maxShowLimit);
-        
-        // 
-        return (
-            <SafeAreaView style={styles.container}>
+        if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false)) {
+            //apply filterRdc 
+            let filteredProducts = getFilteredProducts(state.productsListRdc.productsList, state.filterRdc.minShowLimit, state.filterRdc.maxShowLimit);
+
+            // 
+            return (
+                <SafeAreaView style={styles.container}>
                     <StatusBar hidden={true} />
                     {HeaderCmp(props)}
                     <ListProdCmp productList={filteredProducts}

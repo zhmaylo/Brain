@@ -15,8 +15,6 @@ import { prodCurrentRdc } from './prodCurrentRdc';
 import { syncDataRdc } from './synDataRdc';
 import { filterRdc } from './filterRdc';
 import { progBarRdc } from './progBarRdc';
-import settingRdc from './settingRdc';
-
 
 
 export const ContextApp = React.createContext(null);
@@ -114,18 +112,9 @@ export const initialState = {
     progBarRdc: {
         progBarMaxVol: 0,
         progBarCurVol: 0,
-    },
+    }
     //End. Progress Bar
     ////////////////////////////////
-
-    ////////////////////////////////
-    //Start. Setting
-    settingRdc: {
-        apiKey: '',
-    },
-    //End. Setting
-    ////////////////////////////////
-
 
 };
 
@@ -181,12 +170,6 @@ export const unionRdc = combineReducers(
         //Start. Progress Bar
         progBarRdc: progBarRdc,
         //End. Progress Bar
-        ////////////////////////////////
-
-        ////////////////////////////////
-        //Start. Setting
-        settingRdc: settingRdc,
-        //End. Setting
         ////////////////////////////////
 
         isAppInitRdc: isAppInitRdc,

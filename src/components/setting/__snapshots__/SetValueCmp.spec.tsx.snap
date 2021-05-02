@@ -17,6 +17,7 @@ exports[`renders correctly 1`] = `
       Object {
         "fontSize": 18,
         "fontWeight": "600",
+        "width": 90,
       }
     }
   >

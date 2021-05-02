@@ -1,4 +1,3 @@
-import { API_KEY_DEFAULT } from "./authorizConst";
 
 
 /////////////////////////////
@@ -27,9 +26,12 @@ export const SYNC_OFFSET_KEY = 'syncOffsetKey';
 /////////////////////////////
 // Start. Section 'Setiing'
 //
-export const API_KEY_KEY = 'apiKeyKey';
+// login
+export const LOGIN_KEY = 'loginKey';
+// password
+export const PASSWORD_KEY = 'passwordKey';
 //
 // End. Section 'Category View'
 /////////////////////////////
 
-export const KEY_MISSING = 'Key missing';
+// export const KEY_MISSING = 'Key missing';

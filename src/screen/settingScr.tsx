@@ -1,18 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
 import { FooterBack } from '../components/footer/FooterBackCmp';
 import { HeaderBack } from '../components/header/HeaderBackCmp';
-import { API_KEY_TITLE, SETTING_HEADER_TITLE } from '../constants/settingConst';
+import { LOGIN_TITLE, SETTING_HEADER_TITLE } from '../constants/settingConst';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { SetValueCmp } from '../components/setting/SetValueCmp';
-import { API_KEY_KEY } from '../constants/storageConst';
-import { API_KEY_DEFAULT } from '../constants/authorizConst';
+import { LOGIN_KEY } from '../constants/storageConst';
+import { getLogin, LOGIN_DEFAULT } from '../constants/authorizConst';
 import { ContextApp } from '../reducers/unionRdc';
-import { API_KEY_RDC } from '../reducers/settingRdc';
+
 
 
 export default function SettingScr(props: any) {
     const { state, dispatch } = useContext(ContextApp);
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar hidden={true} />
@@ -22,11 +23,11 @@ export default function SettingScr(props: any) {
             {/* //set API key */}
             <View style={styles.itemGroup}>
                 <SetValueCmp
-                    title={API_KEY_TITLE}
-                    keyStore={API_KEY_KEY}
-                    valueDef={API_KEY_DEFAULT}
+                    title={LOGIN_TITLE}
+                    keyStore={LOGIN_KEY}
+                    valueDef={LOGIN_DEFAULT}
                     onChange={(value: string) => {
-                        dispatch({ type: API_KEY_RDC, payload: value });
+                        getLogin(value);
                     }}
                 />
             </View>

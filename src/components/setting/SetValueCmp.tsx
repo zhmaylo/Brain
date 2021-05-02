@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     titleValue: {
         fontSize: 18,
         fontWeight: "600",
+        width: 90,
     },
     inputValue: {
         borderColor: "#f0f0f0",
