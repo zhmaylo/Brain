@@ -8,7 +8,7 @@ export const getValueStore = async (keyStore: string, valueDef: string) => {
     let data = await getData(keyStore)
     if (data != null) return data;
     // set value by default
-    storeData(keyStore, valueDef);
+    await storeData(keyStore, valueDef);
     return valueDef;
 };
 

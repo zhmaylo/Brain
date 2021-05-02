@@ -10,9 +10,9 @@ export const storeData = async (key: any, value: any) => {
     return true;
   } catch (e) {
     // saving error
-    console.error('Error store', e);
+    // console.error('Error store', e);
   }
-}
+};
 
 // Reading object value
 export const getData = async (key: any) => {
@@ -22,4 +22,4 @@ export const getData = async (key: any) => {
   } catch (e) {
     // error reading value
   }
-}
+};

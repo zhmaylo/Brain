@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { getValueStore, setValueStore } from '../../api/setting/setting';
+import { use_State } from '../../api/setting/use_State';
 import { WINDOW_WIDTH } from '../../constants/otherConst';
 
-
-
 export const SetValueCmp = ({ title, keyStore, valueDef, onChange }) => {
-    const [value, setValue] = useState('');
+    let {value, setValue} = use_State('');
     getValueStore(keyStore, valueDef).then((value: string) => { setValue(value) });
 
     return (
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
         color: 'black',
         borderWidth: 2,
         height: 50,
-        width: 330,
+        width: WINDOW_WIDTH/1.66,
         backgroundColor: 'white',
         textAlign: 'center',
         textAlignVertical: 'center',
