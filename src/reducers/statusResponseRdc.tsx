@@ -1,13 +1,13 @@
-// status response (error/ok)
-export const  STATUS_RESPONSE = 'STATUS_RESPONSE';
-//
+import { STATUS_RESPONSE } from "../constants/actionConst";
 
+// Status response reducers
+//
 const statusResponseRdc = (state = [], action: any) => {
-    switch(action.type) {
+    switch (action.type) {
         case STATUS_RESPONSE:
             return {
                 ...state,
-                statusResponse:action.payload
+                statusResponse: action.payload
             };
         default:
             return state;

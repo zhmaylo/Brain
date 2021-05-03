@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { getValueStore, setValueStore } from '../../api/setting/setting';
 import { use_State } from '../../api/setting/use_State';
-import { WINDOW_WIDTH } from '../../constants/otherConst';
 
-export const SetValueCmp = ({ title, keyStore, valueDef, onChange }) => {
-    let {value, setValue} = use_State('');
+
+export const SetValueCmp = ({ title, keyStore, valueDef, onChangeValue, secure=false }) => {
+    let { value, setValue } = use_State('');
     getValueStore(keyStore, valueDef).then((value: string) => { setValue(value) });
 
     return (
@@ -14,9 +14,10 @@ export const SetValueCmp = ({ title, keyStore, valueDef, onChange }) => {
             <TextInput
                 style={styles.inputValue}
                 defaultValue={value}
+                secureTextEntry={secure}
                 onChangeText={(value) => {
                     setValueStore(keyStore, value);
-                    onChange(value);
+                    onChangeValue(value);
                 }}
             />
         </View>
@@ -26,22 +27,22 @@ export const SetValueCmp = ({ title, keyStore, valueDef, onChange }) => {
 const styles = StyleSheet.create({
     itemValue: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: 'white',
         padding: 5,
+        width: 400,
     },
     titleValue: {
         fontSize: 18,
         fontWeight: "600",
-        width: 90,
+        width: 100,
     },
     inputValue: {
         borderColor: "#f0f0f0",
         color: 'black',
         borderWidth: 2,
         height: 50,
-        width: WINDOW_WIDTH/1.66,
+        width: 250,
         backgroundColor: 'white',
         textAlign: 'center',
         textAlignVertical: 'center',
@@ -50,3 +51,5 @@ const styles = StyleSheet.create({
         fontWeight: "600",
     }
 })
+
+            

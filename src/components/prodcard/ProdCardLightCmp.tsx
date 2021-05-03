@@ -3,9 +3,9 @@ import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import { WINDOW_HEIGHT } from '../../constants/otherConst';
 import { WARANTY_HOME, WARANTY_END, ID_HOME, CODE_HOME } from '../../constants/productsConst';
 import { PROD_SCR } from '../../constants/appNavigatorConst';
-import { PROD_CURR_DESCRIPTION, PROD_CURR_IMAGES } from '../../reducers/prodCurrentRdc';
 import { prodImgLoad } from '../../api/products/prodImgLoad';
 import { getDealerPercent, getDealerUAH } from '../../api/prodCard/prodCard';
+import { PROD_CURR_DESCRIPTION, PROD_CURR_IMAGES } from '../../constants/actionConst';
 
 
 // product card

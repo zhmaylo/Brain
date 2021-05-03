@@ -4,7 +4,8 @@ import { getData, storeData } from "../storage/storage";
 // getValueStore - return value from storage. if value==null(undefined) then return valueDef
 // key - value key 
 // valueDef - value by default.
-export const getValueStore = async (keyStore: string, valueDef: string) => {
+export const getValueStore = async (keyStore: string, valueDef? : string) => {
+    if (valueDef=== undefined) valueDef='';
     let data = await getData(keyStore)
     if (data != null) return data;
     // set value by default

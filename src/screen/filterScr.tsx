@@ -7,7 +7,7 @@ import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { ContextApp } from "../reducers/unionRdc";
 import { FILTER_HEADER_TITLE } from '../constants/filterConst';
 import { InputRangeCmp } from '../components/filter/InputRangeCmp';
-import { MAX_SHOW_LIMIT, MIN_SHOW_LIMIT } from '../reducers/filterRdc';
+import { MAX_SHOW_LIMIT, MIN_SHOW_LIMIT } from '../constants/actionConst';
 
 
 // filterScr

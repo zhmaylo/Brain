@@ -3,11 +3,10 @@ import { URL_GET_PRODUCTS } from "../../constants/urlConst";
 import { middleWareFetch } from './../fetch/middleWareFetch';
 import { OFFSET, LIMIT } from './../../constants/productsConst';
 import { argMiddle } from './../argMiddle';
-import { SPINER_TOGGLE } from "../../reducers/spinerRdc";
-import { PROG_BAR_CUR_VOL, PROG_BAR_MAX_VOL } from "../../reducers/progBarRdc";
 import * as storage from '../storage/storage';
 import { SYNC_OFFSET_KEY } from "../../constants/storageConst";
 import clone from "clone";
+import { PROG_BAR_CUR_VOL, PROG_BAR_MAX_VOL, SPINER_TOGGLE } from "../../constants/actionConst";
 
 
 // getProductsList - returns products list of a specified category from server. JSON-format.
@@ -15,7 +14,7 @@ import clone from "clone";
 // sidAndTime - session SID and TimeStamp 
 // dispatch - this is callback
 export const getProductsList = async (categoryID, sidAndTime, dispatch, flagSync = false) => {
-    let json = [], offset = 0, arrTemp = 0, result;
+    let json = [], offset = 0, arrTemp, result;
 
     offset = await loadOffset(flagSync);
 

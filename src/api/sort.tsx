@@ -2,7 +2,7 @@
 // buttonSort - sort list by price from smallest to largest
 // listProd - input list
 
-import { SORT_PRICE_DESCEND, SORT_PRICE_ASCEND, SORT_VENDOR_ASCEND, SORT_VENDOR_DESCEND, SORT_WARRANTY_ASCEND, SORT_WARRANTY_DESCEND } from "../reducers/sortListProdRdc";
+import { SORT_PRICE_DESCEND, SORT_PRICE_ASCEND, SORT_VENDOR_ASCEND, SORT_VENDOR_DESCEND, SORT_WARRANTY_ASCEND, SORT_WARRANTY_DESCEND } from "../constants/actionConst";
 
 // sortBySwitch - sorting ListProd by sortSwitchArr
 // listProd - product array

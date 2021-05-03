@@ -6,7 +6,7 @@ import { LOGIN_TITLE, SETTING_HEADER_TITLE } from '../constants/settingConst';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { SetValueCmp } from '../components/setting/SetValueCmp';
 import { LOGIN_KEY } from '../constants/storageConst';
-import { getLogin, LOGIN_DEFAULT } from '../constants/authorizConst';
+import { setLogin, LOGIN_DEFAULT } from '../constants/authorizConst';
 import { ContextApp } from '../reducers/unionRdc';
 
 
@@ -27,7 +27,7 @@ export default function SettingScr(props: any) {
                     keyStore={LOGIN_KEY}
                     valueDef={LOGIN_DEFAULT}
                     onChange={(value: string) => {
-                        getLogin(value);
+                        setLogin(value);
                     }}
                 />
             </View>

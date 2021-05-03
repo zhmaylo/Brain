@@ -14,7 +14,8 @@ import { HeaderBack } from '../components/header/HeaderBackCmp';
 import * as storage from '../api/storage/storage';
 import { RECENT_CATEG_KEY } from '../constants/storageConst';
 import { getDealerPriceRange } from '../api/filter/filter';
-import { MINMAX_DEAL_PRICE } from '../reducers/filterRdc';
+import { MINMAX_DEAL_PRICE } from '../constants/actionConst';
+
 
 export default function CategoryScr(props) {
     const { state, dispatch } = useContext(ContextApp);
@@ -49,11 +50,11 @@ export default function CategoryScr(props) {
                                 .then((productsList) => {
                                     console.log("getProductsList => ", productsList);
                                     productsList = sortBySwitch(productsList, clone(state.sortSwitchArrRdc.sortSwitchArr));
-                                    
+
                                     let minmax = getDealerPriceRange(productsList);
                                     //Note minmax[{minDealerPrice, maxDealerPrice}]
                                     dispatch({ type: MINMAX_DEAL_PRICE, payload: minmax });
-                                    
+
                                     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
                                     console.log('🚀 ~ file: categoryScr.js ~ line 50 ~ .then ~ state', state);
                                 })

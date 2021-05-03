@@ -1,14 +1,13 @@
+import { IS_APP_INIT } from "../constants/actionConst";
 
-// application initialization flag
-export const IS_APP_INIT = 'IS_APP_INIT';
+// App init reducers
 //
-
-const isAppInitRdc = (state = false, action) => {
-    switch(action.type) {
+const isAppInitRdc = (state = [], action: any) => {
+    switch (action.type) {
         case IS_APP_INIT:
             return {
                 ...state,
-                isAppInit:action.payload
+                isAppInit: action.payload
             };
         default:
             return state;

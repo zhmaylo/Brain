@@ -8,7 +8,8 @@ import { CATEGORY_FROM_FILE } from './../constants/categoryJSON';
 import { PRODUCTS_FROM_FILE } from './../constants/productsJSON';
 import { sortBySwitch } from './sort';
 import { getDealerPriceRange } from "./filter/filter";
-import { MINMAX_DEAL_PRICE } from "../reducers/filterRdc";
+import { MINMAX_DEAL_PRICE } from "../constants/actionConst";
+
 
 // devStub - stub for developer
 export const devStub = (state, dispatch) => {

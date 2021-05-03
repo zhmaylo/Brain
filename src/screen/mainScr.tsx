@@ -12,23 +12,17 @@ import { devStub } from '../api/dev';
 import { SpinerСmp } from '../components/SpinerCmp';
 import { ListProdCmp } from '../components/ListProdCmp/ListProdCmp';
 import { sortBySwitch } from '../api/sort';
-import { PRODUCTS_LIST } from '../reducers/productsListRdc';
-import { CATEGORY_LIST } from '../reducers/categoryListRdc';
-import { IS_APP_INIT } from '../reducers/isAppInitRdc';
 import * as storage from '../api/storage/storage';
-import { LOGIN_KEY, RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from '../constants/storageConst';
+import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from '../constants/storageConst';
 import { getDealerPriceRange, getFilteredProducts } from '../api/filter/filter';
-import { MINMAX_DEAL_PRICE } from '../reducers/filterRdc';
-import { LOGIN_SCR, SETTING_SCR } from '../constants/appNavigatorConst';
-import { getValueStore } from '../api/setting/setting';
-import { getLogin, LOGIN_DEFAULT } from '../constants/authorizConst';
+import { CATEGORY_LIST, IS_APP_INIT, MINMAX_DEAL_PRICE, PRODUCTS_LIST } from '../constants/actionConst';
 
 let i = 0;
 
 // const devMode = true;
 const devMode = false;
 
-export default function MainScr(props) {
+export default function MainScr(props: any) {
     const { state, dispatch } = useContext(ContextApp);
     useEffect(() => {
         const initApp = async () => {

@@ -1,18 +1,14 @@
+import { CATEGORY_LIST, VIEW_LIST_CAT } from "../constants/actionConst";
 
-// categories list (JSON format)
-export const  CATEGORY_LIST = 'CATEGORY_LIST';
-//
-// view categories list (JSON format)
-export const  VIEW_LIST_CAT  = 'VIEW_LIST_CAT';
-//
+// Categories list reducers
 
 //loads product data from the server into State
-export const categoryListRdc = (state = false, action) => {
-    switch(action.type) {
+export const categoryListRdc = (state = [], action: any) => {
+    switch (action.type) {
         case CATEGORY_LIST:
             return {
                 ...state,
-                categoryList:action.payload
+                categoryList: action.payload
             };
         default:
             return state;
@@ -21,12 +17,12 @@ export const categoryListRdc = (state = false, action) => {
 
 
 //loads the current displayed list of categories into State
-export const viewListCatRdc = (state = false, action) => {
-    switch(action.type) {
+export const viewListCatRdc = (state = [], action: any) => {
+    switch (action.type) {
         case VIEW_LIST_CAT:
             return {
                 ...state,
-                viewListCat : action.payload
+                viewListCat: action.payload
             };
         default:
             return state;

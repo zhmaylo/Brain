@@ -28,8 +28,8 @@ export const AppNavigator = () => (
         >
 
             <Drawer.Screen name={LOGIN_SCR} component={LoginScr} />
-            <Drawer.Screen name={SETTING_SCR} component={SettingScr} />
             <Drawer.Screen name={MAIN_SCR} component={MainScr} />
+            <Drawer.Screen name={SETTING_SCR} component={SettingScr} />
             <Drawer.Screen name={FILTER_SCR} component={FilterScr} />
             <Drawer.Screen name={PROD_SCR} component={ProdScr} />
             <Drawer.Screen name={CATEG_SCR} component={CategoryScr} />

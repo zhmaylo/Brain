@@ -8,12 +8,13 @@ jest.mock('../../api/setting/use_State');
 test('renders correctly', () => {
 
     let title: any = 'test title';
-    let key: any = 'key';
+    let keyStore: any = 'key';
     let valueDef: any = 'valueDef';
-    const onChange = () => { };
+    let onChangeValue: any;
+    let secure = true;
 
     const tree = renderer.create(
-        SetValueCmp({ title, key, valueDef, onChange })).toJSON();
+        SetValueCmp({ title, keyStore, valueDef, onChangeValue, secure })).toJSON();
 
         expect(tree).toMatchSnapshot();
 });

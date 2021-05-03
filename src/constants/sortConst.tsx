@@ -4,7 +4,7 @@
 
 import { SORT_PRICE_ASCEND, SORT_PRICE_DESCEND, 
         SORT_VENDOR_ASCEND, SORT_VENDOR_DESCEND, 
-        SORT_WARRANTY_ASCEND, SORT_WARRANTY_DESCEND } from "../reducers/sortListProdRdc";
+        SORT_WARRANTY_ASCEND, SORT_WARRANTY_DESCEND } from "../constants/actionConst";
 
 // header name 
 export const SORT_HEADER_TITLE = 'Сортировка';

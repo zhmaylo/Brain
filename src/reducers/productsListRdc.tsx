@@ -1,18 +1,14 @@
+import { PRODUCTS_LIST, SIZE_LIST_PROD } from "../constants/actionConst";
 
-// products list (JSON format)
-export const  PRODUCTS_LIST = 'PRODUCTS_LIST';
+// Product list reducers
 //
-// size view list products
-export const  SIZE_LIST_PROD = 'SIZE_LIST_PROD';
-//
-
 // loads products list from the server into State
-export const productsListRdc = (state = false, action) => {
-    switch(action.type) {
+export const productsListRdc = (state = [], action: any) => {
+    switch (action.type) {
         case PRODUCTS_LIST:
             return {
                 ...state,
-                productsList:action.payload
+                productsList: action.payload
             };
         default:
             return state;
@@ -20,12 +16,12 @@ export const productsListRdc = (state = false, action) => {
 }
 
 // lenght view list products
-export const sizeListProdRdc = (state = false, action) => {
-    switch(action.type) {
+export const sizeListProdRdc = (state = [], action: any) => {
+    switch (action.type) {
         case SIZE_LIST_PROD:
             return {
                 ...state,
-                sizeListProd:action.payload
+                sizeListProd: action.payload
             };
         default:
             return state;

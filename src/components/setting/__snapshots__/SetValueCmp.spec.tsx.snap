@@ -7,8 +7,8 @@ exports[`renders correctly 1`] = `
       "alignItems": "center",
       "backgroundColor": "white",
       "flexDirection": "row",
-      "justifyContent": "space-between",
       "padding": 5,
+      "width": 400,
     }
   }
 >
@@ -17,7 +17,7 @@ exports[`renders correctly 1`] = `
       Object {
         "fontSize": 18,
         "fontWeight": "600",
-        "width": 90,
+        "width": 100,
       }
     }
   >
@@ -30,6 +30,7 @@ exports[`renders correctly 1`] = `
     defaultValue="1"
     onChangeText={[Function]}
     rejectResponderTermination={true}
+    secureTextEntry={true}
     style={
       Object {
         "backgroundColor": "white",
@@ -41,7 +42,7 @@ exports[`renders correctly 1`] = `
         "height": 50,
         "textAlign": "center",
         "textAlignVertical": "center",
-        "width": 451.8072289156627,
+        "width": 250,
       }
     }
     underlineColorAndroid="transparent"

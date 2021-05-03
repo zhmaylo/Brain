@@ -15,6 +15,7 @@ import { prodCurrentRdc } from './prodCurrentRdc';
 import { syncDataRdc } from './synDataRdc';
 import { filterRdc } from './filterRdc';
 import { progBarRdc } from './progBarRdc';
+import { loginRdc } from './loginRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -112,8 +113,19 @@ export const initialState = {
     progBarRdc: {
         progBarMaxVol: 0,
         progBarCurVol: 0,
-    }
+    },
     //End. Progress Bar
+    ////////////////////////////////
+
+    ////////////////////////////////
+    //Start. Login
+    loginRdc: {
+        login: '',
+        password: '',
+        pass_md5: '',
+        login_error: '',
+    },
+    //End. Login
     ////////////////////////////////
 
 };
@@ -170,6 +182,12 @@ export const unionRdc = combineReducers(
         //Start. Progress Bar
         progBarRdc: progBarRdc,
         //End. Progress Bar
+        ////////////////////////////////
+       
+        ////////////////////////////////
+        //Start. Login
+        loginRdc: loginRdc,
+        //End. Login
         ////////////////////////////////
 
         isAppInitRdc: isAppInitRdc,

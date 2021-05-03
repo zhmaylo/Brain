@@ -1,15 +1,14 @@
+import { NUM_COLUM_PROD } from "../constants/actionConst";
 
-// number of columns of displayed products
-export const  NUM_COLUM_PROD = 'NUM_COLUM_PROD';
+// Number column of main screen reducers
 //
-
 //set number collumns view list products
-export const numColumProdRdc = (state = false, action) => {
-    switch(action.type) {
+export const numColumProdRdc = (state = [], action: any) => {
+    switch (action.type) {
         case NUM_COLUM_PROD:
             return {
                 ...state,
-                numColumProd:action.payload
+                numColumProd: action.payload
             };
         default:
             return state;

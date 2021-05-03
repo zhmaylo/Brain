@@ -1,15 +1,14 @@
+import { SESSION_SID } from "../constants/actionConst";
 
-// SID session 
-export const  SESSION_SID  = 'SESSION_SID';
+// SID reducers
 //
-
-const sessionSidRdc = (state = false, action) => {
+const sessionSidRdc = (state = [], action: any) => {
     // console.log("sessionSidRdc.action", action);
-    switch(action.type) {
+    switch (action.type) {
         case SESSION_SID:
             return {
                 ...state,
-                sessionSid : action.payload 
+                sessionSid: action.payload
             };
         default:
             return state;
