@@ -3,7 +3,7 @@ import { View, StyleSheet, Button, Text, TextInput, TouchableOpacity, Image } fr
 import { WINDOW_WIDTH } from '../../constants/otherConst';
 import { ICON_FOOTER } from '../../constants/footerConst';
 import { buttonViewProd } from '../../api/footer/buttonView';
-import { SETTING_SCR, SYNC_DATA_SCR } from '../../constants/appNavigatorConst';
+
 
 //main screen footer
 const itemFooter = (iconSource: any, iconName: string, iconUrl: any) => {
@@ -34,7 +34,6 @@ export const FooterCmp = (props, state, dispatch) => {
                 dispatch({ type: 'NUM_COLUM_PROD', payload: num });
             })}
             {/* {itemFooter(ICON_FOOTER[2].iconSource, ICON_FOOTER[2].iconName, () => { props.navigation.navigate(SYNC_DATA_SCR) })} */}
-            {itemFooter(ICON_FOOTER[3].iconSource, ICON_FOOTER[3].iconName, () => { props.navigation.navigate(SETTING_SCR) })}
         </View >
     )
 }

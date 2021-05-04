@@ -5,7 +5,7 @@ import { ContextApp } from '../reducers/unionRdc';
 import { HeaderBack } from '../components/header/HeaderBackCmp';
 import { FooterBack } from '../components/footer/FooterBackCmp';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
-import { SpinerСmp } from '../components/SpinerCmp';
+import { SpinerСmp } from '../components/spiner/SpinerCmp';
 import { PROD_HEADER_TITLE } from '../constants/headerBackConst';
 
 //shows a product pictures 

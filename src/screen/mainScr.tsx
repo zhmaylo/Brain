@@ -9,7 +9,7 @@ import { FooterCmp } from '../components/footer/FooterCmp';
 import { setFieldIsChildren } from '../api/category/symbChildren';
 import { getProductsList } from '../api/products/products';
 import { devStub } from '../api/dev';
-import { SpinerСmp } from '../components/SpinerCmp';
+import { SpinerСmp } from '../components/spiner/SpinerCmp';
 import { ListProdCmp } from '../components/ListProdCmp/ListProdCmp';
 import { sortBySwitch } from '../api/sort';
 import * as storage from '../api/storage/storage';
