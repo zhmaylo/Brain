@@ -10,12 +10,13 @@ import { setFieldIsChildren } from '../api/category/symbChildren';
 import { getProductsList } from '../api/products/products';
 import { devStub } from '../api/dev';
 import { SpinerСmp } from '../components/spiner/SpinerCmp';
-import { ListProdCmp } from '../components/ListProdCmp/ListProdCmp';
+import { ListProdCmp } from '../components/listprod/ListProdCmp';
 import { sortBySwitch } from '../api/sort';
 import * as storage from '../api/storage/storage';
 import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from '../constants/storageConst';
 import { getDealerPriceRange, getFilteredProducts } from '../api/filter/filter';
 import { CATEGORY_LIST, IS_APP_INIT, MINMAX_DEAL_PRICE, PRODUCTS_LIST } from '../constants/actionConst';
+import { SPINER_MES_LOAD } from '../constants/spinerConst';
 
 let i = 0;
 
@@ -89,8 +90,10 @@ export default function MainScr(props: any) {
             );
         }
         else return (
-            <View style={styles.container}>
-                <SpinerСmp />
+            <View style={styles.spiner}>
+                <SpinerСmp
+                    spiner_mes={SPINER_MES_LOAD}
+                />
             </View>
         )
 
@@ -105,7 +108,8 @@ const styles = StyleSheet.create({
     spiner: {
         flex: 1,
         backgroundColor: '#fff',
-        paddingTop: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
 });

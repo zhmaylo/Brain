@@ -1,4 +1,4 @@
-import { LOGIN, LOGIN_ERROR, PASSWORD, PASS_MD5 } from "../../constants/actionConst";
+import { LOGIN, LOGIN_ERROR, PASSWORD, PASS_MD5, SPINER_TOGGLE } from "../../constants/actionConst";
 import { setLogin, setPassMD5 } from "../../constants/authorizConst";
 import { ERRORS_RESPONSE } from "../../constants/errorConst";
 import { getSid } from "../sid/sid"
@@ -9,6 +9,7 @@ let md5 = require("md5");
 //              and create user authorization data (authorizConst.tsx)
 //
 export const setAutoriz = async (dispatch: any, dispatchType: any, value: string) => {
+    dispatch({ type: SPINER_TOGGLE, payload: true });
     dispatch({ type: dispatchType, payload: value });
     if (dispatchType == LOGIN) {
         setLogin(value);
@@ -18,7 +19,9 @@ export const setAutoriz = async (dispatch: any, dispatchType: any, value: string
         dispatch({ type: PASS_MD5, payload: pass_md5 });
         setPassMD5(pass_md5);
     };
-    return await checkSID(dispatch);
+    let outData = await checkSID(dispatch);
+    dispatch({ type: SPINER_TOGGLE, payload: false });
+    return outData;
 };
 
 // checkSID - login and password verification

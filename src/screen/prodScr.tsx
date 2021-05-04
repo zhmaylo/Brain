@@ -7,6 +7,7 @@ import { FooterBack } from '../components/footer/FooterBackCmp';
 import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 import { SpinerСmp } from '../components/spiner/SpinerCmp';
 import { PROD_HEADER_TITLE } from '../constants/headerBackConst';
+import { SPINER_MES_LOAD } from '../constants/spinerConst';
 
 //shows a product pictures 
 export default function ProdScr(props) {
@@ -34,8 +35,8 @@ export default function ProdScr(props) {
     )
 
     return (
-        <View style={styles.container}>
-            <SpinerСmp/>
+        <View style={styles.spiner}>
+            <SpinerСmp spiner_mes={SPINER_MES_LOAD} />
         </View>
     )
 }
@@ -52,5 +53,13 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor: "white",
     },
+    spiner: {
+        flex: 1,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+
 
 });

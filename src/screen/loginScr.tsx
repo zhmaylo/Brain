@@ -1,21 +1,28 @@
 import React, { useContext, useEffect } from 'react';
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
-import { LOGIN_TITLE, PASSWORD_TITLE } from '../constants/loginConst';
+import { SafeAreaView, StatusBar, Text, View, StyleSheet } from 'react-native';
+import { LOGIN_TITLE, PASSWORD_TITLE, TITLE_BTN_ENTER } from '../constants/loginConst';
 import { SetValueCmp } from '../components/login/SetValueCmp';
 import { LOGIN_KEY, PASSWORD_KEY } from '../constants/storageConst';
 import { ContextApp } from '../reducers/unionRdc';
-import { LOGIN, PASSWORD } from '../constants/actionConst';
+import { LOGIN, PASSWORD, SPINER_TOGGLE } from '../constants/actionConst';
 import { getValueStore, setAutoriz } from '../api/login/login';
+import { SpinerСmp } from '../components/spiner/SpinerCmp';
+import { SPINER_MES_CHECK } from '../constants/spinerConst';
+import { ButtonCmp } from '../components/login/ButtonCmp';
+import { MAIN_SCR } from '../constants/appNavigatorConst';
+import { WINDOW_HEIGHT } from '../constants/otherConst';
 
 export default function LoginScr(props: any) {
     const { state, dispatch } = useContext(ContextApp);
     useEffect(() => {
+
         getValueStore(LOGIN_KEY).then((value) => {
             setAutoriz(dispatch, LOGIN, value);
             getValueStore(PASSWORD_KEY).then((value) => {
                 setAutoriz(dispatch, PASSWORD, value);
             });
         })
+
     }, []);
 
     return (
@@ -43,12 +50,28 @@ export default function LoginScr(props: any) {
                     MD5: {state.loginRdc.pass_md5}
                 </Text>
                 <Text style={styles.md5} >
-                    sid test: {state.loginRdc.login_error.message}
+                    {state.loginRdc.login_error.message}
                 </Text>
+                <ButtonCmp
+                    title={TITLE_BTN_ENTER}
+                    onPressBtn={() => {
+                        if (state.loginRdc.login_error.code == 0) {
+                            props.navigation.navigate(MAIN_SCR);
+                        }
+                    }}
+                />
+            </View>
+            <View style={styles.spiner}>
+                <Spiner state={state.spinerToggleRdc.spinerToggle} />
             </View>
         </SafeAreaView >
     );
-}
+};
+
+const Spiner = ({ state }) => {
+    if (state) return (<SpinerСmp spiner_mes={SPINER_MES_CHECK} />)
+    if (!state) return <></>;
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -65,5 +88,11 @@ const styles = StyleSheet.create({
     md5: {
         fontSize: 10,
         fontWeight: "600",
+    },
+    spiner: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
     }
+
 });

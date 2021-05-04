@@ -7,7 +7,6 @@ import { FOOTER_BACK_TITLE } from '../constants/footerBackConst';
 
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../constants/otherConst';
 import { ScrollView } from 'react-native-gesture-handler';
-import { prodGallImages } from '../constants/prodGallConst';
 import { HEADER_BUTTON_SIZE } from '../constants/headerConst';
 import { PROD_GALL_HEADER_TITLE } from '../constants/headerBackConst';
 
@@ -32,8 +31,6 @@ export default function ProdGallScr(props) {
                     snapToOffsets={currImages.map((x, i) => (i * WINDOW_WIDTH))}
 
                 >
-                    {/* <Image style={styles.prodImage} source={{ uri: (currImages[0].large_image) }} /> */}
-                    {/* <Image style={styles.prodImage} source={{ uri: (currImages[1].large_image) }} /> */}
                     {currImages.map((x, i) =>
 
                         <View

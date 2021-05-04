@@ -8,7 +8,8 @@ export const ERRORS_SID = [3,4,5];
 export const NO_ERRORS = {code: -1, message: "Response Status 'Ok'. No error. :)"};
 // errors response
 export const ERRORS_RESPONSE = [
-    {code: 0, message: "Error 0 - rezerv / Резерв"},
+    // {code: 0, message: "Error 0 - rezerv / Резерв"},
+     {code: 0, message: "Ошибок нет"},
     {code: 1, message: "Login is required parameter / Не указан логин"},
     {code: 2, message: "Password is required parameter /	Не указан пароль"},
     {code: 3, message: "Session identifier is required parameter / Не указан идентификатор сессии (SID)"},
@@ -16,7 +17,8 @@ export const ERRORS_RESPONSE = [
     {code: 5, message: "Session identifier is outdate / Окончилось время жизни сессии"},
 
     {code: 6, message: "Incorrect login or password /	Неправильный логин или пароль"},
-    {code: 7, message: "User was blocked / Пользователь заблокирован"},
+    // {code: 7, message: "User was blocked / Пользователь заблокирован"},
+    {code: 7, message: "Ошибка в логине или пароле"},
     {code: 8, message: "Incorrect categoryID / Неправильный идентификатор категории (categoryID)"},
     {code: 9, message: "Incorrect filterID / Неправильный идентификатор фильтра (filterID)"},
     {code: 10, message: "Incorrect limit / Неправильное значение параметра limit"}];

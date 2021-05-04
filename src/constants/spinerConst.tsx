@@ -3,7 +3,9 @@
 //
 
 //spinner message 
-export const SPINER_MES = 'Загрузка...';
+export const SPINER_MES_LOAD = 'Загрузка...';
+export const SPINER_MES_CHECK = 'Проверка...';
+
 //
 // End. Section 'Footer image'
 /////////////////////////////
