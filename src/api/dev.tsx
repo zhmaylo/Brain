@@ -10,9 +10,9 @@ import { sortBySwitch } from './sort';
 import { getDealerPriceRange } from "./filter/filter";
 import { MINMAX_DEAL_PRICE } from "../constants/actionConst";
 
-
 // devStub - stub for developer
-export const devStub = (state, dispatch) => {
+export const devStub = (state: any, dispatch: any) => {
+
     let data = addFieldChildren(CATEGORY_FROM_FILE);
     data = setFieldIsChildren(data);
     data = sortListbyName(data);
@@ -30,7 +30,8 @@ export const devStub = (state, dispatch) => {
 
     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
     dispatch({ type: 'IS_APP_INIT', payload: true });
-    // });
+   
+    
     return;
 }
 

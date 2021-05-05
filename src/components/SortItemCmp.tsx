@@ -1,6 +1,6 @@
 import React  from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Switch } from 'react-native-gesture-handler';
+import { StyleSheet, Switch, Text, View } from 'react-native';
+// import { Switch } from 'react-native-gesture-handler';
 
 // SortItemCmp - output item and get new volume of Switch (single choice)
 // item - current volume of switch and current name of sorting

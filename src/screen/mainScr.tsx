@@ -17,11 +17,9 @@ import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from '../constants/storage
 import { getDealerPriceRange, getFilteredProducts } from '../api/filter/filter';
 import { CATEGORY_LIST, IS_APP_INIT, MINMAX_DEAL_PRICE, PRODUCTS_LIST } from '../constants/actionConst';
 import { SPINER_MES_LOAD } from '../constants/spinerConst';
+import { DEV_MODE } from '../constants/devModeConst';
 
 let i = 0;
-
-// const devMode = true;
-const devMode = false;
 
 export default function MainScr(props: any) {
     const { state, dispatch } = useContext(ContextApp);
@@ -49,20 +47,20 @@ export default function MainScr(props: any) {
         }
 
         // Start Stub. Section Dev. .
-        if (devMode) devStub(state, dispatch);
+        if (DEV_MODE) {
+            devStub(state, dispatch);
+        }
         //End Stub. Section Dev.
         else if (i < 1) {
             initApp();
             i++;
         }
 
-        // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        // props.navigation.navigate(SETTING_SCR);
-        // props.navigation.navigate(LOGIN_SCR);
-        // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
     }, [!state.isAppInitRdc.isAppInit]);
 
+    // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // props.navigation.navigate(SEARCH_SCR);
+    // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     if ((state.statusResponseRdc.statusResponse.code !== -1) &&
         (state.statusResponseRdc.statusResponse.code !== undefined))

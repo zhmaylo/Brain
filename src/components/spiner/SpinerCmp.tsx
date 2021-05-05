@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, Text, ActivityIndicator } from 'react-native';
-import { SPINER_MES_LOAD } from '../../constants/spinerConst';
 
 // spinner component
 export const SpinerСmp = ({spiner_mes}) => {

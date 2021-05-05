@@ -2,13 +2,13 @@ import React from 'react';
 import { Text } from 'react-native';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export const ButtonCmp = ({ title, onPressBtn }) => {
+export const ButtonCmp = ({ title, onPressBtn, active=true }) => {
     return (
         <TouchableOpacity
             style={{
                 borderColor: "white",
                 borderWidth: 2,
-                backgroundColor: 'lightgray',
+                backgroundColor: (active)? 'lightgray' : '#f1f1f1',
                 alignItems: 'center',
                 justifyContent: 'center',
             }}
@@ -19,9 +19,8 @@ export const ButtonCmp = ({ title, onPressBtn }) => {
         >
             <Text style={{
                 margin: 8,
-                // weight: 400,
                 fontSize: 14,
-                color: 'black',
+                color: (active) ? 'black' : 'lightgray',
             }} >
                 {title}</Text>
         </TouchableOpacity>

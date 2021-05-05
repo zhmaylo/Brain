@@ -11,6 +11,7 @@ import { SPINER_MES_CHECK } from '../constants/spinerConst';
 import { ButtonCmp } from '../components/login/ButtonCmp';
 import { MAIN_SCR } from '../constants/appNavigatorConst';
 import { WINDOW_HEIGHT } from '../constants/otherConst';
+import { DEV_MODE } from '../constants/devModeConst';
 
 export default function LoginScr(props: any) {
     const { state, dispatch } = useContext(ContextApp);
@@ -24,7 +25,8 @@ export default function LoginScr(props: any) {
         })
 
     }, []);
-
+    if (DEV_MODE) props.navigation.navigate(MAIN_SCR);
+    let active = state.loginRdc.login_error.code;
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar hidden={true} />
@@ -46,32 +48,33 @@ export default function LoginScr(props: any) {
                         setAutoriz(dispatch, PASSWORD, password);
                     }}
                 />
-                <Text style={styles.md5} >
+                {/* <Text style={styles.md5} >
                     MD5: {state.loginRdc.pass_md5}
-                </Text>
+                </Text> */}
                 <Text style={styles.md5} >
                     {state.loginRdc.login_error.message}
                 </Text>
                 <ButtonCmp
                     title={TITLE_BTN_ENTER}
-                    onPressBtn={() => {
-                        if (state.loginRdc.login_error.code == 0) {
-                            props.navigation.navigate(MAIN_SCR);
-                        }
-                    }}
+                    active= {(active==0) ? true : false }
+                    onPressBtn={() => { if (active==0) props.navigation.navigate(MAIN_SCR) }}
+
                 />
-            </View>
-            <View style={styles.spiner}>
-                <Spiner state={state.spinerToggleRdc.spinerToggle} />
+
+                <View style={styles.spiner}>
+                    <Spiner state={state.spinerToggleRdc.spinerToggle} />
+                </View>
+
             </View>
         </SafeAreaView >
     );
 };
 
 const Spiner = ({ state }) => {
-    if (state) return (<SpinerСmp spiner_mes={SPINER_MES_CHECK} />)
+    if (state) return (<SpinerСmp spiner_mes={SPINER_MES_CHECK} />);
     if (!state) return <></>;
 };
+
 
 const styles = StyleSheet.create({
     container: {
@@ -84,15 +87,17 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
         justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: WINDOW_HEIGHT / 8,
     },
     md5: {
-        fontSize: 10,
+        fontSize: 12,
         fontWeight: "600",
     },
     spiner: {
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
+
     }
 
 });

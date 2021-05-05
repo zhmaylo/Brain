@@ -3,13 +3,12 @@ import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import MainScr from "../screen/mainScr";
-import { FILTER_SCR, PROD_GALL_SCR, CATEG_SCR, SORT_SCR, PROD_SCR, MAIN_SCR,  SEARCH_SCR,  LOGIN_SCR } from '../constants/appNavigatorConst';
+import { FILTER_SCR, PROD_GALL_SCR, CATEG_SCR, SORT_SCR, PROD_SCR, MAIN_SCR, LOGIN_SCR } from '../constants/appNavigatorConst';
 import CategoryScr from '../screen/categoryScr';
 import SortScr from '../screen/sortScr';
 import ProdScr from '../screen/prodScr';
 import ProdGallScr from '../screen/prodGallScr';
 import FilterScr from '../screen/filterScr';
-import SearchScr from '../screen/searchScr';
 import LoginScr from '../screen/loginScr';
 // import menuScr from "../screen/menuScr";
 // import configScr from "../screen/configScr";
@@ -33,7 +32,6 @@ export const AppNavigator = () => (
             <Drawer.Screen name={CATEG_SCR} component={CategoryScr} />
             <Drawer.Screen name={SORT_SCR} component={SortScr} />
             <Drawer.Screen name={PROD_GALL_SCR} component={ProdGallScr} />
-            <Drawer.Screen name={SEARCH_SCR} component={SearchScr} />
 
             {/* <Drawer.Screen name={SYNC_DATA_SCR} component={SyncDataScr} /> */}
             {/* <Drawer.Screen name="MenuScreen" component={menuScr} />
