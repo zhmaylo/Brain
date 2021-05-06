@@ -1,4 +1,13 @@
 /////////////////////////////
+//Start. Search section
+//
+// search string
+export const  SEARCH_REQUEST = 'SEARCH_REQUEST';
+// 
+//End. Search section
+/////////////////////////////
+
+/////////////////////////////
 //Start. Categories list section
 //
 // categories list (JSON format)

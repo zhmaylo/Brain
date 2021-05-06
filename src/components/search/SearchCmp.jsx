@@ -1,15 +1,18 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { TextInput } from "react-native-gesture-handler"
+import { SEARCH_REQUEST } from '../../constants/actionConst'
 import { HEADER_BUTTON_SIZE } from '../../constants/headerConst'
 
 
-export const SearchCmp = () => {
+export const SearchCmp = ({onChangeRequest}) => {
     return (
         <View style={styles.container}>
             <TextInput
                 valueDef='qweqwe'
-                onChangeText={()=>{}}
+                onChangeText={(value) => {
+                    onChangeRequest(SEARCH_REQUEST, value); 
+                }}
             />
         </View>
     )

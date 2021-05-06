@@ -56,23 +56,20 @@ export default function LoginScr(props: any) {
                 </Text>
                 <ButtonCmp
                     title={TITLE_BTN_ENTER}
-                    active= {(active==0) ? true : false }
-                    onPressBtn={() => { if (active==0) props.navigation.navigate(MAIN_SCR) }}
+                    active={(active == 0) ? true : false}
+                    onPressBtn={() => { if (active == 0) props.navigation.navigate(MAIN_SCR) }}
 
                 />
 
                 <View style={styles.spiner}>
-                    <Spiner state={state.spinerToggleRdc.spinerToggle} />
+                    {state.spinerToggleRdc.spinerToggle &&
+                        <SpinerСmp spiner_mes={SPINER_MES_CHECK} />
+                    }
                 </View>
 
             </View>
         </SafeAreaView >
     );
-};
-
-const Spiner = ({ state }) => {
-    if (state) return (<SpinerСmp spiner_mes={SPINER_MES_CHECK} />);
-    if (!state) return <></>;
 };
 
 

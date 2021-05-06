@@ -30,7 +30,7 @@ export default function FilterScr(props) {
                     curValue={minShowLimit}
                     stepPercent={20}
                     minFlag={true}
-                    onChangeCmp={(minShowLimit) => {
+                    onChangeCmp={(minShowLimit: any) => {
                         dispatch({ type: MIN_SHOW_LIMIT, payload: minShowLimit });
                     }}
                 />
@@ -41,7 +41,7 @@ export default function FilterScr(props) {
                     curValue={maxShowLimit}
                     stepPercent={20}
                     minFlag={false}
-                    onChangeCmp={(maxShowLimit) => {
+                    onChangeCmp={(maxShowLimit: any) => {
                         dispatch({ type: MAX_SHOW_LIMIT, payload: maxShowLimit});
                     }}
                 />

@@ -18,6 +18,7 @@ import { getDealerPriceRange, getFilteredProducts } from '../api/filter/filter';
 import { CATEGORY_LIST, IS_APP_INIT, MINMAX_DEAL_PRICE, PRODUCTS_LIST } from '../constants/actionConst';
 import { SPINER_MES_LOAD } from '../constants/spinerConst';
 import { DEV_MODE } from '../constants/devModeConst';
+import { getSearchResult } from '../api/search/search';
 
 let i = 0;
 
@@ -70,12 +71,14 @@ export default function MainScr(props: any) {
         if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false)) {
             //apply filterRdc 
             let filteredProducts = getFilteredProducts(state.productsListRdc.productsList, state.filterRdc.minShowLimit, state.filterRdc.maxShowLimit);
-
             // 
+            // apply search
+            getSearchResult(state.productsListRdc.productsList, state.searchRdc.search_request);
+            ////
             return (
                 <SafeAreaView style={styles.container}>
                     <StatusBar hidden={true} />
-                    {HeaderCmp(props)}
+                    <HeaderCmp props={props} dispatch={dispatch} />
                     <ListProdCmp productList={filteredProducts}
                         numCollumns={state.numColumProdRdc.numColumProd}
                         currSizeList={state.sizeListProdRdc.sizeListProd}
@@ -83,7 +86,7 @@ export default function MainScr(props: any) {
                         dispatch={dispatch}
                         props={props}
                     />
-                    {FooterCmp(props, state, dispatch)}
+                    <FooterCmp state={state} dispatch={dispatch}/>
                 </SafeAreaView>
             );
         }
@@ -94,7 +97,6 @@ export default function MainScr(props: any) {
                 />
             </View>
         )
-
 }
 
 const styles = StyleSheet.create({
@@ -102,7 +104,6 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 10,
     },
-
     spiner: {
         flex: 1,
         backgroundColor: '#fff',

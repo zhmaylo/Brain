@@ -25,7 +25,7 @@ const itemFooter = (iconSource: any, iconName: string, iconUrl: any) => {
 }
 
 
-export const FooterCmp = (props, state, dispatch) => {
+export const FooterCmp = ({state, dispatch}) => {
     // console.log('FooterCmp.menuUrl', menuUrl);
     return (
         <View style={styles.container}>

@@ -16,6 +16,7 @@ import { syncDataRdc } from './synDataRdc';
 import { filterRdc } from './filterRdc';
 import { progBarRdc } from './progBarRdc';
 import { loginRdc } from './loginRdc';
+import { searchRdc } from './searchRdc';
 
 
 export const ContextApp = React.createContext(null);
@@ -128,6 +129,14 @@ export const initialState = {
     //End. Login
     ////////////////////////////////
 
+    ////////////////////////////////
+    //Start. Search
+    searchRdc: {
+        search_request: '',
+    },
+    //End. Search
+    ////////////////////////////////
+
 };
 
 
@@ -188,6 +197,12 @@ export const unionRdc = combineReducers(
         //Start. Login
         loginRdc: loginRdc,
         //End. Login
+        ////////////////////////////////
+
+        ////////////////////////////////
+        //Start. Search
+        searchRdc: searchRdc,
+        //End. Search
         ////////////////////////////////
 
         isAppInitRdc: isAppInitRdc,
