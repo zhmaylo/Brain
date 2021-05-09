@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { WINDOW_WIDTH } from '../../constants/otherConst';
 import { ICON_HEADER, HEADER_BUTTON_SIZE } from '../../constants/headerConst';
@@ -6,9 +6,10 @@ import { ICON_HEADER, HEADER_BUTTON_SIZE } from '../../constants/headerConst';
 import { CATEG_SCR } from '../../constants/appNavigatorConst';
 import { SORT_SCR, FILTER_SCR } from './../../constants/appNavigatorConst';
 import { SearchCmp } from '../search/SearchCmp';
+import { ContextApp } from '../../reducers/unionRdc';
 
-export const HeaderCmp = ({ props, dispatch }) => {
-
+export const HeaderCmp = ({ props }) => {
+    const { state, dispatch } = useContext(ContextApp);
     return (
         <View style={styles.container}>
             <TouchableOpacity
@@ -21,6 +22,7 @@ export const HeaderCmp = ({ props, dispatch }) => {
             </TouchableOpacity>
             <View style={styles.searchCmp} >
                 <SearchCmp
+                 valueFromState = {state.searchRdc.search_request}
                     onChangeRequest={(type: any, payload: any) => {
                         dispatch({ type: type, payload: payload });
                     }}

@@ -5,11 +5,11 @@ import { SEARCH_REQUEST } from '../../constants/actionConst'
 import { HEADER_BUTTON_SIZE } from '../../constants/headerConst'
 
 
-export const SearchCmp = ({onChangeRequest}) => {
+export const SearchCmp = ({onChangeRequest, valueFromState}) => {
     return (
         <View style={styles.container}>
             <TextInput
-                valueDef='qweqwe'
+                value={valueFromState}
                 onChangeText={(value) => {
                     onChangeRequest(SEARCH_REQUEST, value); 
                 }}

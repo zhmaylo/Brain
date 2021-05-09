@@ -3,6 +3,9 @@
 // products - products list
 // request - search string
 export const getSearchResult = (products: any, request: string) => {
+    // scheck search length
+    if (request.length == 0) return products;
+
     let combineItem: string;
     let regExpArr = getRegExpArr(request);
     let outProducts = [];
@@ -21,7 +24,7 @@ const isRequestInItem = (regExpArr: any, combineItem: string) => {
     let testRes: any;
     while (i < regExpArr.length) {
         testRes = regExpArr[i].test(combineItem);
-        if (!testRes) {return false};
+        if (!testRes) { return false };
         i++;
     };
     return true;
@@ -41,7 +44,7 @@ const getRegExpArr = (request: string) => {
     });
     return regExpArr;
 };
-    
+
 
 // combine - item strings
 // item -product information
