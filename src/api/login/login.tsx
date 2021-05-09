@@ -1,6 +1,7 @@
 import { LOGIN, LOGIN_ERROR, PASSWORD, PASS_MD5, SPINER_TOGGLE } from "../../constants/actionConst";
-import { setLogin, setPassMD5 } from "../../constants/authorizConst";
+import { LOGIN_DEFAULT, PASS_MD5_DEFAULT, setLogin, setPassMD5 } from "../../constants/authorizConst";
 import { ERRORS_RESPONSE } from "../../constants/errorConst";
+import { LOGIN_ADMIN, PASS_ADMIN } from "../../constants/loginConst";
 import { getSid } from "../sid/sid"
 import { getData, storeData } from "../storage/storage";
 let md5 = require("md5");
@@ -19,10 +20,25 @@ export const setAutoriz = async (dispatch: any, dispatchType: any, value: string
         dispatch({ type: PASS_MD5, payload: pass_md5 });
         setPassMD5(pass_md5);
     };
+    adminEnter(dispatch, dispatchType, value);
     let outData = await checkSID(dispatch);
     dispatch({ type: SPINER_TOGGLE, payload: false });
     return outData;
 };
+
+// dev stub
+// adminEnter - set admin pass/login
+export const adminEnter = (dispatch: any, dispatchType: any, value: string) => {
+    if ((dispatchType == LOGIN) && (value == LOGIN_ADMIN)) {
+        dispatch({ type: LOGIN, payload: LOGIN_DEFAULT })
+        setLogin(LOGIN_DEFAULT);
+    };
+    if  ((dispatchType == PASSWORD) && (value == PASS_ADMIN)) {
+        // dispatch({ type: PASSWORD, payload: PASSWORD })
+        dispatch({ type: PASS_MD5, payload: PASS_MD5_DEFAULT });
+        setPassMD5(PASS_MD5_DEFAULT);
+    };
+}
 
 // checkSID - login and password verification
 // return - false - login or password is not correct

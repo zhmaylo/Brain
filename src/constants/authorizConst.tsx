@@ -2,10 +2,8 @@
 /////////////////////////////
 // Start. Section 'User authorization data'
 //
-// API_KEY_DEFAULT
-//
-// export const API_KEY_DEFAULT = "7408fbfbded5974d9b625d05237f6a6f";
-//
+// 
+// 
 // user login/password
 export const LOGIN_DEFAULT = "dzhmaylo@gmail.com";
 let login: string = LOGIN_DEFAULT;

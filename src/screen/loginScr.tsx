@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { SafeAreaView, StatusBar, Text, View, StyleSheet } from 'react-native';
-import { LOGIN_TITLE, PASSWORD_TITLE, TITLE_BTN_ENTER } from '../constants/loginConst';
+import { LOGIN_ADMIN, LOGIN_TITLE, PASSWORD_TITLE, PASS_ADMIN, TITLE_BTN_ENTER } from '../constants/loginConst';
 import { SetValueCmp } from '../components/login/SetValueCmp';
 import { LOGIN_KEY, PASSWORD_KEY } from '../constants/storageConst';
 import { ContextApp } from '../reducers/unionRdc';
-import { LOGIN, PASSWORD, SPINER_TOGGLE } from '../constants/actionConst';
+import { LOGIN, PASSWORD, PASS_MD5, SPINER_TOGGLE } from '../constants/actionConst';
 import { getValueStore, setAutoriz } from '../api/login/login';
 import { SpinerСmp } from '../components/spiner/SpinerCmp';
 import { SPINER_MES_CHECK } from '../constants/spinerConst';
@@ -12,6 +12,7 @@ import { ButtonCmp } from '../components/login/ButtonCmp';
 import { MAIN_SCR } from '../constants/appNavigatorConst';
 import { WINDOW_HEIGHT } from '../constants/otherConst';
 import { DEV_MODE } from '../constants/devModeConst';
+import { LOGIN_DEFAULT, PASS_MD5_DEFAULT } from '../constants/authorizConst';
 
 export default function LoginScr(props: any) {
     const { state, dispatch } = useContext(ContextApp);
@@ -57,7 +58,9 @@ export default function LoginScr(props: any) {
                 <ButtonCmp
                     title={TITLE_BTN_ENTER}
                     active={(active == 0) ? true : false}
-                    onPressBtn={() => { if (active == 0) props.navigation.navigate(MAIN_SCR) }}
+                    onPressBtn={() => {
+                        if (active == 0) props.navigation.navigate(MAIN_SCR)
+                    }}
 
                 />
 
