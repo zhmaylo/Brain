@@ -1,7 +1,7 @@
 import { LOGIN, LOGIN_ERROR, PASSWORD, PASS_MD5, SPINER_TOGGLE } from "../../constants/actionConst";
 import { LOGIN_DEFAULT, PASS_MD5_DEFAULT, setLogin, setPassMD5 } from "../../constants/authorizConst";
 import { ERRORS_RESPONSE } from "../../constants/errorConst";
-import { LOGIN_ADMIN, PASS_ADMIN } from "../../constants/loginConst";
+import { LOGIN_ADMIN, PASS_ADMIN } from "../../constants/authorizConst";
 import { getSid } from "../sid/sid"
 import { getData, storeData } from "../storage/storage";
 let md5 = require("md5");
@@ -33,7 +33,8 @@ export const adminEnter = (dispatch: any, dispatchType: any, value: string) => {
         dispatch({ type: LOGIN, payload: LOGIN_DEFAULT })
         setLogin(LOGIN_DEFAULT);
     };
-    if  ((dispatchType == PASSWORD) && (value == PASS_ADMIN)) {
+
+    if ((dispatchType == PASSWORD) && (value == PASS_ADMIN)) {
         // dispatch({ type: PASSWORD, payload: PASSWORD })
         dispatch({ type: PASS_MD5, payload: PASS_MD5_DEFAULT });
         setPassMD5(PASS_MD5_DEFAULT);

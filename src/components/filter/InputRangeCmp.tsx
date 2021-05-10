@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+import { FILTER_STEP } from '../../constants/filterConst';
 import { inputLeftButton, inputMiddleButton, inputRightButton } from './../../api/filter/filter';
 import { ShowNumberCmp } from './ShowNumberCmp';
 
@@ -19,7 +20,7 @@ export const InputRangeCmp = ({
     minDealerPrice = 0,
     maxDealerPrice = 1000000,
     curValue = 0,
-    stepPercent = 20,
+    stepPercent = FILTER_STEP,
     minFlag = true,
     onChangeCmp,
 }) => {

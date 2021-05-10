@@ -14,7 +14,7 @@ import { HeaderBack } from '../components/header/HeaderBackCmp';
 import * as storage from '../api/storage/storage';
 import { RECENT_CATEG_KEY } from '../constants/storageConst';
 import { getDealerPriceRange } from '../api/filter/filter';
-import { MINMAX_DEAL_PRICE } from '../constants/actionConst';
+import { MINMAX_DEAL_PRICE, SEARCH_REQUEST } from '../constants/actionConst';
 
 
 export default function CategoryScr(props) {
@@ -52,11 +52,12 @@ export default function CategoryScr(props) {
                                     productsList = sortBySwitch(productsList, clone(state.sortSwitchArrRdc.sortSwitchArr));
 
                                     let minmax = getDealerPriceRange(productsList);
-                                    //Note minmax[{minDealerPrice, maxDealerPrice}]
+                                    //Note: minmax = [{minDealerPrice, maxDealerPrice}]
                                     dispatch({ type: MINMAX_DEAL_PRICE, payload: minmax });
+                                    // set search bar
+                                    dispatch({ type: SEARCH_REQUEST, payload: '' });
 
                                     dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
-                                    console.log('🚀 ~ file: categoryScr.js ~ line 50 ~ .then ~ state', state);
                                 })
                             props.navigation.navigate("MainScreen");
                         };

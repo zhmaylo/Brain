@@ -13,11 +13,11 @@ import { MAX_SHOW_LIMIT, MIN_SHOW_LIMIT } from '../constants/actionConst';
 // filterScr
 export default function FilterScr(props) {
     const { state, dispatch } = useContext(ContextApp);
-    
-    let maxDealerPrice=state.filterRdc.maxDealerPrice;
-    let minDealerPrice=state.filterRdc.minDealerPrice;
-    let maxShowLimit=state.filterRdc.maxShowLimit;
-    let minShowLimit=state.filterRdc.minShowLimit;
+
+    let maxDealerPrice = state.filterRdc.maxDealerPrice;
+    let minDealerPrice = state.filterRdc.minDealerPrice;
+    let maxShowLimit = state.filterRdc.maxShowLimit;
+    let minShowLimit = state.filterRdc.minShowLimit;
     return (
 
         <SafeAreaView style={styles.container}>
@@ -25,12 +25,13 @@ export default function FilterScr(props) {
             <HeaderBack props={props} headerName={FILTER_HEADER_TITLE} />
             <View style={styles.inputRange} >
                 <InputRangeCmp
-                    minDealerPrice={minDealerPrice} 
+                    minDealerPrice={minDealerPrice}
                     maxDealerPrice={maxDealerPrice}
                     curValue={minShowLimit}
                     stepPercent={20}
                     minFlag={true}
                     onChangeCmp={(minShowLimit: any) => {
+                        (minShowLimit > maxShowLimit) && (minShowLimit = maxShowLimit)
                         dispatch({ type: MIN_SHOW_LIMIT, payload: minShowLimit });
                     }}
                 />
@@ -42,7 +43,8 @@ export default function FilterScr(props) {
                     stepPercent={20}
                     minFlag={false}
                     onChangeCmp={(maxShowLimit: any) => {
-                        dispatch({ type: MAX_SHOW_LIMIT, payload: maxShowLimit});
+                        (maxShowLimit < minShowLimit) && (maxShowLimit = minShowLimit)
+                        dispatch({ type: MAX_SHOW_LIMIT, payload: maxShowLimit });
                     }}
                 />
             </View>

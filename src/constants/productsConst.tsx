@@ -16,10 +16,10 @@ export const LIMIT = OFFSET;
 // Start. Section 'products list - pagination'
 //
 // volume pagination border
-export const BORDER_PAGIN_PROD = 0.5;
+export const BORDER_PAGIN_PROD = 10.0;
 //
 // pagination step
-export const STEP_PAGIN_PROD = 10;
+export const STEP_PAGIN_PROD = 20;
 //
 // End. Section 'products list - pagination'
 /////////////////////////////

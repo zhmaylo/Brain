@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, Text } from 'react-native';
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from '../../constants/otherConst';
-import { STEP_PAGIN_PROD } from '../../constants/productsConst';
+import { BORDER_PAGIN_PROD, STEP_PAGIN_PROD } from '../../constants/productsConst';
 import { setSizeListProd } from '../../api/products/products';
 import { ProdCardLightCmp } from '../prodcard/ProdCardLightCmp';
 import { PROD_EXPECTED } from '../../constants/productsConst';
@@ -13,9 +13,6 @@ let currSize = 1;
 
 // view list products
 export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, sidAndTime, props }) => {
-    // console.log("ListProdCmp.productList => ", productList);
-    // console.log("ListProdCmp.numCollumns => ", numCollumns);
-
     if (productList.length == 0) return (
         <View style={styles.prodNoneCont}>
             <Text style={styles.prodNoneText} > {PROD_EXPECTED} </Text>
@@ -41,14 +38,10 @@ export const ListProdCmp = ({ productList, numCollumns, currSizeList, dispatch, 
                         // console.log("start pagination")
                         currSize = setSizeListProd(currSizeList, STEP_PAGIN_PROD, productList.length);
                         dispatch({ type: 'SIZE_LIST_PROD', payload: currSize });
-                        // console.log("currSize pagination => ", currSize);
 
                     }}
-                    onEndReachedThreshold={2}
+                    onEndReachedThreshold={BORDER_PAGIN_PROD}
                     refreshing={true}
-
-
-
                 />
             </View>
         );

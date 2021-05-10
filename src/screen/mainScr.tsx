@@ -73,7 +73,7 @@ export default function MainScr(props: any) {
             let filteredProducts = getFilteredProducts(state.productsListRdc.productsList, state.filterRdc.minShowLimit, state.filterRdc.maxShowLimit);
             // 
             // apply search
-            filteredProducts = getSearchResult(state.productsListRdc.productsList, state.searchRdc.search_request);
+            filteredProducts = getSearchResult(filteredProducts, state.searchRdc.search_request);
             ////
             return (
                 <SafeAreaView style={styles.container}>

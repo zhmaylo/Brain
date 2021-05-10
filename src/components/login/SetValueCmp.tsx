@@ -4,7 +4,10 @@ import { getValueStore, setValueStore } from '../../api/login/login';
 import { use_State } from '../../api/login/use_State';
 
 
-export const SetValueCmp = ({ title, keyStore, onChangeValue, secure=false }) => {
+export const SetValueCmp = ({
+    title, keyStore, onChangeValue,
+    secure = false }) => {
+
     let { value, setValue } = use_State('');
     getValueStore(keyStore).then((value: string) => { setValue(value) });
 
@@ -14,8 +17,10 @@ export const SetValueCmp = ({ title, keyStore, onChangeValue, secure=false }) =>
             <TextInput
                 style={styles.inputValue}
                 defaultValue={value}
+
                 secureTextEntry={secure}
                 onChangeText={(value) => {
+                    (secure == false) && (value = value.toLowerCase());
                     setValueStore(keyStore, value);
                     onChangeValue(value);
                 }}
@@ -52,4 +57,3 @@ const styles = StyleSheet.create({
     }
 })
 
-            

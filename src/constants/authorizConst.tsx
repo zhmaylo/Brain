@@ -27,6 +27,14 @@ export const REQUEST_HEADER_AUTH = () => [{
 // End. Section 'User authorization data'
 /////////////////////////////
 
+/////////////////////////////
+// Start. dev stub for testing
+//
+export const LOGIN_ADMIN = 'admin';
+export const PASS_ADMIN = 'admin';
+//
+// End. dev stub for testing
+/////////////////////////////
 
 /////////////////////////////
 // Start. Section 'Time Stamp'
