@@ -92,6 +92,9 @@ export const  PRODUCTS_LIST = 'PRODUCTS_LIST';
 // size view list products
 export const  SIZE_LIST_PROD = 'SIZE_LIST_PROD';
 //
+// products list filtered
+export const  PROD_LIST_FILTERED = 'PROD_LIST_FILTERED';
+//
 //End. Product list section
 /////////////////////////////
 

@@ -11,5 +11,6 @@ let generator = generateSequence();
 
 export const getSid = () => {
     let outdata = generator.next();
-    return outdata.value;
+    let sid = {sid : outdata.value}
+    return sid;
 }

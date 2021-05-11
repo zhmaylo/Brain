@@ -50,7 +50,8 @@ export const initialState = {
     ////////////////////////////////
     //Start. Products list
     productsListRdc: {
-        productsList: Array()
+        productsList: Array(),
+        prodListFiltered: Array()
     },
 
     sizeListProdRdc: {

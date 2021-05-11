@@ -8,7 +8,7 @@ import { LOGIN, PASSWORD } from '../constants/actionConst';
 import { getValueStore, setAutoriz } from '../api/login/login';
 import { SpinerСmp } from '../components/spiner/SpinerCmp';
 import { SPINER_MES_CHECK } from '../constants/spinerConst';
-import { ButtonCmp } from '../components/login/ButtonCmp';
+import { ButtonCmp } from '../components/button/ButtonCmp';
 import { MAIN_SCR } from '../constants/appNavigatorConst';
 import { WINDOW_HEIGHT } from '../constants/otherConst';
 import { DEV_MODE } from '../constants/devModeConst';

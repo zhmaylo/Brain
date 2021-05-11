@@ -15,7 +15,7 @@ import { sortBySwitch } from '../api/sort';
 import * as storage from '../api/storage/storage';
 import { RECENT_CATEG_KEY, RECENT_CATEG_KEY_DEFAULT } from '../constants/storageConst';
 import { getDealerPriceRange, getFilteredProducts } from '../api/filter/filter';
-import { CATEGORY_LIST, IS_APP_INIT, MINMAX_DEAL_PRICE, PRODUCTS_LIST } from '../constants/actionConst';
+import { CATEGORY_LIST, IS_APP_INIT, MINMAX_DEAL_PRICE, PRODUCTS_LIST, PROD_LIST_FILTERED } from '../constants/actionConst';
 import { SPINER_MES_LOAD } from '../constants/spinerConst';
 import { DEV_MODE } from '../constants/devModeConst';
 import { getSearchResult } from '../api/search/search';
@@ -71,15 +71,20 @@ export default function MainScr(props: any) {
         if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false)) {
             //apply filterRdc 
             let filteredProducts = getFilteredProducts(state.productsListRdc.productsList, state.filterRdc.minShowLimit, state.filterRdc.maxShowLimit);
+            console.log('🚀 ~ file: mainScr.tsx ~ line 74 ~ MainScr ~ filteredProducts', filteredProducts.length);
             // 
             // apply search
             filteredProducts = getSearchResult(filteredProducts, state.searchRdc.search_request);
+            console.log('🚀 ~ file: mainScr.tsx ~ line 78 ~ MainScr ~ state.searchRdc.search_request', state.searchRdc.search_request);
+            console.log('🚀 ~ file: mainScr.tsx ~ line 78 ~ MainScr ~ filteredProducts2', filteredProducts.length);
+            console.log('===========================');
+            dispatch({type: PROD_LIST_FILTERED, payload: filteredProducts });
             ////
             return (
                 <SafeAreaView style={styles.container}>
                     <StatusBar hidden={true} />
                     <HeaderCmp props={props} />
-                    <ListProdCmp productList={filteredProducts}
+                    <ListProdCmp productList={state.productsListRdc.prodListFiltered}
                         numCollumns={state.numColumProdRdc.numColumProd}
                         currSizeList={state.sizeListProdRdc.sizeListProd}
                         sidAndTime={state.sessionSidRdc.sessionSid}

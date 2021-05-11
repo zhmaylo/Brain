@@ -1,4 +1,4 @@
-import { PRODUCTS_LIST, SIZE_LIST_PROD } from "../constants/actionConst";
+import { PRODUCTS_LIST, PROD_LIST_FILTERED, SIZE_LIST_PROD } from "../constants/actionConst";
 
 // Product list reducers
 //
@@ -9,6 +9,11 @@ export const productsListRdc = (state = [], action: any) => {
             return {
                 ...state,
                 productsList: action.payload
+            };
+        case PROD_LIST_FILTERED:
+            return {
+                ...state,
+                prodListFiltered: action.payload
             };
         default:
             return state;

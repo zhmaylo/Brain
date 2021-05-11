@@ -1,5 +1,5 @@
 /////////////////////////////
-// Start. Section 'Setting'
+// Start. Section 'Login'
 //
 // field name 
 export const LOGIN_TITLE = 'Логин: ';
@@ -8,5 +8,5 @@ export const TITLE_BTN_ENTER = 'Войти';
 //
 
 //
-// End. Section 'Setting'
+// End. Section 'Login'
 /////////////////////////////

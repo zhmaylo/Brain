@@ -1,14 +1,17 @@
 
 // getSearchResult - return search result
 // products - products list
+
+import { clone } from "../clone";
+
 // request - search string
 export const getSearchResult = (products: any, request: string) => {
+    let outProducts = [];
     // scheck search length
     if (request.length == 0) return products;
 
     let combineItem: string;
     let regExpArr = getRegExpArr(request);
-    let outProducts = [];
     products.forEach((item: any) => {
         combineItem = combine(item);
         (isRequestInItem(regExpArr, combineItem)) && (outProducts.push(item));
@@ -60,18 +63,3 @@ const combine = (item: any) => {
     );
 }
 
-
-
-    // requestSplit - return search regular expression
-    // const arrayTo = (request: string) => {
-    //     return request.match(/[a-zа-я0-9]+/gui);
-
-        // let searchRegExp: any;
-        // // let regExp = new RegExp('\p{L}','i');
-
-        // let regExp = new RegExp(searchRegExp[3], 'i');
-        // // let outReg = regExp.test('wErt 123 12 13 12 e1233t')
-
-        // let outReg = 'wErt й 13 7 123 13 12 e1233t'.match('/'+searchRegExp[1]+'/'+searchRegExp[3]+'/');
-        // return outReg;
-    // };

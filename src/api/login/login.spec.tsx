@@ -1,5 +1,6 @@
 import mockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
 import { LOGIN, LOGIN_ERROR, PASSWORD, PASS_MD5 } from '../../constants/actionConst';
+import { LOGIN_ADMIN, LOGIN_DEFAULT, PASS_ADMIN, PASS_MD5_DEFAULT } from '../../constants/authorizConst';
 import { getValueStore, setAutoriz, setValueStore, } from './login';
 jest.mock('@react-native-async-storage/async-storage', () => mockAsyncStorage);
 jest.mock('../sid/sid');
@@ -29,13 +30,27 @@ describe('setAutoriz test group', () => {
         expect(dataFromDispatch.payload).toBe('a722c63db8ec8625af6cf71cb8c2d939');
     });
 });
+describe('adminEnter test group', () => {
+
+    test('adminEnter - branch testing (if dispatchType == LOGIN)', async () => {
+        setAutoriz(dispatch, LOGIN, LOGIN_ADMIN);
+        expect(dataFromDispatch.type).toBe(LOGIN);
+        expect(dataFromDispatch.payload).toBe(LOGIN_DEFAULT);
+    });
+
+    test('adminEnter - branch testing ( if dispatchType == PASSWORD)', async () => {
+        setAutoriz(dispatch, PASSWORD, PASS_ADMIN);
+        expect(dataFromDispatch.type).toBe(PASS_MD5);
+        expect(dataFromDispatch.payload).toBe(PASS_MD5_DEFAULT);
+    });
+});
 
 describe('checkSID test group', () => {
     test('checkSID - branch testing ( if sid === undefined)', async () => {
-        setAutoriz(dispatch, LOGIN_ERROR, 'error').then((outdata) => {
+        setAutoriz(dispatch, LOGIN_ERROR, 'sid == undefined').then((outdata) => {
             expect(outdata).toBe(false);
         });
-        setAutoriz(dispatch, LOGIN_ERROR, 'error').then((outdata) => {
+        setAutoriz(dispatch, LOGIN_ERROR, 'sid != undefined').then((outdata) => {
             expect(outdata).toBe(true);
         });
     });
@@ -52,7 +67,7 @@ describe('getValueStore test group', () => {
     test('getValueStore - testing receiving ', async () => {
         let outdata = await getValueStore('qwe');
         expect(outdata).toBe('');
-        
+
     });
 });
 
