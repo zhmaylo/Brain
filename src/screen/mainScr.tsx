@@ -19,6 +19,7 @@ import { CATEGORY_LIST, IS_APP_INIT, MINMAX_DEAL_PRICE, PRODUCTS_LIST, PROD_LIST
 import { SPINER_MES_LOAD } from '../constants/spinerConst';
 import { DEV_MODE } from '../constants/devModeConst';
 import { getSearchResult } from '../api/search/search';
+import { setChoice } from '../api/setchoice';
 
 let i = 0;
 
@@ -46,6 +47,12 @@ export default function MainScr(props: any) {
             // console.log("mainScr.getCategoryList(data)", data);
             dispatch({ type: IS_APP_INIT, payload: true });
         }
+        setChoice(
+            state.productsListRdc.productsList,
+            state.filterRdc.minShowLimit,
+            state.filterRdc.maxShowLimit,
+            state.searchRdc.search_request,
+            dispatch);
 
         // Start Stub. Section Dev. .
         if (DEV_MODE) {
@@ -63,24 +70,17 @@ export default function MainScr(props: any) {
     // props.navigation.navigate(SEARCH_SCR);
     // dev stub >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+
+
+
     if ((state.statusResponseRdc.statusResponse.code !== -1) &&
         (state.statusResponseRdc.statusResponse.code !== undefined))
         return <AlertMessageCmp message={state.statusResponseRdc.statusResponse.message} />
 
     else
+
         if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false)) {
-            //apply filterRdc 
-            let filteredProducts = getFilteredProducts(state.productsListRdc.productsList, state.filterRdc.minShowLimit, state.filterRdc.maxShowLimit);
-            console.log('🚀 ~ file: mainScr.tsx ~ line 74 ~ MainScr ~ filteredProducts', filteredProducts.length);
-            // 
-            // apply search
-            filteredProducts = getSearchResult(filteredProducts, state.searchRdc.search_request);
-            console.log('🚀 ~ file: mainScr.tsx ~ line 78 ~ MainScr ~ state.searchRdc.search_request', state.searchRdc.search_request);
-            console.log('🚀 ~ file: mainScr.tsx ~ line 78 ~ MainScr ~ filteredProducts2', filteredProducts.length);
-            console.log('===========================');
-            dispatch({type: PROD_LIST_FILTERED, payload: filteredProducts });
-            ////
-            return (
+             return (
                 <SafeAreaView style={styles.container}>
                     <StatusBar hidden={true} />
                     <HeaderCmp props={props} />
@@ -91,7 +91,7 @@ export default function MainScr(props: any) {
                         dispatch={dispatch}
                         props={props}
                     />
-                    <FooterCmp state={state} dispatch={dispatch}/>
+                    <FooterCmp state={state} dispatch={dispatch} />
                 </SafeAreaView>
             );
         }

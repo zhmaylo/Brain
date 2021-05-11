@@ -14,7 +14,7 @@ import { HeaderBack } from '../components/header/HeaderBackCmp';
 import * as storage from '../api/storage/storage';
 import { RECENT_CATEG_KEY } from '../constants/storageConst';
 import { getDealerPriceRange } from '../api/filter/filter';
-import { MINMAX_DEAL_PRICE, SEARCH_REQUEST } from '../constants/actionConst';
+import { MINMAX_DEAL_PRICE, PRODUCTS_LIST, PROD_LIST_FILTERED, SEARCH_REQUEST } from '../constants/actionConst';
 
 
 export default function CategoryScr(props) {
@@ -57,8 +57,11 @@ export default function CategoryScr(props) {
                                     // set search bar
                                     dispatch({ type: SEARCH_REQUEST, payload: '' });
 
-                                    dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
+                                    dispatch({ type: PRODUCTS_LIST, payload: productsList });
+                                    dispatch({ type: PROD_LIST_FILTERED, payload: productsList });
                                 })
+
+                       
                             props.navigation.navigate("MainScreen");
                         };
                         if (dataCat) dispatch({ type: 'VIEW_LIST_CAT', payload: dataCat });

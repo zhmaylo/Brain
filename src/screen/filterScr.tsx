@@ -8,6 +8,7 @@ import { ContextApp } from "../reducers/unionRdc";
 import { FILTER_HEADER_TITLE } from '../constants/filterConst';
 import { InputRangeCmp } from '../components/filter/InputRangeCmp';
 import { MAX_SHOW_LIMIT, MIN_SHOW_LIMIT } from '../constants/actionConst';
+import { setChoice } from '../api/setchoice';
 
 
 // filterScr
@@ -32,7 +33,14 @@ export default function FilterScr(props) {
                     minFlag={true}
                     onChangeCmp={(minShowLimit: any) => {
                         (minShowLimit > maxShowLimit) && (minShowLimit = maxShowLimit)
-                        dispatch({ type: MIN_SHOW_LIMIT, payload: minShowLimit });
+                        dispatch({ type: MIN_SHOW_LIMIT, payload: minShowLimit })
+                        setChoice(
+                            state.productsListRdc.productsList,
+                            minShowLimit,
+                            state.filterRdc.maxShowLimit,
+                            state.searchRdc.search_request,
+                            dispatch
+                        );
                     }}
                 />
 
@@ -45,6 +53,13 @@ export default function FilterScr(props) {
                     onChangeCmp={(maxShowLimit: any) => {
                         (maxShowLimit < minShowLimit) && (maxShowLimit = minShowLimit)
                         dispatch({ type: MAX_SHOW_LIMIT, payload: maxShowLimit });
+                        setChoice(
+                            state.productsListRdc.productsList,
+                            state.filterRdc.minShowLimit,
+                            maxShowLimit,
+                            state.searchRdc.search_request,
+                            dispatch
+                        );
                     }}
                 />
             </View>

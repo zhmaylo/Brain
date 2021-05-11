@@ -7,6 +7,7 @@ import { CATEG_SCR } from '../../constants/appNavigatorConst';
 import { SORT_SCR, FILTER_SCR } from './../../constants/appNavigatorConst';
 import { SearchCmp } from '../search/SearchCmp';
 import { ContextApp } from '../../reducers/unionRdc';
+import { setChoice } from '../../api/setchoice';
 
 export const HeaderCmp = ({ props }) => {
     const { state, dispatch } = useContext(ContextApp);
@@ -23,8 +24,16 @@ export const HeaderCmp = ({ props }) => {
             <View style={styles.searchCmp} >
                 <SearchCmp
                  valueFromState = {state.searchRdc.search_request}
-                    onChangeRequest={(type: any, payload: any) => {
-                        dispatch({ type: type, payload: payload });
+                    onChangeRequest={(type: any, value: any) => {
+                        dispatch({ type: type, payload: value });
+                        setChoice(
+                            state.productsListRdc.productsList,
+                            state.filterRdc.minShowLimit,
+                            state.filterRdc.maxShowLimit,
+                            value,
+                            dispatch
+                        );
+
                     }}
                 />
             </View>
