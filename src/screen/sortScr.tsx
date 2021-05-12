@@ -12,25 +12,23 @@ import { ContextApp } from "../reducers/unionRdc";
 import { sortBySwitch } from '../api/sort';
 import { clone } from '../api/clone';
 
-export default function SortScr(props) {
+export default function SortScr(props: any) {
     const { state, dispatch } = useContext(ContextApp);
  
     let predState = clone(state.sortSwitchArrRdc.sortSwitchArr);
     let nextState = clone(state.sortSwitchArrRdc.sortSwitchArr);
 
-    const switchToState = (item) => {
-        // console.log('switchToState. item', item);
-        // console.log('switchToState. predState', predState);
-        // console.log('switchToState. predState', predState[item.id].switchOn);
-        // console.log('switchToState. state.sortSwitchArrRdc.sortSwitchArr', state.sortSwitchArrRdc.sortSwitchArr[item.id]);
-        
+    const switchToState = (item: any) => {
+
         // prepare switch array 
-        predState.forEach((item) =>  (item.switchOn) && (item.switchOn = false));
+        predState.forEach((item: any) =>  (item.switchOn) && (item.switchOn = false));
         predState[item.id].switchOn = item.switchOn;
         dispatch({ type: item.sortNameRdc, payload: predState });
         
         // start. sorting products
-        let productsList = sortBySwitch(clone(state.productsListRdc.productsList), clone(predState));
+        let productsList = sortBySwitch(clone(state.productsListRdc.prodListFiltered), clone(predState));
+        dispatch({ type: 'PROD_LIST_FILTERED', payload: productsList });
+        productsList = sortBySwitch(clone(state.productsListRdc.productsList), clone(predState));
         dispatch({ type: 'PRODUCTS_LIST', payload: productsList });
         // end. sorting products
 
@@ -45,7 +43,6 @@ export default function SortScr(props) {
             <View style={styles.item} >
                 <FlatList
                     data={nextState}
-                    // data={clone(state.sortSwitchArrRdc.sortSwitchArr)}
                     renderItem={(item) => ( <SortItemCmp  item={item} onChange = {switchToState} /> )}
                     keyExtractor={item => item.id}
                 />

@@ -7,30 +7,30 @@ import { SORT_PRICE_DESCEND, SORT_PRICE_ASCEND, SORT_VENDOR_ASCEND, SORT_VENDOR_
 // sortBySwitch - sorting ListProd by sortSwitchArr
 // listProd - product array
 // sortSwitchArr - sort switch array
-export const sortBySwitch = (listProd = null, sortSwitchArr) => {
-    let arrFilt = sortSwitchArr.filter(item => item.switchOn == true);
+export const sortBySwitch = (listProd = null, sortSwitchArr = Array() ) => {
+    let arrFilt = sortSwitchArr.filter((item: any) => item.switchOn == true);
     let sortType = arrFilt[0].sortNameRdc;
- 
+
     switch (sortType) {
         case SORT_PRICE_ASCEND:
             {
-                listProd.sort((a, b) => a.retail_price_uah - b.retail_price_uah)
+                listProd.sort((a: any, b: any) => a.retail_price_uah - b.retail_price_uah)
                 break;
             };
         case SORT_PRICE_DESCEND:
             {
-                listProd.sort((a, b) => b.retail_price_uah - a.retail_price_uah)
+                listProd.sort((a: any, b: any) => b.retail_price_uah - a.retail_price_uah)
                 break;
             };
 
         case SORT_VENDOR_ASCEND:
             {
-                listProd.sort((a, b) => a.vendorID - b.vendorID);
+                listProd.sort((a: any, b: any) => a.vendorID - b.vendorID);
                 break;
             };
         case SORT_VENDOR_DESCEND:
             {
-                listProd.sort((a, b) => b.vendorID - a.vendorID);
+                listProd.sort((a: any, b: any) => b.vendorID - a.vendorID);
                 break;
             };
 
@@ -45,7 +45,7 @@ export const sortBySwitch = (listProd = null, sortSwitchArr) => {
                 break;
             };
 
- 
+
         default:
             return listProd;
     }
