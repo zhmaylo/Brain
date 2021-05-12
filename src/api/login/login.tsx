@@ -46,8 +46,6 @@ const adminEnter = (dispatch: any, dispatchType: any, value: string) => {
 // return - true - login or password is correct
 const checkSID = async (dispatch: any) => {
     let sid = await getSid(dispatch);
-    console.log('🚀 ~ file: login.tsx ~ line 49 ~ checkSID ~ sid', sid);
-    
     if (sid.sid === undefined) {
         dispatch({ type: LOGIN_ERROR, payload: ERRORS_RESPONSE[7] });
         return false;

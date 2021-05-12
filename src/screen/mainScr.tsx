@@ -84,6 +84,7 @@ export default function MainScr(props: any) {
                 <SafeAreaView style={styles.container}>
                     <StatusBar hidden={true} />
                     <HeaderCmp props={props} />
+                    {console.log('🚀 mainScr.tsx ~ line 88 ~ prodListFiltered.length', state.productsListRdc.prodListFiltered.length)}
                     <ListProdCmp productList={state.productsListRdc.prodListFiltered}
                         numCollumns={state.numColumProdRdc.numColumProd}
                         currSizeList={state.sizeListProdRdc.sizeListProd}
