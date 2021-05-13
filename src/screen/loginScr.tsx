@@ -27,6 +27,10 @@ export default function LoginScr(props: any) {
     }, []);
     if (DEV_MODE) props.navigation.navigate(MAIN_SCR);
     let active = state.loginRdc.login_error.code;
+    // dev stub
+    // props.navigation.navigate(MAIN_SCR);
+    //
+    
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar hidden={true} />

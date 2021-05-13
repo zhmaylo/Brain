@@ -80,13 +80,11 @@ export default function MainScr(props: any) {
     else
 
         if ((state.isAppInitRdc.isAppInit) && (state.spinerToggleRdc.spinerToggle == false)) {
-            let prodList = state.productsListRdc.prodListFiltered;
              return (
                 <SafeAreaView style={styles.container}>
                     <StatusBar hidden={true} />
                     <HeaderCmp props={props} />
-                    {console.log('🚀 mainScr.tsx ~ line 88 ~ prodListFiltered.length', state.productsListRdc.prodListFiltered.length)}
-                    <ListProdCmp productList={prodList}
+                    <ListProdCmp productList={state.productsListRdc.prodListFiltered}
                         numCollumns={state.numColumProdRdc.numColumProd}
                         currSizeList={state.sizeListProdRdc.sizeListProd}
                         sidAndTime={state.sessionSidRdc.sessionSid}

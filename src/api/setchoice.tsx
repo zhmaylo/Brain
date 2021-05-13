@@ -11,7 +11,6 @@ export const setChoice = (productsList: any, minShowLimit: any, maxShowLimit: an
     // 
     // apply search
     filteredProducts = getSearchResult(filteredProducts, search_request);
-    console.log("🚀 filteredProducts.legth", filteredProducts.length);
     //
     // updating data for the main screen
     dispatch({ type: PROD_LIST_FILTERED, payload: filteredProducts });

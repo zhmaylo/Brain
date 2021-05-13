@@ -65,9 +65,10 @@ export const removeProductAbsence = (data) => {
 // currSize - current size view list of products
 // stepPagin - step pagination
 // maxSize - lenght list of products
-export const setSizeListProd = (currSize, stepPagin, maxSize) => {
+export const setSizeListProd = (currSize: any, stepPagin: any, maxSize: any) => {
     currSize += stepPagin;
     (currSize >= maxSize) && (currSize = maxSize);
+    (currSize < stepPagin) && (currSize = stepPagin);
     return currSize;
 }
 
