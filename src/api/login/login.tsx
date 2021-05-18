@@ -41,7 +41,7 @@ const adminEnter = (dispatch: any, dispatchType: any, value: string) => {
     };
 }
 
-// checkSID - login and password verification
+// checkSID - login and password verification 
 // return - false - login or password is not correct
 // return - true - login or password is correct
 const checkSID = async (dispatch: any) => {
