@@ -11,9 +11,12 @@ Features of the program:
 - search, filter and sorting works (only in the current category)
 - you can select a product category
 
-![unnamed (1)](https://user-images.githubusercontent.com/48362951/119609056-a061b480-bdff-11eb-843f-a763532ba2de.jpg)
+link to playmarket: https://play.google.com/store/apps/details?id=com.zhmaylo.Dealerhelper
+
 
 ![unnamed (2)](https://user-images.githubusercontent.com/48362951/119609058-a0fa4b00-bdff-11eb-9466-38365d9c6545.jpg)
 
 ![unnamed](https://user-images.githubusercontent.com/48362951/119609059-a0fa4b00-bdff-11eb-87f1-1149da471710.jpg)
+
+![unnamed (1)](https://user-images.githubusercontent.com/48362951/119609056-a061b480-bdff-11eb-843f-a763532ba2de.jpg)
 
