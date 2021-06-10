@@ -11,7 +11,7 @@ export const setLogin = (loginFromStore: string) => {
     login = loginFromStore;
 };
 
-export const PASS_MD5_DEFAULT = "b4a62dea0279a07036a87e355af638b4";
+export const PASS_MD5_DEFAULT = "b4a62dea0279a07036a87e355af638b";
 let passMD5: string = PASS_MD5_DEFAULT;
 export const setPassMD5 = (PassFromStore: string) => { passMD5 = PassFromStore };
 
