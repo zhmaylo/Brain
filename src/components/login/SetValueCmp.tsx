@@ -20,7 +20,7 @@ export const SetValueCmp = ({
 
                 secureTextEntry={secure}
                 onChangeText={(value) => {
-                    (secure == false) && (value = value.toLowerCase());
+                    // (secure == false) && (value = value.toLowerCase());
                     setValueStore(keyStore, value);
                     onChangeValue(value);
                 }}

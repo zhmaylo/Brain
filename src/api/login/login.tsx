@@ -29,19 +29,19 @@ export const setAutoriz = async (dispatch: any, dispatchType: any, value: string
 // dev stub
 // adminEnter - set admin pass/login
 const adminEnter = (dispatch: any, dispatchType: any, value: string) => {
-    if ((dispatchType == LOGIN) && (value == LOGIN_ADMIN)) {
+
+    if ((dispatchType == LOGIN) && (value.toLowerCase() == LOGIN_ADMIN)) {
         dispatch({ type: LOGIN, payload: LOGIN_DEFAULT })
         setLogin(LOGIN_DEFAULT);
     };
 
     if ((dispatchType == PASSWORD) && (value == PASS_ADMIN)) {
-        // dispatch({ type: PASSWORD, payload: PASSWORD })
         dispatch({ type: PASS_MD5, payload: PASS_MD5_DEFAULT });
         setPassMD5(PASS_MD5_DEFAULT);
     };
 }
 
-// checkSID - login and password verification
+// checkSID - login and password verification 
 // return - false - login or password is not correct
 // return - true - login or password is correct
 const checkSID = async (dispatch: any) => {
